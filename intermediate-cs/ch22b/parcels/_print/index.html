@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22b/parcels/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Parcels | WY CS</title>
+<meta name="description" content="Create an interactive map showing delivery distances from the closest storage depot.">
+<meta property="og:title" content="Parcels" />
+<meta property="og:description" content="Create an interactive map showing delivery distances from the closest storage depot." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22b/parcels/" />
+
+<meta itemprop="name" content="Parcels">
+<meta itemprop="description" content="Create an interactive map showing delivery distances from the closest storage depot."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Parcels"/>
+<meta name="twitter:description" content="Create an interactive map showing delivery distances from the closest storage depot."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Parcels</h1>
+<div class="lead">Create an interactive map showing delivery distances from the closest storage depot.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-a77561ee42b7ae03d0090f35368451da">Grid</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-78ae3a444f04f2b11f85173fdec32821">Distances</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-7387a5d109a4f3922f6eaf9f8fdd97e0">Coloring</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-7e34b7b1a6e17b0abc3ee7f84bda85e7">Animation</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>In this project we will create an interactive map showing delivery
+distances based on locations of storage depots. This project is
+inspired by the problem
+<a href="https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d">parcels</a>
+from Google&rsquo;s Kick Start coding competition 2019 Round A.</p>
+<p>The CEO of an important delivery company needs your help to decide
+where to build new warehouses. You are asked to make an interactive
+map showing the distances from every warehouse to every square on a
+10x10 grid.  Hopefully, you will be able to easily change it
+later to a larger or smaller grid.</p>
+<p>We will use a coloring function (see below) to change distances to
+color on the red-purple-blue spectrum, so red is close to the warehouse and
+blue is far from the warehouse.</p>
+<p>As an example, a 10x10 grid with warehouses at (4,1) (7,8) (5,6)
+and (0,8) would produce a distance map like this:</p>
+   <figure>
+       <img src="/teaching--2021-2022/intermediate-cs/ch22b/parcels/distmap-1.png"/> 
+   </figure>
+<h2 id="distance">Distance</h2>
+<p>City delivery distance is best measured by just adding the change in x
+and y between the two locations (because city streets form a grid;
+usually the truck cannot drive &ldquo;diagonally&rdquo; through blocks of houses).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">city-distance</span> <span style="color:#000">a</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-x</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-x</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-y</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-y</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)))))</span>
+</span></span></code></pre></div><h2 id="more-parts-of-the-project">More Parts of the Project</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/grid/" >Grid</a></li></p>
+<p>Functions to create a regular grid of posns.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/distances/" >Distances</a></li></p>
+<p>Finding distances between depots and points on the grid. Important steps.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/parcels-colors/" >Coloring</a></li></p>
+<p>Ways color your grid.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/parcels-animation/" >Animation</a></li></p>
+<p>The details of making an animation for Parcels.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a77561ee42b7ae03d0090f35368451da">1 - Grid</h1>
+    <div class="lead">Functions to create a regular grid of posns.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>A grid is a set of evenly spaced points. For example, below is a 4x3
+grid.</p>
+<pre><code>(1,1) (2,1) (3,1) (4,1)
+(1,2) (2,2) (3,2) (4,2)
+(1,3) (2,3) (3,3) (4,3)
+</code></pre>
+<p>We would represent this grid as one long list of posns. It is easier
+to write the grid-creating functions if we count down, for example
+beginning with x=4 and ending with x=1.</p>
+<pre><code>(list (make-posn 4 3) (make-posn 3 3) (make-posn 2 3) (make-posn 1 3)
+      (make-posn 4 2) (make-posn 3 2) (make-posn 2 2) (make-posn 1 2)
+      (make-posn 4 1) (make-posn 3 1) (make-posn 2 1) (make-posn 1 1))
+</code></pre>
+<p>You see the natural &ldquo;count down&rdquo; way to program this in Racket ends up with the
+x and y both reversed. If you don&rsquo;t like this, add an extra argument
+to your functions to remember the start as well as the end of your range.</p>
+<p>One row of this grid is made by <code>gen-row</code> and the whole grid is made
+by <code>gen-rows-cols</code>.</p>
+<h2 id="warmup-joining-rows">Warmup: Joining Rows</h2>
+<p>When you want a single list of posns, you need to join together each
+row. We will write a helper function, <code>join-rows</code>, to combine two rows.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; join-rows: list(xs) list(ys) -&gt; list</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">join-rows</span> <span style="color:#000">xs</span> <span style="color:#000">ys</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87">empty</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">join-rows</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">join-rows</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><p>There is a built-in function called <code>append</code> that does this, but you
+should practice creating your own. It gives you more practice writing
+recursive functions on lists.</p>
+<h2 id="making-the-grid">Making the Grid</h2>
+<p>We want to create a grid (list) of points from which we will find the distances.</p>
+<h3 id="one-row">One Row</h3>
+<p>First we make a function to make a single row of the grid.</p>
+<p><code>(gen-row xmax y)</code>: Create a list of posns with the given <code>y</code>,
+but x-coordinates going from <code>xmax</code> down to 1 (inclusive). This is a single row
+a grid.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gen-row</span> <span style="color:#000">x</span> <span style="color:#000">ymax</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-1</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gen-row</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><h3 id="many-rows">Many Rows</h3>
+<p>Now we make the whole grid by repeating the row repetition for each row.</p>
+<p><code>(gen-rows-cols xmax ymax)</code>: Create a list of posns for x
+from <code>xmax</code> down to 1, and also for y from <code>ymax</code> down to 1 (both inclusive).
+The idea is that this function will call itself recursively, using <code>gen-col</code> to produce a
+single column.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gen-rows-cols</span> <span style="color:#000">xmax</span> <span style="color:#000">ymax</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-1</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gen-rows-cols</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><h2 id="notes">Notes</h2>
+<p>Usually computers make an $M\times N$ grid by using $0\le x &lt; M$ and
+$0\le y &lt; N$. The method on this page was chosen because
+it seemed easier for beginners to think about.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-78ae3a444f04f2b11f85173fdec32821">2 - Distances</h1>
+    <div class="lead">Finding distances between depots and points on the grid. Important steps.</div>
+	<h2 id="finding-distances-i">Finding Distances I</h2>
+<p>The most straightforward way to figure out the distance to the closest
+warehouse is two steps:</p>
+<ol>
+<li>(<code>find-distances</code>) Given a list of warehouse locations, make a list of distances from
+your location to all of them.</li>
+<li>(<code>minimum</code>) Given a list of distances, find the smallest one.</li>
+</ol>
+<p>Start out by writing some test cases, going from one warehouse to many.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; find-distances: posn(current) list-of-posn(warehouses) -&gt; list-of-numbers</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">find-distances</span> <span style="color:#000">current</span> <span style="color:#000">warehouses</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">find-distances</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#0000cf;font-weight:bold">6</span> <span style="color:#0000cf;font-weight:bold">11</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="finding-distances-ii">Finding Distances II</h2>
+<p>NOTE: While this approach works, students may find it easier just to
+take the list of points from <a href="/teaching--2021-2022/intermediate-cs/ch22b/parcels/grid/">the grid making functions</a> and directly plot their distances to depots.</p>
+<p>Combine the results of the previous two sections to create a
+list of <code>(list posn number)</code> where the list records the distance from
+the posn to the nearest warehouse.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; find-distances-2: list-of-posn(warehouses) list-of-posn(points) -&gt; list of (posn, number)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">find-distances-2</span> <span style="color:#000">warehouses</span> <span style="color:#000">points</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-1</span> <span style="color:#0000cf;font-weight:bold">-2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">find-distances-2</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn</span> <span style="color:#0000cf;font-weight:bold">7</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7387a5d109a4f3922f6eaf9f8fdd97e0">3 - Coloring</h1>
+    <div class="lead">Ways color your grid.</div>
+	<p>The basic way to color the grid is by making a function that takes in
+a distance and puts out a color.</p>
+<p>An more challenging way to color the grid is by figuring out which
+depot is closest and then coloring all points by a color assigned to the
+closest depot.</p>
+<p>You can choose your own coloring function or use mine. I suggest you change this
+once you start making images and would like to adjust the way they
+look.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">color-select</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-color</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#0000cf;font-weight:bold">255</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">max</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">min</span> <span style="color:#0000cf;font-weight:bold">255</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">real-&gt;int</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7e34b7b1a6e17b0abc3ee7f84bda85e7">4 - Animation</h1>
+    <div class="lead">The details of making an animation for Parcels.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>Making an animation with the work you have done so far mostly involves combining the pieces
+that you have. The only new ingredients are helper functions to translate between
+grid coordinates like $(3,4)$ and computer coordinates like $(125,175)$.</p>
+<h2 id="warmup-working-with-a-grid">Warmup: Working with a grid</h2>
+<p>Let&rsquo;s get used to working with a grid. Each grid square will be
+50x50. Numbering the grid posns just like we did in the grid generator keeps
+everything else uncomplicated, but it does mean we have to do a bit of math to
+figure out what computer coordinates we want to use.</p>
+<ul>
+<li>$(1,1)$ will the the upper left - traditionally computer would use $(0,0)$, so that&rsquo;s ok too</li>
+<li>Every grid square will be 50x50.</li>
+<li>What is the center of the grid square labeled $(1,1)$? Draw a picture, figure it out, do
+not rely on someone else to tell you!</li>
+<li>What is the center of the square at $(2,1)$?</li>
+<li>What is the center of the square at $(3,1)$?</li>
+</ul>
+<h3 id="grid-posn-to-computer-posn">Grid posn to computer posn</h3>
+<p>Write a function that translates &ldquo;grid posns&rdquo; (<code>gp</code>) to &ldquo;computer posns&rdquo;
+(<code>cp</code>). Make sure you write at least three checks (change both x and y in your checks).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; Skeleton:</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gp-&gt;cp</span> <span style="color:#000">pt</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h3 id="placing-lots-of-circles">Placing lots of circles</h3>
+<p>Use your translation function to write a function that will place a bunch of circles
+everywhere in a list of given grid posns.</p>
+<p><code>place-circles: (Listof Posn) Image -&gt; Image</code>: Place a radius 25 solid blue circle in the
+center of every one of the squares whose grid posns coordinates are given. The list
+<code>ex-ps</code> below should make shape shown here:</p>
+<pre><code>O
+O
+OO
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">ex-ps</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><h2 id="model">Model</h2>
+<p>The model is a list of posns, the coordinates of all of the depots.</p>
+<h2 id="draw-handler">Draw Handler</h2>
+<p>Given a list of <em>depot</em> posns, you want to generate a whole colored grid.
+Use the idea from the warmup combined with your earlier work. Making 50x50 squares looks good to me.</p>
+<ul>
+<li>Create a list of all of the grid posns in a 10x10 grid.</li>
+<li>Given one grid posn, find the distance to the closest depot.</li>
+<li>Make a square of the desired color based on that information.</li>
+<li>Use the idea from the warmup to place the square at the correct location in
+your grid.</li>
+<li>Repeat this process for all of the posns in the grid.</li>
+</ul>
+<h2 id="mouse-handler">Mouse Handler</h2>
+<p>The job of the mouse handler is to add a depot where you click.</p>
+<ul>
+<li>Given a mouse click at (x,y), compute which grid posn is nearest.</li>
+<li>Add that grid posn to the front of the model (list of depots).</li>
+</ul>
+<h3 id="computer-to-grid">Computer to grid</h3>
+<p>In order to determine the grid posn that corresponds to a click, you will want a helper
+function <code>cp-&gt;gp</code> that changes computer posns to grid posns.</p>
+<p>Recommendation: just make a table of values of x and y and the nearest grid posns. Use
+your algebra skills to find an equation that will change the computer coordinates to the
+grid coordinates.</p>
+<p>I suggest first changing just the x-coordinate until you are confident that you have the
+right formula.</p>
+<p>Include at least three check-expects showing how your formula is correct!</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; skeleton</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cp-&gt;gp</span> <span style="color:#000">pt</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/projects/reversi/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Reversi | WY CS</title>
+<meta name="description" content="Reversi is also known as Othello, played with reversible black/white tokens on an 8x8 board.">
+<meta property="og:title" content="Reversi" />
+<meta property="og:description" content="Reversi is also known as Othello, played with reversible black/white tokens on an 8x8 board." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/projects/reversi/" />
+
+<meta itemprop="name" content="Reversi">
+<meta itemprop="description" content="Reversi is also known as Othello, played with reversible black/white tokens on an 8x8 board."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reversi"/>
+<meta name="twitter:description" content="Reversi is also known as Othello, played with reversible black/white tokens on an 8x8 board."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Reversi</h1>
+<div class="lead">Reversi is also known as Othello, played with reversible black/white tokens on an 8x8 board.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-38d878eb708d45c292d48751470f1d59">Reversi Overview</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-6dd679a15eed9667c5965c931a1e342f">Reversi Structs</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-72c727d36443e05478dd293a759f46a8">Reversi Placement</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-a557b182fec08f01faa268f2988a3d50">Reversi Indicator</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-7c439ba049b3aaf74830406517deee80">Reversi Ray</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-685e2134fd125decc99ae0983a7ffb96">Reversi Board</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-3b2ddceea20c2a733b6ab670c4d22e7a">Reversi Flip Plan</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-d986bc6b4d613dab5dc4db413a68e2c3">Reversi Count Flips</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-3c61f27fd43e8278ee26acb2513e564f">Reversi Stack</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/100-overview/" >Reversi Overview</a></li></p>
+<p>The game of Reversi, also known as Othello, is played with reversible white/black tokens on an 8x8 board.
+Read the rules on Wikipedia. A play must bracket and flip at least one of the opponent&rsquo;s pieces.
+You can play reversi online if you need to get familiar with the game. Don&rsquo;t waste a lot of time on. Once you have a working two-player reversi, then you can start thinking about a computer player.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/105-structs/" >Reversi Structs</a></li></p>
+<p>Structures used in reversi.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/110-stage1/" >Reversi Placement</a></li></p>
+<p>A basic mechanic of placing pieces on the board.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/120-indicator/" >Reversi Indicator</a></li></p>
+<p>Instructions to add an indicator showing where you will place a piece.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/130-ray/" >Reversi Ray</a></li></p>
+<p>A variant on the true game of Reversi.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/135-board/" >Reversi Board</a></li></p>
+<p>The first issue in dealing with &ldquo;true reversi&rdquo; is getting pieces from the board.
+Board Access We will write a function to get the piece at a given location on the board. This would be simple, except what should we do when that location is empty?
+Unoccupied We will make a special piece that we use to indicate that the location is empty. You should make your own by filling in ZZZ with an appropriate string or number.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/137-plan/" >Reversi Flip Plan</a></li></p>
+<p>In &ldquo;true reversi&rdquo;, a play is required to flip one of the opponent&rsquo;s pieces. There are multiple sensible ways for you to program piece flipping, one is explained here.
+This outline is just for context; there is nothing to write (yet) using the information on this page.
+Flipping Plan Determine how many steps in a given direction should be flipped. In this plan, this is the most important step. It is described below.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/140-flips/" >Reversi Count Flips</a></li></p>
+<p>The plan is to count how many pieces will flip in a given direction. The key part of this is a helper function that knows how many pieces would be flipped so far in the analysis and a location (posn) the board to continue analyzing.
+Attachments reversi-flip-examples.pdf (1383 kB) The attachments are intended to be used to write check-expects for the count-flip-help.
+Count Flip Outline Counting how many pieces flip is done by summing the numbers of pieces that are flipped in each direction.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/reversi/150-stack/" >Reversi Stack</a></li></p>
+<p>This page describes a variation called &ldquo;Reversi Stack&rdquo;.
+Big Picture A Piece now includes a stack field to count how many pieces are stacked up at that location.
+(define-struct piece-stack (team loc stack)) Playing on your own stack increases the number of pieces in your stack by one.
+Playing on an empty square makes a stack of one of your own pieces.
+Playing on an opponent&rsquo;s stack decreases the size of the stack by one, leaving the square empty if there are zero pieces in the stack.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-38d878eb708d45c292d48751470f1d59">1 - Reversi Overview</h1>
+    
+	<p>The game of <a href="https://en.wikipedia.org/wiki/Reversi">Reversi</a>, also
+known as Othello, is played with reversible white/black tokens on an
+8x8 board.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/projects/reversi/100-overview/reversi-start.png"/> 
+</figure>
+<p>Read the <a href="https://en.wikipedia.org/wiki/Reversi#Rules">rules on
+Wikipedia</a>. A play must
+bracket and flip at least one of the opponent&rsquo;s pieces.</p>
+<p>You can play <a href="https://cardgames.io/reversi/">reversi online</a> if you
+need to get familiar with the game. Don&rsquo;t waste a lot of time on.
+Once you have a working two-player reversi, then you can start
+thinking about a computer player.</p>
+<p>We will start with simpler / stylized versions and work our way up to
+something resembling Reversi.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6dd679a15eed9667c5965c931a1e342f">2 - Reversi Structs</h1>
+    <div class="lead">Structures used in reversi.</div>
+	<p>One key question is: how do you want to represent your players?</p>
+<p>A name (string) or a number both work. Discussion about this
+choice is good - write a choice and why you think that will be better</p>
+<p>Another question is: in your game model, do you want to represent the
+pieces of each player in one list for the entire game, or one list for
+each player?</p>
+<p>Both of those choices work, and discussion is essential if you want to
+understand the implications of each choice.</p>
+<p>In the writing below I make one choice to make the guide easier; feel
+free to choose a different method if you prefer.</p>
+<h2 id="piece">Piece</h2>
+<p>A piece holds the information of which player controls it (&ldquo;team&rdquo;) and
+the location of the piece on the board.</p>
+<pre><code>(define-struct piece (team loc))
+</code></pre>
+<ul>
+<li>The <code>team</code> should be the method you chose, above.</li>
+<li>The <code>loc</code> should be a posn in &ldquo;grid coordinates&rdquo;.</li>
+</ul>
+<h2 id="game">Game</h2>
+<p>You can call your game mode <code>game</code> or just <code>m</code> for &ldquo;model&rdquo;.</p>
+<pre><code>(define-struct game (board player mode mouse))
+</code></pre>
+<p>The fields represent:</p>
+<ul>
+<li><code>board</code>: a list of <code>piece</code>. In this writeup, both players&rsquo; pieces
+are stored together in a single list.</li>
+<li><code>player</code>: the current player, should be the same type of object as
+<code>team</code> in a <code>piece</code>;</li>
+<li><code>mode</code>: a number used to change the way placing pieces behaves - to
+discuss later;</li>
+<li><code>mouse</code>: the most recent position of the mouse, a posn in grid
+coordinates.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-72c727d36443e05478dd293a759f46a8">3 - Reversi Placement</h1>
+    <div class="lead">A basic mechanic of placing pieces on the board.</div>
+	<p>We are going to make an animation where clicking places a piece and
+space bar changes the current player.</p>
+<p>You can choose the colors of the pieces yourself.</p>
+<h2 id="example-model">Example Model</h2>
+<p>Make an example game model showing one piece at (2,5) and the current
+player being the opposite of the one who owns the piece. The mode
+should be 1.</p>
+<h2 id="grid">Grid</h2>
+<p>You need a grid and functions to convert to and from grid
+coordinates. Those should already be written from earlier
+projects. Find them now.</p>
+<h2 id="draw-handler">Draw Handler</h2>
+<p>Write a draw handler to draw the pieces of the game on the board. If
+you are not sure how to do this, break it down into small steps:</p>
+<ul>
+<li>draw-one: piece image -&gt; image</li>
+<li>draw-all: list-of-piece image -&gt; image</li>
+<li>draw-h1: game -&gt; image</li>
+</ul>
+<h2 id="mouse-handler">Mouse Handler</h2>
+<p>The mouse handler (version 1) places the piece where you click.</p>
+<p>Write a check-expect so you think through what need to do
+before you write the function.</p>
+<pre><code>mouse-h: game-model x y mouse-event -&gt; game-model
+</code></pre>
+<h2 id="key-handler">Key Handler</h2>
+<p>Hitting the space bar should switch between players.</p>
+<p>Surprisingly, I recommend a helper function!</p>
+<pre><code>switch-player: game-model -&gt; game-model
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a557b182fec08f01faa268f2988a3d50">4 - Reversi Indicator</h1>
+    <div class="lead">Instructions to add an indicator showing where you will place a piece.</div>
+	<p>The indicator should be a somewhat-transparent version of the actual
+piece.</p>
+<h2 id="draw-handler">Draw Handler</h2>
+<ul>
+<li>draw-indicator: posn player image -&gt; image.</li>
+<li>draw-h2: game-model -&gt; image.
+The second draw handler should call the first draw handler to draw
+the pieces on the board.</li>
+</ul>
+<h2 id="mouse-handler">Mouse Handler</h2>
+<p>If your mouse handler does not remember the most recent position of
+the mouse, you will have to add that now.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7c439ba049b3aaf74830406517deee80">5 - Reversi Ray</h1>
+    <div class="lead">A variant on the true game of Reversi.</div>
+	<p>This variation on the game of Reversi is simpler to implement than the
+&ldquo;full version&rdquo;, so we will do it first. In this version, we place one
+piece on the board and then choose a direction to extend a line of
+pieces in one direction.</p>
+<p>A line that extends in only one direction is called a ray, so this
+version is called the &ldquo;ray&rdquo;.</p>
+<p>In this version the <code>mode</code> part of the struct gets used to tell the
+difference between the mode of placing the anchor and the mode of
+choosing the direction.</p>
+<h2 id="anchor-mode">Anchor Mode</h2>
+<p>The first piece you place is called the anchor.
+The mode for placing an anchor is the same as the normal mode that you
+have already written, except that after you place the piece, then it
+changes to &ldquo;direction mode&rdquo;.</p>
+<p>(Pick a number of &ldquo;anchor mode&rdquo;, I used 3. You could even use 1!)</p>
+<pre><code>(define ANCHOR-MODE 3)
+</code></pre>
+<p>Important: write a check-expect for the mouse-handler showing how a
+piece gets placed and the mode gets changed to <code>DIRECTION-MODE</code>.</p>
+<h2 id="direction-mode">Direction Mode</h2>
+<p>The second click selects a direction for the ray to extend. The action
+in this step is quite a bit more complex.</p>
+<p>(Pick a number for &ldquo;direction mode&rdquo;, I used 4.)</p>
+<pre><code>(define DIRECTION-MODE 4)
+</code></pre>
+<ul>
+<li>Write the helper functions (see below).</li>
+<li>Change back to &ldquo;anchor mode&rdquo; after the pieces are placed.</li>
+<li>Refuse to place the direction piece if it is not adjacent to the
+anchor piece.</li>
+</ul>
+<h2 id="ray-helpers">Ray Helpers</h2>
+<p>Write a helper function <code>ray-one</code> that produces a list of a given
+number of posns beginning at a start posn and going in a direction
+posn.</p>
+<pre><code>ray-one: posn(start) posn(direction) number(steps) -&gt; list-of-posn 
+</code></pre>
+<p>Hopefully you can do this with your recursive function-writing
+skills. Start with a check in a simple case, like steps=1 or even
+steps=0.</p>
+<p>Then write a helper function that converts these posns to pieces. The
+additional information you need is who is playing the pieces.</p>
+<pre><code>ray-two: player list-of-posn -&gt; list-of-piece
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-685e2134fd125decc99ae0983a7ffb96">6 - Reversi Board</h1>
+    
+	<p>The first issue in dealing with &ldquo;true reversi&rdquo; is getting pieces from
+the board.</p>
+<h2 id="board-access">Board Access</h2>
+<p>We will write a function to get the piece at a given location on the
+board. This would be simple, except what should we do when that
+location is empty?</p>
+<h3 id="unoccupied">Unoccupied</h3>
+<p>We will make a special piece that we use to indicate that the location
+is empty. You should make your own by filling in <code>ZZZ</code> with an
+appropriate string or number.</p>
+<pre><code>(define UNOCCUPIED (make-piece ZZZ (make-posn XXX YYY))
+</code></pre>
+<p>An in-person discussion about how to fill in XXX and YYY would make
+sense. Otherwise just pick some huge numbers that are definitely not
+on the board.</p>
+<p>After those choices, we are ready to write a function that tells if a
+posn (location) is occupied.</p>
+<pre><code>unoccupied-piece?: piece -&gt; boolean
+occupied?: list-of-pieces(board) posn(loc) -&gt; boolean
+</code></pre>
+<h3 id="get-pieces">Get Pieces</h3>
+<p>The <code>get-piece</code> function returns the Piece at a given location on the
+board, or <code>UNOCCUPIED</code> if the location is empty.</p>
+<pre><code>get-piece: list-of-pieces(board) posn(loc) -&gt; piece
+</code></pre>
+<p>Notice the signature! Don&rsquo;t get confused and return &ldquo;unoccupied&rdquo; (a
+string) instead of the <code>UNOCCUPIED</code> Piece defined above.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3b2ddceea20c2a733b6ab670c4d22e7a">7 - Reversi Flip Plan</h1>
+    
+	<p>In &ldquo;true reversi&rdquo;, a play is required to flip one of the opponent&rsquo;s
+pieces. There are multiple sensible ways for you to program piece
+flipping, one is explained here.</p>
+<p>This outline is just for context; there is nothing to write (yet)
+using the information on this page.</p>
+<h2 id="flipping-plan">Flipping Plan</h2>
+<ul>
+<li>
+<p>Determine how many steps in a given direction should be
+flipped. In this plan, this is the most important step. It is
+described below.</p>
+</li>
+<li>
+<p>Use <code>ray-one</code> to generate a list of all of the posns of pieces that
+should be flipped.</p>
+</li>
+<li>
+<p>Write a helper function (<code>board-flip-some</code>) to update the board by
+flipping all of the pieces in a given list. The signature in this
+case would be</p>
+<pre><code>  board-flip-some: list-of-piece(board) list-of-posn -&gt; list-of-piece
+</code></pre>
+</li>
+</ul>
+<h2 id="upcoming">Upcoming</h2>
+<p>The next section explains how to create a function that will find how
+many pieces are flipped by a certain play.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d986bc6b4d613dab5dc4db413a68e2c3">8 - Reversi Count Flips</h1>
+    
+	<p>The plan is to count how many pieces will flip in a given
+direction. The key part of this is a helper function that knows how
+many pieces would be flipped so far in the analysis and a location (posn)
+the board to continue analyzing.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Attachments</h4>
+
+     <section class="article">
+<li>
+<a href="https://raw.githubusercontent.com/maueroats/teaching--2021-2022/main/intermediate-cs/projects/reversi/140-flips/files/reversi-flip-examples.pdf">reversi-flip-examples.pdf</a>
+(1383 kB)
+</li>
+</section>
+
+
+</div>
+
+<p>The attachments are intended to be used to write check-expects for the
+<code>count-flip-help</code>.</p>
+<h2 id="count-flip-outline">Count Flip Outline</h2>
+<p>Counting how many pieces flip is done by summing the numbers of pieces
+that are flipped in each direction. In a given direction, a helper
+function examines a line of squares until it has figured out how many
+pieces will flip in that sequence.</p>
+<ul>
+<li><code>count-flips-all: board player posn(current) -&gt; number</code>: Considering every
+direction, how many pieces will a particular play flip?</li>
+<li><code>count-flips-one: board player posn(current) posn(direction) -&gt; number</code>: Considering only a single direction, how many pieces will
+flip?</li>
+<li><code>count-flips-help: board player posn(next) posn(direction) number(flip-so-far) -&gt; number</code>: Given the next square to analyze
+and a count of the number of pieces that would be flipped so far,
+return the total number of pieces that would flip (in that given direction).</li>
+</ul>
+<p>The <code>count-flips-one</code> is a &ldquo;wrapper&rdquo; function that starts with the
+current position (and direction), and then calls <code>count-flips-help</code>
+using zero flips and the next square in that direction.</p>
+<h2 id="count-flip-helper">Count Flip Helper</h2>
+<p>We will design a helper function to examine a sequence of positions in
+a given direction and count how many pieces would flip in that
+sequence. Remember: <strong>opponent&rsquo;s pieces only flip if they are &ldquo;sandwiched&rdquo;
+between the player&rsquo;s pieces</strong>. Review the rules of &ldquo;true reversi&rdquo; if
+you are confused!</p>
+<p>Basic information:</p>
+<ul>
+<li><code>board</code> (list of piece)</li>
+<li><code>player</code>: the current player</li>
+<li><code>next</code> (posn): a square to examine</li>
+<li><code>dir</code> (posn): the direction to continue looking</li>
+<li><code>flips-so-far</code> (number)</li>
+</ul>
+<!--The starting piece is the player's, so there is no need to examine
+it. In this explanation, we chose to work with the "next" piece in a
+particular direction, that is `(posn-add start direction)`.-->
+<p>In order to understand how this function works, it is critical to work
+through some examples (check-expects) of particular board setups. See
+the <a href="files/reversi-flip-examples.pdf">Reversi flips
+attachment</a>. Please go write
+check-expects for those examples now.</p>
+<p>In each of these cases for logic in the <code>count-flips-help</code> function,
+figure out what the correct response should be:</p>
+<ol>
+<li>The <code>next</code> square is not occupied. <!--The function returns 0.--></li>
+<li>A player&rsquo;s own piece occupies the <code>next</code> square.
+This means no more pieces flip. <!--, so return `flips-so-far`.--></li>
+<li>The opponent&rsquo;s piece occupies the <code>next</code> square. <!--: continue a
+recursive function call, adding one to `flips-so-far` and using the
+next square in the given direction.--></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3c61f27fd43e8278ee26acb2513e564f">9 - Reversi Stack</h1>
+    
+	<p>This page describes a variation called &ldquo;Reversi Stack&rdquo;.</p>
+<h2 id="big-picture">Big Picture</h2>
+<ul>
+<li>
+<p>A Piece now includes a stack field to count how many pieces are
+stacked up at that location.</p>
+<pre><code>  (define-struct piece-stack (team loc stack))
+</code></pre>
+</li>
+<li>
+<p>Playing on your own stack increases the number of
+pieces in your stack by one.</p>
+</li>
+<li>
+<p>Playing on an empty square makes a stack of one of your own pieces.</p>
+</li>
+<li>
+<p>Playing on an opponent&rsquo;s stack decreases the size of the stack by
+one, leaving the square empty if there are zero pieces in the stack.</p>
+</li>
+<li>
+<p>The draw handler puts a number on each piece drawn, showing how
+many pieces in the stack.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

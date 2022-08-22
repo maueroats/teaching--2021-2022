@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/projects/snake/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Snake | WY CS</title>
+<meta name="description" content="
+
+Snake Intro
+Orientation to the game of snake.
+
+
+Snake Functions
+A walkthrough of the functions needed to make a Snake game.
+
+
+Snake Multiplayer …">
+<meta property="og:title" content="Snake" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/projects/snake/" />
+
+<meta itemprop="name" content="Snake">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Snake"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/projects/snake/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Snake</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-100ec0a6cd961c62621db0b98a4d8a57">Snake Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-e454e4c20413bebf24562beeaf13e77a">Snake Functions</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-5242548c638271352915b3ac84470bdc">Snake Multiplayer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-f2e250f1ba2556c8fd7712ca1e397d4b">Snake AI</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/snake/10-snake-intro/" >Snake Intro</a></li></p>
+<p>Orientation to the game of snake.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/snake/100-snake/" >Snake Functions</a></li></p>
+<p>A walkthrough of the functions needed to make a Snake game.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/snake/110-multiplayer/" >Snake Multiplayer</a></li></p>
+<p>Snake with an unlimited number of players.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/projects/snake/120-ai/" >Snake AI</a></li></p>
+<p>Writing a computer player for snake.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-100ec0a6cd961c62621db0b98a4d8a57">1 - Snake Intro</h1>
+    <div class="lead">Orientation to the game of snake.</div>
+	<p>In the game of snake, your object is to eat food and get as long as
+you can without running into yourself, the walls, or another player.</p>
+<ul>
+<li>
+<p>Wikipedia entry on the
+<a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">Snake</a>
+video game.</p>
+</li>
+<li>
+<p>Play <a href="https://www.google.com/fbx?fbx=snake_arcade">snake</a> online in
+one of its <a href="https://playsnake.org/">many</a>
+<a href="https://slither.io">forms</a>. You might not be able to access some of
+these from the school internet.</p>
+</li>
+</ul>
+<p>The Google version of the game looks like the one below. Make sure you
+turn the sound off!</p>
+<figure><a href="https://www.google.com/fbx?fbx=snake_arcade">
+    <img src="/teaching--2021-2022/intermediate-cs/projects/snake/10-snake-intro/snakeimage.jpeg" width="300"/> </a>
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e454e4c20413bebf24562beeaf13e77a">2 - Snake Functions</h1>
+    <div class="lead">A walkthrough of the functions needed to make a Snake game.</div>
+	<h2 id="draw-handler">Draw-handler</h2>
+<ul>
+<li>Draw-apple: posn image(background) -&gt; image</li>
+<li>Draw-snake: list-of-posns image(background) -&gt; image</li>
+</ul>
+<h2 id="helper-functions">Helper Functions</h2>
+<ul>
+<li>Hit-apple? posn(snake-head) posn(apple) -&gt; boolean</li>
+<li>Hit-self?: list-of-posns(body) -&gt; boolean</li>
+<li>Hit-wall?: posn(snake-head) -&gt; boolean</li>
+<li>New-head-position: posn(snake-head) posn(direction) -&gt; posn</li>
+<li>Update-snake: list-of-posns(body) posn(direction) -&gt; list-of-posns.
+Change the list of posns so the snake moves. Add the direction posn to the first posn in the body. Put that result in front of a list made by dropping the last posn from the list of posns.</li>
+</ul>
+<h2 id="tick-handler">Tick handler</h2>
+<ul>
+<li>Tick-apple: model -&gt; model.
+Make the apple vanish/move and snake grow longer when it hits the apple.</li>
+<li>Tick-snake: model -&gt; model.
+Update snake position.</li>
+</ul>
+<h2 id="key-handler">Key handler</h2>
+<ul>
+<li>Key-handler: model key -&gt; model.
+Straightforward. It is good to add a feature so you can&rsquo;t go back on yourself.</li>
+</ul>
+<h2 id="update-snake">Update-snake</h2>
+<p>The snake appears to move by removing the last body segment and adding
+a new segment in the correct location for the head. You should do this
+in two separate functions before putting it together.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5242548c638271352915b3ac84470bdc">3 - Snake Multiplayer</h1>
+    <div class="lead">Snake with an unlimited number of players.</div>
+	<p>Make sure you have a working <a href="https://maueroats.github.io/teaching--2018-2019/intermediate-cs/projects/snake/">single
+player</a>
+snake (if not two player snake) before
+starting this project!</p>
+<p>Overall, people report that the code for multiplayer snake gets
+large. You probably want to make a separate folder for your snake game
+and break it into separate files using require and provide. I
+recommend each file only do one &ldquo;part&rdquo; of the animation. To give you
+an idea, I made separate files for:</p>
+<ul>
+<li>define-struct</li>
+<li>examples used in testing</li>
+<li>draw handler</li>
+<li>key handler</li>
+<li>tick handler</li>
+<li>collision detection (which is part of the tick handler, but it was
+complicated enough that I made another file)</li>
+<li>computer player (again, called in tick handler)</li>
+</ul>
+<h2 id="model">Model</h2>
+<p>For many multi-player snake, we will want:</p>
+<ul>
+<li>a list of apple locations</li>
+<li>a list of snakes,</li>
+</ul>
+<p>where each snake has</p>
+<ul>
+<li>id - a number to identify the snake to make it easier to control</li>
+<li>head - position of the head (could just be first of the body)</li>
+<li>body - a list of positions</li>
+<li>dir - a posn giving the direction of motion of the head</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define-struct</span> <span style="color:#000">sn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span> <span style="color:#000">head</span> <span style="color:#000">body</span> <span style="color:#000">dir</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define-struct</span> <span style="color:#000">multi</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">apples</span> <span style="color:#000">snakes</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="draw-handler">Draw Handler</h2>
+<p>Break the job into pieces, draw each piece on a provided background.</p>
+<ul>
+<li>draw-snake-1: sn image -&gt; image</li>
+<li>draw-snakes: list-of-snakes image -&gt; image</li>
+<li>draw-apple-1: posn image -&gt; image</li>
+<li>draw-apples: list-of-posn image -&gt; image</li>
+</ul>
+<h2 id="key-handler">Key Handler</h2>
+<p>I wrote one function to determine which id number snake certain keys
+control and another function to determine which way the snake turns
+given the keys.</p>
+<p>I then applied the change in direction to the snake with the
+appropriate id (going through the whole list of snakes and not
+changing the rest of them).</p>
+<h2 id="tick-handler">Tick Handler</h2>
+<p>There&rsquo;s a lot to the tick handler. I&rsquo;m going to leave planning this up
+to you. Email with questions! This sketch is short / incomplete.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2e250f1ba2556c8fd7712ca1e397d4b">4 - Snake AI</h1>
+    <div class="lead">Writing a computer player for snake.</div>
+	<p>We are going to write a computer player (&ldquo;ai&rdquo;) for a snake.</p>
+<p>The tick handler will give each computer controlled snake a chance to
+choose a new direction just before the game state updates. The key
+ai function will have a signature like this:</p>
+<pre tabindex="0"><code>ai-function: snake world -&gt; posn(direction)
+</code></pre><p>In fact, most of the code will be building up or reducing the list of
+possible choices, so expect most AI-related functions to take in a
+list of directions in addition to the snake and the world, and put out
+a possibly smaller list of directions - the best choices according to
+that level of the AI.</p>
+<h2 id="levels-of-ai">Levels of AI</h2>
+<p>There are different levels of &ldquo;AI&rdquo; that a computer player could
+have. We will build up from the simplest to the most complex, making
+sure each step along the way works before moving to the next.</p>
+<ol start="0">
+<li>Randomly choose one of the four possible directions.</li>
+<li>Move randomly, just do not go back on yourself.</li>
+<li>Avoid the boundary walls in addition to the above.</li>
+<li>Get an apple if you are right next to it, in addition to the above.</li>
+<li>Move toward the nearest apple, in addition to the above.</li>
+</ol>
+<p>None of the functions we are thinking of writing will have any &ldquo;global
+strategy&rdquo;. Expect these computer snakes to drive themselves in circles
+that cause them to die.</p>
+<h3 id="level-0">Level 0</h3>
+<p>A snake can only move one of four directions.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">DIRECTIONS</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">)</span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span>  <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-1</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><p>We will need a random choice function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; random-choice: list-of-things -&gt; thing</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">random-choice</span> <span style="color:#000">things</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list-ref</span> <span style="color:#000">things</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">length</span> <span style="color:#000">things</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><p>One problem I had was that I needed to be careful to make sure there
+was not an error when there were no choices (snake has to crash). My
+level 0 AI keeps going straight if there are no possibilities (for not crashing).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">level-0</span> <span style="color:#000">snake</span> <span style="color:#000">world</span> <span style="color:#000">possible</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">empty?</span> <span style="color:#000">possible</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sn-dir</span> <span style="color:#000">snake</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#000">random-choice</span> <span style="color:#000">possible</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ai-level-0</span> <span style="color:#000">snake-world</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">level-0</span> <span style="color:#000">snake</span> <span style="color:#000">world</span> <span style="color:#000">DIRECTIONS</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h3 id="level-1">Level 1</h3>
+<p>The level 1 function just needs to avoid going back on itself. That
+means do not pick the move that gives you the first of the
+body. There are lots of ways to do this, so if you like the sound of
+something just do it.</p>
+<p>One way: write a helper function to figure out if a single direction
+is safe. Given a direction, find out if moving the head one unit in
+that direction will not hit the first position of the body. If so,
+consider it one of the possibilities.</p>
+<ul>
+<li>head-move: snake posn(direction) -&gt; posn(new head posn)</li>
+<li>hit-first-body?: posn snake -&gt; boolean</li>
+<li>is-safe-dir?: snake posn(direction) -&gt; boolean</li>
+<li>only-safe: snake world possible(list of directions) -&gt; list-of-posn(safe directions)
+Apply <code>is-safe-dir?</code> to all of the possible directions,
+eliminating the unsafe ones.</li>
+</ul>
+<p>Notice how I build on my <code>level-0</code> function in <code>level-1</code>? That is a
+good pattern to use!</p>
+<pre tabindex="0"><code>(define (level-1 snake world possible)
+  (level-0 snake world
+           (only-safe snake world possible)))
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

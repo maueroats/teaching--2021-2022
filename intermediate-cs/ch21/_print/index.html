@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch21/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>21. Structures | WY CS</title>
+<meta name="description" content="More than one piece of information in one variable, generalizing posn and color.">
+<meta property="og:title" content="21. Structures" />
+<meta property="og:description" content="More than one piece of information in one variable, generalizing posn and color." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch21/" />
+
+<meta itemprop="name" content="21. Structures">
+<meta itemprop="description" content="More than one piece of information in one variable, generalizing posn and color."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="21. Structures"/>
+<meta name="twitter:description" content="More than one piece of information in one variable, generalizing posn and color."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">21. Structures</h1>
+<div class="lead">More than one piece of information in one variable, generalizing posn and color.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-ccb680abb58f6020aabc436f1887fc6d">21. PV Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-c148196515ad5637657c2a9ec7a0bf67">21. Two Actions, One Tick</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-bd86bc2e2431247b6d4b696921006d14">Moving Ball</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-f0af65eccd69f8c2f9eb444c175dac2d">Speed Typer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-2bef6813c9a4f58a710734fa01fa492a">Agar.io</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul>
+<li><a href="https://docs.google.com/document/d/1rGTwl1WN44YQaUNVknxikijdFVd1LDu6ptu-pd7mhVU/edit?usp=sharing">Chapter 21 Reading Guide</a>.</li>
+</ul>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    All worksheets: make sure to test your code in DrRacket.
+
+</div>
+
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/pv-intro/" >21. PV Intro</a></li></p>
+<p>Slides with introduction to position-velocity struct exercises.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/pv-tick-handler/" >21. Two Actions, One Tick</a></li></p>
+<p>Combining actions into one big tick handler.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/moving-ball/" >Moving Ball</a></li></p>
+<p>Drive a ball around the screen with a constant velocity.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/speed-typer/" >Speed Typer</a></li></p>
+<p>Type the word on the screen as fast as you can.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch21/agar-io/" >Agar.io</a></li></p>
+<p>One player, one food Agar.io clone.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ccb680abb58f6020aabc436f1887fc6d">1 - 21. PV Intro</h1>
+    <div class="lead">Slides with introduction to position-velocity struct exercises.</div>
+	<h2 id="pick-a-model">Pick a model</h2>
+<ul>
+<li>A ball moves around the screen.</li>
+<li>It keeps going in the direction it starts.</li>
+<li>What could the model be?</li>
+</ul>
+<hr>
+<h2 id="define-the-model">Define the model</h2>
+<p>Keep the names short; we will type them a lot.</p>
+<hr>
+<h2 id="define-the-model-1">Define the model</h2>
+<p>Keep the names short; we will type them a lot.</p>
+<pre><code>(define-struct pv (pos vel))
+</code></pre>
+<hr>
+<h2 id="example-needed">Example needed</h2>
+<p>Create a <code>pv</code> structure called <code>ex1</code>.</p>
+<ul>
+<li>Position <code>(100,50)</code></li>
+<li>Velocity <code>(-5,8)</code></li>
+</ul>
+<hr>
+<h2 id="sketch">Sketch</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-pv</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#0000cf;font-weight:bold">200</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		 <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#0000cf;font-weight:bold">-30</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><hr>
+<h2 id="update-pos">update-pos</h2>
+<ul>
+<li>Write <code>update-pos: pv -&gt; pv</code>.</li>
+<li>Use velocity to change position, one time step.</li>
+</ul>
+<hr>
+<h2 id="scale-velocity">scale-velocity</h2>
+<ul>
+<li><code>scale-velocity: pv(orig) num(scale) -&gt; pv</code></li>
+<li>Multiply both x and y components of velocity of <code>orig</code> by <code>scale</code>.</li>
+</ul>
+<hr>
+<h2 id="turn-180">turn-180</h2>
+<p>What would this mean? Sketch first.</p>
+<hr>
+<h2 id="bouncing-off-walls-1">Bouncing off walls 1</h2>
+<p>Should you bounce off of a wall?</p>
+<p>Sketch three true and three false.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000">should-bounce-r?</span> <span style="color:#000">:</span> <span style="color:#000">pv</span> <span style="color:#000">num</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">xwall</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000">boolean</span>
+</span></span></code></pre></div><p>The wall on the right is at <code>x=xwall</code>.</p>
+<hr>
+<h2 id="bouncing-off-walls-2">Bouncing off walls 2</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000">should-bounce-r?</span> <span style="color:#000">:</span> <span style="color:#000">pv</span> <span style="color:#000">num</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">xwall</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000">boolean</span>
+</span></span></code></pre></div><p>The wall on the right is at <code>x=xwall</code>.</p>
+<p>Now actually write the function.</p>
+<hr>
+<h2 id="bouncing-off-walls-3">Bouncing off walls 3</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000">bounce-r-velocity:</span> <span style="color:#000">pv</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000">posn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">new-velocity</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Given that you bounced, what should your new velocity be?</p>
+<p>Draw a sketch!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c148196515ad5637657c2a9ec7a0bf67">2 - 21. Two Actions, One Tick</h1>
+    <div class="lead">Combining actions into one big tick handler.</div>
+	<p>We will start by a using an analogy to talk about doing multiple actions in one tick handler.</p>
+<h2 id="math-analogy">Math Analogy</h2>
+<p>Suppose you have two functions, <code>f</code> and <code>g</code>. The <code>f</code> function takes
+its input, multiplies by three, and adds one. The <code>g</code> function takes
+its input, squares it, and subtracts 9. Make a new <code>h</code> function that
+takes it input, multiplies by 3, adds one, then squares the answer and
+subtracts 9.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">g</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">sqr</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><ul>
+<li><a href="math-soln-1">Solution 1 - typical but long</a>.</li>
+<li><a href="math-soln-2">Solution 2 - much better</a>.</li>
+</ul>
+<h2 id="big-bang">Big-bang</h2>
+<p>You can combine two tick-handler actions into one by using &ldquo;function composition&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; first-action: model -&gt; model</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; second-action: model -&gt; model</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; tick-handler: model -&gt; model</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">tick-handler</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">second-action</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">first-action</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><p>Try combining the ball bouncing and ball moving actions in this way.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bd86bc2e2431247b6d4b696921006d14">3 - Moving Ball</h1>
+    <div class="lead">Drive a ball around the screen with a constant velocity.</div>
+	<p>We practice the basics of structures by creating an animation where
+you can direct a ball to move around the screen.</p>
+<ul>
+<li>Use WASD keys to control the ball.</li>
+<li>Once you pick a direction, the ball continues to move in that
+direction at the same speed until you tell it a different
+direction.</li>
+<li>The game is over when the ball leaves the screen.</li>
+</ul>
+<h2 id="planning">Planning</h2>
+<ul>
+<li>We used a structure holding the position and velocity of the ball.</li>
+<li>We listed the handlers we needed.</li>
+<li>We wrote check-expects as a class.</li>
+</ul>
+<h2 id="writing">Writing</h2>
+<p>Using the starter code from class, it took less than a day to get a
+working animation.</p>
+<h2 id="advanced-features">Advanced Features</h2>
+<ul>
+<li>Bounce off walls.</li>
+<li>Keys control accelerate the ball in a given direction instead of
+just setting the velocity. (So when the velocity was (5,0) and
+you hit the left arrow, it would slow to a velocity of (4,0).)</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f0af65eccd69f8c2f9eb444c175dac2d">4 - Speed Typer</h1>
+    <div class="lead">Type the word on the screen as fast as you can.</div>
+	<p>You are going to create a typing game - type a given word as fast as you
+can.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch21/speed-typer/speed-type.png" width="200"/> 
+</figure>
+<p>We will keep track of the word, the letters typed so far, and the time
+that has passed since the start of the game.</p>
+<h2 id="planning">Planning</h2>
+<ul>
+<li>We decided on the kind of  structure we wanted for a model.</li>
+<li>We listed all of the functions and what they were going to do.</li>
+<li>We wrote check-expects as a class.</li>
+</ul>
+<p>You should find check-expects shared on the Google Classroom after we
+have written them.</p>
+<h2 id="writing-tips">Writing Tips</h2>
+<ul>
+<li>Please write a signature and purpose for each function.</li>
+<li>Use the &ldquo;inventory&rdquo; strategy to figure out the structure of your
+function.</li>
+<li>Test one case of a conditional and be sure it works before
+continuing on to write more.</li>
+<li>Never leave your code in a state where you cannot &ldquo;run&rdquo;. Without
+frequent feedback from the computer it will be <em>extremely</em> difficult
+to get the program to work.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2bef6813c9a4f58a710734fa01fa492a">5 - Agar.io</h1>
+    <div class="lead">One player, one food Agar.io clone.</div>
+	<p>I hope you know the game Agar.io. A circle moves around the screen toward
+the mouse. There is a &ldquo;food&rdquo;. When the circle touches (eats) the food, the food disappears and the circle gets larger. The food reappears in a random location.</p>
+<p>Starter code: <a href="agar-io-checks.rkt">agar-io.rkt</a></p>
+<p>Advanced:</p>
+<ul>
+<li>As the circle gets larger, it moves more slowly.</li>
+<li>When the mouse is further from the center of the circle, it moves more quickly.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

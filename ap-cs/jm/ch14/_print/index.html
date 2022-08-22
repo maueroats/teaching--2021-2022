@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch14/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>14. Sorting | WY CS</title>
+<meta name="description" content="">
+<meta property="og:title" content="14. Sorting" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch14/" />
+
+<meta itemprop="name" content="14. Sorting">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="14. Sorting"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/jm/ch14/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">14. Sorting</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-0d642a4edf69320f1130e4feb175e930">14. Comparable Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-e554e28e701ddcdf7167778aff6915bb">14. Comparable</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-218002666374ae65d62a4938c6c5457b">14. Comparable Exercises</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-805556febf0873c00760159bddd15e2a">14. Comparable Clock</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-aeaef705b59d4579031c7750b18157a3">14. Binary Search</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-c0201b20bb0b5c6406e61195d3a269a9">14 .Comparable Bug</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-ba024ff1632b3c539765b6d5fecc7911">14. Test Corrections</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0d642a4edf69320f1130e4feb175e930">1 - 14. Comparable Intro</h1>
+    
+	<p>A class implements the <code>Comparable</code> interface when there is a way to
+decide whether one object of the class is greater than another. The
+<code>compareTo</code> method is the way to find out how the two classes
+compare.</p>
+<p>The <code>first.compareTo(second)</code> method call gives a positive number when
+the first object is greater than the second. Summary of meaning of results:</p>
+<ul>
+<li>positive: first is greater than second</li>
+<li>negative: first is less than second</li>
+<li>zero: first equals second</li>
+</ul>
+<h2 id="important-examples">Important Examples</h2>
+<p>A good example to remember is comparing <code>Integer</code> objects.</p>
+<pre><code> Integer a = new Integer(5);
+ Integer b = new Integer(12);
+ int c = a.compareTo(b); // results in 5-12 = -7
+</code></pre>
+<p>Another example is <code>String</code> objects, where strings that are later in
+the alphabet are like larger numbers. In the code below, do you expect
+the result to be positive, negative, or zero? Why?</p>
+<pre><code> int result = &quot;bog&quot;.compareTo(&quot;aardvark);
+</code></pre>
+<h2 id="details">Details</h2>
+<p>Technically, the Comparable interface has a class parameter <code>&lt;T&gt;</code>
+which indicates to which type you can compare your class. This
+parameter should just be the type of the class you are
+writing. Examples:</p>
+<pre><code>  public class Student implements Comparable&lt;Student&gt; {
+      // ...
+      public int compareTo(Student other) { ... }
+  }
+  
+  public class Time implements Comparable&lt;Time&gt; {
+      // ...
+      public int compareTo(Time other) { ... }
+  }
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e554e28e701ddcdf7167778aff6915bb">2 - 14. Comparable</h1>
+    
+	<p>Comparable means that two items in a class can be compared (less than,
+equal to, greater than). It is similar to the <code>Ord</code> typeclass in Haskell.</p>
+<p>Comparable is an interface. You implement it.  It is a template, so
+you put the class you are able to compare to in angle brackets
+afterwards. I expect this to be the same class as the one that is
+implementing the <code>Comparable</code> interface.</p>
+<pre><code>public class Whatever implements Comparable&lt;Thing&gt; { 
+    public int compareTo (Thing other) {
+        // ...
+    }
+}
+</code></pre>
+<p>The <code>compareTo</code> function gives an integer that indicates whether
+<code>this</code> is greater than <code>other</code>.</p>
+<ul>
+<li>negative means <code>this &lt; other</code>. This could be read &ldquo;this comes before other&rdquo;.</li>
+<li>zero means <code>this = other</code></li>
+<li>positive means <code>this &gt; other</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>meaning</th>
+<th>inquality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>20</td>
+<td>-10</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>30</td>
+<td>17</td>
+<td>13</td>
+<td>a is after b</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+<td>a is the same as b</td>
+<td>=</td>
+</tr>
+<tr>
+<td>&ldquo;can&rdquo;</td>
+<td>&ldquo;ask&rdquo;</td>
+<td>2</td>
+<td>a is after b</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>&ldquo;dang&rdquo;</td>
+<td>&ldquo;ghost&rdquo;</td>
+<td>-3</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&ldquo;bo&rdquo;</td>
+<td>&ldquo;boat&rdquo;</td>
+<td>-1</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&ldquo;same&rdquo;</td>
+<td>&ldquo;same&rdquo;</td>
+<td>0</td>
+<td>a is the same as b</td>
+<td>=</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    The <code>Comparable</code> interface does not require any particular number be returned from the <code>compareTo</code> function. Any positive result indicates that the left (<code>this</code>) argument is greater than the right (<code>other</code>) argument.
+
+</div>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>The <code>Drow</code> class holds a <code>String</code>, but when you compare two <code>Drow</code>
+instances you get the opposite answer from comparing two strings. Example:</p>
+<pre><code> Drow a = new Drow(&quot;cat&quot;);
+ Drow b = new Drow(&quot;dog&quot;);
+ int cmp = a.compareTo(b);
+ // cmp is positive, but would be negative for Strings
+</code></pre>
+<p>Write the <code>Drow</code> class, including any instance variables,
+constructor, and <code>compareTo</code> method.</p>
+</li>
+<li>
+<p><strong>EBO</strong>. The class <code>EBO</code> is like <code>Integer</code> except all evens appear
+before any odd number in the ordering created by <code>compareTo</code>.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>a <em>interpretation</em> b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>-2</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>9</td>
+<td>3</td>
+<td>6</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>2</td>
+<td>9</td>
+<td>-7</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-3</td>
+<td>-1 (any neg)</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>+1 (any pos)</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>+1 (any pos)</td>
+<td>is after</td>
+</tr>
+</tbody>
+</table>
+<p>The constructor is of the form <code>new EBO(7)</code>.</p>
+</li>
+<li>
+<p>The class <code>Pt</code> contains an <code>(x,y)</code> coordinate pair. The ordering of <code>Pt</code> is given by first comparing the x&rsquo;s and then, if they are equal, comparing the y&rsquo;s.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>a <em>interpretation</em> b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(20,50)</td>
+<td>(20,80)</td>
+<td>-30</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>(10,5)</td>
+<td>(10,2)</td>
+<td>3</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>(10,30)</td>
+<td>(31,19)</td>
+<td>-21</td>
+<td>is before</td>
+</tr>
+</tbody>
+</table>
+<p>Write a class header, instance variables, constructor, and <code>compareTo</code> method.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-218002666374ae65d62a4938c6c5457b">3 - 14. Comparable Exercises</h1>
+    <div class="lead">Exercises from 2018.</div>
+	<p>Comparable means that two items in a class can be compared (less than,
+equal to, greater than). It is similar to the <code>Ord</code> typeclass in Haskell.</p>
+<p>Comparable is an interface. You implement it.  It is a template, so
+you put the class you are able to compare to in angle brackets
+afterwards. I expect this to be the same class as the one that is
+implementing the <code>Comparable</code> interface.</p>
+<pre><code>public class Whatever implements Comparable&lt;Thing&gt; { 
+    public int compareTo (Thing other) {
+        // ...
+    }
+}
+</code></pre>
+<p>The <code>compareTo</code> function gives an integer that indicates whether
+<code>this</code> is greater than <code>other</code>.</p>
+<ul>
+<li>negative means <code>this &lt; other</code>. This could be read &ldquo;this comes before other&rdquo;.</li>
+<li>zero means <code>this = other</code></li>
+<li>positive means <code>this &gt; other</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>meaning</th>
+<th>inquality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>20</td>
+<td>-10</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>30</td>
+<td>17</td>
+<td>13</td>
+<td>a is after b</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+<td>a is the same as b</td>
+<td>=</td>
+</tr>
+<tr>
+<td>&ldquo;can&rdquo;</td>
+<td>&ldquo;ask&rdquo;</td>
+<td>2</td>
+<td>a is after b</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>&ldquo;dang&rdquo;</td>
+<td>&ldquo;ghost&rdquo;</td>
+<td>-3</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&ldquo;bo&rdquo;</td>
+<td>&ldquo;boat&rdquo;</td>
+<td>-1</td>
+<td>a is before b</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&ldquo;same&rdquo;</td>
+<td>&ldquo;same&rdquo;</td>
+<td>0</td>
+<td>a is the same as b</td>
+<td>=</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    The <code>Comparable</code> interface does not require any particular number be returned from the <code>compareTo</code> function. Any positive result indicates that the left (<code>this</code>) argument is greater than the right (<code>other</code>) argument.
+
+</div>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>The <code>Drow</code> class holds a <code>String</code>, but when you compare two <code>Drow</code>
+instances you get the opposite answer from comparing two strings. Example:</p>
+<pre><code> Drow a = new Drow(&quot;cat&quot;);
+ Drow b = new Drow(&quot;dog&quot;);
+ int cmp = a.compareTo(b);
+ // cmp is positive, but would be negative for Strings
+</code></pre>
+<p>Write the <code>Drow</code> class, including any instance variables,
+constructor, and <code>compareTo</code> method.</p>
+</li>
+<li>
+<p><strong>EBO</strong>. The class <code>EBO</code> is like <code>Integer</code> except all evens appear
+before any odd number in the ordering created by <code>compareTo</code>.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>a <em>interpretation</em> b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>-2</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>9</td>
+<td>3</td>
+<td>6</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>2</td>
+<td>9</td>
+<td>-7</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-3</td>
+<td>-1 (any neg)</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>+1 (any pos)</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>+1 (any pos)</td>
+<td>is after</td>
+</tr>
+</tbody>
+</table>
+<p>The constructor is of the form <code>new EBO(7)</code>.</p>
+</li>
+<li>
+<p>The class <code>Pt</code> contains an <code>(x,y)</code> coordinate pair. The ordering of <code>Pt</code> is given by first comparing the x&rsquo;s and then, if they are equal, comparing the y&rsquo;s.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a.compareTo(b)</th>
+<th>a <em>interpretation</em> b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(20,50)</td>
+<td>(20,80)</td>
+<td>-30</td>
+<td>is before</td>
+</tr>
+<tr>
+<td>(10,5)</td>
+<td>(10,2)</td>
+<td>3</td>
+<td>is after</td>
+</tr>
+<tr>
+<td>(10,30)</td>
+<td>(31,19)</td>
+<td>-21</td>
+<td>is before</td>
+</tr>
+</tbody>
+</table>
+<p>Write a class header, instance variables, constructor, and <code>compareTo</code> method.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-805556febf0873c00760159bddd15e2a">4 - 14. Comparable Clock</h1>
+    <div class="lead">Example implementing Comparable for a clock class with hours and minutes.</div>
+	<p>A <code>Clock</code> class has hours and minutes, two times are compared by first
+comparing the hours. If the hours are the same, then compare the minutes.
+Write a complete class definition including a constructor and the
+<code>compareTo</code> method.</p>
+<h2 id="demo-test-code">Demo Test Code</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">testCmp</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Clock</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Clock</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">7</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">30</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Clock</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Clock</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">9</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">25</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">r1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">compareTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">r1</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// should be negative
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">Clock</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Clock</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">7</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">21</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">r2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">compareTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">r2</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// should be positive
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="solution">Solution</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Clock</span> <span style="color:#204a87;font-weight:bold">implements</span> <span style="color:#000">Comparable</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">Clock</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">hour</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">min</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Clock</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">h</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">m</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">hour</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">h</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#000">min</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">m</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">compareTo</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">Clock</span> <span style="color:#000">other</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">answer</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">answer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hour</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">other</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hour</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">answer</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">answer</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">answer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">minute</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">other</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">minute</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">answer</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-aeaef705b59d4579031c7750b18157a3">5 - 14. Binary Search</h1>
+    <div class="lead">Binary search to find an item or an insertion point.</div>
+	<ol>
+<li>
+<p>Binary search: the traditional function returning an index where the wanted item is found, or <code>-1</code> if the item is not found.</p>
+<pre><code> public static int binarySearch(ArrayList&lt;String&gt; data,
+                                String wanted);
+</code></pre>
+</li>
+<li>
+<p>Binary insert: this function finds the index (<code>idx</code>) at which a new item fits in the ordering, so that <code>data.add(idx, newItem)</code> results in <code>data</code> still being sorted.</p>
+<pre><code> public static int binaryInsert(ArrayList&lt;String&gt; data,
+                                String newItem);
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c0201b20bb0b5c6406e61195d3a269a9">6 - 14 .Comparable Bug</h1>
+    
+	<p>A <code>Bug</code> can go one of four directions: &ldquo;North&rdquo;, &ldquo;South&rdquo;, &ldquo;East&rdquo;, and
+&ldquo;West&rdquo;. A bug also has a speed, which is a non-negative integer.</p>
+<p>Bugs are going to be ordered using both their direction and speed. The
+&ldquo;primary&rdquo; method of ordering bugs will be their direction. We will
+consider their speed only if their directions are the same.</p>
+<ul>
+<li>Direction: West &lt; South &lt; East &lt; North</li>
+<li>Speed: small number &lt; big number</li>
+</ul>
+<p>You are going to write the code, including a constructor <code>Bug (String direction, int speed)</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Bug</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Bug</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;North&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Bug</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Bug</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;South&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">8</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Bug</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Bug</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;South&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">7</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">compareTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">compareTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#ce5c00;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p>a</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ba024ff1632b3c539765b6d5fecc7911">7 - 14. Test Corrections</h1>
+    
+	<p>Tests from Chapter 14 are returned Thursday/Friday.</p>
+<p>Understanding your score:</p>
+<ul>
+<li>
+<p>Number: multiple choice score, out of 20.</p>
+</li>
+<li>
+<p>Letter below number: programming free response score.</p>
+</li>
+</ul>
+<p>Grading:</p>
+<ul>
+<li>
+<p>20 points multiple choice: turn in test corrections Monday for half
+points back.</p>
+</li>
+<li>
+<p>20 points free response: discuss with me if you had problems
+here. (A=95%, B=85%, etc.)</p>
+</li>
+</ul>
+<p>Test corrections:</p>
+<ul>
+<li>Explain what the right answer is. Show work justifying you are correct.</li>
+<li>Code tracing (problems 2,8) - explain in writing what happens as you
+trace your example through the program.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

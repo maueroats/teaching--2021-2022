@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch08/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>8. Number Models | WY CS</title>
+<meta name="description" content="Animations that remember a number instead of an image.">
+<meta property="og:title" content="8. Number Models" />
+<meta property="og:description" content="Animations that remember a number instead of an image." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch08/" />
+
+<meta itemprop="name" content="8. Number Models">
+<meta itemprop="description" content="Animations that remember a number instead of an image."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="8. Number Models"/>
+<meta name="twitter:description" content="Animations that remember a number instead of an image."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">8. Number Models</h1>
+<div class="lead">Animations that remember a number instead of an image.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-f59e4045e88ed607657b11af204a5590">8. Number Models 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-79378ddcff3692977adef7428b0f21cc">Number Models 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-4974ea3f137718c08eb2750d92d47d61">Number Models 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3af7fcbd71469203bf321cde233646eb">Number Models 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-5c0501efebc2adb8381ea20ab62c13d8">Number Models 4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-378edce69f6a05825fc27f29265ad4b3">Number Models 5</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-d86448d1412814fa22a3d71bd9f2107a">Number Model Review</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-41a21ee576568bf5f36c692f09e4cc22">Number Model Review II</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-7c8a3fa3f08d56ca51bfbe8594c609ac">Number Graph Zoom</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-8e7174dcbf16382a3bf7a197d87cca4c">8. Number Project</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-be9e9fb3f1a25457a7db89151bf601d2">8. Number Finale</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-51aa55335bf4290ca6ddbb253b056a6b">8. Build It Test</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-21caefdfa40864a5a44baed95363feab">8. Test Corrections</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-d92ee09cf2fa4435430ad4e7570e2ba1">Number Review More</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/models-1/" >8. Number Models 1</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-1/" >Number Models 1</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-2/" >Number Models 2</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-3/" >Number Models 3</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-4/" >Number Models 4</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-5/" >Number Models 5</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-review/" >Number Model Review</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-review-2/" >Number Model Review II</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-graph-zoom/" >Number Graph Zoom</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-project/" >8. Number Project</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-finale/" >8. Number Finale</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-test/" >8. Build It Test</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/test-corrections/" >8. Test Corrections</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch08/number-review-more/" >Number Review More</a></li>
+</span></p>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f59e4045e88ed607657b11af204a5590">1 - 8. Number Models 1</h1>
+    <div class="lead">Number models, beginning to middle difficulty.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<ol>
+<li>
+<p>A circle increases its radius by 5 every tick. Hitting a key
+reduces the radius by 50%.</p>
+</li>
+<li>
+<p>A square moves along a horizontal line. Every time you move the mouse, it moves right 1 pixel. When you hit a key it moves left 4 pixels.</p>
+</li>
+<li>
+<p>A small solid circle randomly moves between x=20, x=60, and x=100 on a fixed horizontal line. (You pick the $y$ coordinate.)</p>
+</li>
+<li>
+<p>Optional / too hard. Make the graph of $y=x(200-x)/50$. See below.</p>
+</li>
+</ol>
+<h2 id="optional-graphing-a-function">Optional: Graphing a function</h2>
+<p>Learn this method for graphing $y=f(x)$ using <code>build-image</code>.</p>
+<ul>
+<li>
+<p>Color points based on $c(x,y) = \left|y-f(x)\right|$.</p>
+</li>
+<li>
+<p>When $c(x,y)=0$, the point $(x,y)$ is exactly on the graph, so you
+want it black.</p>
+</li>
+<li>
+<p>Color based on $C = c(x,y)$. Black when C
+is 0, changing to white when C is (say) 5. Multiply by 255/5 = 51 in
+this case, because 5*51 = 255 of color = white.</p>
+</li>
+<li>
+<p>Explore how changing the 51 changes the thickness of the line.</p>
+</li>
+</ul>
+<!-- Depending on how thick you want the line, try other numbers -->
+<!-- besides 5. -->
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000">y</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">1/2</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">c2</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">1/2</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000">y</span> <span style="color:#0000cf;font-weight:bold">40</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000">y</span> <span style="color:#0000cf;font-weight:bold">40</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">color-f</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gray</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">51</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">gray</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-color</span> <span style="color:#000">n</span> <span style="color:#000">n</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">max</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">min</span> <span style="color:#0000cf;font-weight:bold">255</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">real-&gt;int</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">build-image</span> <span style="color:#0000cf;font-weight:bold">200</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#000">color-f</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-79378ddcff3692977adef7428b0f21cc">2 - Number Models 1</h1>
+    <div class="lead">Three animations to practice identifying number models.</div>
+	<h1 id="identify-the-model">Identify the model</h1>
+<p>A white rectangle background that slowly fades to blue.</p>
+<hr>
+<h1 id="identify-the-model-1">Identify the model</h1>
+<p>A shape of your choice moves across the screen, rotating as it moves.</p>
+<hr>
+<h1 id="animate">Animate</h1>
+<p>A shape of your choice moves across the screen, rotating as it moves.</p>
+<ul>
+<li>Model</li>
+<li>Get on computer and do it</li>
+</ul>
+<hr>
+<h1 id="create-the-animation">Create the animation</h1>
+<p>A star moves diagonally across the screen from (0,0) to (200,100) on a big 200x200 background.</p>
+<hr>
+<h1 id="challenge">Challenge</h1>
+<p>A red star follows the equation of the ellipse (x/100)^2 + (y/50)^2 = 1.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4974ea3f137718c08eb2750d92d47d61">3 - Number Models 2</h1>
+    <div class="lead">Progress bar, dot that follows a line.</div>
+	
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    Please read Sections 8.1-8.4 in the book!
+
+</div>
+
+<ol>
+<li>
+<p>Make a progress bar that shrinks in half every time a key is hit.</p>
+ <figure>
+     <img src="2017-10-27-bar-1.png"/> 
+ </figure>
+ <figure>
+     <img src="2017-10-27-bar-2.png"/> 
+ </figure>
+ <figure>
+     <img src="2017-10-27-bar-3.png"/> 
+ </figure>
+</li>
+<li>
+<p>Make a dot that moves along a line from (50,0) to (250,300).</p>
+</li>
+<li>
+<p>Exercise 8.4.4 from the text. Be sure to follow the design process!</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3af7fcbd71469203bf321cde233646eb">4 - Number Models 3</h1>
+    <div class="lead">Remainder to repeat. Random dots.</div>
+	<h2 id="remainder-warmups">Remainder warmups</h2>
+<h3 id="opener">Opener</h3>
+<p>Divide 324 by 7. What is the quotient? The remainder?</p>
+<h3 id="follow-up">Follow-up</h3>
+<p>When you change 324 to other numbers, what possible remainders can you get? (For example, can you get a remainder of 2 by dividing something by 7? What?)</p>
+<h3 id="animation">Animation</h3>
+<p>An animation will just count from 0 to 6, then start over again at zero.</p>
+<p>Write the model you choose, then checks and a function for the tick handler.</p>
+<h2 id="more-animation">More animation</h2>
+<p>Show the numbers (in order): 10, 30, 50, 70, 90, then go back to 10 and repeat.</p>
+<ul>
+<li>Model?</li>
+<li>Tick handler.</li>
+</ul>
+<h2 id="repetition-without-conditionals">Repetition (without conditionals)</h2>
+<p>What does this tick-hander do? Write checks for the results when num=0, num=1, and num=4.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">repeat-it</span> <span style="color:#000">num</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">remainder</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000">num</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="class-practice">Class practice</h2>
+<p>1a. Make a shape of your choice start at x=100, y=40, then move to x=100,y=110, then to x=100,y=180, then back to x=100, y=40. The motion should happen every second.</p>
+<p>1b. Hit a key to make the shape go to a random one of those three locations.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5c0501efebc2adb8381ea20ab62c13d8">5 - Number Models 4</h1>
+    
+	<ul>
+<li>
+<p>How to show a number in an image:</p>
+<ul>
+<li>(number-&gt;string 50) makes &ldquo;50&rdquo;</li>
+<li>(text &hellip;) wrapped around that makes an image</li>
+</ul>
+<p>Example: <code>(text (number-&gt;string 50) FONT-SIZE &quot;purple&quot;)</code> produces an image with the number 50 in FONT-SIZE point purple font.</p>
+</li>
+<li>
+<p>Make a dot follow the line y=2x-30 from x=0 to x=100. Repeat over from x=0 once the dot gets to 100.</p>
+</li>
+<li>
+<p>Draw a random radius circle (10&lt;=r&lt;=100) on the screen. Show the radius inside the circle.</p>
+<p>Writing check-expects is key to making this work!</p>
+</li>
+</ul>
+
+<figure>
+    <img src="circle-50.png"/> 
+</figure>
+
+<ul>
+<li>
+<p>Make an animation of a point moving along the right-opening parabola x=y^2. The point should hit (0,0), (25,5), (100,10), (225,15), and (400,20) before repeating. The draw handler can be a little tricky too - make sure you test it so you know it works.</p>
+</li>
+<li>
+<p>Challenge: can you make the point hit (100,-10), (25,-5), (0,0), (25,5), and (100,10) instead?</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-378edce69f6a05825fc27f29265ad4b3">6 - Number Models 5</h1>
+    
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<ol>
+<li>
+<p>Write a <em>function</em> <code>q1</code> that produces a random number from the set { 50,
+130, 210, 290, 370, 450, 530 }, each one equally likely.</p>
+</li>
+<li>
+<p>Write a <em>function</em> <code>q2</code> that produces a random number from the set
+{ 25, 36, 49, 64, 81}, each one equally likely. (A little thinking
+and math is needed.)</p>
+</li>
+<li>
+<p>Describe in words a strategy you could use in order to create a
+function that prints out a random sized square above an image of
+the text &ldquo;Area: XXX&rdquo;? (Where XXX = the actual area of the shape.)</p>
+</li>
+<li>
+<p>Actually do the strategy you explained in 3.</p>
+</li>
+<li>
+<p>Make an animation where a dot follows the graph of
+$$ f(x) = 0.001 (x-30)(x-10)(x+40), $$
+with a display window [-50,50]x[-50,50] with visible axes.</p>
+<ul>
+<li>Write two check-expects that show that you have typed your
+function $f$ correctly.</li>
+<li>As time passes the dot moves to the right (along the graph)</li>
+<li>Hitting a key makes the dot jump to a random location (on the graph).</li>
+<li>When the mouse is moving, the dot moves to the left (along the
+graph).</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d86448d1412814fa22a3d71bd9f2107a">7 - Number Model Review</h1>
+    <div class="lead">A summary of the key points of Chapters 7-8. Preparation for a test.</div>
+	<p>Things to know:</p>
+<ol>
+<li>
+<p>Animation following the graph of an equation:</p>
+<ul>
+<li>Computer coordinates</li>
+<li>People coordinates</li>
+</ul>
+</li>
+<li>
+<p>Repetition using <code>remainder</code>.</p>
+</li>
+<li>
+<p>Max/min to keep values large/small.</p>
+</li>
+<li>
+<p>Randomness</p>
+<ul>
+<li>Range of random numbers (e.g., 10&lt;=x&lt;=50).</li>
+<li>Write and test a non-random function first.</li>
+</ul>
+</li>
+<li>
+<p>Write checks for a function that you do not yet know how to write.</p>
+</li>
+</ol>
+<p>Terms:</p>
+<ul>
+<li>Computer coordinates: (0,0) in the upper left, positive y going down.</li>
+<li>People coordinates: (0,0) in the center, positive y going up.</li>
+</ul>
+<p>Sample code:</p>
+<ul>
+<li><a href="people-coordinates-demo.rkt">People coordinates demo</a></li>
+</ul>
+<h2 id="review-problems">Review Problems</h2>
+<ol>
+<li>
+<p>Make a sunset: a half circle.</p>
+<ul>
+<li>shrinks in radius</li>
+<li>changes color from red(ish) to black as the sun sets.
+(Advanced: yellow to magenta.)</li>
+</ul>
+</li>
+<li>
+<p>Make a point that follows the graph of the equation y=((x-50)/10)^2</p>
+<ul>
+<li>Use &ldquo;people coordinates&rdquo;. Each quadrant should be 75x100.</li>
+<li>Move from x=-75 to x=75 in people coordinates.</li>
+<li>Repeats the path from over and over.</li>
+<li>Hit a key make the point go to x=0 people coordinates (and start moving).</li>
+<li>Move the mouse to make the point move. (The point should seem to move faster when you move the mouse.)</li>
+</ul>
+</li>
+<li>
+<p>Make a rectangle that is three times as wide as it is tall.</p>
+<ul>
+<li>Height is determined by y-coordinate of the mouse.</li>
+<li>Height decreases 5 units every time you hit a key.</li>
+<li>Height cannot go below 20 units using key.</li>
+<li>Height cannot go above 150 units using mouse.</li>
+<li>You choose the color.
+(Advanced: color of grey depends on y-coordinate.)</li>
+</ul>
+</li>
+<li>
+<p>(Maybe omit.) (&hellip; feel free to skip.)
+Make a line that you can move up and down with the mouse.</p>
+<ul>
+<li>Straight line through x=0, y=70</li>
+<li>Passes through the point where the mouse is sitting.</li>
+</ul>
+</li>
+</ol>
+<h2 id="information-flow-for-question-2">Information Flow for Question 2</h2>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<div class="mermaid">
+graph LR;
+   A[x-computer] --> B[x-people]
+   B --> |func| C[y-people]
+   C --> D[y-computer]
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-41a21ee576568bf5f36c692f09e4cc22">8 - Number Model Review II</h1>
+    <div class="lead">Review with focus on graphing functions.</div>
+	<p>Definitions: <em>people coordinates</em> are coordinates where (0,0) refers to
+the origin where the axes cross and positive y numbers are above the
+x-axis. <em>Computer coordinates</em> have (0,0) in the upper left corner and
+positive y means &ldquo;down&rdquo;.</p>
+<ol>
+<li>
+<p>You are making a viewing window that ranges from x=-300 to x=500 and
+from y=-200 to y=600.</p>
+</li>
+<li>
+<p>Write three check-expects for the function <code>x-people</code>, which takes in a computer x-coordinate and produces a &ldquo;people&rdquo; x-coordinate.</p>
+</li>
+<li>
+<p>Write three check-expects for the function <code>y-computer</code>, which takes in a people y-coordinate and produces a &ldquo;computer&rdquo; y-coordinate.</p>
+</li>
+<li>
+<p>Write the functions <code>x-people</code> and <code>y-computer</code>. Make sure
+they pass your tests.</p>
+</li>
+<li>
+<p>Write the functions <code>x-computer</code> and <code>y-people</code> that are the
+inverse of <code>x-people</code> and <code>y-computer</code>, just in case you need
+them&hellip; be sure to test.</p>
+</li>
+<li>
+<p>Make a model t goes from 0 to 628 repeatedly. You will need to
+write a draw handler and a tick handler. The equations below give
+the x and y people coordinates to use to place the model.</p>
+<pre><code>     x-people-func = (* 250 (cos (/ t 100)))
+     y-people-func = (* 150 (sin (/ t 100)))
+</code></pre>
+</li>
+</ol>
+<h2 id="information-flow">Information Flow</h2>
+<p>This program works a little differently from the previous one. Keep in
+mind what information you have in your model and what you need in
+order to plot the result.</p>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<div class="mermaid">
+graph TD;
+   A[model=t] --> x-people
+   A --> y-people
+   x-people --> x-computer
+   y-people --> y-computer
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7c8a3fa3f08d56ca51bfbe8594c609ac">9 - Number Graph Zoom</h1>
+    <div class="lead">Small scale people coordinates on the x-axis with a big window.</div>
+	<p>A good graph of <code>(sin x)</code> would have x-people from -5 to 5 and y-people from -1 to 1. That is only a 10x2 window, too small to really see anything.</p>
+<p>We want to graph the same function in a 300x200 window.</p>
+<h2 id="outline">Outline</h2>
+<p>We have a function that takes in people x-coordinates and puts out
+people y-coordinates, so the infomation will flow as diagrammed below.</p>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<div class="mermaid">
+graph LR;
+   A[x-computer] --> B[x-people]
+   B --> |func| C[y-people]
+   C --> D[x-computer]
+</div>
+
+<h2 id="heading"></h2>
+<p>This means figuring out conversion functions.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8e7174dcbf16382a3bf7a197d87cca4c">10 - 8. Number Project</h1>
+    <div class="lead">Create an artistic zoomed-in graph for your review project.</div>
+	<p>Requirements:</p>
+<ul>
+<li>Four quadrants.</li>
+<li>Axes do not meet in the center.</li>
+<li>People coordinates are not in 1 to 1 ratio with computer coordinates.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-be9e9fb3f1a25457a7db89151bf601d2">11 - 8. Number Finale</h1>
+    <div class="lead">This is the last graphing practice. It should be easier now that you have done all of the other ones. Do it before the project for &lsquo;scaffolding&rsquo;.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>We are going to make this graph:</p>
+<figure>
+    <img src="warmup-graph.png"/> 
+</figure>
+<p>The equation we are using is:</p>
+<pre><code>(define (func x)
+  (* (- x 5)
+     (+ x 2)
+     (- x 7)))
+</code></pre>
+<p>The range of people coordinates we want to graph is:
+$$-5 \le x \le 7 $$
+$$-400 \le y \le 100 $$</p>
+<p>Your want to make the graph have dimensions 360x250 (in computer
+coordinates).</p>
+<ol>
+<li>
+<p>Write two checks for the function <code>x-computer-&gt;x-people</code> that
+takes in a computer coordinate and puts out a people coordinate.</p>
+</li>
+<li>
+<p>Possibly using <a href="https://www.wolframalpha.com/">WolframAlpha</a>, write
+the function <code>x-computer-&gt;x-people</code>.</p>
+</li>
+<li>
+<p>Write two checks for the function <code>y-people-&gt;y-computer</code>.</p>
+</li>
+<li>
+<p>Write and test the function <code>y-people-&gt;y-computer</code>.</p>
+</li>
+<li>
+<p>Check your work.</p>
+<pre><code> (check-expect (x-computer-&gt;x-people 150) 0)
+ (check-expect (y-people-&gt;y-computer 0) 50)
+</code></pre>
+</li>
+<li>
+<p>Write a draw handler that will place a dot on the graph of the
+function. The model will be the computer x-coordinate.</p>
+</li>
+<li>
+<p>Design and test a tick handler that will start on the left side of
+the screen, trace the curve to the right side, then repeat.</p>
+</li>
+</ol>
+<h2 id="bonus-graph-of-the-line">Bonus: Graph of the line</h2>
+<ol>
+<li>
+<p>Write <code>rf</code> (or <code>real-func</code>), which takes in a computer x-coordinate, changes
+it to people x-coordinates, applies your function, and then changes
+the result back to computer y-coordinates. You may have already
+written this as part of your animation.</p>
+</li>
+<li>
+<p>Use <code>build-image</code> to create a 360x250 image where the amount of
+gray at (x,y) is given by limiting
+$$ 100 * \left| y - \text{rf}(x) \right| . $$</p>
+</li>
+<li>
+<p>It took a little extra work to get the axes to show with this method&hellip;</p>
+</li>
+</ol>
+<figure>
+    <img src="warmup-animated.gif"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-51aa55335bf4290ca6ddbb253b056a6b">12 - 8. Build It Test</h1>
+    <div class="lead">An animation to test your skills.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>The model is a time we will call $t$. The time will be between $0$ and $6\pi$.</p>
+<p>The people coordinates are given by:</p>
+<pre><code>  (define (x-blue t) (* 200 (cos t))
+  (define (y-red  t) (* 150 (sin t))
+</code></pre>
+<h2 id="yellow-box">Yellow Box</h2>
+<p>Make a 400x50 yellow rectangle for the background.
+Place a single horizontal gray line in the middle (for the axis).</p>
+<p>The horizontal axis of the graph will be &ldquo;t&rdquo;. On the vertical axis,
+graph the <code>y-red</code> function with a red dot.</p>
+<ul>
+<li>Computer coordinates are $0 \le x \le 400$ and $0 \le y \le 50$.</li>
+<li>People coordinates are horizontally $0\le t \le 6\pi$ and vertically
+$-200 \le
+y \le 200$.</li>
+</ul>
+<p>After have the first part working, on the same image, graph the
+<code>x-blue</code> function vertically with a blue dot. (So really the <code>x-blue</code> will
+be a vertical amount.)</p>
+<h2 id="side-bars">Side Bars</h2>
+<p>The right side bar is a 50x400 white rectangle.  The red dot moves
+with x-coordinate 25 and y-coordinate given by <code>y-red</code>, using the same model <code>t</code> as the rest of the animation.</p>
+<p>The bottom side bar is a 400x50 white rectangle. The blue dot moves with x-coordinate <code>x-red</code> and y-coordinate 25.</p>
+<h2 id="center-box">Center Box</h2>
+<p>The center box is a 400x400 outlined rectangle. The purple dot moves
+with x-coordinate from <code>x-blue</code> and y-coordinate from <code>y-red</code>.</p>
+<h2 id="demo">Demo</h2>
+<figure>
+    <img src="ch08-complex.gif"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-21caefdfa40864a5a44baed95363feab">13 - 8. Test Corrections</h1>
+    
+	<p><a href="https://docs.google.com/document/d/1eEIpi5qKbtrFmycjpI_Q2eXL0yTCrSh9CbHEybYvXnQ/edit?usp=sharing">Chapter 8 Test</a></p>
+<p>Do corrections for +8 or more points of credit.</p>
+<p>Corrections mean complete, correct following of the design process for each function.</p>
+<p>Scores will still be &ldquo;curved&rdquo;.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d92ee09cf2fa4435430ad4e7570e2ba1">14 - Number Review More</h1>
+    
+	<p>More review problems:</p>
+<ol>
+<li>
+<p>Make an ellipse on a background.</p>
+<ul>
+<li>The ratio of the width to the height of the ellipse is 3 to 4.</li>
+<li>The x-coordinate of the mouse controls the width.</li>
+<li>Hit any key to reset the ellipse to 60 by 80.</li>
+</ul>
+</li>
+<li>
+<p>A point moves on the graph of y = abs(x-90).</p>
+<ul>
+<li>The point starts at (0,90).</li>
+<li>The point goes back to (0,90) after it gets to (200,110).</li>
+<li>The origin is in the lower left (people coordinates, quadrant I).</li>
+<li>Moving the mouse makes the point go faster.</li>
+</ul>
+</li>
+<li>
+<p>A straight line goes through (50,25) and the point where the mouse is.</p>
+<ul>
+<li>Racket Help Desk: <a href="https://docs.racket-lang.org/teachpack/2htdpimage.html?q=line#%28def._%28%28lib._2htdp%2Fimage..rkt%29._line%29%29">Drawing a line</a></li>
+</ul>
+</li>
+</ol>
+<p>Solutions: <a href="ch08-review-ii-1.rkt">1</a>, <a href="ch08-review-ii-2.rkt">2</a>, <a href="ch08-review-ii-3.rkt">3</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

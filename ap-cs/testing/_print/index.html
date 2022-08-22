@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/testing/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Unit Testing | WY CS</title>
+<meta name="description" content="JUnit testing, like the check-expect system from Racket.">
+<meta property="og:title" content="Unit Testing" />
+<meta property="og:description" content="JUnit testing, like the check-expect system from Racket." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/testing/" />
+
+<meta itemprop="name" content="Unit Testing">
+<meta itemprop="description" content="JUnit testing, like the check-expect system from Racket."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Unit Testing"/>
+<meta name="twitter:description" content="JUnit testing, like the check-expect system from Racket."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/testing/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Unit Testing</h1>
+<div class="lead">JUnit testing, like the check-expect system from Racket.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-3b1e777b7c4b00baef5662bcb3c913ea">Unit Testing Level I</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-7696800530de8cce3ff1ef3b16f939ec">Unit Testing Level II</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-3b1e777b7c4b00baef5662bcb3c913ea">1 - Unit Testing Level I</h1>
+    <div class="lead">An introduction to using the JUnit test system.</div>
+	<p>Start testing little pieces of your code so it is not so hard for you
+to figure out what goes wrong. In Racket, we used the <code>check-expect</code>
+system.  In Java there is a similar system called JUnit. This page
+explains how to use the <a href="http://junit.org/junit4/">JUnit 4</a> system
+that is built into BlueJ.</p>
+<h2 id="basic-testing">Basic Testing</h2>
+<p>(Include the boilerplate code from the next section!)</p>
+<ul>
+<li><code>@Test</code></li>
+<li><code>assertEquals(correct, actual)</code></li>
+<li><code>assertEquals(correct, actual, close_enough)</code>: Like <code>check-within</code>, this is for comparing floating point values (<code>double</code>). Test succeeds if <code>|correct - actual| &lt; close_enough</code>.</li>
+<li><code>assertArrayEquals(correct, actual)</code>: Compare arrays.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">test_math</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">assertEquals</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">assertEquals</span><span style="color:#ce5c00;font-weight:bold">(.</span><span style="color:#c4a000">66</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">0</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">01</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Example for arrays (Chapter 12):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">test_always_ok</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">correct</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">};</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">actual</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">};</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">assertArrayEquals</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">correct</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">actual</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Example for ArrayList (Chapter 13):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">test_arraylist</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">ArrayList</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">Integer</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ArrayList</span><span style="color:#ce5c00;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">n</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#000">n</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">25</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#000">n</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">100</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">List</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">Integer</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">correct</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Arrays</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">asList</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">25</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">100</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>  <span style="color:#000">assertEquals</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">correct</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">n</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span> 
+</span></span></code></pre></div><h2 id="testing-boilerplate">Testing Boilerplate</h2>
+<p>At the start of your code, include the following boilerplate:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">org.junit.*</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">org.junit.runner.*</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import static</span> <span style="color:#000">org.junit.Assert.*</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span></code></pre></div><h2 id="bluej">BlueJ</h2>
+<p>&ldquo;New Class&hellip;&rdquo; -&gt; ClassType is <code>Unit Test</code>. Give it a name and make
+it. Box should be green.</p>
+<p>See the <a href="https://github.com/2018-2019-WY-AP-CS/ap-cs/tree/master/UnitTesting">sample code on GitHub</a>.</p>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    BlueJ has a <a href="https://www.bluej.org/tutorial/testing-tutorial.pdf">testing
+tutorial(pdf)</a>
+that introduces JUnit for testing.
+
+</div>
+
+<p>Once you expose the &ldquo;View -&gt; Show Team and Test Controls&rdquo;,
+there is a button to run tests.</p>
+<h2 id="replit">Repl.it</h2>
+<ol>
+<li>
+<p>You should be using &ldquo;Project Mode&rdquo; and have multiple files open with names like &ldquo;HospitalTest.java&rdquo;. Capital letters matter, so match the name of the class.</p>
+</li>
+<li>
+<p>There is no &ldquo;Test Project&rdquo; button on Repl.it, but you can arrange for the main method
+to run your tests by using the code fragment below. (See the <a href="Main.java">working main method</a>.)</p>
+<pre><code> org.junit.runner.JUnitCore.main(&quot;Test_Class_Name_MUST_CHANGE&quot;);
+</code></pre>
+</li>
+<li>
+<p>Output should look like <code>..E.E...E.E.E.E....E</code>, where the <code>.</code> indicates the test has begun running and the <code>E</code> indicates that it ended in an error. Notice there is no separate indication for a test passing.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7696800530de8cce3ff1ef3b16f939ec">2 - Unit Testing Level II</h1>
+    <div class="lead">Slightly more advanced unit testing commands and techniques.</div>
+	<p>You can make common setup code run with <code>@Before</code>. Use it to give instance variables
+their initial values for each test. This method runs once before <strong>each</strong> test, so it will reset the variables to the values you want them to have at the start.</p>
+<h2 id="common-setup-for-all-tests">Common setup for all tests</h2>
+<p><code>@Before</code>: Method runs before every test. Used to set up instance variables containing objects to be tested.</p>
+<pre><code>    private int maxNum;
+    @Before
+    public void set_max() {
+        maxNum = 4;
+    }
+    @Test
+    public void test_max() {
+        assertEquals(maxNum,4);
+    }
+</code></pre>
+<h2 id="many-tests-with-the-same-setup">Many tests with the same setup</h2>
+<p>I use <a href="https://github.com/junit-team/junit4/wiki/Parameterized-tests">parameterized tests</a>.
+They may be to complex for beginners, but see <a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/blob/master/ch10q2/HospitalTest.java">my HospitalTest code on GitHub</a> or <a href="HospitalTest.java">the raw file</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

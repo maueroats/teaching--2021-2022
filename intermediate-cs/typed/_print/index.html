@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/typed/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Typed Racket | WY CS</title>
+<meta name="description" content="A version of Racket that enforces signatures. Helps transition to strongly typed languages like Java.">
+<meta property="og:title" content="Typed Racket" />
+<meta property="og:description" content="A version of Racket that enforces signatures. Helps transition to strongly typed languages like Java." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/typed/" />
+
+<meta itemprop="name" content="Typed Racket">
+<meta itemprop="description" content="A version of Racket that enforces signatures. Helps transition to strongly typed languages like Java."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Typed Racket"/>
+<meta name="twitter:description" content="A version of Racket that enforces signatures. Helps transition to strongly typed languages like Java."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/typed/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Typed Racket</h1>
+<div class="lead">A version of Racket that enforces signatures. Helps transition to strongly typed languages like Java.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-2288813b463ff61d9daccd347fb5d237">Typed Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-888b55853e8e49c17cb05259fd57ae55">Typed Variables and Functions</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-6177adb93be34e17cde6f9b3d3e7817b">Typed Structures</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-5220bf9263cd2ea13b2d492737fd33d7">Typed Big Bang</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-47846b3542800ea97ccf5b9ae4b61b0b">Typed Exercises 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-a61bd0c8fdedc34c039564f2e5079af8">Typed Exercises 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-bba91e529baf49fd4749fe443cce6b07">Typed Exercises 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-0856288b52610edac5709488b73cc04d">Bumper Cars</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-028755577803b1e43e5617884c5014d8">Bumper Two Player</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-407f85ffc54e7be43020f700c96676d1">Checkers</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>10.1: <a href="#pg-646d881889413937fefccbdb7316004b">Checkers Outline</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10.2: <a href="#pg-4ad415304eca8abb8a2d263361fac9b5">Checkers Model</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10.3: <a href="#pg-c0d236169e81fd1cb8ae287cdfdc69de">Checkers Legal Moves</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-intro/" >Typed Intro</a></li></p>
+<p>All of the basics you need to start using Typed Racket.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-variables/" >Typed Variables and Functions</a></li></p>
+<p>Giving types to variables and functions.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-structures/" >Typed Structures</a></li></p>
+<p>Using define-struct in Typed Racket. Additional info on posn-util, struct-copy, and limit for use with make-color.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-bigbang/" >Typed Big Bang</a></li></p>
+<p>big-bang works almost exactly the same in Typed Racket. This page explains any differences.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-ex1/" >Typed Exercises 1</a></li></p>
+<p>Introductory exercises for learning Typed Racket.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-ex2/" >Typed Exercises 2</a></li></p>
+<p>Additional practice writing typed functions, includes lists and recursion.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/typed-ex3/" >Typed Exercises 3</a></li></p>
+<p>Exercises to practice using structures in Typed Racket.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/bumper-cars/" >Bumper Cars</a></li></p>
+<p>Game struct For bumper boats, we want a struct that contains:
+id name position velocity radius color Draw handler For one player bumper cars, just draw the single car (circle) in the right color, with the name shown in the middle of it.
+Tick handler Update the position, adding the velocity.
+Mouse handler Change the velocity so that the circle moves towards the mouse click with a speed of 10.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/bumper-two-player/" >Bumper Two Player</a></li></p>
+<p>Conversion from one player to two player bumper boats.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/checkers/" >Checkers</a></li></p>
+<p>Two player checkers in Typed Racket</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2288813b463ff61d9daccd347fb5d237">1 - Typed Intro</h1>
+    <div class="lead">All of the basics you need to start using Typed Racket.</div>
+	<p>Many of the most common languages in use today require you to specify
+the types on inputs and outputs of a function. That is to say, they
+every function requires a signature.</p>
+<p>There are two main benefits to this kind of typing:</p>
+<ol>
+<li>
+<p><strong>Speed</strong>. The code runs faster when the computer has no doubt that
+a certain variable always contains a certain kind of value, like a
+posn.</p>
+</li>
+<li>
+<p><strong>Reliability</strong>. The computer can check before starting the program
+that there is never a time when the <code>posn-x</code> function is called on
+a <code>color</code>. In regular Racket, this kind of mistake causes the
+program to halt with an error <em>when the mistake runs</em>. In Typed
+Racket, the mistake is detected before the program starts running -
+there is no suspense and no uncertainty.</p>
+</li>
+</ol>
+<h2 id="initial-setup">Initial Setup</h2>
+<ol>
+<li>
+<p>One time per computer:</p>
+<p>File -&gt; &ldquo;Install Package&hellip;&rdquo; -&gt; Enter &ldquo;picturing-programs-typed&rdquo; and choose the
+&ldquo;Install&rdquo; button.</p>
+</li>
+<li>
+<p>Beginning of every file:</p>
+<pre><code> #lang typed/racket
+ (require typed/picturing-programs)
+</code></pre>
+</li>
+<li>
+<p>End of the file - you need to run the check-expects manually.</p>
+<pre><code> (test)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-888b55853e8e49c17cb05259fd57ae55">2 - Typed Variables and Functions</h1>
+    <div class="lead">Giving types to variables and functions.</div>
+	<p>A quick introduction to types, including how to specify types of
+variables and functions.</p>
+<h2 id="types-of-everything">Types of Everything</h2>
+<ul>
+<li>Basic types: <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Image</code>.</li>
+<li>Function: <code>(-&gt; [input types] [output type])</code></li>
+<li>Composite types: <code>(Listof Number)</code> - or even <code>(Listof Any)</code></li>
+</ul>
+<h2 id="specifying-types-for-variables">Specifying Types for Variables</h2>
+<p>There are two ways to specify a type: with inline or with the
+colon (<code>:</code>) on a separate line.</p>
+<ol>
+<li>
+<p><code>name : Type</code> notation in place of the plain <code>name</code></p>
+<pre><code> (define WIDTH : Integer 400)
+</code></pre>
+<p>Be careful to put spaces on either side
+of the colon. This method becomes <code>[name : Type]</code> when used in
+arguments to a function (see below).</p>
+</li>
+<li>
+<p><code>(: name Type)</code> on a separate line before <code>name</code></p>
+<pre><code> (: HEIGHT Integer)
+ (define HEIGHT 300)
+</code></pre>
+</li>
+</ol>
+<h2 id="specifying-types-for-functions">Specifying Types for Functions</h2>
+<p>You can use the <code>[name : Type]</code> or <code>(: name Type)</code> method to write the
+type of a function as well. You should include the output type, just
+like a signature.</p>
+<ol>
+<li>
+<p><code>[name : Type]</code> method: A function that takes in a number and puts
+out a number plus 5:</p>
+<pre><code> (define (f [x : Number]) : Number
+   (+ x 5))
+</code></pre>
+</li>
+<li>
+<p><code>(: name Type)</code> method: A function that takes in a string and puts
+out double its length:</p>
+<pre><code> (: g (-&gt; String Number))
+ (define (g str)
+   (* 2 (string-length str)))
+</code></pre>
+</li>
+<li>
+<p>A function that takes in a number and puts out a that many
+repetitions of &ldquo;word&rdquo; (literally):</p>
+<pre><code> (define (h [num : Integer]) : (Listof String)
+   (make-list num &quot;word&quot;)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6177adb93be34e17cde6f9b3d3e7817b">3 - Typed Structures</h1>
+    <div class="lead">Using define-struct in Typed Racket. Additional info on posn-util, struct-copy, and limit for use with make-color.</div>
+	<h2 id="picturing-programs-code">Picturing Programs Code</h2>
+<p>Code in this section requires the installation of an extra package
+<code>picturing-programs-typed</code>, then</p>
+<pre tabindex="0"><code>(require typed/picturing-programs)
+</code></pre><p>You should also have access to a typed version of the <code>posn-util</code>.</p>
+<!--
+
+
+<div class="alert alert-primary" role="alert">
+
+
+    <p>Plain old attachments would go here.</p>
+<pre>
+  
+</pre>
+
+
+</div>
+
+-->
+<h2 id="defining-new-structures">Defining new structures</h2>
+<p>A new structure need type information just like a function. There are
+also some incantations you will want to use.</p>
+<ul>
+<li><code>#:transparent</code> - Always include this.</li>
+<li><code>#:type-name</code> - Usually include, should be name of struct with a
+capital letter at the start.</li>
+</ul>
+<p>Example:</p>
+<pre><code>(define-struct ship ([ name : String ]
+                     [ pos : (Listof Posn) ])
+                    #:transparent
+                    #:type-name Ship)
+</code></pre>
+<h2 id="functions-using-structures">Functions using structures</h2>
+<p>A function <code>bn</code> that takes in a ship and produces an image of a box around
+the name would be written like this:</p>
+<pre><code>(define (bn [s : Ship]) : Image
+  (frame (text (ship-name s) 24 &quot;black&quot;)))
+</code></pre>
+<h2 id="copying-structures">Copying Structures</h2>
+<p>Racket has a method called
+<a href="https://docs.racket-lang.org/reference/struct-copy.html?q=struct-copy#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct-copy%29%29">struct-copy</a>
+for copying a structure and changing some of the entries.</p>
+<pre><code> (struct-copy STRUCT-NAME VARIABLE [field NEW-VALUE])
+</code></pre>
+<p>Example:</p>
+<pre><code>(define a-ship1 (make-ship &quot;Dingy&quot; (list (make-posn 5 2))))
+(define a-ship2 (struct-copy ship a-ship1 [name &quot;Sailboat&quot;]))
+</code></pre>
+<h2 id="colors">Colors</h2>
+<p>It can be tricky to write the limit function that restricts a number
+to the range 0 to 255 for use in a color.</p>
+<pre><code>(define (limit [n : Integer])
+  : Byte
+  (min 255 (max 0 n)))
+</code></pre>
+<p>If you need to handle real number inputs, add in <code>(round (inexact-&gt;exact n))</code>.</p>
+<p>Trivia: the order of the inputs matters, check the type signature of
+<code>max</code>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5220bf9263cd2ea13b2d492737fd33d7">4 - Typed Big Bang</h1>
+    <div class="lead">big-bang works almost exactly the same in Typed Racket. This page explains any differences.</div>
+	<p>Reminder: you need the <code>2htdp-typed</code> package installed.</p>
+<h2 id="differences">Differences</h2>
+<ul>
+<li>
+<p>The type of the model must be given in the big-bang.</p>
+</li>
+<li>
+<p>The clause for the draw function is <code>to-draw</code> not <code>on-draw</code>.</p>
+</li>
+<li>
+<p>The last argument to a mouse handler is a <code>Mouse-Event</code> but the last
+argument to the key handler is just a <code>String</code>.</p>
+<pre><code>  (: draw-circle (-&gt; Real Image))
+  (define (draw-circle n) (circle n &quot;solid&quot; &quot;blue&quot;))
+
+  (big-bang 5 : Number
+    (on-tick add1 0.2)
+    (to-draw draw-number 300 200))
+</code></pre>
+</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<p>As of this writing, the limitations I am aware of are:</p>
+<ul>
+<li>You cannot <code>stop-with</code> - you must use a <code>stop-when</code> clause in the
+<code>big-bang</code>.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-47846b3542800ea97ccf5b9ae4b61b0b">5 - Typed Exercises 1</h1>
+    <div class="lead">Introductory exercises for learning Typed Racket.</div>
+	<ol>
+<li>
+<p>Use the <code>[ name : Type ]</code> method of specifying a type to write the
+function <code>sub7</code> which takes in a number and subtracts 7 from it.l</p>
+</li>
+<li>
+<p>Use the <code>(: name Type)</code> method of specifying a type to write the
+function <code>triple</code> which takes in a number and triples it.</p>
+</li>
+</ol>
+<h2 id="write-these-functions">Write these functions</h2>
+<p>Use Typed Racket to write these functions. Make sure you write the
+output type as well as the input types.</p>
+<ol>
+<li><code>sq18</code>: take in a number, square it, and subtract 18.</li>
+<li><code>sl5</code>: take in a string, return five more than its length.</li>
+<li><code>ssl</code>: take in two strings, find the sum of their lengths.</li>
+</ol>
+<h2 id="technical-details">Technical details</h2>
+<p>Sometimes <code>Number</code> is not restrictive enough. If you mean a number on
+the number line, you have to tell Racket that you want a <code>Real</code>
+number. Racket does know about complex numbers!</p>
+<ol start="3">
+<li>
+<p>Write a function of two inputs that finds the absolute value of the
+difference between them.</p>
+</li>
+<li>
+<p>Write a function that takes in two real numbers and returns the one
+that is larger (try this using <code>cond</code> or <code>if</code>). Technical: Experiment to see
+if you can use <code>Number</code> as the type. (Why not?)</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a61bd0c8fdedc34c039564f2e5079af8">6 - Typed Exercises 2</h1>
+    <div class="lead">Additional practice writing typed functions, includes lists and recursion.</div>
+	<ol>
+<li>
+<p><code>ezn</code>: Create a list of <code>n</code> numbers, counting from n down to 0.</p>
+<pre><code> (check-expect (ezn 5) (list 5 4 3 2 1 0))
+ (check-expect (ezn 7) (list 7 6 5 4 3 2 1 0))
+</code></pre>
+</li>
+<li>
+<p><code>rpt</code>: Given a word and a number, make a list containing that word
+the given number of times, except chop off one more letter at the start
+of the word each time you repeat it.</p>
+<pre><code> (check-expect (rpt &quot;word&quot; 4) (list &quot;word&quot; &quot;ord&quot; &quot;rd&quot; &quot;d&quot;))
+ (check-expect (rpt &quot;cat&quot; 2) (list &quot;cat&quot; &quot;at&quot;))
+</code></pre>
+</li>
+<li>
+<p><code>perfect-squares</code>: Given a list of integers, return a list of all
+of the perfect squares contained in that list. If you work with
+real numbers, you probably want <code>Nonnegative-Real</code> numbers.</p>
+</li>
+<li>
+<p><code>grow-sq</code>: Given a start and end integer, make a list of images,
+all outline squares beginning at side length start, and ending at side
+length &lt;= end.</p>
+  <figure>
+      <img src="grow-sq.png"/> <figcaption>
+              <h4>(grow-sq 10 17)</h4>
+          </figcaption>
+  </figure>
+</li>
+<li>
+<p><code>sqc</code>: Given two integers <code>start</code> and <code>end</code>, draw one image which
+is an overlay of images as n goes from <code>start</code> to <code>end</code> increasing
+by 1 each time. The image is an outline circle of radius <code>10*n</code> when n is even
+and an outline square of side length <code>20*n</code> when n is odd.</p>
+  <figure>
+      <img src="sqc.png"/> <figcaption>
+              <h4>(sqc 5 11)</h4>
+          </figcaption>
+  </figure>
+</li>
+</ol>
+<h2 id="facts-about-numbers">Facts about Numbers</h2>
+<p>There are many number types, including:</p>
+<ul>
+<li><code>Number</code></li>
+<li><code>Real</code></li>
+<li><code>Integer</code></li>
+<li><code>Nonnegative-Real</code></li>
+<li><code>Nonnegative-Integer</code></li>
+<li><code>Positive-Integer</code></li>
+</ul>
+<p>Pick the most appropriate one. For example, if you are taking the
+square root of a number, <code>Nonnegative-Real</code> might be a good choice. If
+that number is also an integer, then use <code>Nonnegative-Integer</code>.</p>
+<p>The type <code>Number</code> actually means complex number
+(like <code>5+12i</code> from math class), so lots of the time you really want to
+use <code>Real</code>.</p>
+<h2 id="trouble-spots">Trouble spots</h2>
+<p>When you subtract one from a positive integer, Racket no longer knows
+it is positive (could have turned into zero). However, adding one to a
+positive integer gives you something that is definitely positive. That
+means when you are working with positive numbers and you have a choice
+between counting up or counting down, count up.</p>
+<p>Pro tip: if you have an <code>Integer</code> and the error message tells you that
+a <code>Positive-Real</code> is needed, you should change your type to
+<code>Positive-Integer</code>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bba91e529baf49fd4749fe443cce6b07">7 - Typed Exercises 3</h1>
+    <div class="lead">Exercises to practice using structures in Typed Racket.</div>
+	<ol>
+<li>
+<p>Create a game structure that has a player <code>name</code>, a <code>location</code> Posn,
+and a Boolean variable for <code>horizontal?</code>. You can abbreviate field names.</p>
+</li>
+<li>
+<p>Write a draw handler that draws a rectangle with the player&rsquo;s name
+inside of it (you pick a size) and then potentially rotates it 90
+degrees if <code>horizontal?</code> is false.</p>
+</li>
+<li>
+<p>Write a key handler that flips the image from horizontal to
+vertical when you hit space.</p>
+</li>
+<li>
+<p>Add to your key handler so any other (length 1) key that is hit is
+added to the end of the existing name. Advanced: make backspace work.</p>
+</li>
+<li>
+<p>Write a mouse handler that changes the location of the image when
+you click.</p>
+</li>
+<li>
+<p>Make a <code>big-bang</code> to animate this action.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0856288b52610edac5709488b73cc04d">8 - Bumper Cars</h1>
+    
+	<h2 id="game-struct">Game struct</h2>
+<p>For bumper boats, we want a struct that contains:</p>
+<ul>
+<li>id</li>
+<li>name</li>
+<li>position</li>
+<li>velocity</li>
+<li>radius</li>
+<li>color</li>
+</ul>
+<h2 id="draw-handler">Draw handler</h2>
+<p>For one player bumper cars, just draw the single car (circle) in the
+right color, with the name shown in the middle of it.</p>
+<h2 id="tick-handler">Tick handler</h2>
+<p>Update the position, adding the velocity.</p>
+<h2 id="mouse-handler">Mouse handler</h2>
+<p>Change the velocity so that the circle moves towards the mouse click
+with a speed of 10.</p>
+<h2 id="bounce-off-walls">Bounce off walls</h2>
+<h3 id="decide-new-velocity-for-a-bounce">Decide new velocity for a bounce</h3>
+<p>Work out bouncing off horizontal and vertical walls separately.</p>
+<h3 id="decide-if-you-should-bounce">Decide if you should bounce</h3>
+<p>A circle should bounce if it is on a wall and the velocity is moving
+toward the wall.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-028755577803b1e43e5617884c5014d8">9 - Bumper Two Player</h1>
+    <div class="lead">Conversion from one player to two player bumper boats.</div>
+	<p>First, a confession: we don&rsquo;t actually make the boats bump each
+other. We needed to finish the discussion in one day, so we did not
+add any physics that wasn&rsquo;t present in the one-player version.</p>
+<!--
+
+
+<div class="alert alert-primary" role="alert">
+
+
+    <p>Plain old attachments would go here.</p>
+<pre>
+  
+</pre>
+
+
+</div>
+
+-->
+<h2 id="one-player-review">One Player Review</h2>
+<p>The one player code does the following:</p>
+<ul>
+<li>Bounce off walls</li>
+<li>Clicking sets velocity to be toward click at 5 units/tick</li>
+<li><code>w</code> / <code>s</code> keys make the radius increase / decrease by 5 units.</li>
+<li><code>j</code> / <code>k</code> keys make the speed decrease / increase by 10%.</li>
+<li><code>c</code> gives a new random color</li>
+</ul>
+<p>Requiring <code>bumper-boats-single.rkt</code> gives the following functions:</p>
+<ul>
+<li><code>WIDTH</code>, <code>HEIGHT</code> of the screen</li>
+<li><code>tick-h</code></li>
+<li><code>mouse-h</code></li>
+<li><code>key-h</code></li>
+<li><code>draw-1-fancy: Boat -&gt; Image</code>: Render one boat, ready to place.</li>
+<li><code>Boat</code>: the boat structure</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define-struct</span> <span style="color:#000">boat</span> <span style="color:#000;font-weight:bold">([</span><span style="color:#000">id</span> <span style="color:#000">:</span> <span style="color:#000">Integer</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">name</span> <span style="color:#000">:</span> <span style="color:#000">String</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">[</span><span style="color:#000">pos</span> <span style="color:#000">:</span> <span style="color:#000">Posn</span><span style="color:#000;font-weight:bold">]</span>  <span style="color:#000;font-weight:bold">[</span><span style="color:#000">vel</span> <span style="color:#000">:</span> <span style="color:#000">Posn</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">[</span><span style="color:#000">color</span> <span style="color:#000">:</span> <span style="color:#000">Color</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">[</span><span style="color:#000">radius</span> <span style="color:#000">:</span> <span style="color:#000">Positive-Integer</span><span style="color:#000;font-weight:bold">])</span>
+</span></span></code></pre></div><h2 id="two-player-conversion">Two Player Conversion</h2>
+<p>The <code>Game</code> structure was a number to keep track of whose turn it is
+and two <code>Boat</code> structures, one for each player. Require the one player
+file so the old functions are available.</p>
+<pre tabindex="0"><code>(require &#34;bumper-boats.single.rkt&#34;)
+</code></pre><ul>
+<li>Draw-Handler:
+Place the results from <code>draw-1-fancy</code> of each player&rsquo;s boat.</li>
+<li>Key-Handler:
+Determine whose turn it is, and replace that boat with the results of
+running the one-player key handler on that boat. Update whose turn it
+is.</li>
+<li>Tick-Handler:
+Update both boats simultaneously.</li>
+<li>Mouse-Handler:
+Like the key handler.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-407f85ffc54e7be43020f700c96676d1">10 - Checkers</h1>
+    <div class="lead">Two player checkers in Typed Racket</div>
+	<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/checkers/outline/" >Checkers Outline</a></li></p>
+<p>An outline of all of the functions you could use to make checkers.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/checkers/model/" >Checkers Model</a></li></p>
+<p>Illustrations from class discussion listing situations that should happen in the game.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/typed/checkers/legal-moves/" >Checkers Legal Moves</a></li></p>
+<p>Allowing only legal moves is the most complex part of checkers.</p>
+</span>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-646d881889413937fefccbdb7316004b">10.1 - Checkers Outline</h1>
+    <div class="lead">An outline of all of the functions you could use to make checkers.</div>
+	<p>The game development process has several steps:</p>
+<ol>
+<li>
+<p><a href="/teaching--2021-2022/intermediate-cs/typed/checkers/model/">Examples</a>: write down several examples
+showing different situations
+that will occur in the game. Make sure you consider all of the
+possiblities.</p>
+</li>
+<li>
+<p><a href="/teaching--2021-2022/intermediate-cs/typed/checkers/model/#model-structure">Model</a>: decide on the model you will use for the game.</p>
+</li>
+<li>
+<p>Draw handler. Show whose move it is as well as drawing the board.</p>
+</li>
+<li>
+<p><a href="/teaching--2021-2022/intermediate-cs/typed/checkers/legal-moves/">Legal moves</a>. A very important
+function: determine if a move is legal!</p>
+<pre><code> legal-move?: Game Posn -&gt; Boolean
+</code></pre>
+</li>
+<li>
+<p>Support functions: we will practice function design (including
+writing check-expects) to make functions we will need.</p>
+<ul>
+<li><code>get-piece: (Listof Piece) Posn -&gt; Piece</code>: See notes for legal moves.</li>
+<li><code>is-occupied?: (Listof Piece) Posn -&gt; Boolean</code></li>
+<li><code>take-piece: (Listof Piece) Posn -&gt; (Listof Piece)</code></li>
+</ul>
+</li>
+<li>
+<p>Mouse handler. The logic of interacting with the pieces can be a
+little complex if you want all of the details.</p>
+<ul>
+<li><code>click-&gt;board-coord: Posn -&gt; Posn</code>: Convert from screen
+coordinates to the board coordinates.</li>
+</ul>
+</li>
+<li>
+<p>Problem-solving tips.</p>
+<ul>
+<li><code>exact-floor</code> takes in a <code>Real</code> number x and puts out the greatest <code>Integer</code>
+less than or equal to x. Plain <code>floor</code> does the same thing, but
+puts out a <code>Real</code>.</li>
+</ul>
+</li>
+</ol>
+<!--
+    * `inexact->exact` to convert 2.0 to the integer 2.
+-->
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4ad415304eca8abb8a2d263361fac9b5">10.2 - Checkers Model</h1>
+    <div class="lead">Illustrations from class discussion listing situations that should happen in the game.</div>
+	<p>This is the written record of an analysis. You should practice doing
+your own analysis of a game, not just copying this one.</p>
+<h2 id="examples">Examples</h2>
+<p>Begin with pictures of all of the situations that can come up in the
+game.</p>
+<p>Advanced: enthusiastic software designers may want to read about
+how <a href="https://www.alexandercowan.com/best-agile-user-story/">user stories</a>
+used in actual software development.</p>
+<!-- page 2 of file:: gm convert FILE.pdf[1]  -crop 510x770+20+20 -->
+<figure>
+    <img src="checkers-planning-1.png"/> 
+</figure>
+<figure>
+    <img src="checkers-planning-2.png"/> 
+</figure>
+<h2 id="board-coordinates">Board Coordinates</h2>
+<p>We considered human-friendly coordinates, like (1,4) as well as
+computer-friendly coordinates like (75, 225). Using computer
+coordinates would make it easier to write the draw-handler, but
+writing checks would be easier with human coordinates. We chose human
+coordinates because checks are important to write.</p>
+<p>In this writeup, our board coordinates go from 0 through 7 in each
+direction.</p>
+<h2 id="piece-structure">Piece Structure</h2>
+<ul>
+<li><code>p</code>: Posn</li>
+<li><code>c</code>: Player (Integer)</li>
+<li><code>king?</code>: Boolean</li>
+</ul>
+<h2 id="model-structure">Model Structure</h2>
+<p>The model keeps track of whose turn it is, where the pieces are, and
+which piece (if any) is currently selected and ready to move.</p>
+<ul>
+<li><code>turn</code>: Player (Integer)</li>
+<li><code>ps</code>: (Listof Piece)</li>
+<li><code>selected</code>: Piece</li>
+</ul>
+<p>When there is no piece selected, we will put a special piece in the
+selected location that could not arise in the game: say a king for
+player 3 located at (-1000,1000).</p>
+<p>The fancier way of representing the selected piece is to use the type
+<a href="https://docs.racket-lang.org/ts-reference/type-ref.html?q=Option#%28form._%28%28lib._typed-racket%2Fbase-env%2Fbase-types..rkt%29._.Option%29%29">(Option
+Piece)</a>,
+but that doesn&rsquo;t simplify the rest of the work.</p>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c0d236169e81fd1cb8ae287cdfdc69de">10.3 - Checkers Legal Moves</h1>
+    <div class="lead">Allowing only legal moves is the most complex part of checkers.</div>
+	<p>The <code>legal-move?</code> function has the purpose of determining whether or
+not a move is legal. This function needs to know the current game
+state (which includes the currently selected piece) and the position
+where the player is considering moving that piece.</p>
+<pre><code>legal-move? : Game Posn -&gt; Boolean
+</code></pre>
+<p>This function is complex, so we break it up into many smaller, simpler
+functions.</p>
+<ul>
+<li><code>on-board? : Posn -&gt; Boolean</code>: True if the position is on the
+board.</li>
+<li><code>direction-ok? : Piece Posn -&gt; Boolean</code>: This function just makes
+sure that ordinary pieces only move the direction they start.</li>
+<li><code>space-empty?: (Listof Piece) Posn -&gt; Boolean</code>: Is the given square
+empty?</li>
+<li><code>distance-nonjump-ok?: Posn Posn -&gt; Boolean</code>: Assuming the move is
+not a jump, is it ok?</li>
+<li><code>distance-jump-ok?: Posn Posn -&gt; Boolean</code>: Assuming the move is a
+jump, is the distance intended going to be ok?</li>
+<li><code>get-piece: (Listof Piece) Posn -&gt; Piece</code>: Get the piece at the
+given position. Define a fake NO-PIECE to be a piece at (-1000,1000)
+to represent not finding a piece there.</li>
+<li><code>is-legal-to-jump?: (Listof Piece) Player Posn Posn -&gt; Boolean</code>:
+Knowing where the pieces are on the board and who is attempting the
+move, is the attempted jump legal? For example, jumping an opponent
+is ok, but jumping your own piece or an empty square is
+forbidden. Plan to figure out some helper functions for this on your own!</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>Each function needs several check-expects before you start to write
+the function. Do not start to write a function without a <em>purpose</em> and
+at least <em>two checks</em>.</p>
+<h3 id="on-board">on-board</h3>
+<p>On board just makes sure the position is on the board&hellip; My board
+squares are numbered 0 through 7.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-board?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-10</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-board?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-board?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="direction-ok">direction-ok</h3>
+<p>We need to write check-expects for direction. First, we need to decide
+which direction each player will move. I decided that player 1 will
+move down the board (increasing y) and player 2 will move up
+(decreasing y).</p>
+<p>The possibilities are:</p>
+<ol>
+<li>king can move either direction</li>
+<li>player 1 can only move &ldquo;down&rdquo; the board</li>
+<li>player 2 can only move &ldquo;up&rdquo; the board</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">direction-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="space-empty">space-empty</h3>
+<p>The <code>space-empty?</code> function should find out if a space is empty.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">ex-pieces</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-piece</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">space-empty?</span> <span style="color:#000">ex-pieces</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">space-empty?</span> <span style="color:#000">ex-pieces</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">space-empty?</span> <span style="color:#000">ex-pieces</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">space-empty?</span> <span style="color:#000">ex-pieces</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="distance-nonjump-ok">distance-nonjump-ok</h3>
+<p>The <code>distance-nonjump-ok?</code> function takes two positions and determines
+if the distance between them is allowed given that the move is not a
+jump.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span> 
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">distance-nonjump-ok?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                                    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="distance-jump-ok">distance-jump-ok</h3>
+<p>The <code>distance-jump-ok?</code> function returns true when the two positions
+differ by enough that there is exactly one diagonal square between
+them.</p>
+<p>You should write your own checks for this function.</p>
+<h3 id="is-legal-to-jump">is-legal-to-jump</h3>
+<p>The <code>is-legal-to-jump?</code> determines if the square that is being jumped
+over is occupied by the correct kind of piece.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

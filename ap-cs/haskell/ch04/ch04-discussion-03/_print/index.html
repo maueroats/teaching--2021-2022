@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-03/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Chapter 4 Discussion III | WY CS</title>
+<meta name="description" content="Lots of problems so you can practice writing Haskell.">
+<meta property="og:title" content="Chapter 4 Discussion III" />
+<meta property="og:description" content="Lots of problems so you can practice writing Haskell." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-03/" />
+
+<meta itemprop="name" content="Chapter 4 Discussion III">
+<meta itemprop="description" content="Lots of problems so you can practice writing Haskell."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Chapter 4 Discussion III"/>
+<meta name="twitter:description" content="Lots of problems so you can practice writing Haskell."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-03/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Chapter 4 Discussion III</h1>
+<div class="lead">Lots of problems so you can practice writing Haskell.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-0d993939fa47bc0d8df7ecd785f077f0">Test cases for Chapter 4 Discussion III</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>All of these problems are stolen from
+<a href="https://codingbat.com">CodingBat</a>.
+Write function signatures as well as the actual function.</p>
+<p>Make sure to write a list of test cases so you have thought through
+what every part of the problem description means before you start
+coding.</p>
+<p>Some test cases <a href="ch04disc03tests.hs">as a haskell file</a> or <a href="/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-03/ch04disc03tests/">as a web
+page</a></p>
+<ol>
+<li>
+<p>(<a href="https://codingbat.com/prob/p137188"><code>makeLast</code></a>): Given a list of <code>Int</code>, return a new list twice the
+length of the original. The last element of the result is
+the same as the last element of the original list, and all
+other elements are 0.</p>
+</li>
+<li>
+<p>(<code>swapEnds</code>) Given a list, return a new list with the first and last elements
+exchanged.</p>
+</li>
+<li>
+<p>(<code>unluckyOne</code>) Say that a 1 immediately followed by a 3 in a list
+is an &ldquo;unlucky&rdquo; 1. Return true if the given list contains an
+unlucky 1 in the first 2 or last 2 positions in the list.</p>
+</li>
+<li>
+<p><code>withoutDoubles:: Int -&gt; Int -&gt; Bool -&gt; Int</code>. The first two inputs
+represent rolls of six-sided dice ([1..6]). Return the sum of the
+inputs. If the boolean is true, if the dice show the same value,
+increment one die to the next value, wrapping around to a 1 if the
+value was a six.</p>
+<p>Examples:</p>
+<pre><code> withoutDoubles 2 3 True == 5
+ withoutDoubles 3 3 True == 7
+ withoutDoubles 3 3 False == 6
+</code></pre>
+</li>
+<li>
+<p>(<code>teenSum</code>) Given 2 ints, return their sum. However, &ldquo;teen&rdquo; values
+in the range 13..19 inclusive, are extra lucky. So if either value
+is a teen, just return 19.</p>
+</li>
+<li>
+<p>(<code>teaParty</code>) We are having a party with amounts of tea and
+candy. Return the int outcome of the party encoded as 0=bad,
+1=good, or 2=great. A party is good (1) if both tea and candy are
+at least 5. However, if either tea or candy is at least double the
+amount of the other one, the party is great (2). However, in all
+cases, if either tea or candy is less than 5, the party is always
+bad (0).</p>
+</li>
+<li>
+<p>(<code>xyBalance</code>) We&rsquo;ll say that a String is xy-balanced if for all the
+&lsquo;x&rsquo; chars in the string, there exists a &lsquo;y&rsquo; char somewhere later in
+the string. So &ldquo;xxy&rdquo; is balanced, but &ldquo;xyx&rdquo; is not. One &lsquo;y&rsquo; can
+balance multiple &lsquo;x&rsquo;s. Return true if the given string is
+xy-balanced.
+Examples:</p>
+<pre><code>  xyBalance &quot;pixxa&quot; == False
+  xyBalance &quot;pixely art&quot; == True
+  xyBalance &quot;xay anythxng&quot; == False
+</code></pre>
+</li>
+<li>
+<p>(<code>unluckyOne2</code>) Continuing the <code>unluckyOne</code> problem, return true if a
+list contains an unlucky 1 in any position.</p>
+</li>
+</ol>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0d993939fa47bc0d8df7ecd785f077f0">1 - Test cases for Chapter 4 Discussion III</h1>
+    
+	<pre tabindex="0"><code>withoutDoubles :: Int -&gt; Int -&gt; Bool -&gt; Int
+withoutDoubles = undefined
+
+testWithout = [withoutDoubles 2 3 True == 5
+              , withoutDoubles 3 3 True == 7
+              , withoutDoubles 3 3 False == 6
+              ]
+
+xyBalance :: String -&gt; Bool
+xyBalance = undefined
+
+testXY = [xyBalance &#34;pixxa&#34; == False
+         , xyBalance &#34;pixely art&#34; == True
+         , xyBalance &#34;xay anythxng&#34; == False
+         ]
+
+teaParty :: Int -&gt; Int -&gt; Int
+teaParty tea candy = undef
+   where good = 1
+         great = 2
+         bad = 0
+
+testTea = [ bad == teaParty 1 3
+          , bad == teaParty 0 20
+          , good == teaParty 7 9
+          , great == teaParty 6 12
+          , great == teaParty 15 7
+          , bad == teaParty 2 7
+          , bad == teaParty 7 2
+           ]
+     where good = 1
+           great = 2
+           bad = 0
+
+unluckyOne2 :: [Int] -&gt; Bool
+unluckyOne2 = undefined
+
+testUnlucky12 = [ True == unluckyOne2 [1,3,5,9]
+                , True == unluckyOne2 [7,1,3,5,9]
+                , True == unluckyOne2 [9,3,1,3]
+                , False == unluckyOne2 [9,3,1,4,3]
+                , False == unluckyOne2 []
+                , False == unluckyOne2 [2,1,5,3]
+                ]
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

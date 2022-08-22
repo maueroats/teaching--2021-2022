@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch03/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>3. Types and Typeclasses | WY CS</title>
+<meta name="description" content="Typeclasses abstract characteristics of types like String or Int.">
+<meta property="og:title" content="3. Types and Typeclasses" />
+<meta property="og:description" content="Typeclasses abstract characteristics of types like String or Int." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch03/" />
+
+<meta itemprop="name" content="3. Types and Typeclasses">
+<meta itemprop="description" content="Typeclasses abstract characteristics of types like String or Int."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3. Types and Typeclasses"/>
+<meta name="twitter:description" content="Typeclasses abstract characteristics of types like String or Int."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">3. Types and Typeclasses</h1>
+<div class="lead">Typeclasses abstract characteristics of types like String or Int.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-6e1f1c7c71c6c085a9a30c3e98cf635a">Chapter 3 Reading Guide</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-b82f41f04e32e81611d56de52e971f3f">Chapter 3 Problem Set</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-b042575da5837465c2a8c1987ba7102a">Chapter 3 Walkthrough</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3b1a99426aadcf3c71e43450f0183564">Chapter 3 Daily 01</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-c7c3b827e26dc4a75f18a4d8bb1a0b99">Chapter 3 Daily 02</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-8b9b213a993d449ba0f40bc2517c3cac">Chapter 3 Daily 03</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-ff80f1ee2c3697714ffdc82c4f6ee2a5">Chapter 3 Daily 04</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-f357cabbb71cbc0df7634be94bfb7333">Chapter 3 Daily 05 HW</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-819a41ddf1083a7e6856e4777ca4a008">Chapter 3 Daily 06</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-ea1e02154fb01cc8f3ef62b197d07a54">Chapter 3 Daily 07</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-9f5f2d938f3cb5614f01c0fb506a6b06">Chapter 3 Quiz 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-3c9ce6f676937492879af6466b2728a1">Chapter 3 Test 2019</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-da9cc3dd046cc9916cbf1e42a9d10a82">Chapter 3 Test 2019-10</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>Types categorize the kinds of data that appear in a program. Typeclasses provide general abilities that different types can have.</p>
+<p>For example, String is a type which means a list of characters. Show is a typeclass. Every type implementing Show will have a &ldquo;show&rdquo; method that converts it to a string (the method does not need to have the same name as the typeclass).</p>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-reading-guide-haskell/" >Chapter 3 Reading Guide</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-hw1/" >Chapter 3 Problem Set</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-walkthrough/" >Chapter 3 Walkthrough</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-01/" >Chapter 3 Daily 01</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-02/" >Chapter 3 Daily 02</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-03/" >Chapter 3 Daily 03</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-04/" >Chapter 3 Daily 04</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-05/" >Chapter 3 Daily 05 HW</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-06/" >Chapter 3 Daily 06</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/daily-07/" >Chapter 3 Daily 07</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-quiz-2/" >Chapter 3 Quiz 2</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-test-2019/" >Chapter 3 Test 2019</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-test-2019-10/" >Chapter 3 Test 2019-10</a></li>
+</span></p>
+</ul>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6e1f1c7c71c6c085a9a30c3e98cf635a">1 - Chapter 3 Reading Guide</h1>
+    <div class="lead">We learn about types and typeclasses. Types are familiar. Typeclasses are more abstract - roughly, they specify abilities.</div>
+	<p>You should use valid Haskell types in all of your answers. Unless needed, I stick with Int for the type for integers.</p>
+<h2 id="basics">Basics</h2>
+<ol>
+<li>
+<p>How do you find the type of an expression (when using the interpreter)?</p>
+</li>
+<li>
+<p>What is the type of a string, written in correct Haskell type syntax?</p>
+</li>
+<li>
+<p>What is the type of the expression (5 == 5)?</p>
+</li>
+<li>
+<p>What is the type signature for a function that takes in an integer and puts out a string?</p>
+</li>
+<li>
+<p>What is the type signature for a function that takes in two integers and multiplies them?</p>
+</li>
+<li>
+<p>What is the type of (factorial 50) from the book? How is that different from an Int?</p>
+</li>
+<li>
+<p>Write the signature of a function <code>prob7</code> that takes in a number
+(an integer) and puts out a string.</p>
+</li>
+<li>
+<p>What is the correct way to write the type signature of a function
+<code>prob8</code> that take single number (integer) and a list of numbers
+(integers) and puts out a list of numbers (integers)?</p>
+</li>
+<li>
+<p>Find out the difference between Float and Double. Summarize it here.</p>
+</li>
+<li>
+<p>How can you tell whether the text &ldquo;string&rdquo; in a program refers to a variable or a type?</p>
+</li>
+<li>
+<p>Write the type signature for:</p>
+<ol>
+<li>snd</li>
+<li>repeat</li>
+<li>init</li>
+</ol>
+</li>
+</ol>
+<h2 id="class-constraints">Class Constraints</h2>
+<ol start="12">
+<li>
+<p>Where can you find a class constraint?</p>
+</li>
+<li>
+<p>What special symbol separates a class constraint from a function&rsquo;s type?</p>
+</li>
+<li>
+<p>What is the best type to give the function:</p>
+<pre tabindex="0"><code> mystery a b = if ( a &lt; b ) then &#34;A small&#34; else &#34;A large&#34;
+</code></pre></li>
+<li>
+<p>What familiar typeclass indicates that something can be written in string form?</p>
+</li>
+</ol>
+<h2 id="the-read-typeclass">The Read Typeclass</h2>
+<ol start="16">
+<li>What does being in the Read typeclass indicate?</li>
+<li>How can you convert the string &ldquo;10230&rdquo; to an integer?</li>
+</ol>
+<h2 id="miscellaneous-typeclasses">Miscellaneous Typeclasses</h2>
+<ol start="18">
+<li>What is the main use of the Enum typeclass?</li>
+<li>Aside from integers, give two other examples of things in the Enum typeclass.</li>
+<li>What typeclass tells you that something has a largest and smallest value?</li>
+<li>How would you find the smallest possible Int in Haskell?</li>
+</ol>
+<h2 id="math">Math</h2>
+<ol start="22">
+<li>What is the difference between 5 and (5 :: Int)?</li>
+<li>Can you do this math?
+<ol>
+<li>3.2 * (5 :: Int)</li>
+<li>5.63 * 20</li>
+</ol>
+</li>
+<li>What will happen when you use the following function?
+listBigSize aList = 3 * (length aList)</li>
+</ol>
+<h2 id="integral-vs-floating">Integral vs Floating</h2>
+<ol start="25">
+<li>
+<p>The last function discussed in the chapter is the most important by far.</p>
+<ol>
+<li>Write its name and signature here.</li>
+<li>What is it used for?</li>
+</ol>
+</li>
+<li>
+<p>Programming exercise: the quadratic formula. Write and test a function that takes in a,b, and c, and produces the larger root of ax^2+bx+c. (Assume there is at least one real root.)</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b82f41f04e32e81611d56de52e971f3f">2 - Chapter 3 Problem Set</h1>
+    
+	<p>The essentials of the Types and Typeclasses chapter are: writing type
+signatures for functions, reading string inputs with the <code>Read</code> class,
+and dealing with Integral to Fractional conversions when they are needed.</p>
+<ol>
+<li>
+<p>You can explicitly say what type a number is by using two
+colons and the type you want - for example, (5::Int) or
+(5::Float). Find the types of each of the operations below, or say <em>in English</em>
+why it does not work. Do not just copy error messages.</p>
+<ul>
+<li>(/)</li>
+<li>(5::Int) / (10::Int)</li>
+<li>(5::Int) / (10::Float)</li>
+<li>(5::Float) / (10::Float)</li>
+</ul>
+</li>
+<li>
+<p>Write a function to find the average of numbers in a list. This
+should bring up the difficulty that you cannot divide an integer by an integer(!).</p>
+<p>Examples: <code>avg [10,20]</code> should give <code>15</code> or <code>15.0</code>, and <code>avg [3.5, 4.5]</code> should give <code>4.0</code>.</p>
+</li>
+<li>
+<p>Write a signature and function body for <code>add10Word</code> which reads an
+integer from a string and adds 10 to it.</p>
+<p>Example: <code>add10Word &quot;15&quot;</code> should produce <code>25</code>.</p>
+</li>
+<li>
+<p>Write a signature and function body for <code>numberInSentence</code>, which
+takes a number and returns the sentence &ldquo;I have ___ pounds of flour.&rdquo;</p>
+<p>Example: <code>numberInSentence 5.5</code> reports &ldquo;I have 5.5 pounds of flour.&rdquo;</p>
+</li>
+<li>
+<p>Write a signature and function body for <code>doubleDebt</code> which takes a
+String and puts out a Float. The String contains a floating point
+number that represents how much money someone owes, and the Float output
+is twice that much.</p>
+<p>Example: <code>doubleDebt &quot;50.10&quot;</code> produces <code>100.20</code>.</p>
+</li>
+<li>
+<p>Write a signature and function body for <code>sampleStdDev</code> that finds
+the [sample standard deviation]
+(<a href="https://en.wikipedia.org/wiki/Standard_deviation">https://en.wikipedia.org/wiki/Standard_deviation</a>) of a list of
+(the right kind of) numbers. Check the type signature for square
+root (<a href="http://hoogle.haskell.org/?hoogle=sqrt&amp;scope=set%3Ahaskell-platform"><code>sqrt</code></a>)!</p>
+<p>Please do not skip this problem with the excuse that you do not know how to find standard deviation. Look it up or ask someone who knows!</p>
+</li>
+<li>
+<p><em>Possibly Challenging</em>: Write the function <code>median</code> to find the
+median of a list of items that can be ordered. (Use the type <code>Int</code>, if
+you prefer.) Assume the list is sorted.</p>
+</li>
+</ol>
+<p>We will learn how to sort a list later, but it goes like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Data.List</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">result</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">sort</span> <span style="color:#000">xs</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b042575da5837465c2a8c1987ba7102a">3 - Chapter 3 Walkthrough</h1>
+    
+	<h1 id="cubes">Cubes</h1>
+<ul>
+<li>List: all perfect cubes divisible by 16 and less than N.</li>
+<li>Write signature.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">cubes</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">64</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">cubes</span> <span style="color:#0000cf;font-weight:bold">600</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">64</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">512</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><hr>
+<h1 id="partial-average">Partial Average</h1>
+<ul>
+<li>Average first N items of a list.</li>
+<li>Write signature.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">partAvg</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">50</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10000</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">25</span>
+</span></span></code></pre></div><hr>
+<h1 id="say-gpa">Say GPA</h1>
+<ul>
+<li>Make a string &ldquo;My GPA is 3.10&rdquo;.</li>
+<li>Number is parameter.</li>
+<li>Write signature.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">sayGPA</span> <span style="color:#0000cf;font-weight:bold">3.10</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;My GPA is 3.10&#34;</span>
+</span></span></code></pre></div><hr>
+<h1 id="count-up-i">Count Up I</h1>
+<ul>
+<li>Given start and end numbers, print a string.</li>
+<li>Usage: <code>countUp 3 7</code></li>
+<li>Result:  &ldquo;I can count from 3 to 7: [3, 4, 5, 6, 7]&rdquo;</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">countUp</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">7</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;I can count from 3 to 7: [3, 4, 5, 6, 7]&#34;</span>
+</span></span></code></pre></div><hr>
+<h1 id="count-up-ii">Count Up II</h1>
+<ul>
+<li>Given strings containing start and end numbers, as if typed.</li>
+<li>Same as Count Up I.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">countUpII</span> <span style="color:#4e9a06">&#34;3&#34;</span> <span style="color:#4e9a06">&#34;7&#34;</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;I can count from 3 to 7: [3, 4, 5, 6, 7]&#34;</span>
+</span></span></code></pre></div><hr>
+<h1 id="need-read">Need <code>read</code>?</h1>
+<p>Use type signatures and helper functions.</p>
+<hr>
+<h1 id="sample-standard-deviation">Sample Standard Deviation</h1>
+<p>Input a list of numbers, say there are n of them.</p>
+<ol>
+<li>Find the average (called &ldquo;xbar&rdquo;).</li>
+<li>Find the sum of (x-xbar)^2 for each x in the list.</li>
+<li>Divide by n-1.</li>
+<li>Take the square root.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3b1a99426aadcf3c71e43450f0183564">4 - Chapter 3 Daily 01</h1>
+    
+	<p>Design process:</p>
+<ul>
+<li>examples which turn into checkExpects</li>
+<li>signatures</li>
+<li>break down into simple pieces</li>
+</ul>
+<p>The checks that you write should go from simple to complicated, giving
+you a road map for how to build the function.</p>
+<ol>
+<li>
+<p><code>ct</code>: Convert a list of base 2 digits into an integer.</p>
+<pre><code> 46 == ct [1,0,1,1,1,0] 
+</code></pre>
+</li>
+<li>
+<p><code>tobin</code>: Convert an integer into a list of base 2 digits.</p>
+<pre><code> [1,0,1,1,1,0] == tobin 46
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c7c3b827e26dc4a75f18a4d8bb1a0b99">5 - Chapter 3 Daily 02</h1>
+    
+	<ol>
+<li>
+<p>(<code>hd</code>) Write a helper function take in a single integer between 0
+and 15 (inclusive) and return a string containing the corresponding
+hexadecimal digit. The digits are 10=&ldquo;A&rdquo;, 11=&ldquo;B&rdquo;, etc.</p>
+<pre><code> &quot;B&quot; == hd 11
+</code></pre>
+</li>
+<li>
+<p>(<code>hexShow</code>) Take in a list of values of hexadecimal digits (so
+integers, like <code>[10,11]</code>. Output a string with the hex number
+&ldquo;AB&rdquo;.</p>
+<pre><code> &quot;F00D&quot; == hexShow [15,0,0,13]
+</code></pre>
+</li>
+<li>
+<p>(<code>hexDec</code>) Input a list of values of hexadecimal digits, like
+<code>[15,0,0,13]</code> and output the value of the actual number.</p>
+<pre><code> 61453 == hexDec [15,0,0,13]
+</code></pre>
+<p>Each number represents the decimal value of a base 16
+digit:</p>
+<pre><code> 15*16^3 + 0*16^2 + 0*16^1 + 13*16^0
+</code></pre>
+</li>
+<li>
+<p>Later we will write <code>hexParse :: String -&gt; [Int]</code> to produce a the
+list of values of hexadecimal digits.</p>
+<pre><code> [15,0,0,13] == hexParse &quot;F00D&quot;
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8b9b213a993d449ba0f40bc2517c3cac">6 - Chapter 3 Daily 03</h1>
+    
+	<p>Old school multiplication problems have work that looks like this:</p>
+<pre><code>  123
+ x 45
+ ----
+  615
+ 4920
+ ----
+ 5535
+</code></pre>
+<p>The top two numbers are the inputs, and the bottom number is the
+output, which is easy to get the computer to find. In between are the
+partial products.</p>
+<p>You are writing a <code>partialProducts</code> function that produces a list of
+partial products.</p>
+<pre><code>partialProducts 123 45 == [615, 4920]
+</code></pre>
+<p>If you get this function to work, then consider how to make a partial
+products function that works in different bases (showing everything in
+the base you are working on).</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ff80f1ee2c3697714ffdc82c4f6ee2a5">7 - Chapter 3 Daily 04</h1>
+    
+	<p>The number reverse function, <code>nr: Int -&gt; Int</code> reverses the order of
+the base 10 digits of a number.</p>
+<pre><code>nr 60201 == 10206
+</code></pre>
+<p>Helper functions:</p>
+<ul>
+<li><code>digits 60201 == [6,0,2,0,1]</code></li>
+<li><code>undigits [1,0,2,0,6] == 10206</code></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f357cabbb71cbc0df7634be94bfb7333">8 - Chapter 3 Daily 05 HW</h1>
+    
+	<!--
+2. (SKIP, NO QUESTION) Binary decimals: the binary number 110.101 means 
+
+        2**2 + 2**1 + 2**(-1) + 2**(-3) == 6.625
+
+    Haskell does not believe in negative exponents for integers (using
+    `^`), but will happily do them for decimals (`**`). Check the type
+    signatures... when the inputs to a function are integers, expect
+    the output to be an integer as well.
+-->
+<p>Some <a href="examples.hs">longer example tests</a> are available. <a href="read-lyrics.hs">Additional
+example</a> showing how to read a bunch of lyrics from a file (for
+a cool thing to encrypt in problem 8).</p>
+<ol>
+<li>
+<p>How many numbers are between two given binary numbers, including
+the start and end number?</p>
+<pre><code> bcount :: [Int] -&gt; [Int] -&gt; Int
+ bcount [1,0,0,1,1] [1,1,0,1,0] == 8
+</code></pre>
+</li>
+<li>
+<p>(<code>ensureLen :: Int -&gt; [Int] -&gt; [Int]</code>). The call <code>ensureLen 6 xs</code>
+add leading zeros to <code>xs</code> if necessary to ensure it has a length of at least 6.</p>
+<pre><code> ensureLen 4 [1] == [0,0,0,1]
+ ensureLen 3 [1,0,1,0,1] == [1,0,1,0,1]
+</code></pre>
+</li>
+<li>
+<p>(<code>and' :: Int -&gt; Int -&gt; Int</code>). Helper function. Give 1 if both
+inputs are 1, otherwise 0.</p>
+</li>
+<li>
+<p>(<code>bitwiseAnd</code>) Given two binary integers <code>a</code> and <code>b</code> (represented
+as lists of 0 and 1), produce the
+binary number given by lining up the ones places and the then
+&ldquo;and&rdquo;-ing the digits of <code>a</code> and <code>b</code> together.
+The shorter number should be padded
+with zeros to be the same length as the long number.</p>
+</li>
+<li>
+<p>(<code>bitwise</code>) Given a binary operation (<code>op :: Int -&gt; Int -&gt; Int</code>) and two
+binary integers, create a number by performing the operation bitwise
+as in the previous exercise. The shorter number should be padded
+with zeros to be the same length as the long number.</p>
+<p>The type signature for <code>op</code> in the big <code>bitwise</code> signature is
+<code>(Int-&gt;Int-&gt;Int)</code>.  Example:</p>
+<pre><code> xor' :: Int -&gt; Int -&gt; Int
+ xor' a b = if a == b then 0 else 1
+
+ bitwise xor' [1,0,1,0] [0,1,1,0] = [1,1,0,0]
+</code></pre>
+</li>
+<li>
+<p><code>txtToBin :: String -&gt; [[Int]]</code>. Translate a string into a list of
+binary numbers using the location each character is found in the
+(abbreviated) list below. If a character is not found, produce the
+empty list to represent it.</p>
+<pre><code> [space]A-Za-z0-9.
+</code></pre>
+</li>
+<li>
+<p><code>binToMsg :: [[Int]] -&gt; [Int]</code>. Make sure each binary number is 6
+digits, and then concatenate all of the binary
+numbers into one long list of integers.</p>
+</li>
+<li>
+<p><code>msgDecode :: [Int] -&gt; String</code>. Now decode the big binary number,
+changing it back into text.</p>
+</li>
+<li>
+<p><code>encrypt :: String -&gt; String -&gt; String</code>. The encrypt function takes
+in a message string and a key string. The encryption lines up the
+letters in the message and the string, changes the characters into
+binary numbers, joins the binary numbers with <code>xor</code>, and then
+changes the resulting number back into a string. The string will be
+nonsense.</p>
+<pre><code> encrypt &quot;Key&quot; &quot;Secret&quot;
+</code></pre>
+<p>The key is repeated and lined up with the secret message, then
+the values of the binary numbers are combined with <code>xor</code>.</p>
+<pre><code> &quot;KeyKeyK&quot;
+ &quot;Secrets&quot;
+ &quot;X tm cl&quot;
+</code></pre>
+<p>Note: this function is likely to require helper functions!</p>
+</li>
+<li>
+<p><code>decrypt :: String -&gt; String -&gt; String</code>. Given an encrypted
+message and a key, reverse the encryption process. This is kind of
+tricky without experimentation; try just re-encrypting the message and see if you can figure out a pattern.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-819a41ddf1083a7e6856e4777ca4a008">9 - Chapter 3 Daily 06</h1>
+    
+	<p>Write the type signature and function for each problem.</p>
+<ol>
+<li>
+<p>Add a 3 to the front of a list of numbers.</p>
+</li>
+<li>
+<p>Add a 4 to the back of a list of numbers.</p>
+</li>
+<li>
+<p>Add a 5 in the middle of a list of numbers. If possible, insert the
+5 so there are exactly the same number of numbers before and after
+it, otherwise put the extra number after it.</p>
+</li>
+<li>
+<p>Switch the front and back number in a list of numbers. Leave the
+others the same.</p>
+</li>
+<li>
+<p>Delete the middle number of a list of numbers. Assume the length is odd.</p>
+</li>
+<li>
+<p><code>delRange start end numList</code>: Remove items from index <code>start</code>
+through index <code>end</code> from the numbers list.</p>
+<pre><code> delRange 1 4 [10,11,12,13,14,15] == [10,15]
+ delRange 3 7 &quot;PlatypusFiesta&quot; == &quot;PlaFiesta&quot;
+
+ Work:
+ PlatypusFiesta
+ 01234567Fiesta
+</code></pre>
+</li>
+<li>
+<p>(<code>moveOdd</code>) Move any odd numbers from the start of a list to the end. Stop
+moving when you find an even number. If there are no even numbers,
+the list does not change.</p>
+<pre><code> moveOdd [1,3,4,5,6] == [4,5,6,1,3]
+ moveOdd [2,3,5,7,9] == [2,3,5,7,9]
+</code></pre>
+</li>
+<li>
+<p>(<code>vDub</code>) Double all of the vowels in a word.</p>
+<pre><code> vDub &quot;Alligator&quot; == &quot;AAlliigaatoor&quot;
+</code></pre>
+</li>
+</ol>
+<h2 id="note">Note</h2>
+<p>Using <code>if</code> statements for 7 and 8 is fine. Your code might feel more
+like &ldquo;Racket code&rdquo; for those&hellip; until we learn about
+<a href="http://learnyouahaskell.com/syntax-in-functions#guards-guards">guards</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ea1e02154fb01cc8f3ef62b197d07a54">10 - Chapter 3 Daily 07</h1>
+    
+	<h1 id="daily-7-not-quiz">Daily 7 (Not Quiz)</h1>
+<h2 id="agenda">Agenda</h2>
+<ul>
+<li>
+<p>Mention and demo: <code>if-then</code> and guards</p>
+</li>
+<li>
+<p>Recursion Practice</p>
+</li>
+<li>
+<p>Introduction to number bases: base 2, base 16</p>
+<ul>
+<li>How do you write digits larger than 10?</li>
+<li>Math practice</li>
+</ul>
+</li>
+</ul>
+<h2 id="making-choices">Making Choices</h2>
+<!--
+1. Write a function `q1 :: Int -> Int` that gives 100 when you put in 2,
+   and otherwise gives 0.
+   -->
+<ol>
+<li>
+<p>Have the computer make a list of all of the perfect fourth powers
+between 1000 and 5000.</p>
+</li>
+<li>
+<p>Write a function <code>q2 :: Int -&gt; String</code> that gives &ldquo;Stone&rdquo; when the
+input is 2, &ldquo;Soup&rdquo; when the input is 1, and otherwise gives
+&ldquo;Hungry&rdquo;.</p>
+</li>
+<li>
+<p>Modify your function so that instead of &ldquo;Hungry&rdquo; it returns the
+string version of the number. Examples:</p>
+<pre><code> q2 10 == &quot;10&quot;
+ q2 8 == &quot;8&quot;
+</code></pre>
+</li>
+<li>
+<p>Write a function <code>q4 :: Int -&gt; Int</code> so that <code>q4 x</code> so that an input
+of 3 gives 1000, an input of 4 gives 900, and any other input x
+gives an output of <code>900-10*x</code>.</p>
+</li>
+<li>
+<p>Write a specific signature that works for the function <code>q5</code>
+below. (No &ldquo;generic typeclasses&rdquo; like <code>Num</code>.)</p>
+<pre><code> q5 a b c = (zip a [1..]) ++ [(b, sum [length d | d &lt;- c])]
+</code></pre>
+</li>
+</ol>
+<h1 id="daily-8-quiz">Daily 8 (Quiz)</h1>
+<h2 id="problem-solving">Problem Solving</h2>
+<!--
+Recursion Practice
+1. (numLen) Given a list of digits, return the
+   length of the list without counting any leading zeros. 
+   
+        numLen [0,0,1,1,0,0,0,1] == 5
+-->
+<ol>
+<li>
+<p>Without using explicit recursion, count how many numbers in a list
+are less than 5.</p>
+<pre><code> below5 [1,3,5,7,9,11] == 2
+</code></pre>
+</li>
+<li>
+<p>Using recursion but without an explicit <code>if-then-else</code> statement,
+count how many times the word &ldquo;moon&rdquo; appears in a list.</p>
+<pre><code> countMoon [&quot;cow&quot;,&quot;moon&quot;,&quot;a&quot;,&quot;b&quot;,&quot;moon&quot;] == 2
+</code></pre>
+</li>
+<li>
+<p>Count how many times the consecutive digits 109 appear in a
+number.</p>
+<pre><code> my109 :: Integer -&gt; Integer
+ my109 12310987109109 == 3
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9f5f2d938f3cb5614f01c0fb506a6b06">11 - Chapter 3 Quiz 2</h1>
+    
+	<p>Write a Haskell program to do each of the following.</p>
+<ol>
+<li>
+<p>Multiply all of the integers from 2 through 50, inclusive.</p>
+</li>
+<li>
+<p>Give a list of integer coordinate points (x,y) on the graph
+y=5x^2-80 that have y-coordinate less than 100.</p>
+</li>
+<li>
+<p>Write a signature and function for <code>triplePay</code>:</p>
+<pre><code> triplePay &quot;$75.15&quot; == 225.45
+</code></pre>
+<ul>
+<li>signature</li>
+<li>function definition</li>
+</ul>
+</li>
+</ol>
+<p>It is acceptable if your numbers print with an extra 0.00001 (or
+something similar).</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3c9ce6f676937492879af6466b2728a1">12 - Chapter 3 Test 2019</h1>
+    
+	<p><strong>Write type signatures for each function.</strong></p>
+<p>On a piece of paper, a person has written what they claim are the
+results of flipping a coin 120 consecutive times, writing heads as 1
+and tails as 0. The numbers are written in rows of 10.</p>
+<ol>
+<li>
+<p>(<code>q1</code>) A human transcribed the numbers into a computer, but in order to
+make it easier to type quickly, they type &lsquo;x&rsquo; for 1 and &lsquo;c&rsquo; for 0.
+They still break the data every line. Translate the data into
+numbers.</p>
+<pre><code> [[1,0,1,0,1,0,1,1,1,0],
+  [1,0,1,1,0,1,1,1,0,0]] == 
+    q1 [&quot;xcxcxcxxxc&quot;, &quot;xcxxcxxxcc&quot;]
+</code></pre>
+</li>
+<li>
+<p>(<code>q2</code>) The nested list format is good for writing, but not necessarily the
+best for analyzing. Write a program to &ldquo;flatten&rdquo; the nested input
+lists into one great big long list.</p>
+<pre><code> [1,0,1,0,1,0,1,1,1] ==
+    q2 [[1,0,1,0], [1,0,1,1,1]]
+</code></pre>
+</li>
+<li>
+<p>(<code>q3</code>) Now you start to suspect that the person may not actually
+have flipped a coin 120 times, so you want to find out how many
+heads and tails they actually got. Take in a flattened list (like
+<code>q2</code> outputs) and output a tuple containing the number of 0s and
+number of 1s in the data.</p>
+<pre><code> (3, 6) ==  q3 [1,0,1,0,1,0,1,1,1]
+</code></pre>
+</li>
+<li>
+<p>(<code>q4</code>) One way in which random data and human-faked data are
+different is that humans tend to make shorter runs of the same
+number than actually occur in truely random data. You are going to
+write a program to find the length of the first run of the same
+number.</p>
+<pre><code> 5 == q4 [1,1,1,1,1,0,1,0,0,0,0,0,0,0]
+</code></pre>
+</li>
+<li>
+<p>(<code>q5</code>) Now write a function that outputs a list of all of the run-lengths.</p>
+<pre><code> [5,1,1,7] == q5 [1,1,1,1,1,0,1,0,0,0,0,0,0,0]
+</code></pre>
+</li>
+<li>
+<p>(<code>q6</code>) <em>Bonus</em> Given the output from <code>q5</code>, produce a list of tuples
+(run length, number of runs of that length). Order does not matter.</p>
+<pre><code> [(1,2),(5,1),(7,1)] == q6 $ q5 [1,1,1,1,1,0,1,0,0,0,0,0,0,0]
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da9cc3dd046cc9916cbf1e42a9d10a82">13 - Chapter 3 Test 2019-10</h1>
+    
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>You may use the book, but not other reference materials, especially not Stack
+Overflow or any of your old homework.</p>
+<ol>
+<li>
+<p>Find the product of all odd negative integers greater than -2017.
+Create a tuple called <code>answer1</code> containing the sign (+1
+or -1) and the last two digits (the tens and units digit). Example:</p>
+<pre><code> answer1 = (-1, 23)
+</code></pre>
+</li>
+<li>
+<p>Create a list of lists to represent the inside of <a href="https://en.wikipedia.org/wiki/File:Vigen%C3%A8re_square_shading.svg">this Vigènere
+cipher table</a>.</p>
+</li>
+<li>
+<p>(<code>base3</code>) Write a function to convert a number to a list
+representing the number in base 3.</p>
+<pre><code> base3 (81+9+2*3+1) == [1,0,1,2,1]
+</code></pre>
+</li>
+<li>
+<p>(<code>inCirc</code>) Given an integer <code>w</code>,  create a list of all integers <code>x</code>
+that have the property that the point <code>(x,-x)</code> (meaning $y$ is the opposite of $x$) inside the circle of
+radius <code>2*w</code> centered at <code>(w,w)</code>. This means you are looking for
+integer coordinate points on the line $y=-x$ that are within
+distance $2*w$ of the point $(w,w)$.</p>
+<p>Haskell will prefer that you call all of the points involved
+<code>Double</code>. The other choice is to write your own distance function
+and use <code>fromIntegral</code>.</p>
+<pre><code> inCirc :: Double -&gt; [Double]
+</code></pre>
+<p>You can use your own distance function or this one:</p>
+<pre><code> dist :: (Double,Double) -&gt; (Double,Double) -&gt; Double
+ dist (x0,y0) (x,y) = sqrt $ (x-x0)^2 + (y-y0)^2
+</code></pre>
+<p>Here is an image showing the situation where $w=4$ and there are 9
+integer coordinate points that are distance $d \le 8$ from $(4,4)$ and on
+the line $y=-x$.</p>
+ <figure>
+     <img src="/teaching--2021-2022/ap-cs/haskell/ch03/ch03-test-2019-10/CircleLinePic2.png" width="200"/> 
+ </figure>
+</li>
+<li>
+<p>(<code>vig</code>) You can encode messages using the table from question 2. Write a
+single letter encoder by using the letter from the message to
+choose the row and the letter from the key to choose the column:</p>
+<pre><code> vig :: Char -&gt; Char -&gt; Char
+ vig msg key = undefined
+ checkit = (vig 'C' 'X' == 'Z') -- should be True
+</code></pre>
+</li>
+<li>
+<p>(<code>vigen</code>) Enhance your single letter encoder from the previous question to
+encode messages. Take in two strings: the message and a key, and
+match up corresponding letters. (Repeat the key as necessary.)</p>
+<p><a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher#Description">An example from Wikipedia</a>
+using the secret key &ldquo;LEMON&rdquo;.</p>
+<pre><code> vigen :: String -&gt; String -&gt; String
+ vigen &quot;ATTACKATDAWN&quot; &quot;LEMON&quot; == &quot;LXFOPVEFRNHR&quot;
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

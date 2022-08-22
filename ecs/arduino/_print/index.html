@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ecs/arduino/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Arduino | WY CS</title>
+<meta name="description" content="Arduino is a microcontroller. We learn how to make computer programs that interact with their environment.">
+<meta property="og:title" content="Arduino" />
+<meta property="og:description" content="Arduino is a microcontroller. We learn how to make computer programs that interact with their environment." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ecs/arduino/" />
+
+<meta itemprop="name" content="Arduino">
+<meta itemprop="description" content="Arduino is a microcontroller. We learn how to make computer programs that interact with their environment."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arduino"/>
+<meta name="twitter:description" content="Arduino is a microcontroller. We learn how to make computer programs that interact with their environment."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ecs/" ><span class="active">ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ecs/arduino/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Arduino</h1>
+<div class="lead">Arduino is a microcontroller. We learn how to make computer programs that interact with their environment.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-30d2a8bad4aaf449bc8765ea50a54490">Arduino Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-c77d28696aad487a8450ca339cbdd4e9">Arduino Worksheet 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-e893441e4b9ef9d1ac2a8988380b5169">Potentiometer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-497a5cd2522079555cf83295bf73ddcc">Flex Sensor</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-0bfb45d13d9cf5cc62843e5a88cde074">Button</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-bafa2039cf3fa0a90c82c24ad499b6d2">Simulator</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-97017d20d1aabaaa919948f50e411cb3">All Commands</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-30d2a8bad4aaf449bc8765ea50a54490">1 - Arduino Intro</h1>
+    <div class="lead">An introduction to Arduino materials.</div>
+	<p>We use <a href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno</a>
+compatible boards, programmed with <a href="https://snap4arduino.rocks">Snap4Arduino</a>.</p>
+<p>The materials we used are based off of the <a href="https://www.sparkfun.com/">SparkFun</a> <a href="https://www.sparkfun.com/products/14265">Inventor&rsquo;s Kit</a>
+<a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/all"><strong>Experiment
+Guide</strong></a>. SparkFun
+has lots of <a href="https://learn.sparkfun.com/">learning materials</a> if you
+are interested.</p>
+<h2 id="setup">Setup</h2>
+<p>If you are not using a school computer, you will want to install the
+same software that we have:</p>
+<ul>
+<li><a href="https://www.arduino.cc/en/Main/Software#download">Arduino IDE</a></li>
+<li><a href="http://snap4arduino.rocks/#download">Snap4Arduino</a></li>
+</ul>
+<p>If you are using a school computer that does not have Snap4Arduino,
+you should install the &ldquo;MS Windows portable (64 bits)&rdquo; version.</p>
+<h2 id="day-1">Day 1</h2>
+<ul>
+<li>Identify parts: resistor, LED, Arduino board, breadboard, USB cable,
+jumper cable. See SIK book if you need pictures.</li>
+<li><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard">How to use a
+breadboard</a>.</li>
+<li><a href="https://www.instructables.com/id/Arduino-Installing-Standard-Firmata/">Install
+StandardFirmata</a>
+on an Arduino board.</li>
+</ul>
+<h2 id="day-2-led">Day 2: LED</h2>
+<p>Connect an LED to the
+breadboard: <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40/all#project-1-light">Instructions</a>.</p>
+<p>To learn:</p>
+<ul>
+<li>What is an LED?</li>
+<li>Electrical symbols for resistor, LED.</li>
+<li>Testing your circuit: &ldquo;5V -&gt; LED -&gt; Resistor -&gt; GND&rdquo;.</li>
+<li>How to draw a circuit diagram for &ldquo;Pin11 -&gt; LED -&gt; Resistor -&gt; GND&rdquo;.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://learn.sparkfun.com/tutorials/resistors/decoding-resistor-markings">Resistor color code
+table</a></li>
+<li><a href="https://docs.google.com/presentation/d/1fFVgFpBsbTn_ZIQ7Cgwu9acx9cZplltunt6muvqWDIM/edit#slide=id.g1c7ff16d5_311">Past Years Whitney Young Arduino Lessons Powerpoint</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c77d28696aad487a8450ca339cbdd4e9">2 - Arduino Worksheet 1</h1>
+    <div class="lead">Questions to make sure you know the basics of Day 1-2 Arduino.</div>
+	<ol>
+<li>
+<p>We say electricity flows from positive to negative.
+Which is 5V? GND?</p>
+</li>
+<li>
+<p>Electrical flow has an analogy with water flow (<a href="http://www.all-you-need-is-solar.com/electricity-explained.html">read an
+analogy explained</a>).
+Explain the difference between 5V and 120V of potential in terms of
+the water analogy.</p>
+</li>
+<li>
+<p>Label on the figure below:</p>
+<ul>
+<li>5V power</li>
+<li>Ground</li>
+<li>Built in LED light (connected to &ldquo;pin 13&rdquo;)</li>
+<li>Main digital pins</li>
+<li>Analog input pins</li>
+</ul>
+  <figure>
+      <img src="arduino-image-gray.jpg"/> 
+  </figure>
+</li>
+<li>
+<p>Illustrate how the holes in a breadboard are connected. There are
+several different kinds of connections, show them all.</p>
+  <figure>
+      <img src="breadboard-bw.png"/> 
+  </figure>
+<p>In particular:</p>
+<ul>
+<li>Does 2a connect to 3a?</li>
+<li>Does 4e connect to 4g?</li>
+<li>Does + on the left connect to + on the right?</li>
+<li>Does - on the right connect to + on the right?</li>
+<li>In a full-size breadboard does + in the top left connect to +
+on the bottom left?</li>
+</ul>
+</li>
+<li>
+<p>Does in matter which way you insert a resistor into a circuit?
+Explain.</p>
+</li>
+<li>
+<p>Does it matter which way you insert an LED into a circuit? Explain.</p>
+</li>
+<li>
+<p>Draw and label the electrical symbol for a resistor. (You can <a href="http://web.gps.caltech.edu/~als/IRMS/course-materials/lecture-1---electricity/circuit-symbols.pdf">look up electrical
+symbols as a
+PDF</a>
+or on an <a href="https://www.rapidtables.com/electric/electrical_symbols.html">electrical symbols web
+page</a>
+if you need to know more.)</p>
+</li>
+<li>
+<p>Draw the electrical symbol for an LED. Label the positive (+) and
+negative (-) sides. (Fancy vocabulary: positive is &ldquo;anode&rdquo;,
+negative is &ldquo;cathode&rdquo;.)</p>
+</li>
+<li>
+<p>Draw a circuit that shows an LED and a 330 Ω resistor connected
+to 5V and GND.</p>
+</li>
+<li>
+<p>There are some mistakes in the wiring below. Identify them and
+explain how to fix them. The LED is supposed to be wired so it is
+always on.</p>
+ <figure>
+     <img src="wiring-error-1-bw.jpg"/> 
+ </figure>
+</li>
+<li>
+<p>There is at least one mistake in the wiring below. Identify the
+mistake(s) and explain how to fix. The LED is wired
+so that Pin 11 can turn it on and off.</p>
+<figure>
+    <img src="wiring-error-2-bw.jpg"/> 
+</figure>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e893441e4b9ef9d1ac2a8988380b5169">3 - Potentiometer</h1>
+    <div class="lead">Turn a dial or pinch a rectangle to send a value to the computer.</div>
+	<h2 id="basic-circuit-layout">Basic circuit layout</h2>
+<p>Connect the two outside pins to power (5V, +) and ground (GND, -). It
+does not matter which. The middle pin connects to one of the &ldquo;analong
+inputs&rdquo; A0 through A5. Memorize this setup.</p>
+<figure>
+    <img src="potentiometer-only_bb.png" width="400"/> 
+</figure>
+<h2 id="basic-coding">Basic coding</h2>
+<p>The
+<scratch class="inline">analog reading () :: #468cfc reporter</scratch>
+block gets a number from 0 to 1023 for your program, based on the
+voltage of the input you select.</p>
+<p>I will use <scratch class="inline">the value :: variables reporter</scratch> for the variable that holds the reading from
+the potentiometer. You should name the variable whatever makes sense
+for you. Sometimes &ldquo;brightness&rdquo; is a good name.</p>
+
+<script src="/js/scratchblocks-v3.5.2-min.js"></script>
+<script>
+window.onload = function () {
+  console.log('MO: Loading scratchblocks');
+  scratchblocks.renderMatching('pre.scratch');
+  scratchblocks.renderMatching('scratch.inline', {inline: true});
+}
+</script>
+<pre class="scratch">
+
+when green flag clicked
+forever
+  set [the value v] to (analog reading (2) :: #468cfc) 
+  say (the value) for (0.5) seconds
+  set pin (9 v) to value ((the value) / (4)) :: #468cfc
+
+</pre>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-497a5cd2522079555cf83295bf73ddcc">4 - Flex Sensor</h1>
+    <div class="lead">The basics of connecting a flex sensor.</div>
+	<p>Connect the flex sensor and a 10,000 ohm resistor. One end of the
+assembly should be 5V (+), the other end GND (-). In the middle, run
+the wire to an analog voltage sensor.</p>
+<figure>
+    <img src="flex-sensor.png"/> 
+</figure>
+
+<script src="/js/scratchblocks-v3.5.2-min.js"></script>
+<script>
+window.onload = function () {
+  console.log('MO: Loading scratchblocks');
+  scratchblocks.renderMatching('pre.scratch');
+  scratchblocks.renderMatching('scratch.inline', {inline: true});
+}
+</script>
+<pre class="scratch">
+
+when green flag clicked
+forever
+  set [flex reading v] to (analog reading (2) :: #468cfc) 
+  say (flex reading) for (0.5) seconds
+  set pin (9 v) to value ((flex reading) / (4)) :: #468cfc
+
+</pre>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0bfb45d13d9cf5cc62843e5a88cde074">5 - Button</h1>
+    <div class="lead">Adding a push button to your circuit.</div>
+	<p>A button is a digital device, it reads either pressed or not pressed.
+The Arduino is set up to consider a reading of 5V as &ldquo;true&rdquo;, so with
+the circuit below,
+<scratch class="inline">digital reading () :: #468cfc reporter</scratch>
+gives true when the button is <em>not</em> pressed.</p>
+<figure>
+    <img src="button-1.png"/> 
+</figure>
+<p>I will use
+<scratch class="inline">button pressed? :: variables reporter</scratch>
+for the variable that holds the reading from
+the button.</p>
+
+<script src="/js/scratchblocks-v3.5.2-min.js"></script>
+<script>
+window.onload = function () {
+  console.log('MO: Loading scratchblocks');
+  scratchblocks.renderMatching('pre.scratch');
+  scratchblocks.renderMatching('scratch.inline', {inline: true});
+}
+</script>
+<pre class="scratch">
+
+when green flag clicked
+forever
+  set [button pressed? v] to < not < digital reading (10) :: #468cfc> >
+  if (button pressed?) then
+    say [Pressed] for (0.5) seconds
+  else
+    say [Not Pressed] for (0.5) seconds
+
+</pre>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bafa2039cf3fa0a90c82c24ad499b6d2">6 - Simulator</h1>
+    <div class="lead">Notes on how to use TinkerCad simulator.</div>
+	<p><a href="https://www.tinkercad.com">TinkerCad</a> provides a simulator.</p>
+<p>Sign up for an account and log in.
+Lost? Click on the TinkerCad logo in the upper left corner.</p>
+<ul>
+<li>
+<p>Left side bar: &ldquo;Circuits&rdquo;</p>
+  <figure>
+      <img src="tinkercad-circuits-marked.png" width="150"/> 
+  </figure>
+</li>
+<li>
+<p>Button: &ldquo;Create a new circuit&rdquo;</p>
+</li>
+<li>
+<p>Dropdown on right: change &ldquo;Components - Basic&rdquo; to &ldquo;Starters -
+Arduino.</p>
+  <figure>
+      <img src="tinkercad-starters-1-marked.png" width="250"/> 
+  </figure>
+</li>
+<li>
+<p>Select &ldquo;Breadboard&rdquo; and drag it out (may lag, go slow).</p>
+  <figure>
+      <img src="tinkercad-starters-2-marked.png"/> 
+  </figure>
+</li>
+<li>
+<p>Change back to &ldquo;Components - Basic&rdquo;. Search for &ldquo;potentiometer&rdquo; if
+you can&rsquo;t see it.</p>
+</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>The positive leg of the LED is longer - so you see it as bent in the picture.</li>
+<li>Pay attention to how the holes in the breadboard connect!</li>
+<li>Grab the white space on the background to move the whole assembly at
+the same time.</li>
+<li>Rotate a component is the icon in the upper left, just below the
+TinkerCad logo.</li>
+</ul>
+<h2 id="example-to-make">Example to Make</h2>
+<p>Here is an example with one light that repeats a cycle from off to dim
+to bright every 1.2 seconds.</p>
+<figure>
+    <img src="light-with-program-marked.png"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-97017d20d1aabaaa919948f50e411cb3">7 - All Commands</h1>
+    <div class="lead">Brief summary of all Arduino commands.</div>
+	<ul>
+<li>A <em>digital pin</em> output can be set to true or false. (Use the operators
+<scratch class="inline">true :: operators boolean</scratch>
+or
+<scratch class="inline">false :: operators boolean</scratch>.)</li>
+<li>A <em>PWM pin</em> output can be set to any value 0 through 255.</li>
+<li>A <em>digital reading</em> input is either true or false.</li>
+<li>An <em>analog reading</em> input is a number from 0 to 1023.</li>
+<li>Divide analog reading inputs by 4 to use the in PWM pin
+outputs. Using a larger number will work, but the actual effect
+wraps around to zero every multiple of 256.</li>
+</ul>
+<h2 id="snap4arduino-blocks">Snap4Arduino Blocks</h2>
+
+<script src="/js/scratchblocks-v3.5.2-min.js"></script>
+<script>
+window.onload = function () {
+  console.log('MO: Loading scratchblocks');
+  scratchblocks.renderMatching('pre.scratch');
+  scratchblocks.renderMatching('scratch.inline', {inline: true});
+}
+</script>
+<pre class="scratch">
+
+set digital pin ( v) to <> :: #468cfc
+
+analog reading ( v) :: #468cfc reporter
+
+set pin ( v) to value (128) :: #468cfc
+
+digital reading ( v) :: #468cfc boolean
+
+arduino connected? :: #468cfc boolean
+
+connect arduino at [] :: #468cfc
+
+disconnect arduino :: #468cfc
+
+set servo ( v) to [clockwise v] :: #468cfc
+
+</pre>
+
+<h2 id="interesting-facts">Interesting Facts</h2>
+<ul>
+<li>
+<p>Analog means continuously adjustable. Analog devices you know:
+bicycle brakes, dimmer switches on (old incandescent) lights, knobs on
+stove to adjust gas temperature.</p>
+</li>
+<li>
+<p>The Arduino can use Pulse Width Modulation vary the brightness of LEDs.
+Pulse Width refers to the fraction of the time that the electricity
+is on. Modulation means changing. Translation: the Arduino controls
+brightness by changing the fraction of time the electricity is actually
+delivered to the light.   <a href="https://learn.sparkfun.com/tutorials/pulse-width-modulation/all">Read more about pulse width
+modulation</a>.</p>
+</li>
+<li>
+<p>PWM output is sometimes called &ldquo;fake analog&rdquo;. The computer pretends
+to have a light on 50% brightness by turning it on full blast for
+50% of the time and off for the other 50% of the time (switching back
+and forth very fast so the human eye cannot see the transition).</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1466 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/universe/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>24. Universe | WY CS</title>
+<meta name="description" content="Make multi-player, multi-computer games in Racket.">
+<meta property="og:title" content="24. Universe" />
+<meta property="og:description" content="Make multi-player, multi-computer games in Racket." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/universe/" />
+
+<meta itemprop="name" content="24. Universe">
+<meta itemprop="description" content="Make multi-player, multi-computer games in Racket."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="24. Universe"/>
+<meta name="twitter:description" content="Make multi-player, multi-computer games in Racket."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/universe/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">24. Universe</h1>
+<div class="lead">Make multi-player, multi-computer games in Racket.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-396e6e1b872832717e788534a9cce8d9">Universe Overview</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-a669b9e28be3854b19ce06e8f0bc1988">U Walkthrough</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-acdc86c26651d0375fa261ed195a3ef0">Description</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.2: <a href="#pg-35a822662ebe8de4fb490c1fe3f6a767">01 Model</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.3: <a href="#pg-76d71848752fc6c776c1a3f2ed4abf4a">02 Message</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.4: <a href="#pg-cbb248449af9985f8061a8651edd333f">03 Checkpoint</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.5: <a href="#pg-78f10dcafa4ec0c1f12c1a842df37356">04 Draw-H</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.6: <a href="#pg-1c01078e2cd0e4177e3816006dc1bf66">05 Receive H</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.7: <a href="#pg-4a6d2476f676652f49389e88a2ebcefa">06 Key H</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.8: <a href="#pg-c5890fed992b8ed01878e84c8e4f6754">07 Big Bang</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.9: <a href="#pg-95dcd153344d1c0e6b6acafa6e8641e1">08 Server</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.10: <a href="#pg-b1dad60896aaf76189f5d8b59b4d73dc">09 Enhance</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-40efabd8f5f7267cf70e8573f7eaa5af">Money on the Table</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-c683d4f39c7c6a00a1635c2a55d07b08">Universe Mini Projects</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-3a6bf5e2e7a7e255460ff0cf17656552">Universe Color</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-5baf9d8b418ff4f05de17166fcc58ebb">Universe Taking Turns</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-a9557578e7351e55b5f19686a83bbc32">Universe Quiz 4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-f6b21e587cec8b42bab52a8c798b6fdb">Universe Slapjack</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-53ca0eb4554e503c96a5d650af74a23c">Universe Paint</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-757693a7b7c56bedac928cdf040a09f6">Gray Rectangles</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-f2d511ba52331054f45f3765ab86d818">Universe Resources</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-9f603cc279570ad21089b04367512d69">Universe Mistakes</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The <code>universe</code> functions let you build multiple <code>big-bang</code> windows
+that communicate with each other.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-396e6e1b872832717e788534a9cce8d9">1 - Universe Overview</h1>
+    <div class="lead">Overview of the Universe.</div>
+	<p>Universe gives a way to have multiple big-bangs communicate.</p>
+<p>Each big-bang is individually called a &ldquo;world&rdquo;. They are also called &ldquo;clients&rdquo;. There is one &ldquo;universe&rdquo; running, which is the &ldquo;server&rdquo;. The universe server coordinates all of the communication between the big-bang clients.</p>
+<p>There are some new technical additions to <code>big-bang</code>, and some recommendations for the design process.</p>
+<h2 id="technical-information">Technical Information</h2>
+<ul>
+<li>
+<p><code>(make-package model message)</code>: Returned from a handler to update the model and send a message.</p>
+</li>
+<li>
+<p>Any handler (for example: <code>key</code>,<code>mouse</code>,<code>tick</code>) can return a <code>package</code>, which updates your own model and sends a message to the server.</p>
+</li>
+<li>
+<p>New handler: <code>on-receive</code>.</p>
+<pre><code>  receive-h: model message -&gt; model
+</code></pre>
+<p>Update your model based on a message you receive from the server.</p>
+</li>
+</ul>
+<p>Reading the Racket Documentation:</p>
+<ul>
+<li><code>model</code> is called <code>WorldState</code></li>
+<li><code>HandlerResult</code> means either a model or a <code>package</code>.</li>
+</ul>
+<h2 id="design-process">Design Process</h2>
+<ul>
+<li>
+<p>Decide your <strong>big-bang model</strong> first. Use the usual process (draw
+scenes, write the model that goes with those scenes).</p>
+</li>
+<li>
+<p>Decide your <strong>universe model</strong> next. This means you need to decide
+what <strong>messages</strong> will be sent between worlds (big-bangs).</p>
+</li>
+</ul>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<ul>
+<li>The <code>on-receive</code> handler can return a <code>package</code> if needed.</li>
+</ul>
+<h2 id="code">Code</h2>
+<p><a href="generic-server-v1.rkt">Generic server</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a669b9e28be3854b19ce06e8f0bc1988">2 - U Walkthrough</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-acdc86c26651d0375fa261ed195a3ef0">2.1 - Description</h1>
+    
+	<p>This will be a step-by-step walkthrough of a very simple &ldquo;game&rdquo;. The
+goal is to guide you through each step of the process one time. Your
+goal should be to <em>understand the meaning of each step</em>, not just
+complete each step.</p>
+<p>We will make a simple multi-world &ldquo;game&rdquo;. Each world is a rectangle of
+a particular color.</p>
+<ul>
+<li>Pressing a number key K (for example &ldquo;1&rdquo; or &ldquo;2&rdquo;) causes the current world to send a
+message to world number K to change to the color of the current
+world.</li>
+<li>Pressing &ldquo;r&rdquo; randomizes the color of the current world (among some
+set of choices).</li>
+</ul>
+<h1 id="steps-in-walkthrough">Steps in Walkthrough</h1>
+<p>There are numbered steps in the sidebar.
+After each step, save all files and verify that your code runs.</p>
+<h2 id="whitney-young-videos">Whitney Young Videos</h2>
+<p>The bottom of the
+<a href="https://docs.google.com/spreadsheets/d/1tyBeCX9W4c2deKDKuOHrhImEhFDSNbIxPnvVczsCBWw/edit#gid=1191413345">II-ICS-Links</a>
+tab of the calendar has videos for each step.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-35a822662ebe8de4fb490c1fe3f6a767">2.2 - 01 Model</h1>
+    
+	<p>Every world should know its id number and a color.</p>
+<p>An <code>IC</code> is a structure.</p>
+<pre><code>(make-ic Number Image-Color)
+</code></pre>
+<p>Interpretation:</p>
+<pre><code>(make-ic id col)
+</code></pre>
+<ul>
+<li><code>id</code>: specifies the number of the world (you choose)</li>
+<li><code>col</code>: the color to show in the world</li>
+</ul>
+<p>Begin your main file with a structure definition for <code>ic</code>.</p>
+<pre><code>(define-struct ic (id col))
+</code></pre>
+<p>You will want to require picturing-programs as always.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-76d71848752fc6c776c1a3f2ed4abf4a">2.3 - 02 Message</h1>
+    
+	<p>The message structure gets its name abbreviated to &ldquo;ic-msg&rdquo; because we
+type it a lot.</p>
+<p>A <code>IC-Msg</code> is a structure.</p>
+<pre><code>(make-ic-msg Number Number Color-String)
+</code></pre>
+<p>Interpretation:</p>
+<pre><code>(make-ic-msg from to col)
+</code></pre>
+<ul>
+<li><code>from</code>: the id of the world sending the message</li>
+<li><code>to</code>: the id of the world the message is intended for</li>
+<li><code>col</code>: the new color that world is to show</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<ol>
+<li>
+<p>Change a new file to Racket language mode, so it says  &ldquo;Determine language from source&rdquo;
+at the bottom.</p>
+</li>
+<li>
+<p>The file should contain <em>only</em> these three lines below:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">#lang </span><span style="color:#000">racket</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">provide</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">all-defined-out</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define-struct</span> <span style="color:#000">ic-msg</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">from</span> <span style="color:#000">to</span> <span style="color:#000">col</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">#:prefab</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Verify that the file says &ldquo;Determine language from source&rdquo;
+after saving!!</p>
+<h2 id="common-problems">Common Problems</h2>
+<ul>
+<li>The file must be in Racket language mode. (Menu: Language -&gt; Choose
+Language &hellip; -&gt; The Racket Language)</li>
+<li>There should be no space between the <code>#:</code> and <code>prefab</code>.</li>
+</ul>
+<p>If you have problems creating the file yourself, download it using
+<a href="ic-msg.rkt">Save link as&hellip; (ic-msg.rkt)</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cbb248449af9985f8061a8651edd333f">2.4 - 03 Checkpoint</h1>
+    
+	<p>Verify that you can require and use your message structure in your
+main file.</p>
+<p>The following code snippet creates an example showing</p>
+<pre><code>(require &quot;ic-msg.rkt&quot;)
+(define ex1 (make-ic-msg 1 3 &quot;blue&quot;))
+(ic-msg-col ex1) ;; should show &quot;blue&quot;
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-78f10dcafa4ec0c1f12c1a842df37356">2.5 - 04 Draw-H</h1>
+    
+	<p>Write and test the draw handler.</p>
+<pre><code>(draw-h (make-ic 2 &quot;light blue&quot;))
+</code></pre>
+<p>produces:</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/universe/u-walkthrough/04-drawh/blue-2.png"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1c01078e2cd0e4177e3816006dc1bf66">2.6 - 05 Receive H</h1>
+    
+	<p>The receive handler&rsquo;s job is to update a world&rsquo;s model in response to
+receiving a message. The signature of the receive handler is:</p>
+<pre><code>receive-h: model message -&gt; model
+</code></pre>
+<p>In a fancy multi-player system, your world would only receive messages
+that were intended for you.</p>
+<p>We are using a very &ldquo;generic&rdquo; server, where every world gets messages
+for every other world, so the first thing you should do in your
+receive handler is to see if your own id matches the &ldquo;to&rdquo; id in the
+message.</p>
+<h2 id="examples">Examples</h2>
+<p>This example is from the perspective of world 1, which is &ldquo;orange&rdquo;
+initially. A message comes from world 2 to world 1 with the color
+&ldquo;light blue&rdquo;. World 1 should react by changing color.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">receive-h</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">&#34;orange&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic-msg</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><p>Note that other worlds will also &ldquo;hear&rdquo; the same message, and should
+ignore it. The check below shows that a &ldquo;green&rdquo; world 3 does not react
+to the same message.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">receive-h</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#4e9a06">&#34;light green&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic-msg</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#4e9a06">&#34;light green&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="coding">Coding</h2>
+<p>You should have enough coding experience now to write the code for the
+receive handler.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4a6d2476f676652f49389e88a2ebcefa">2.7 - 06 Key H</h1>
+    
+	<p>In this animation, hitting a key could change the color of this world
+or send a message:</p>
+<ul>
+<li>&ldquo;r&rdquo;: Randomizes the color of the current world.</li>
+<li>&ldquo;1&rdquo; through &ldquo;5&rdquo;: Send messages to the corresponding world 1 &hellip; 5,
+telling them to change to the current world&rsquo;s color.</li>
+</ul>
+<h2 id="sending-a-message">Sending a Message</h2>
+<p>Messages can be sent to the server from any handler by returning a
+Package instead of a model. A Package is a special struct whose only
+purpose is to allow you to perform two actions from one handler.</p>
+<p>Interpretation:</p>
+<pre><code>(make-package new-model the-message)
+</code></pre>
+<ul>
+<li><code>new-model</code> is the model that will be used by the current world</li>
+<li><code>the-message</code> is a message that will be sent to the server (and
+hence broadcast to all of the other worlds, with our server).</li>
+</ul>
+<h2 id="behavior-of-key-h">Behavior of key-h</h2>
+<p>The check below describes the situation from the point of view of
+world 2, which is currently &ldquo;light blue&rdquo;. When key &ldquo;1&rdquo; is hit, a
+message is sent from world 2 to world 1 with the color &ldquo;light blue&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">key-h</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#4e9a06">&#34;1&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-package</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ic-msg</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">&#34;light blue&#34;</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><h2 id="exercise-write-key-h">Exercise: Write key-h</h2>
+<p>Design and test a key handler with the behavior described above. Use
+<code>string-&gt;number</code> to convert the key to a world id number.</p>
+<h2 id="add-in-feature-get-color">Add in feature: get-color</h2>
+<p>The &ldquo;r&rdquo; key is supposed to randomize the color of the world in which
+it is pressed. Design and test this add in feature.  A helper function
+to choose the color is suggested.</p>
+<p><strong>Annoyance</strong>: You cannot send a <code>make-color</code> as part of a
+message. Use color words (like &ldquo;orange&rdquo;) or pick a fixed palette of
+colors and remember the number of the color.</p>
+<p>Helper: pick three or more colors and write a function <code>get-color: number -&gt; color</code> that takes in a number 0, 1, 2, &hellip;, and puts out a color like
+&ldquo;orange&rdquo;, &ldquo;light blue&rdquo;, &ldquo;light green&rdquo;, &hellip;.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">get-color</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;orange&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><p>Verify in a big-bang that pressing &ldquo;r&rdquo; randomizes the world&rsquo;s
+color.</p>
+<h2 id="discussion">Discussion</h2>
+<p>There are several questions that regularly come up in discussion.</p>
+<h3 id="just-updating-the-model">Just updating the model</h3>
+<p>When you only want to update the model, just return the updated model
+like every other Big Bang handler.</p>
+<h3 id="just-sending-a-message">Just sending a message</h3>
+<p>It is not possible to have the only action of a handler be to send a
+message. When a handler does not want to change the model, it needs to
+just return the model it received as input. Use the same idea to
+return a package with the unchanged model as the first part.</p>
+<p>As an example, the key handler below sends a message claiming to be
+from world 1 to world 2 no matter what key is hit, and no matter what
+world is running the code.</p>
+<pre><code>(define (key-h model key)
+  (make-package model (make-ic-msg 1 2 &quot;yellow&quot;)))
+</code></pre>
+<h3 id="misconceptions">Misconceptions</h3>
+<ul>
+<li>Can one world change another world&rsquo;s model? <strong>No</strong>. The first world
+can only send a message to the second world. It is up to the second
+world to perform the change based on the message it receives.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c5890fed992b8ed01878e84c8e4f6754">2.8 - 07 Big Bang</h1>
+    
+	<p>We learn how to launch more than one world at a time using
+<code>launch-many-worlds</code>.</p>
+<p>The most common way to launch more than one big-bang is by writing a
+function that runs a big-bang. The function usually takes in the name
+of the world (which is used to title the window) and the initial
+model.</p>
+<pre><code>(define (start-bang title initial)
+   (big-bang initial
+      (name title)
+      (to-draw draw-h)
+      (on-key key-h)))
+</code></pre>
+<p>You can then launch two worlds like this:</p>
+<pre><code>(launch-many-worlds
+   (start-bang &quot;first&quot; (make-ic 1 &quot;orange&quot;))
+   (start-bang &quot;second&quot; (make-ic 2 &quot;light blue&quot;)))
+</code></pre>
+<p>Test your setup with two worlds. Make sure each can randomize the
+color when you hit &ldquo;r&rdquo; in their window.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-95dcd153344d1c0e6b6acafa6e8641e1">2.9 - 08 Server</h1>
+    
+	<ul>
+<li>Download the <a href="generic-server-v1.rkt">generic server code</a>.</li>
+<li>Open the code in a new tab and run it.</li>
+<li>Without closing, return to your main file.</li>
+</ul>
+<p>Connecting a big-bang to a server is done by adding a <code>register</code>
+clause:</p>
+<pre><code>(register LOCALHOST)
+</code></pre>
+<p>You can name each window by adding a <code>name</code> clause:</p>
+<pre><code>(name &quot;My Name&quot;)
+</code></pre>
+<p>Follow the video, it&rsquo;s pretty straightforward.</p>
+<p>The most common error is not having the server running!!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b1dad60896aaf76189f5d8b59b4d73dc">2.10 - 09 Enhance</h1>
+    
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>Now that you have a working basic program, here are modifications you
+can make:</p>
+<ol>
+<li>
+<p>World 3 refuses to change its color.</p>
+</li>
+<li>
+<p>Pick one world (by id number) to the the &ldquo;random world&rdquo;
+(R-world). The R-world changes its color randomly when asked to
+change. That is, no matter what message is sent to the R-world, it
+changes to a random color. This is most interesting with 3 or more
+worlds.</p>
+</li>
+<li>
+<p>Add &ldquo;spam&rdquo; functionality (also called &ldquo;broadcast&rdquo;), so that one
+world can set the colors of all other worlds at once. Here is one
+way to do this:</p>
+<ul>
+<li>Hitting the &ldquo;spam&rdquo; key (&ldquo;s&rdquo;) sends a message to world number
+negative one (-1). That means pick a world number like $-1$ that
+no world will actually have, and use it for a special purpose.</li>
+<li>Receiving a message to world number $-1$ affects every word. A
+conditional in your receive handler can do this.</li>
+</ul>
+</li>
+<li>
+<p>Add an &ldquo;all randomize&rdquo; key (&ldquo;t&rdquo;). Send a special message that
+causes every world to randomize its color.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-40efabd8f5f7267cf70e8573f7eaa5af">3 - Money on the Table</h1>
+    <div class="lead">Intro to universe.</div>
+	<p>Idea: each player can throw money onto the table.</p>
+<ul>
+<li>Every player sees how much money is on the table.</li>
+<li>Hit any key to add $5 to the table.</li>
+</ul>
+<p>Go into any window and hit a key. Every window&rsquo;s number should change.</p>
+<ul>
+<li>Next step: if you hit the &ldquo;g&rdquo; key in a window, it &ldquo;greedily&rdquo;
+increases its own number by 5, but not the number in every other
+window.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c683d4f39c7c6a00a1635c2a55d07b08">4 - Universe Mini Projects</h1>
+    <div class="lead">Short projects to get used to the Universe code.</div>
+	<p>These short projects (1-2 days) will help you get used to writing
+code using the Universe.</p>
+<ol>
+<li>
+<p><a href="/teaching--2021-2022/intermediate-cs/universe/u-color/">Color</a>: set everyone&rsquo;s color to yours.</p>
+</li>
+<li>
+<p>Count: add your own number to the total, display your number in a small box and the total big on the screen.</p>
+ <figure>
+     <img src="count-drawn.png"/> 
+ </figure>
+</li>
+<li>
+<p>Color Strip. Modify the color program from above so that the model is a list of colors and hitting a key adds your color to the start of the list. Draw either the whole list of colors or the first 10.</p>
+ <figure>
+     <img src="color-list-drawn.png"/> 
+ </figure>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3a6bf5e2e7a7e255460ff0cf17656552">5 - Universe Color</h1>
+    <div class="lead">Change the color on all of the clients by hitting a key.</div>
+	<p>We will make a client that knows &ldquo;its own color&rdquo; and the color that is showing on the screen. When a key is hit, the client sends its own color to the server. When a client receives a color message, it changes the color that is showing on the screen to that color. This means that hitting a key will change the color on everyone&rsquo;s screen to your color.</p>
+<h2 id="model-and-message-structure">Model and Message Structure</h2>
+<p>The model needs two colors, one to remember as &ldquo;your color&rdquo; and the
+other to show on the screen.</p>
+<p>There will only be one kind of message, the color.</p>
+<h2 id="process">Process</h2>
+<p>Review the <a href="/teaching--2021-2022/intermediate-cs/universe/u-overview/">universe overview</a>.</p>
+<ul>
+<li>Define the structure.</li>
+<li>Make two examples, one which has &ldquo;your color&rdquo; blue and is showing orange, the other which has &ldquo;your color&rdquo; blue and is showing blue.</li>
+<li>Write and test the draw handler.</li>
+<li>Design and test the message handler (<code>on-receive</code>).</li>
+<li>Design and test the key handler.</li>
+</ul>
+<h2 id="code">Code</h2>
+<ul>
+<li><a href="generic-server-v1.rkt">Server</a>. You do not need to understand this code now.</li>
+<li><a href="color-client.rkt">Color changing client from period 1</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5baf9d8b418ff4f05de17166fcc58ebb">6 - Universe Taking Turns</h1>
+    <div class="lead">An introduction to taking turns when the universe broadcasts all messages to every client.</div>
+	<ol>
+<li>
+<p><strong>Labeled worlds</strong>. Give each world a unique identity (a string name or a number). Show the world&rsquo;s identity in the upper left corner. When you hit a key in a world, every world also shows the identity of the world you clicked in.</p>
+</li>
+<li>
+<p><strong>Colored worlds</strong>. The world you hit a key in turns green. All other worlds turn yellow. Still show each world&rsquo;s identity.</p>
+</li>
+<li>
+<p><strong>Active stamping</strong>. Add on to your <em>colored worlds</em> program. Hit a key to activate a world. Only one world is active at a time. When you click in the active world, it shows a solid circle. Inactive worlds show an outline circle. (Basic: only one circle at a time, no control over where it appears, disappears when de-/activating. Challenge: show all circles, centered at the location of the click.</p>
+</li>
+<li>
+<p><strong>Spinning</strong>. Each world has a separate image. Only one image spins at a time. When you hit a key in a window, that world&rsquo;s image starts spinning and the other window(s) stop.</p>
+</li>
+<li>
+<p><strong>Chase</strong>. Each world has one image that it controls with the mouse. Hitting a key makes the mouse inactive for about one second. (Use a tick handler to reactivate.) I used a colored bar to indicate whether the window is active or not.</p>
+ <figure>
+     <img src="chase-drawn-frozen.png"/> 
+ </figure>
+ <figure>
+     <img src="chase-drawn-running.png"/> 
+ </figure>
+</li>
+</ol>
+
+
+<div class="alert alert-primary" role="alert">
+
+
+    You cannot send a <code>posn</code> as a message for technical reasons. Reasonable replacements: <a href="/teaching--2021-2022/intermediate-cs/universe/u-resources/">enhanced posn-util</a>, <code>(define-struct msg (x y))</code> or use <code>(list x y)</code> for the message.
+
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a9557578e7351e55b5f19686a83bbc32">7 - Universe Quiz 4</h1>
+    
+	<ol>
+<li>
+<p>Clicking with a mouse in a window cycles the shape showing: nothing
+-&gt; circle -&gt; triangle -&gt; square -&gt; nothing (repeatedly).</p>
+</li>
+<li>
+<p>The &ldquo;e&rdquo; key erases all shapes in every window.</p>
+</li>
+<li>
+<p>The &ldquo;n&rdquo; key moves a shape to the &ldquo;next&rdquo; window. If there is already
+a shape there it is replaced by the incoming shape.</p>
+</li>
+<li>
+<p>The &ldquo;p&rdquo; key moves a shape to the &ldquo;previous&rdquo; window, as above.</p>
+</li>
+</ol>
+<h2 id="challenges">Challenges</h2>
+<ul>
+<li>
+<p>The shape also has a number indicating which world it originated
+in. That number goes with the shape as it moves.</p>
+</li>
+<li>
+<p>Add color of the shape, with &ldquo;c&rdquo; to cycle the color.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f6b21e587cec8b42bab52a8c798b6fdb">8 - Universe Slapjack</h1>
+    <div class="lead">Once the screen shows green, hit a key fast and get a point.</div>
+	<p>A bunch of players connect to the server. (One player per window.) The
+screen is yellow for a random amount of time (say 1-10 seconds). When
+the screen turns green, the first window to hit a key gets a
+point. The others are locked out until the next time the screen turns green.</p>
+<ul>
+<li>Show points on screen.</li>
+<li>Any key hit in a window scores for that window.</li>
+<li>Only one point per green screen.</li>
+<li>No points can be earned when the screen is yellow.</li>
+</ul>
+<h2 id="planning">Planning</h2>
+<ul>
+<li>Model</li>
+<li>Message(s)</li>
+<li>What will happen when the message is received?</li>
+</ul>
+<h2 id="images">Images</h2>
+<p>The grey background and the line are not part of the animation; they just separate the active worlds.</p>
+<figure>
+    <img src="slapjack-green.png"/> <figcaption>
+            <h4>Ready to score</h4>
+        </figcaption>
+</figure>
+<figure>
+    <img src="slapjack-yellow.png"/> <figcaption>
+            <h4>Waiting, cannot score</h4>
+        </figcaption>
+</figure>
+<h2 id="hints">Hints</h2>
+<ul>
+<li>Show the time remaining until someone can score again. (The color gray is unobtrusive.)</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-53ca0eb4554e503c96a5d650af74a23c">9 - Universe Paint</h1>
+    <div class="lead">Multiple users draw on a shared canvas.</div>
+	<p>You will build a shared screen paint program, kind of like
+&ldquo;/r/place&rdquo;&hellip; barely.</p>
+<figure><a href="two-paints.png">
+    <img src="/teaching--2021-2022/intermediate-cs/universe/u-paint/two-paints.png" width="400"/> </a>
+</figure>
+<p>If you examine the full-size version of picture above, you can see I
+have modified the program to label each circle with the id of the
+world that drew it.</p>
+<h2 id="message">Message</h2>
+<p>We will all be sending the same message, so it is important that you
+get this exactly right (or you will crash other peoples&rsquo; clients).</p>
+<pre><code>(define-struct msg (id x y color) #:prefab)
+</code></pre>
+<p>The fields have to be these types:</p>
+<ul>
+<li>id: number</li>
+<li>x: number</li>
+<li>y: number</li>
+<li>color: string</li>
+</ul>
+<p><strong>Note carefully</strong>: you must use a <em>string</em> for the color that you
+send. Not a number. Not a <code>make-color</code> structure.</p>
+<h2 id="model">Model</h2>
+<p>You can choose the information you need, but somehow represent the
+coordinates of your mouse, the current color of your pen, and use an
+<em>image</em> to represent the picture as drawn so far.</p>
+<h2 id="draw-handler">Draw Handler</h2>
+<p>You should have a cursor (maybe an outline circle like in the demo
+video) showing where the next dot will be placed.</p>
+<h2 id="receive-handler">Receive Handler</h2>
+<p>Draw on the image part of the model in your receive handler.</p>
+<h2 id="keys">Keys</h2>
+<ul>
+<li>Hit a key to cycle through a sequence of colors. You may want to
+make the color in your model a number so it is easier to cycle
+through them. Convert to a string in your draw handler and when you
+want to send a message.</li>
+</ul>
+<h2 id="common-problems">Common Problems</h2>
+<ul>
+<li>
+<p>Drawing in only one window? Write a check-expect for your receive
+handler. If the check passes, make sure you have added the
+<code>on-receive</code> clause to your big-bang.</p>
+</li>
+<li>
+<p>Mouse not responding? Write a check-expect for your mouse
+handler. If it passes, check the big-bang for a valid <code>on-mouse</code>
+clause.</p>
+</li>
+</ul>
+<h2 id="finding-your-server-address">Finding your server address</h2>
+<p>Window: run Powershell, type <code>ipconfig /all</code>, then look through the
+output for the &ldquo;(Preferred)&rdquo; IP address. Instead of register
+localhost in the big-bang, use the IP address, like this:</p>
+<pre><code>(register &quot;192.168.1.8&quot;)
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-757693a7b7c56bedac928cdf040a09f6">10 - Gray Rectangles</h1>
+    
+	<p>There is one colored rectangle in each window, and possibly many gray
+rectangles.</p>
+<ul>
+<li>Clicking moves the center of the colored rectangle to the mouse.</li>
+<li>Hitting the space bar projects the shadow of the colored rectangle
+from the current window to gray rectangles in the other
+windows. (Same center, width, and height; different color.)</li>
+<li>The shadow does not move when you click to move the colored
+rectangle.</li>
+<li>Hitting space a second time replaces the old shadow of the colored
+rectangle with a new one.</li>
+</ul>
+<h2 id="understanding">Understanding</h2>
+<p>There are check-expects for all of the behavior described above.</p>
+<p>Showing mastery (grade of A): add a modification to the code: hitting
+&ldquo;d&rdquo; or backspace (&quot;<code>\b</code>&quot;) removes the shadows of the current world&rsquo;s
+rectangle.</p>
+<h2 id="demonstrations">Demonstrations</h2>
+<p>There is a screen shot and a video link below.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/universe/gray-rect/shadows.png"/> 
+</figure>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Hl7PWAnvqjs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2d511ba52331054f45f3765ab86d818">11 - Universe Resources</h1>
+    <div class="lead">Reference material and tutorials on the Universe.</div>
+	<p>This page contains only the bare-bones information.</p>
+<!--
+
+
+<div class="alert alert-primary" role="alert">
+
+
+    <p>Plain old attachments would go here.</p>
+<pre>
+<p></pre></p>
+
+
+</div>
+
+-->
+<ul>
+<li>
+<p>Generic server (see attachment).</p>
+</li>
+<li>
+<p><code>(make-package model message)</code> to update model and send a message.</p>
+</li>
+<li>
+<p>A main function <code>start-big-bang</code> to launch the windows.</p>
+<pre><code>  (define (start-big-bang my-name initial-model)
+    (big-bang initial-model
+      (on-draw draw-h)
+      (on-receive receive-h)
+      (on-key key-h)
+
+      (register LOCALHOST)
+      (name my-name)
+      (close-on-stop true)))
+</code></pre>
+</li>
+<li>
+<p>The <code>launch-many-worlds</code> command to quickly and easily start several windows.</p>
+<pre><code>  (launch-many-worlds
+      (start-big-bang &quot;whale&quot; (make-model &quot;blue&quot; &quot;gray&quot;))
+      (start-big-bang &quot;squirrel&quot; (make-model &quot;red&quot; &quot;yellow&quot;)))
+</code></pre>
+</li>
+</ul>
+<h2 id="sending-posns">Sending Posns</h2>
+<p>One possibility is to send the coordinates in a posn as numbers in a list.</p>
+<p>You cannot send whole posns without a hack.
+The hack is to make a separate file that contains
+a little bit of lower level Racket code and require it. The best place
+for this code would be in your <code>posn-util.rkt</code> file! You need to use Racket mode for
+that file, not Beginning Student.</p>
+<pre><code>    #lang racket
+    (provide (all-defined-out))
+    (define-struct posn (x y) #:prefab)
+</code></pre>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li>
+<p><a href="https://docs.racket-lang.org/teachpack/2htdpuniverse.html">Universe in Racket Documentation</a>. See especially <a href="https://docs.racket-lang.org/teachpack/2htdpuniverse.html#%28part._universe-sample%29">Section 2.4.7, the examples</a>, where a ball-bouncing example is developed.</p>
+</li>
+<li>
+<p><a href="https://drive.google.com/drive/folders/0BypGcwjV5LOHSlF0ZmxQT0VnelU?resourcekey=0-TWJdVL4Vu5fLS4U3S3S7Uw&amp;usp=sharing">Universe tutorial by Sub</a></p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9f603cc279570ad21089b04367512d69">12 - Universe Mistakes</h1>
+    <div class="lead">A list of common mistakes made when writing universe animations.</div>
+	<ul>
+<li>
+<p>A <code>package</code> must have the entire model as its first argument. You can&rsquo;t put part of the model in the first argument and another part in the second argument (where the message goes).</p>
+</li>
+<li>
+<p>Do not write recursive functions that take a <code>model</code> as an input.
+It is a bad idea. Your code gets more complicated and there is no benefit.
+Instead, write a helper function that takes in the list part of the model
+(along with any other needed information).</p>
+</li>
+</ul>
+<h2 id="advice">Advice</h2>
+<ul>
+<li>
+<p>Send only the minimum amount of information that needs to be sent.</p>
+</li>
+<li>
+<p>Split actions between local key/mouse/tick handlers and the receive handler.</p>
+<ul>
+<li>
+<p>changes affecting only one world&rsquo;s model should be
+done in a key or mouse handler (or the first argument of
+<code>make-package</code>)</p>
+</li>
+<li>
+<p>changes in every world&rsquo;s model should be done in the receive
+handler</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

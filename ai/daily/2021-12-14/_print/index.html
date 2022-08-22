@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ai/daily/2021-12-14/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>12-14 Kruskal | WY CS</title>
+<meta name="description" content="">
+<meta property="og:title" content="12-14 Kruskal" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ai/daily/2021-12-14/" />
+
+<meta itemprop="name" content="12-14 Kruskal">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="12-14 Kruskal"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section td-blog">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ai/" ><span class="active">AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ai/daily/2021-12-14/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">12-14 Kruskal</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+
+    <li><a href="#pg-12621eee28c6dc7bc7d9e7e1f96aeb4e">Kruskal Algorithm</a></li>
+
+
+
+    
+  
+    
+    
+	
+
+    <li><a href="#pg-531d97d975ec37ce234f7c312d341bd0">Kruskal Guide</a></li>
+
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="">
+    <h1 id="pg-12621eee28c6dc7bc7d9e7e1f96aeb4e">Kruskal Algorithm</h1>
+	
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2021-12-14" class="text-muted">Tuesday, December 14, 2021</time>
+        
+	</div>
+	<p>Make a minimal spanning tree by adding the smallest weight edge that
+connects two previously unconnected vertices. Count two vertices as
+connected if there is any <em>path</em> between them (not just a single
+edge).</p>
+<h3 id="code-outline">Code Outline</h3>
+<!-- Preprocessing: sort all edges by weight. -->
+<p>We will produce a new Graph containing only the edges we select for
+the minimal spanning tree.</p>
+<p>Consider each edge in the original graph, from the least weight to the
+greatest. Add the edge <code>(a,b)</code> to your output graph if there is
+currently no path from <code>a</code> to <code>b</code> in that graph.</p>
+<p>Needed: a way to determine if there is a path from vertex <code>a</code> to
+vertex <code>b</code> in the output graph.</p>
+<h3 id="method-1-search-every-time">Method 1: search every time</h3>
+<p>Determine if there is a path from <code>a</code> to <code>b</code> using only edges in the
+<code>allowed</code> set. This could be a modification of the <a href="/teaching--2021-2022/ai/daily/2021-10-08/">shortest
+distances</a>
+function or you can write it from scratch.</p>
+<pre><code>def reachable(g_out: Graph, a: Vertex, b: Vertex) -&gt; bool:
+    return false  # write this
+</code></pre>
+<h3 id="method-2-lookup-table-of-components">Method 2: lookup table of components</h3>
+<p>Modify your
+<a href="/teaching--2021-2022/ai/daily/2021-10-19/"><code>connected_components</code></a> function so that
+it numbers the components it discovers. It then produces a map from
+vertices to the component number.</p>
+<pre><code>def component_dict(g: Graph) -&gt; Dict[Vertex, int]:
+    return {}
+</code></pre>
+<p>This method can be better than the previous one if you need to check
+many edges before you find one to add to your output edge set. It is
+also the basis for a more efficient idea.</p>
+<h3 id="method-3-use-a-special-data-structure">Method 3: use a special data structure</h3>
+<p>Like method 2 but don&rsquo;t re-create the dictionary every time.</p>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
+    <h1 id="pg-531d97d975ec37ce234f7c312d341bd0">Kruskal Guide</h1>
+	
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2021-12-14" class="text-muted">Tuesday, December 14, 2021</time>
+        
+	</div>
+	<h2 id="common-pitfalls">Common pitfalls</h2>
+<h3 id="a-visited-set-is-not-enough">A visited set is not enough</h3>
+<p>Far and away the most common pitfall in implementing Kruskal&rsquo;s
+algorithm is believing that a &ldquo;visited&rdquo; set can help you figure out
+whether or not to use an edge.</p>
+<p>Make sure your implementation can
+correctly handle the situation shown below, where the two lowest
+weight edges have been chosen but there are still two components that
+need to be connected to make the spanning tree.</p>
+<figure>
+    <img src="kruskal-visited-problem.png" width="20%"/> 
+</figure>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>A heap can be used, but it is neither needed nor beneficial. A
+heap&rsquo;s strength is keeping track of the smallest weight element as
+you add and remove elements. Kruskal&rsquo;s algorithm never adds more
+available edges, so that strength is never used.</li>
+</ul>
+
+</div>
+
+
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1156 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch02/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>2. Starting Out | WY CS</title>
+<meta name="description" content="Learn how to make lists and tuples.
+We also learn the basic list manipulation commands.
+
+Create a list: [5..13] or [5,10..100] or [ n^2 | …">
+<meta property="og:title" content="2. Starting Out" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch02/" />
+
+<meta itemprop="name" content="2. Starting Out">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2. Starting Out"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch02/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">2. Starting Out</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-301c655bf31d9e6af06afda297dda651">Chapter 2 Reading Guide</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-42d1613e5cc1d8bd2fe8b9d44626507f">Haskell CW II.2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-13630904b3d8dba588660017954b633c">Haskell CW II.3a</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-7e32b0e920d937884c43eed2e2143c14">Haskell CW II.3b</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-faea1657db5be3c5f1eff47bcdc27eeb">Haskell CW II.4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-52e5147ec50c29994d8eb0bae4b10955">Haskell CW II.5</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-7f2e52dcd6efebd6fc9ac8af7007960b">Ch 02 Quiz 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-9825e25aac2ca681f0a2ed397078bf3a">Haskell HW 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-28b0d334eb8c1eec454348a2e72d9096">Chapter 2 Test</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-2ba489664a7bd7b37ad2d52e07c286ca">Chapter 2 Summary</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>Learn how to make lists and tuples.
+We also learn the basic list manipulation commands.</p>
+<ul>
+<li>Create a list: <code>[5..13]</code> or <code>[5,10..100]</code> or <code>[ n^2 | n&lt;-[1..100], even n]</code></li>
+<li>Create a tuple: <code>(5,12)</code></li>
+<li>Key to remember: head, tail, init, last, <code>:</code>, <code>++</code></li>
+</ul>
+<p>See the <a href="ch02-summary">summary</a> for more details about the contents of
+the chapter.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="ch02-reading-guide">Reading guide</a></li>
+<li>Problem Set <a href="hw-a2">hw:a2</a> for chapter 2. (Also <a href="hw-a2.pdf">PDF</a>.)</li>
+<li><a href="ch02-summary">Summary of Chapter 2</a></li>
+</ul>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-301c655bf31d9e6af06afda297dda651">1 - Chapter 2 Reading Guide</h1>
+    
+	<h1 id="haskell-starting-out-questions">Haskell Starting Out Questions</h1>
+<h2 id="a-sections-21--23">A. Sections 2.1&ndash;2.3</h2>
+<ol>
+<li>
+<p>There is an annoyance with negative numbers that is mentioned.</p>
+<ul>
+<li>What is the correct way to write five times negative three in Haskell?</li>
+<li>What is a wrong way to do the same thing?</li>
+</ul>
+</li>
+<li>
+<p>Logical operations are basic building blocks of programs. How do you write:</p>
+<ul>
+<li>and</li>
+<li>or</li>
+<li>not</li>
+<li>equals</li>
+<li>not equals</li>
+</ul>
+</li>
+<li>
+<p>Haskell follows the normal order of operations from mathematics. However, in math functions must be written <code>f(x)</code> with parentheses, whereas in Haskell functions can be written <code>f x</code> without parentheses. This means we need to fit functions into the order of operations.</p>
+<ul>
+<li>Find the values of <code>sqrt (2 + 7)</code> and <code>(sqrt 2) + 7</code>. Find <code>sqrt 2 + 7</code>. Where
+is Haskell putting the parentheses?</li>
+<li>Find the values of <code>sqrt (9 * 2)</code> and  <code>(sqrt 9) * 2</code>.
+Find <code>sqrt 9 * 2</code>. Where is Haskell putting the parentheses?</li>
+<li>Define <code>x = sqrt(pi)</code>. Find the values <code>0.1+(sin x)^2</code> and
+<code>0.1+sin(x^2)</code>. How does Haskell interpret <code>0.1 + sin x^2</code>?</li>
+<li>Where does function calling fit in the order of operations?</li>
+<li>Give an example of a problem that this could create. (That is, the program does not do what a math student would expect it to do.)</li>
+</ul>
+<p>Having trouble answering this question? Search the chapter for the
+word &ldquo;precedence&rdquo;.</p>
+</li>
+<li>
+<p>Write the function <code>hypSquare a b</code> that computes the square of the length of the hypotenuse of a right triangle with legs <code>a</code> and <code>b</code>.</p>
+</li>
+<li>
+<p>The apostrophe character (<code>'</code>) is usually used for one of two
+purposes. (Also: see the Tidy Details section at the end.) List both:</p>
+<ol>
+<li>Purpose 1:</li>
+<li>Purpose 2:</li>
+</ol>
+</li>
+<li>
+<p>Are you allowed to use the apostrophe in function or variable names?</p>
+</li>
+<li>
+<p>In Racket you used <code>(cons x listy)</code> or <code>(list* x listy)</code> to make a
+list with x before an existing list. How do you do that in Haskell?</p>
+</li>
+<li>
+<p>In Racket you used (concatenate firstStr secondStr) to put two strings together. How do you do that in Haskell?</p>
+</li>
+<li>
+<p>Slightly longer exercise:</p>
+<ol>
+<li>Make a list <code>learn</code> containing the words &ldquo;this&rdquo; &ldquo;is&rdquo; &ldquo;all&rdquo; &ldquo;good&rdquo;.</li>
+<li>Make a new list called <code>learnMore</code> containing &ldquo;Hopefully&rdquo; &ldquo;this&rdquo; &ldquo;is&rdquo; &ldquo;all&rdquo; &ldquo;good&rdquo;</li>
+<li>What is <code>learnMore !! 4</code>.</li>
+</ol>
+</li>
+<li>
+<p>Complete the table of equivalents</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Racket</th>
+<th>Haskell language equivalent functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>rest</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>length</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>empty?</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<ol start="11">
+<li>
+<p>What are the signatures and purposes of these functions?</p>
+<ol>
+<li>init</li>
+<li>last</li>
+<li>take</li>
+<li>drop</li>
+</ol>
+</li>
+<li>
+<p>How can you ask the computer if the list called <code>xs</code> contains the number 5?</p>
+</li>
+<li>
+<p>There are several more functions that are used less often, but still make it into the basic starting out chapter. Write quick summaries as necessary.</p>
+<ol>
+<li>reverse</li>
+<li>maximum</li>
+<li>minimum</li>
+<li>sum</li>
+<li>product</li>
+</ol>
+</li>
+</ol>
+<h2 id="b-sections-24--26">B. Sections 2.4&ndash;2.6</h2>
+<ol>
+<li>
+<p>Create a list of integers from 1 to 1000 (inclusive).</p>
+</li>
+<li>
+<p>Create a list of letters from <code>'m'</code> to <code>'a'</code> in that order.</p>
+</li>
+<li>
+<p>New functions: write signature and purpose for each.</p>
+<ol>
+<li>cycle</li>
+<li>repeat</li>
+<li>replicate</li>
+</ol>
+</li>
+<li>
+<p>Write a function that removes all of the vowels from a word.</p>
+</li>
+<li>
+<p>What is the main difference between a tuple and a list?</p>
+</li>
+<li>
+<p>New functions: write signature and purpose for each.</p>
+<ol>
+<li>fst</li>
+<li>snd</li>
+<li>zip</li>
+</ol>
+</li>
+<li>
+<p>Write a function that takes in a list of words and puts out a list of ordered pairs (word, length of word).</p>
+</li>
+<li>
+<p>Write a function that takes in a list of words and puts out a list with the second word doubled in its own list, the third word tripled in its own list, etc.</p>
+</li>
+</ol>
+<p>For example, the function call</p>
+<pre tabindex="0"><code>amplify [&#34;hill&#34;,&#34;rock&#34;,&#34;star&#34;,&#34;four&#34;]
+</code></pre><p>should produce</p>
+<pre tabindex="0"><code>[[&#34;hill&#34;],[&#34;rock&#34;,&#34;rock&#34;],[&#34;star&#34;,&#34;star&#34;,&#34;star&#34;], [&#34;four&#34;,&#34;four&#34;,&#34;four&#34;,&#34;four&#34;]]
+</code></pre><h2 id="tiny-details">Tiny Details</h2>
+<p>The apostrophe is on the key with the double quote (on a US keyboard),
+so look for <code>'</code> and <code>&quot;</code> together. The grave accent is on a key with
+the tilde, so look for <code>~</code> and <code>`</code> together.  Minutae:
+The difference between the apostrophe and the grave accent is hard to
+see in most typefaces, but they mean totally different things to
+Haskell. Do not mix them. Some word processors (Google Docs) also
+convert apostrophe to a curly quote (the &ldquo;Smart Quotes&rdquo;
+feature). Haskell does not understand the smart single quote at all.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-42d1613e5cc1d8bd2fe8b9d44626507f">2 - Haskell CW II.2</h1>
+    <div class="lead">Project Euler problems.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<h2 id="warmup">Warmup</h2>
+<p>On the line $y = 3x-5$, find at least 20 ordered pairs $(x,y)$ with
+$0\le x \le 5$.</p>
+<h2 id="class-work-for-21--23">Class work for 2.1&ndash;2.3</h2>
+<ol>
+<li>
+<p><a href="https://projecteuler.net/problem=6">Sum Square Difference</a>
+The sum of the squares of the first ten natural numbers is,</p>
+<pre><code> 1^2 + 2^2 + ... + 10^2 = 385
+</code></pre>
+<p>The square of the sum of the first ten natural numbers is,</p>
+<pre><code> (1 + 2 + ... + 10)^2 = 55^2 = 3025
+</code></pre>
+<p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 - 385 = 2640.</p>
+<p>Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.</p>
+</li>
+</ol>
+<ol start="2">
+<li>
+<p><a href="https://projecteuler.net/problem=1">Multiples of 3 and 5</a> If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.</p>
+</li>
+<li>
+<p><a href="https://projecteuler.net/problem=5">Smallest Multiple</a>
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?</p>
+</li>
+</ol>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-13630904b3d8dba588660017954b633c">3 - Haskell CW II.3a</h1>
+    <div class="lead">Tiny pieces to help you get better at programming in Haskell.</div>
+	<p>Goals:</p>
+<ul>
+<li>Range notation <code>[a,b..c]</code> to make lists of integers.</li>
+<li>Apply a function to everything in a list by using the &ldquo;list
+comprehension&rdquo;.</li>
+<li>Filter out some elements from an existing list using a list
+comprehension.</li>
+</ul>
+<h2 id="micro-projects">Micro-projects</h2>
+<ol>
+<li>A list of the first 1000 integers.</li>
+<li>A list of the first 1000 perfect cubes.</li>
+<li>Find the sum of the first 100 perfect squares.</li>
+<li>The type signature for the integer sum above. (The answer, not the
+sum function.)</li>
+<li>A list of all of the perfect squares between 90 and 1919.</li>
+<li>The type signature for a list of integers.</li>
+<li>The <em>product</em> of the numbers in the list of perfect squares above.</li>
+<li>A function <code>sqList</code> to give all of the perfect squares between <code>lower</code> and
+<code>upper</code>.</li>
+<li>The type signature for the function <code>sqList</code>.</li>
+<li>Use your function to get the first 17 perfect squares between 1500
+and 4500.</li>
+<li>Write a new function sq25 that will return the first 25 perfect
+squares between <code>lower</code> and <code>upper</code>. (If there are not 25, the
+function will return however many there are.)</li>
+<li>A list with every fourth lowercase letter, starting at &lsquo;a&rsquo; then
+&rsquo;d&rsquo;. (Hint: letters work the same as numbers.)</li>
+<li>A string with the last half of the alphabet (beginning with &rsquo;n&rsquo;).</li>
+<li>Write a function that takes in a list and produces a list of
+ordered pairs  <code>(item, more)</code>, giving the item and how many more
+items after it are in the list.</li>
+</ol>
+<h2 id="basic-functions">Basic functions</h2>
+<ol>
+<li>The remainder when 921013 is divided by 31.</li>
+<li>The whole number of times that 23148 is divisible by 17.</li>
+<li>Find five to the twelfth power.</li>
+<li>Find seven to the 707 power.</li>
+</ol>
+<h2 id="medium-functions">Medium functions</h2>
+<p>Write the signature for each.</p>
+<ol start="5">
+<li>
+<p>Write a function <code>mySmall</code> that takes in four integer inputs and returns the
+smallest.</p>
+</li>
+<li>
+<p>Create a function <code>myStarts</code> that takes in two lists and returns a tuple with
+the first element from each list.</p>
+</li>
+<li>
+<p>Write <code>myMix</code> that takes in two lists and gives a tuple with the
+first element from the first list and the last element from the
+second list.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">myMix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Create <code>dublr</code> that takes in one list and returns a new list
+consisting of the same information forward then backward.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">dublr</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="step-up">Step up</h2>
+<ol>
+<li>
+<p>Write a function <code>sqLast25 lower upper</code> that will return the last 25 perfect
+squares between lower and upper (inclusive).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">sqLast25</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="obscure">Obscure</h2>
+<ol>
+<li>What is the successor of the character &lsquo;Z&rsquo;?</li>
+<li>How about the <a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Prelude.html#v:pred">predecessor</a> of the character &lsquo;A&rsquo;?</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>There is a small <a href="http://hackage.haskell.org/package/base-4.11.1.0/docs/Prelude.html#v:quot">difference between <code>div</code> and
+<code>quot</code></a>
+although both are the same for positive numbers.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7e32b0e920d937884c43eed2e2143c14">4 - Haskell CW II.3b</h1>
+    <div class="lead">Learning questions to help with II.3.</div>
+	<p>A few places use this variable:</p>
+<pre><code>word = &quot;alphabet soup is tasty&quot;
+</code></pre>
+<p>Try each question, ask neighbors and discuss. These took about 25
+minutes of thinking and talking, with some help along the way.</p>
+<ol>
+<li>
+<p>Make the pattern <code>[1,4,7,10,13,16,19,22,25,28]</code> without so much
+typing.</p>
+</li>
+<li>
+<p>Make the pattern <code>['a','d','g','j','m']</code> without so much
+typing. Numbers and letters work in very similar ways.</p>
+</li>
+<li>
+<p>How do you take two lists of numbers and make a list of ordered
+pairs, like this:</p>
+<pre><code> a3 = [10,20,30,40,50,60,70]
+ b3 = [13,27..80]
+ -- [13,27,41,55,69]
+ want3 = [( 10,13), (20,27), (30, 41) ] -- etc
+</code></pre>
+</li>
+<li>
+<p>What if you want to take the <code>word</code> from the start and make ordered
+pairs like this:</p>
+<pre><code> [('a',10), ('l',20), ('p',30), ('h',40), ('a',50) ] -- etc
+</code></pre>
+</li>
+<li>
+<p>What do you do if you want the pattern to stop after the word
+&ldquo;alphabet&rdquo;? What if you don&rsquo;t want it to stop, but keep going for
+every letter in the word?</p>
+</li>
+<li>
+<p>How can you process <code>word</code> to only keep the letters that are <code>'h'</code>
+or later in the alphabet?</p>
+</li>
+<li>
+<p>What does this do? (Without running.)</p>
+<pre><code> [ x&gt;='h' | x &lt;- word]
+</code></pre>
+</li>
+<li>
+<p>Learn what to put in the place of &ldquo;&hellip;something&hellip;&rdquo; to make
+<code>y=3*x-5</code>. (Attempt it; see a
+<a href="https://stackoverflow.com/questions/6067839/haskell-let-where-equivalent-within-list-comprehension">solution</a>
+if needed.)</p>
+<pre><code> [ y | x &lt;- [0..5], ...something... ]
+</code></pre>
+</li>
+<li>
+<p>Figure out what to put in the place of <code>...something...</code> so that
+you get the same result as the previous exercise.</p>
+<pre><code> [ y | x &lt;- [0..5], y &lt;- [...something...] ]
+</code></pre>
+</li>
+<li>
+<p>Use the function <code>y=3*x-5</code>. Make a list of ordered pairs <code>(x,y)</code> that
+have <code>x</code> an integer between 0 and 50 (inclusive) and <code>y</code> less than 20.</p>
+</li>
+<li>
+<p>Annoying Detail I: <code>Int</code> is a 64 bit integer, <code>Integer</code> has no
+size limit. Run the code below and compare the values: <code>ap</code> and
+<code>bp</code>. What do you see?</p>
+<pre><code>a :: [Int]
+a = [1..100]
+b :: [Integer]
+b = [1..100]
+ap = product a
+bp = product b
+</code></pre>
+</li>
+<li>
+<p>Annoying Detail II: Try the same code, but change the upper limit
+from <code>100</code> to <code>50</code>. Describe the difference you see.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-faea1657db5be3c5f1eff47bcdc27eeb">5 - Haskell CW II.4</h1>
+    <div class="lead">Intro to functions and signatures.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>Please write type signatures for all of your functions.</p>
+<h2 id="introduction">Introduction</h2>
+<pre tabindex="0"><code>demo n xs = [ n*x | x &lt;- xs]
+</code></pre><ol>
+<li>
+<p>Write an example of how you would call <code>demo</code>.</p>
+</li>
+<li>
+<p>What is the type signature of <code>demo</code> assuming we make all numbers
+<code>Int</code>.</p>
+</li>
+<li>
+<p>Add an exception so that <code>demo 0 anything</code> always returns the empty
+list.</p>
+</li>
+<li>
+<p>We are going to learn about the <code>(x:xs)</code> pattern that we use to
+write recursive functions, like <code>first</code> and <code>rest</code> from Racket.
+Use that method to write a recursive demo function.</p>
+</li>
+<li>
+<p>Check for understanding: write <code>mylength</code>, a recursive function
+that finds the length of a list of numbers.</p>
+</li>
+</ol>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>Write a function that takes in an Int and always returns 5.</p>
+</li>
+<li>
+<p>Change <code>f</code> so that when the input is 0 it returns 8, and when the
+input is 1 it returns 13.</p>
+</li>
+<li>
+<p>Change <code>f</code> more so that it makes a Fibonacci sequence beginning
+with the 8 and 13 that you already have.
+$$f(n) = f(n-1) + f(n-2).$$</p>
+</li>
+<li>
+<p>Write a function <code>sub5</code> that takes in a list of integers and puts
+out a list of integers five less than the inputs.</p>
+</li>
+<li>
+<p>Write a function <code>skip13</code> that takes in a list of integers and puts
+out a list of integers that is the same except excluding any 13s.</p>
+</li>
+<li>
+<p>(<code>sumByHand</code>): Write a recursive function that adds all of the
+numbers in a list.</p>
+</li>
+<li>
+<p>Write a function <code>before14</code> that takes in a list of integers and
+inserts a 13 before every 14 in the list.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-52e5147ec50c29994d8eb0bae4b10955">6 - Haskell CW II.5</h1>
+    
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 id="opener">Opener</h2>
+<p>The <code>removeOne</code> function takes in a single number and a list of numbers.
+It removes one copy of the number from the list of numbers.</p>
+<pre tabindex="0"><code>roce = [
+  removeOne 5 [1,2,3] == [1,2,3]
+  ,removeOne 5 [1,2,5,4] == [1,2,4]
+  ,removeOne 9 [9,1,9,2,9] == [1,9,2,9]
+  ]
+</code></pre><ul>
+<li>Write the type signature for <code>removeOne</code>.</li>
+<li>Write the function.</li>
+</ul>
+<h2 id="removeall">removeAll</h2>
+<p>Write a function that removes all of the copies of a given number from
+a list.</p>
+<pre tabindex="0"><code>race = [
+  removeAll 5 [1,2,5,4] == [1,2,4]
+  ,removeAll 9 [9,1,9,2,9] == [1,2]
+  ,removeAll 9 [9] == []
+  ]
+</code></pre><h2 id="homework-1">Homework 1</h2>
+<p>The count doubles function takes in a list of Integers and puts out a
+count of the number of times a x in the original list appears
+adjacent to another x.</p>
+<p>Examples:</p>
+<pre tabindex="0"><code>cdce = [
+   countDouble [1,1,2,2,3,3] == 3
+  ,countDouble [4,4,4] == 2
+  ,countDouble [0,0,0,0,0,10,10,10] == 6
+  ]
+</code></pre><ul>
+<li>Write a type signature for <code>countDouble</code>.</li>
+<li>Write the function.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f2e52dcd6efebd6fc9ac8af7007960b">7 - Ch 02 Quiz 1</h1>
+    
+	<ol>
+<li>
+<p>Make a list <code>q1</code> containing the integers
+101, 110, 119, 128, 137, 146, 155, 164, 173, 182, 191, 200, 209,
+218, and 227.</p>
+</li>
+<li>
+<p>Write a function <code>q2</code> that takes in a list of numbers and puts out a
+list with each of those numbers tripled. Also write a signature for
+this function.</p>
+</li>
+<li>
+<p>Write a function <code>q3</code> that takes in a number <code>top</code> and a list of numbers,
+and puts out a list of all of the numbers in the list whose squares
+are less than <code>top</code>. Also write a signature for this function.</p>
+<pre><code> q3 5000 [10..100] == [10..70]
+</code></pre>
+</li>
+<li>
+<p>The function <code>q4</code> takes in a list of <code>Float</code> and puts out a
+<code>Float</code>: the sum of the square roots of all of the numbers in the
+input list. Write a recursive function, do not use <code>sum</code>.</p>
+<pre><code> q4 [10.0, 20.0, 30.0] = 13.111...
+</code></pre>
+</li>
+</ol>
+<h2 id="bonus">Bonus</h2>
+<ol start="5">
+<li>
+<p>The function <code>digits</code> returns a list of the base 10 digits of a
+number in order from <em>least</em> significant (the ones digit) to most
+significant. Write it.</p>
+<pre><code> digits 5347500 = [0,0,5,7,4,3,5]
+</code></pre>
+</li>
+</ol>
+<h2 id="mega-bonus">Mega Bonus</h2>
+<ol start="6">
+<li><a href="https://projecteuler.net/problem=4">Largest palindrome product</a>.
+A palindromic number reads the same both ways. The largest palindrome
+made from the product of two 2-digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3-digit numbers.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9825e25aac2ca681f0a2ed397078bf3a">8 - Haskell HW 2</h1>
+    <div class="lead">Graph a function, is a point on a line, get the numbers more than 100, break up a list, find the nearest point.</div>
+	<p>All of the points you should work with have <code>Int</code> coordinates. So far
+you only know <code>Int</code>, <code>String</code>, and lists of each of those.</p>
+<ol>
+<li>
+<p>Write a function <code>onLine</code> that takes in a slope <code>m</code>, a y-intercept <code>b</code>, and a point <code>(x0,y0)</code> and gives back True if the point is on the line <code>y=m*x+b</code> and false otherwise.</p>
+</li>
+<li>
+<p>Write a function <code>moreThan100</code> that takes in a list of numbers and puts out a list of numbers. The output is the same as the input with all of the numbers less than or equal to 100 removed.</p>
+</li>
+<li>
+<p>Write the &ldquo;grapher&rdquo; function whose inputs are (i) a function f that takes in a number and puts out a number, (ii) a lower bound, and (iii) an upper bound.  The grapher function should return a list of coordinates <code>(x,y)</code> where <code>y=f(x)</code> and <code>x</code> goes from the lower bound to the upper bound increasing by 1 each time.</p>
+</li>
+<li>
+<p><em>Target Practice 1</em>. Given a point <code>(x0,y0)</code> and a list of ordered
+pairs, return the square of the smallest distance from <code>(x0,y0)</code> to
+a point on the list. (Working with the squared distance means you
+can keep using <code>Int</code> for the type of your result.)</p>
+<p>Example: <code>targetPractice1 (0,1) [(10,20),(3,5),(7,-1)] == 25</code></p>
+</li>
+<li>
+<p><em>Break It Up</em>. Given a list of numbers, create a list containing every sequence of four numbers in a row. Example:</p>
+<pre><code> breakItUp [5,10,20,3,8,9] = [ [5,10,20,3], [10,20,3,8], [20,3,8,9] ]
+</code></pre>
+</li>
+<li>
+<p><em>Target Practice 2</em>. (<em>Challenge</em>) Given a point <code>(x0,y0)</code> and a list of ordered pairs, return the point in the list that is closest to the given point.</p>
+<pre><code>Example: `targetPractice2 (0,1) [(10,20),(3,5),(7,-1)] == (3,5)`
+</code></pre>
+</li>
+</ol>
+<h2 id="omit">OMIT</h2>
+<!--
+9. Write a function `addp` that adds two ordered pairs.
+-->
+<ol start="10">
+<li>(<em>Bonus</em>) The function <code>nextInDirection</code> takes in start point <code>(x0,y0)</code>, a direction <code>(dx,dy)</code>, and a list of ordered pairs. The function returns the point in the list that is closest to the start point and can be reached by beginning at the start and going in the given direction.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-28b0d334eb8c1eec454348a2e72d9096">9 - Chapter 2 Test</h1>
+    <div class="lead">A short test of some Chapter 2 skills.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<p>This is a test, please do it on your own and do not help others. You
+are supposed to show your understanding of Haskell. Just getting an
+answer might not show a good understanding.</p>
+<ol>
+<li>
+<p>Create the following list with less effort:
+<code>[31,35,39,43,47,...,431] </code></p>
+</li>
+<li>
+<p>Make a list of all of the odd numbers less than 1000 that are
+perfect squares. Notes:</p>
+<ul>
+<li>900 = 30^2 is a perfect square less than 1000, but it is not
+odd.</li>
+<li>10201 = 101^2 is an odd perfect square, but it is not less
+than 1000</li>
+</ul>
+</li>
+<li>
+<p>Given $y=3x-12$, find 100 points on this line with $0 &lt;= x &lt;=
+10$. No need to round to make them <em>exactly</em> on the line.</p>
+</li>
+<li>
+<p>Write a function to select all of the numbers between 200 and 300 (inclusive)
+out of a given list.</p>
+<p><code>prob4 [100,250,290,310,210] == [250, 290, 210]</code></p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2ba489664a7bd7b37ad2d52e07c286ca">10 - Chapter 2 Summary</h1>
+    <div class="lead">Useful highlights from the chapter.</div>
+	<p>A list of the chapter contents, including past stumbling blocks.</p>
+<ul>
+<li>Create a list: <code>[5..13]</code> or <code>[5,10..100]</code> or <code>[ n^2 | n&lt;-[1..100], even n]</code></li>
+<li>Create a tuple: <code>(5,12)</code></li>
+<li>Key to remember: head, tail, init, last, <code>:</code>, <code>++</code></li>
+<li>Other list functions: maximum, minimum, sum, product, reverse</li>
+<li>More list functions: length, null, take, drop</li>
+<li>Sometimes useful: cycle, repeat, replicate</li>
+<li>Misc: <code>!!</code>, <code>zip</code></li>
+<li>Double quotes make strings.</li>
+<li>Single quotes make individual characters.</li>
+<li>Strings are lists of characters, so &ldquo;dog&rdquo; == [&rsquo;d&rsquo;,&lsquo;o&rsquo;,&lsquo;g&rsquo;]</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

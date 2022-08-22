@@ -1,0 +1,1502 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch07/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>7. Numbers | WY CS</title>
+<meta name="description" content="Numerical functions, including gradients.
+">
+<meta property="og:title" content="7. Numbers" />
+<meta property="og:description" content="Numerical functions, including gradients.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch07/" />
+
+<meta itemprop="name" content="7. Numbers">
+<meta itemprop="description" content="Numerical functions, including gradients.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="7. Numbers"/>
+<meta name="twitter:description" content="Numerical functions, including gradients.
+"/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch07/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">7. Numbers</h1>
+<div class="lead">Numerical functions, including gradients.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-14ed15cfcb1a19f3c960c04c46d4e5ac">7. Summary</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-7496b16c963dec085bfddab4b0f1db49">7. Exercises 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f5bdf567ca70ebc847dba0516fa4cf9b">7. Exercises 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-8bb25e4f65fb53c51d9b5c1b3f7bdf21">7. Exercises 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-5c2543852f51f151317772de94006d9a">7. Exercises 4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-57f1a990f68bea16c46e1459988f3b7e">7. Exercises 5</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-ec000af0637be1afb777e65d2aeb0cd0">7. Exercises 6</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-6064ed098a6d345367c852ef7149bfb8">7. Review 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-6952629c2c7824eb7193f045cf66c9dd">7. Review 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-0302938d2d616ce35a56672071105558">7. Numbers Quiz A</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-75eca2780fef2c31780583605f5a068e">Slides: Max and min</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-f49216d0f7e5c7a8a987437541b896ab">Randomness</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-758cd8408cf7b969637c9779c67c288f">Worksheets</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>13.1: <a href="#pg-76df91f2f5ffc66cd603991386ae91ed">Ch07 WS 01</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13.2: <a href="#pg-9f5db60fcff74ddd20f389b466768cf1">Ch07 WS 03</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13.3: <a href="#pg-0307e91db5e0eba9df3ae1e2f1faec2e">Ch07 WS 04</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-e5ef4a527779ca8965d12bd51e3a2bda">Resources</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-14ed15cfcb1a19f3c960c04c46d4e5ac">1 - 7. Summary</h1>
+    <div class="lead">Everything you should know from Chapter 7.</div>
+	<p>The chapter is about doing math with numbers.</p>
+<h2 id="essential-summary">Essential summary</h2>
+<ul>
+<li>Basic arithmetic</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">/</span> <span style="color:#0000cf;font-weight:bold">13</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; thirteen divided by seven</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">11</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#0000cf;font-weight:bold">9</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; nine minus one</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">quotient</span> <span style="color:#0000cf;font-weight:bold">21912</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">remainder</span> <span style="color:#0000cf;font-weight:bold">21912</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><ul>
+<li>Maximum, minimum, absolute value</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">max</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">-4</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; ==&gt; 0</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">min</span> <span style="color:#0000cf;font-weight:bold">255</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; ==&gt; 255</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">abs</span> <span style="color:#0000cf;font-weight:bold">-10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; ==&gt; 10</span>
+</span></span></code></pre></div><ul>
+<li>Exponents, square root, squaring:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">expt</span> <span style="color:#0000cf;font-weight:bold">1.01</span> <span style="color:#0000cf;font-weight:bold">95</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; 1.01 to the 95 power is about 2.57</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">sqrt</span> <span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; square root of 9 is three</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">sqr</span> <span style="color:#0000cf;font-weight:bold">1241</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; when you square 1241 you get 1540081</span>
+</span></span></code></pre></div><ul>
+<li>Inexact answers, checking with tolerance</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#204a87">&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">sqrt</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">; about 2.236</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">#i2.23606797749979</span>
+</span></span></code></pre></div><p>The <code>#i</code> at the start of <code>#i2.236...</code> means that the number is an &ldquo;inexact&rdquo; decimal.
+You should never use check-expect with inexact numbers, because the inexact results can be different on different computers! Instead, use <code>check-within</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-within</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">sqrt</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">2.236</span> <span style="color:#0000cf;font-weight:bold">0.001</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><ul>
+<li>Special numbers: both pi is built in. Your tests should still pass if you use either the buit in value of <code>pi</code> or <code>3.1415</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#204a87">&gt;</span> <span style="color:#204a87">pi</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">#i3.141592653589793</span>
+</span></span></code></pre></div><ul>
+<li>Getting rid of fractions. The best generic method to use is <code>real-&gt;int</code>. Otherwise there are specific functions that will round traditionally, round up (ceiling), and round down (floor).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">real-&gt;int</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">real-&gt;int</span> <span style="color:#0000cf;font-weight:bold">1.5</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">real-&gt;int</span> <span style="color:#0000cf;font-weight:bold">2.5</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">ceiling</span> <span style="color:#0000cf;font-weight:bold">1.2</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">floor</span> <span style="color:#0000cf;font-weight:bold">1.7</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">round</span> <span style="color:#0000cf;font-weight:bold">1.6</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="more-important-ideas">More Important Ideas</h2>
+<ul>
+<li>Inexact numbers and <code>check-within</code></li>
+<li><code>build3-image</code> or <code>build-image</code></li>
+<li><code>map3-image</code> or <code>map-image</code></li>
+<li><code>(random 5)</code> gives 0, 1, 2, 3, or 4.</li>
+<li>A remainder of zero means the numerator is a multiple of the denominator.</li>
+<li>How to make a gradient, changing color smoothly from pink to light blue.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7496b16c963dec085bfddab4b0f1db49">2 - 7. Exercises 1</h1>
+    <div class="lead">Exercises.</div>
+	<p>Practice the design process making each of these functions:</p>
+<ul>
+<li>
+<p>Write a function that takes in the radius of a circle and outputs the circumference.</p>
+</li>
+<li>
+<p>Write a function to find the cost of a cart full of g pounds of grapefruit and b pounds of bananas. The grapefruit costs $1.49/lb and the bananas cost $0.59/lb.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f5bdf567ca70ebc847dba0516fa4cf9b">3 - 7. Exercises 2</h1>
+    <div class="lead">Exercises working with number functions.</div>
+	<p>Exercises:</p>
+<ol>
+<li>
+<p><code>hypotenuse</code>: Given the lengths of two legs of a right triangle, return the length of the third side.</p>
+</li>
+<li>
+<p><code>slope</code>: Given the x and y coordinates of two points (x1,y1) and (x2,y2) - in that order - return the slope of the line between those points. (OK if it does not work for vertical lines.)</p>
+</li>
+<li>
+<p><code>distance</code>: Given the x and y coordinates of two points (x1,y1) and (x2,y2), find the distance between them.</p>
+</li>
+<li>
+<p><code>quadratic-1</code>: Given a, b, and c, find one solution to the equation <code>a x^2+b x + c = 0</code>.</p>
+</li>
+<li>
+<p><code>quadratic-2</code>: Given a, b, and c, find the other solution to <code>a x^2+b x + c = 0</code>.</p>
+</li>
+<li>
+<p>Make an animation with a number model. Use the number to control the current amount of rotation of the object. The tick handler makes the object spin. Moving the mouse causes the animation to spin faster. Make hitting a key reset the position to zero.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8bb25e4f65fb53c51d9b5c1b3f7bdf21">4 - 7. Exercises 3</h1>
+    <div class="lead">More exercises writing functions.</div>
+	<ol>
+<li>
+<p>Write a function <code>at-most-250</code> that takes in a number and puts out the same number, or 250 if the number is larger than 250.</p>
+</li>
+<li>
+<p>Write a function <code>small-0</code> that takes in two numbers and gives out the distance to zero of the number that is closest to zero on the number line. It should work with negative numbers as well.</p>
+</li>
+<li>
+<p>Write a function <code>stuck-50-150</code> that takes in a number x and gives out x. Except if x is below 50, give an answer of 50. Also if x is more than 150, give an answer of 150.</p>
+</li>
+<li>
+<p><code>random-a</code>: Write a function that gives a random number between -50 and 50.</p>
+</li>
+<li>
+<p><code>random-b</code>: Write a function that gives a random even number 0-200.</p>
+</li>
+<li>
+<p><code>dice</code>: Write a function that gives the total from randomly rolling two six sided dice.</p>
+</li>
+<li>
+<p><code>rstar</code>:
+Write a function that makes a star with a random side length.</p>
+</li>
+<li>
+<p><code>dstar</code>:
+Write a function that makes two stars next to each other, one should
+have a random side length and the other should have sides that are
+twice as long. (Note: make sure to write and test your non-random
+function first!)</p>
+</li>
+<li>
+<p>Challenge: make a star with a random number of sides. For the third number, the &ldquo;step&rdquo;, try <code>(remainder 31 sides)</code>. You will want a helper function that knows the number of sides.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5c2543852f51f151317772de94006d9a">5 - 7. Exercises 4</h1>
+    <div class="lead">Planning and testing, not writing functions.</div>
+	<h2 id="planning-and-testing">Planning and Testing</h2>
+<p>Write every part of the design process <strong>except</strong> the function.
+Do write tests!</p>
+<ul>
+<li>
+<p>count-factors: take a number N and find out how many numbers 1,2,&hellip;,N divide N.</p>
+</li>
+<li>
+<p>angle-pts: take in six numbers (x1,y1) (x2,y2) (x3,y3) and give the angle in degrees made by line segments going to those three points in that order.</p>
+</li>
+<li>
+<p>Classwork: make a point follow the graph of y = sqrt(100^2-x^2) from x=-95 to x=95
+(Don&rsquo;t like math? Use the <a href="better-mathgraph.rkt">graph of the function y = 3x+50</a> on the same interval.)</p>
+</li>
+<li>
+<p>Homework: 8.3.6 page 142 (PDF page 153). Parabola graph.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-57f1a990f68bea16c46e1459988f3b7e">6 - 7. Exercises 5</h1>
+    <div class="lead">Helper functions, limiting values, random numbers, and the distance formula.</div>
+	<h2 id="helper-functions-1">Helper functions 1</h2>
+<p>Re-use functions you have already written.
+This is shown a lot in the chapter (exercises 7.8-7.10, or 7.15-7.17, or 7.18-7.19).
+You should also be seeing it in this worksheet.</p>
+<p>Look for ways you can use these functions later.</p>
+<ul>
+<li>
+<p>(<code>dot-on: image -&gt; image</code>): Place a radius 5 solid red circle on the
+lower right corner of an image.</p>
+</li>
+<li>
+<p>(<code>at-least-10: number -&gt; number)</code>: Take in any number, put out a
+number that is at least 10.</p>
+<pre><code>  (check-expect (at-least-10 75) 75)
+  (check-expect (at-least-10 3) 10)       
+</code></pre>
+</li>
+</ul>
+<h2 id="limiting-values">Limiting values</h2>
+<p>Restricting values to an allowable range is useful all of the
+time. Learn to do it proficiently.</p>
+<ul>
+<li>
+<p>(<code>limit</code>) Make a function called <code>limit</code> that takes in an integer and puts out
+an integer between 0 and 255. Numbers below 0 should become 0, and
+numbers above 255 should become 255. Otherwise the answer should be
+the same as the input number.</p>
+<pre><code>  (check-expect (limit -8) 0)
+  (check-expect (limit 900) 255)
+</code></pre>
+</li>
+<li>
+<p>(<code>dot-leash</code>): This function takes in a number (<code>y</code>) and puts out a
+radius 5 solid red circle on the lower right hand corner of a
+rectangle that is 2y wide and y tall.</p>
+<p>Restrictions on individual sides (these do not restrict <code>y</code>, just
+the way the answer looks):</p>
+<ul>
+<li>
+<p>the width will not grow over 300</p>
+</li>
+<li>
+<p>the height is at most 200 and at least 10</p>
+<pre><code>(check-expect (dot-leash 3) (dot-on (rectangle 6 10))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="random-numbers">Random numbers</h2>
+<ul>
+<li>
+<p><code>random-tenth: number(top) -&gt; number</code>. Put out a random real number
+of the form <code>xy.z</code>, between 10.0 and <code>top</code>. Assume the number <code>top</code>
+is at least 10.0.</p>
+<p>For example, <code>(random-tenth 10.3)</code> could put out 10.0, 10.1, 10.2,
+or 10.3. Since there are four possibilities, each one should be
+picked about 1/4 of the time. If you run (random-tenth 10.3) a
+bunch of times in the bottom window, you should see all of the
+possibilities.</p>
+</li>
+<li>
+<p><code>four-up: integer -&gt; number</code>. Round an integer up to the nearest
+multiple of 4.</p>
+<pre><code>  (check-expect (four-up 9) 12)
+  (check-expect (four-up 99) 100)
+  (check-expect (four-up 400) 400)
+</code></pre>
+<p>This question is a bit challenging. If you can the first two
+check-expects to pass but not the last, that&rsquo;s pretty good.</p>
+</li>
+</ul>
+<h2 id="distance-formula">Distance formula</h2>
+<ul>
+<li>
+<p>The distance between (x0,y0) and (x1,y1) is <code>(distance x0 y0 x1 y1)</code>.
+Write the distance function and two good tests to make sure it works
+correctly. (This function is important, make sure you know how to do
+it without thinking too hard.)</p>
+<ul>
+<li>One test should be when the answer is an integer.</li>
+<li>Another test should be when the answer is a square root.</li>
+</ul>
+</li>
+<li>
+<p><code>make-circ: number(x) number(y) -&gt; image</code>. Produce a solid maroon
+circle sized so that you
+could place its center at (150,100) and the point (x,y) would be
+just on the edge.</p>
+<pre><code>  (make-circ 200 220) =&gt; (circle 130 &quot;solid&quot; &quot;maroon&quot;)
+</code></pre>
+</li>
+<li>
+<p><code>test-circ number(x) number(y) image(background) -&gt; image</code>. Using
+the given image as the background, draw a radius 4 solid brown
+circle centered at <code>(x,y)</code> and a solid maroon circle centered at
+<code>(150,100)</code> with <code>(x,y)</code> just on its edge.</p>
+<pre><code>  (test-circ 175 160 (empty-scene 400 200))
+</code></pre>
+  <figure>
+      <img src="/teaching--2021-2022/intermediate-cs/ch07/exercises-5/test-circ.png"/> 
+  </figure>
+</li>
+</ul>
+<h2 id="animation-fun">Animation Fun</h2>
+<p>Make a red dot follow the graph of <code>y=x</code> until it gets to <code>y=150</code>,
+then move along <code>y=150</code> as <code>x</code> increases.</p>
+<p>Note: in the computer coordinate system, the red dot will appear to
+move down and to the right as it follows <code>y=x</code>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ec000af0637be1afb777e65d2aeb0cd0">7 - 7. Exercises 6</h1>
+    <div class="lead">Limiting warmup, more random numbers, distance.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 id="opener">Opener</h2>
+<p>A digital thermometer gives temperature readouts with one decimal
+place. The <code>random-therm</code> function gives a possible temperature
+reading between $96.7$ and $100.5$, inclusive. Write the
+<code>random-therm</code> function.</p>
+<h2 id="random">Random</h2>
+<ul>
+<li>
+<p>(<code>ball-jump</code>) A ball is supposed to teleport around the screen,
+moving to a random x coordinate. The x-coordinates chosen should be
+multiples of 10 between 70 and 250. Write a function that will give
+the new x-coordinate. Example of random choices:</p>
+<pre><code>  (ball-jump 0) =&gt; 90
+  (ball-jump 0) =&gt; 170
+  (ball-jump 0) =&gt; 120
+</code></pre>
+</li>
+</ul>
+<h2 id="distances">Distances</h2>
+<ul>
+<li>
+<p>(<code>dist-to-circ</code>)
+A circle has radius $80$ and center $(200,150)$. Write a function to
+compute the distance from $(x,y)$ to the circle. When $(x,y)$ is
+inside the circle or on the perimeter of the circle, the distance is $0$.</p>
+</li>
+<li>
+<p>(<code>dist-to-sq</code>) <strong>Harder Challenge.</strong>
+A square of side length 50 is placed with center at (175,90). Find
+the distance from a point (x,y) to the square. If your point is
+inside the square, the distance is zero. Draw a picture.</p>
+</li>
+</ul>
+<h2 id="other">Other</h2>
+<ul>
+<li>
+<p>(<code>swerve-heading</code>)
+A compass is currently pointing a certain direction between 0 and
+359 degrees. (0 degrees = North, not that it matters) The driver
+swerves a little bit, changing the heading by a random amount, at
+most ten degrees in either direction. The <code>swerve-heading</code> function
+takes in the original direction and produces the new, randomly
+varied, direction.</p>
+<p>Once you have the basic method working, make sure that the output
+direction is between 0 and 359 degrees. When the current heading is
+near 0 or 360 it can be a little tricky.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6064ed098a6d345367c852ef7149bfb8">8 - 7. Review 1</h1>
+    <div class="lead">Bare-bones review.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<ol>
+<li>
+<p>Write a function <code>f1</code> to create a random number between 10 and 50.</p>
+</li>
+<li>
+<p>Write a function <code>tree</code> to make a tree given a radius and a
+height. We measure the height of the tree to the center of the
+circle, not the very top. The width of the trunk should be the same
+as the radius. Shown below is <code>(tree 90 220)</code>.</p>
+<p>Force the trunk to be at
+least twice the radius, so <code>(tree 90 20)</code> should produce the same
+image as <code>(tree 90 180)</code>.</p>
+ <figure>
+     <img src="tree.png"/> 
+ </figure>
+</li>
+</ol>
+<h2 id="challenging-but-reasonable">Challenging but reasonable</h2>
+<ol>
+<li>
+<p>(<code>rq1</code>) Write a function that takes in one input <code>n</code> and gives
+random numbers between 100 and 1000. The first possible random number
+is 100, and after that increase 100 by multiples of <code>n</code>. Example: When n
+is 500, the only possible results are 100 and 600. When n is 7, the
+first possible number past 100 is 107.</p>
+</li>
+<li>
+<p>The <a href="https://en.wikipedia.org/wiki/Golden_ratio">Golden Ratio</a> is
+$(1 + \sqrt{5})/2$. Rectangles whose sides are in the golden ratio
+have been considered aesthetically pleasing since Greek times, and
+are called &ldquo;golden rectangles&rdquo;. Make
+a function that generates a random golden rectangles with one side
+between 100 and 300 pixels long.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6952629c2c7824eb7193f045cf66c9dd">9 - 7. Review 2</h1>
+    <div class="lead">Review of signatures, random numbers, random functions, math.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 id="signatures">Signatures</h2>
+<p>Remember that when you are describing a model which is a string, you
+should write model(string) instead of just model or string. This makes
+it clear that you know <em>exactly</em> the role that value plays in the
+animation.</p>
+<h3 id="triangle-in-the-corner">Triangle in the corner</h3>
+<p>You are making an animation that shows a triangle in the upper left
+corner of a 400x200 rectangle, filled in to the location of the mouse.</p>
+<ol>
+<li>What is a good model?</li>
+<li>What is the signature for the mouse-handler?</li>
+<li>What is the signature for the draw-handler?</li>
+<li>You add a feature so hitting a key resets the animation to show the
+top half of the rectangle shaded. (a) What is the signature for the
+key handler? (b) Write code for the key handler.</li>
+</ol>
+<h3 id="countdown">Countdown</h3>
+<p>An animation shows a number in the middle of a rectangle. The number
+starts at 60 and goes down one every second.</p>
+<ol>
+<li>Describe a good choice for a model. (What type?)</li>
+<li>What is the signature for the tick-handler?</li>
+<li>What is the signature for the draw-handler?</li>
+</ol>
+<h2 id="random-numbers">Random Numbers</h2>
+<h3 id="choices">Choices</h3>
+<ol>
+<li>What expression randomly chooses -1, 0, or 1? (With all equally
+likely.)</li>
+<li>Write an expression that randomly chooses a number from -18 to 18.</li>
+<li>Write an expression to create a random multiple of 100, from 2000
+to 3000.</li>
+<li>Write a function that takes in a number $m$ and puts out a random
+number between 10 and $m$. Bonus: If $m$ is less than 10, always put out
+10.</li>
+<li>(Harder.) Write a function that gives a random multiple of 3 between 81 and
+228.</li>
+<li>(This problem was very hard, consider it AP Racket.) Write a
+function that takes in a number $n$ and puts out a random number
+between $-10n$ and $50n$.</li>
+</ol>
+<h3 id="random-vs-nonrandom">Random vs Nonrandom</h3>
+<p>Create a rectangle with a random width from 100 to 400 and a random
+height from 200 to 300. Put a circle in the middle of the rectangle
+that has half the height of the rectangle.</p>
+<figure>
+    <img src="red-sun-random.png"/> 
+</figure>
+<h2 id="math">Math</h2>
+<ol>
+<li>Write a Racket function to compute $g(x) = \sqrt{7-3x}$.</li>
+<li>Write a function that takes in a number and puts out a number that
+is between 20 and 200 by taking numbers smaller than 20 and making
+them 20, and numbers bigger than 200 become 200, and numbers in the
+middle do not change.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0302938d2d616ce35a56672071105558">10 - 7. Numbers Quiz A</h1>
+    <div class="lead">A reasonable quiz, maybe one half question too long. Extra credit for all homework being turned in.</div>
+	<ol>
+<li>
+<p>Make a function that picks a color that has a random amount of red,
+either 50, 150, 250, and a random amount of green, either 100 or 200.
+Use it to make six 50x50 squares next to each other.</p>
+</li>
+<li>
+<p>Check if a random integer between 0 and 60 (inclusive) has a square root
+between 3.5 and 7.5. Use <code>check-within</code>. You can comment out your test
+when you know it works.</p>
+</li>
+<li>
+<p>Make a gradient from maroon to olive that takes 500 pixels to go
+all of the way (so it doesn&rsquo;t get to olive before the end).</p>
+</li>
+<li>
+<p>(<code>pinkify</code>)
+Write a function that takes in an image and removes some green from
+it according to the directions below:</p>
+<ul>
+<li>The center of the color change is (100,120).</li>
+<li>Green within 10 pixels of (100,120) should be untouched.</li>
+<li>As you
+get further away, the green should fade to black, so at (365,120)
+there is 0 green left.</li>
+<li>There should be some small amount of green left
+until you get all of the way to (365,120), although you will probably
+not be able to see it.</li>
+</ul>
+</li>
+</ol>
+<p>Make sure to include check-expects that demonstrate that green is
+untouched in the center area and gone on the edge.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-75eca2780fef2c31780583605f5a068e">11 - Slides: Max and min</h1>
+    <div class="lead">Slideshow of exercises to learn max, min, abs, and random.</div>
+	<h1 id="maximum-minimum-random">Maximum, Minimum, Random</h1>
+<hr>
+<h2 id="make-a-table">Make a Table</h2>
+<p>Max = greatest.
+Min = least.
+Abs = absolute value.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">x</th>
+<th style="text-align:center">(min x 10)</th>
+<th style="text-align:center">(max x 10)</th>
+<th style="text-align:center">(abs x)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-15</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">-5</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Include x = 8, 13, 18 as well.</p>
+<hr>
+<h1 id="which-keeps-numbers-small">Which keeps numbers small?</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">x</th>
+<th style="text-align:center">(min x 10)</th>
+<th style="text-align:center">(max x 10)</th>
+<th style="text-align:center">(abs x)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-15</td>
+<td style="text-align:center">-15</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:center">-5</td>
+<td style="text-align:center">-5</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">18</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="use-check-expect">Use Check-expect</h1>
+<p>Always write check-expects when keeping numbers small or large. It is very easy to have mistakes in this kind of code.</p>
+<hr>
+<h1 id="random">Random</h1>
+<p>(random 5) =&gt; 0, 1, 2, 3, 4</p>
+<p>( ????   ) =&gt; 0, 1, 2, &hellip;, 100</p>
+<hr>
+<h1 id="random-range">Random range</h1>
+<p>(random 101) =&gt; 0, 1, 2, &hellip;, 100</p>
+<p>( ????     ) =&gt; 50, 51,52, &hellip;, 150</p>
+<hr>
+<h1 id="random-functions">Random functions</h1>
+<p>Beginning student needs at least one parameter for a function.
+You can give the parameter a job if you want:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#000">start-num</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000">start-num</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#0000cf;font-weight:bold">101</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><hr>
+<h1 id="checking-random">Checking random?</h1>
+<ul>
+<li>
+<p>Uses random number? <a href="/teaching--2021-2022/intermediate-cs/ch07/random/">Test a helper function</a>.</p>
+</li>
+<li>
+<p>Produces a random number? No check.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f49216d0f7e5c7a8a987437541b896ab">12 - Randomness</h1>
+    <div class="lead">Making random numbers.  Testing functions that use random numbers.</div>
+	<ul>
+<li>Random numbers: <code>(random 3)</code> gives a random number 0, 1, or 2. Notice that there are three possible answers, but they start counting at 0. Run the code below and you should get different answers each time.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span></code></pre></div><h2 id="random-ranges">Random ranges</h2>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    We use the phrase &ldquo;from 10 to 200&rdquo; or &ldquo;between 10 and 200&rdquo; to both mean all of the integers n so that 10&lt;=n&lt;=200.
+
+</div>
+
+<p>How many numbers are there from 10 to 200, inclusive? It&rsquo;s easy to make a mistake. My favorite method is to subtract a number to make the bottom of the range start counting at one.</p>
+<p>Be sure you understand the previous paragraph before reading on!</p>
+<p>When you already have a random number from 0 to 50, how can you get a random number between 30 and 80?</p>
+<h2 id="using-randomness">Using randomness</h2>
+<p>It is hard to test random functions, so write non-random versions first, and use the randomness as an input. Test the non-random functions!</p>
+<p>Example: Make an ellipse of a random height 150-250 pixels tall, and twice as wide.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; make-ellipse-nr: string(color) number(height) -&gt; image</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; purpose: make an ellipse height units tall and 2*height units wide in the given color</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ellipse-nr</span> <span style="color:#000">color</span> <span style="color:#000">height</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ellipse</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000">height</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">height</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">; see below for check-expect</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ellipse</span> <span style="color:#000">color</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-ellipse-nr</span> <span style="color:#000">color</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#0000cf;font-weight:bold">150</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">random</span> <span style="color:#0000cf;font-weight:bold">101</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch07/random/nonrandom-check.png"/> <figcaption>
+            <h4>Test your nonrandom function well!</h4>
+        </figcaption>
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-758cd8408cf7b969637c9779c67c288f">13 - Worksheets</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-76df91f2f5ffc66cd603991386ae91ed">13.1 - Ch07 WS 01</h1>
+    
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>Translate each expression into Racket. You can look up <a href="https://docs.racket-lang.org/reference/generic-numbers.html">lots of
+arithmetic
+functions</a>
+if you are interested. There&rsquo;s more if you are into <a href="https://docs.racket-lang.org/math/number-theory.html">KAM or math
+team</a> subjects.</p>
+<ol start="0">
+<li>
+<p>Does the test <code>(check-within (sqrt 11) 3 0.3)</code> pass?</p>
+<ul>
+<li>In this statement, what is the expected answer?</li>
+<li>In this statement, what is the tolerance (the amount of error
+allowed in a correct answer)?</li>
+</ul>
+</li>
+<li>
+<p>Write a <code>check-within</code> statement that says <code>(sqrt 19)</code> is $4.4 \pm
+0.05$.</p>
+</li>
+<li>
+<p>Write an incorrect (and failing) <code>check-within</code> statement that says
+<code>(sqrt 19)</code> is $4.4 \pm 0.01$.</p>
+</li>
+<li>
+<p>$100 + 50$</p>
+</li>
+<li>
+<p>$200 + 800 + 900 + 80$</p>
+</li>
+<li>
+<p>$500 / 8$</p>
+</li>
+<li>
+<p>$1011 - 231$</p>
+</li>
+<li>
+<p>the whole number of times 2145 is divisible by 7 (&ldquo;quotient&rdquo;)</p>
+</li>
+<li>
+<p>the amount left over when 2145 is broken into groups of 7
+(&ldquo;remainder&rdquo;)</p>
+</li>
+<li>
+<p>$\sqrt{17}$</p>
+</li>
+<li>
+<p>$11^8$</p>
+</li>
+</ol>
+<h2 id="on-the-computer">On the computer</h2>
+<ol start="101">
+<li>
+<p>there is a shortcut for squaring, <a href="https://docs.racket-lang.org/reference/generic-numbers.html#%28def._%28%28lib._racket%2Fmath..rkt%29._sqr%29%29">find
+it</a>
+and compute $163^2$</p>
+</li>
+<li>
+<p>Find $\frac{13}{29} + \frac{31}{17}$ as a fraction.</p>
+</li>
+<li>
+<p>Write the function $f(x) = x^2 - 8x + 7$ and test it.</p>
+</li>
+<li>
+<p>What is the difference between $5 + \sqrt{169-256}$ and
+$5 - \sqrt{169+256}$. Carefully explain Racket&rsquo;s response to each.</p>
+</li>
+<li>
+<p>Do 7.2.6: write a function to compute one of the solutions of
+$ax^2+bx+c=0$ using the quadratic formula.</p>
+</li>
+<li>
+<p>Write a function to compute the distance between (x0, y0) and
+(x1, y1). Include check-expects.</p>
+<p>(define (distance x0 y0 x1 y1) &hellip;)</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9f5db60fcff74ddd20f389b466768cf1">13.2 - Ch07 WS 03</h1>
+    
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<ol>
+<li>
+<p>The function <code>f</code> takes in a number and puts out a number. When the
+input is 5, the output is 30. When the input is 7, the output
+is 22.</p>
+<ol>
+<li>Write two check-expects for <code>f</code>.</li>
+<li>Write the function definition.</li>
+</ol>
+</li>
+<li>
+<p>An animation uses <strong>a number model</strong> to control the radius of an orange
+circle centered at (150,100) on a 300x300 background. Every 0.5
+seconds the radius increases by 5. When you move the mouse, the
+edge of the circle passes through the location of the mouse event
+(so the radius is set to be the distance from (150,100)).</p>
+<pre><code> (big-bang 80
+     (to-draw dh)
+     (on-key kh)
+     (on-mouse mh)
+     (on-tick th 0.5))
+</code></pre>
+<ol>
+<li>What is the signature of the draw handler?</li>
+<li>Make a careful drawing of the initial image you see.</li>
+<li>Write the draw handler.</li>
+<li>What is the signature of the tick handler?</li>
+<li>Make a careful drawing of one tick after the start of the
+animation.</li>
+<li>Write the tick handler.</li>
+<li>What is the signature of the mouse handler?</li>
+<li>Write a check-expect showing what happens when the radius is 70
+and the mouse moves to (180,140).</li>
+<li>Write the mouse handler.</li>
+</ol>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0307e91db5e0eba9df3ae1e2f1faec2e">13.3 - Ch07 WS 04</h1>
+    
+	<ol>
+<li>
+<p>Write the function <code>fix: number -&gt; number</code> that has the following
+properties:</p>
+<ul>
+<li>input &lt; 100 gives an output of 100</li>
+<li>input &gt; 300 gives an output of 300</li>
+<li>otherwise the output is the same as the input</li>
+</ul>
+</li>
+<li>
+<p>Write the function <code>rand5: anything -&gt; integer</code>. This function
+outputs a random multiple of 5 between 100 and 150 (inclusive).</p>
+</li>
+<li>
+<p>Write the function <code>rand-shapes: anything -&gt; image</code>. This function
+outputs an image of a square next to the image of a circle.</p>
+<ul>
+<li>The radius of the circle equal to the side length of the square.</li>
+<li>The radius of the circle is one of 20, 30, 40, 50, &hellip;, 100.</li>
+</ul>
+</li>
+<li>
+<p>(Summary.) Create a random house-making function,
+<code>rh : anything -&gt; image</code>.
+A house is
+triangle exactly fitting over a square.
+The width of the house should be chosen randomly among the numbers
+120, 140, 160,  &hellip;, 280.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e5ef4a527779ca8965d12bd51e3a2bda">14 - Resources</h1>
+    <div class="lead">External documents for learning about Chapter 7, including gradients.</div>
+	<ul>
+<li><a href="https://docs.google.com/document/d/193fiEVjSxTPF1i4WgTRjRHps3qDP1dcPxuBqJgEJAok/edit?usp=sharing">Chapter 7 Worksheet
+A</a>:
+Important basic info for working with numbers, including <code>#i</code> and <code>check-within</code>.</li>
+<li><a href="https://docs.google.com/document/d/1aGHOEBBIaDv7YhWzprDr4v0WdzwZz1o40hTDViT9FXU/edit?usp=sharing">Chapter 7 Worksheet
+BC</a>:
+Lists of good problems from the book (Picturing Programs, Chapter 7).</li>
+<li><a href="https://docs.google.com/document/d/1w3D3FDAfiulQOswVmcWqs1ShFq46mLckEGKzKdqEsuI/edit?usp=sharing">Chapter 7 Worksheet
+D</a>:
+First big gradient creation practice.</li>
+<li><a href="https://docs.google.com/document/d/1AZH9UpUeo7K8mb5cn4bYoUDXT686-vQpVs3WApLW-xQ/edit?usp=sharing">Chapter 7 Worksheet
+E</a>:
+More gradients, including a radial gradient!</li>
+<li><a href="https://docs.google.com/document/d/1bm-zTl0d4QM-Px9C9rF43uS05RjtWLGqhNwAPn0UyIQ/edit?usp=sharing">Chapter 7 Worksheet
+F</a>:
+Scaffolded practice with check-expects, more gradients.</li>
+<li><a href="https://docs.google.com/document/d/1lNz7j5k5pNnxG4OREckKYMDHY6EVp701nPoCbmfHWSA/edit?usp=sharing">Chapter 7 Worksheet
+G</a>:
+Mostly advanced exercises, including the &ldquo;reverse greyscale&rdquo; transformation.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1634 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/daily/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Haskell Daily Notes | WY CS</title>
+<meta name="description" content="Notes for each day.">
+<meta property="og:title" content="Haskell Daily Notes" />
+<meta property="og:description" content="Notes for each day." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/daily/" />
+
+<meta itemprop="name" content="Haskell Daily Notes">
+<meta itemprop="description" content="Notes for each day."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Haskell Daily Notes"/>
+<meta name="twitter:description" content="Notes for each day."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Haskell Daily Notes</h1>
+<div class="lead">Notes for each day.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-ee811b05580c8179397887f0b0b184f0">2021-11-22</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-2c4574ce5e8810d54fd60ce812f1a7b1">2021-11-08</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-0f3dd004cdf2650f526e197e8be8441d">2021-11-01</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-136fcb653015124b319be545f72119b4">2021-10-28</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-e4100adacfab9dfa2199dfda6572a6d0">2021-10-27</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-1a6bbc73bb1970dfbda0f45c95a768a7">2021-10-25</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-8133f87efff1d7836f2d38dacb719395">2021-10-18</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-aba815d94d6eba69656f5cbedac49bdb">2021-10-14</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-1871de8c22793c0e654c2e9f95243510">2021-10-12</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-621825446dcc915ff3d8729474066cb5">2021-10-06</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-dde3ae06771e1a6c4bd51c7e2e5ba772">2021-10-04</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-15dd93d92b0777f4d8af8ac45125fa2b">2021-09-30</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-e88f0baac95dc698ecf57b0926905fc5">2018-10-16</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-91ca3d2dd961635e8f5e114531b990ec">2018-10-09 Project</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-4d62a79f03710117d03367c4ca03a881">2018.10.04 Square Pasture</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-cdb7d15993fcf16a5d5f92d43787ae84">2018.10.03 Cow Signal</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17: <a href="#pg-5f1b273763a6e0d6f5497b7ae8062457">2017-10-04</a></li>
+
+
+    
+  
+    
+    
+	
+<li>18: <a href="#pg-47b684b285a86478e140bdc7ceae1ebf">2017-10-03</a></li>
+
+
+    
+  
+    
+    
+	
+<li>19: <a href="#pg-570cb9a82b3773ca8e9f4893483ece1e">2017-09-18</a></li>
+
+
+    
+  
+    
+    
+	
+<li>20: <a href="#pg-3d9e511ce663c4603fb3912c27c216b9">2017-09-14 Indentation</a></li>
+
+
+    
+  
+    
+    
+	
+<li>21: <a href="#pg-3c582f2c395d6faa0ecccbb473c627ca">2017-09-12</a></li>
+
+
+    
+  
+    
+    
+	
+<li>22: <a href="#pg-5574d20c5bca92ceb8b72c98cdac4835">2017-09-11</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-11-22/" >2021-11-22</a></li></p>
+<p>Short quiz confirming knowledge</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-11-08/" >2021-11-08</a></li></p>
+<p>Interactive graphics demo using Haskell on code.world.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-11-01/" >2021-11-01</a></li></p>
+<p>Connect Four win detection.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-28/" >2021-10-28</a></li></p>
+<p>topOfPile and make_move</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-27/" >2021-10-27</a></li></p>
+<p>Warm-up functions for drawing the board.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-25/" >2021-10-25</a></li></p>
+<p>Introduction to Connect Four</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-18/" >2021-10-18</a></li></p>
+<p>Utility functions. Noticing infinite loops.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-14/" >2021-10-14</a></li></p>
+<p>Logic and lists practice: isEverywhere.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-12/" >2021-10-12</a></li></p>
+<p>Eight before nine in a list.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-06/" >2021-10-06</a></li></p>
+<p>The function shuffle2 :: [Int] -&gt; [Int] -&gt; [Int] takes in two lists of numbers and interleaves them, taking two from the first list, then one from the second list. When one list runs out the rest of the other list is output.
+shuffle2 [10,20,30,40] [100,200,300] == [10,20,100,30,40,200,300] (either24 :: [Int] -&gt; Bool) Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-10-04/" >2021-10-04</a></li></p>
+<p>The makes function takes in a number n and a list of numbers xs. It returns the number of ways to make n by adding the first number in the list to some other number later in the list.
+makes :: Int -&gt; [Int] -&gt; Int makes 12 [6,6] == 1 makes 11 [8,3,11,3] == 2 makes 2 [1,1,1,1] == 3 Continue to Chapter 4 Discussion IV.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2021-09-30/" >2021-09-30</a></li></p>
+<p>Money formatter. List of Char vs String.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2018-10-16/" >2018-10-16</a></li></p>
+<p>notAlone, Team Tic-Tac-Toe</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2018-10-09/" >2018-10-09 Project</a></li></p>
+<p>The end-of-Haskell project.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2018-10-04/" >2018.10.04 Square Pasture</a></li></p>
+<p>USACO Bronze December 2016, Question 1.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2018-10-03/" >2018.10.03 Cow Signal</a></li></p>
+<p>USACO Bronze December 2016, Question 2.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-10-04/" >2017-10-04</a></li></p>
+<p>More CodingBat problems.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-10-03/" >2017-10-03</a></li></p>
+<p>CodingBat problems to improve your problem-solving skills.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-09-18/" >2017-09-18</a></li></p>
+<p>Battleship and homework review.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-09-13/" >2017-09-14 Indentation</a></li></p>
+<p>Indentation matters. A lot.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-09-12/" >2017-09-12</a></li></p>
+<p>Technical details that came up while doing Chapter 2 Homework.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/haskell/daily/2017-09-11/" >2017-09-11</a></li></p>
+<p>worked examples - removeVowels and wordLenPairs</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ee811b05580c8179397887f0b0b184f0">1 - 2021-11-22</h1>
+    <div class="lead">Short quiz confirming knowledge</div>
+	<ol>
+<li>
+<p>(xer) The function <code>xer :: (Double, Double) -&gt; (Int, Int)</code> gives
+the grid coordinates of the square that contains the given
+coordinates. (See image.)</p>
+<p>The grid squares have side length 4.
+There is a grid with one square is centered at
+(-6.5,-6.5), another at (-6.5,-2.5), and more filling in the space.</p>
+<p>For example, <code>xer (-6.4,-5.9) == (0,0)</code> and <code>xer (6.5,2.5)==(3,2)</code>.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">CodeWorld</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">centers</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">centers</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">x</span><span style="color:#204a87;font-weight:bold">&lt;-</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#ce5c00;font-weight:bold">..</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">y</span><span style="color:#204a87;font-weight:bold">&lt;-</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#ce5c00;font-weight:bold">..</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">draw1</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">translated</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">f</span> <span style="color:#000">w</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">w</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">6.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">show</span> <span style="color:#000">checks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">drawingOf</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">pictures</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">coordinatePlane</span> <span style="color:#204a87;font-weight:bold">:</span> <span style="color:#000">map</span> <span style="color:#000">draw1</span> <span style="color:#000">centers</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">checks</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#204a87;font-weight:bold">True</span> <span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>(Barbell) Make an <code>activityOf</code> in
+<a href="https://code.world/haskell">CodeWorld</a> that has a solid orange
+rectangle with two blue circles, one on each end of the rectangle.</p>
+<ul>
+<li>The width of the rectangle depends on the x-coordinate of the
+mouse. One of the vertical sides of the rectangle is at exactly
+the x-coordinate of the mouse.</li>
+<li>The radius of the circles depends on the
+y-coordinate. Initially the radius the distance of the mouse
+from the x-axis. However, the radius is restricted to never
+be less than 2 or more than 5.</li>
+</ul>
+</li>
+<li>
+<p>(Tic-Lights) There is a 4x4 grid of orange squares, like the one
+used in question 1 above. Each has side length 4. Clicking in a
+square toggles its color between orange and blue.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2c4574ce5e8810d54fd60ce812f1a7b1">2 - 2021-11-08</h1>
+    <div class="lead">Interactive graphics demo using Haskell on code.world.</div>
+	<p>You can write Haskell using <a href="code.world/haskell">https://code.world/haskell</a>.
+There is a <a href="https://drive.google.com/file/d/11HTeqiYeTfLcYA1CPQ0qyiMoV7ZMFVnV/view?usp=sharing">demo video</a> for CPS students (kind of poor sound
+quality).</p>
+<h3 id="demo-code">Demo Code</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">{-# LANGUAGE OverloadedStrings #-}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">CodeWorld</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">{--
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">main = do drawingOf $ pictures [ myRect2, myRect, coordinatePlane ]
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">  where myRect = colored red $ translated 4 2.5 $ solidRectangle 8 5
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">        myRect2 = colored (RGBA 0 0 1.0 0.5) $ solidRectangle 6 2
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">--}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">data</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">showRed</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Bool</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">showBlue</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Bool</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">initialModel</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#204a87;font-weight:bold">True</span> <span style="color:#204a87;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">eventHandler</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Event</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">GameState</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">eventHandler</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">KeyPress</span> <span style="color:#204a87;font-weight:bold">_</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">game</span><span style="color:#ce5c00;font-weight:bold">@</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#000">r</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">game</span><span style="color:#000;font-weight:bold">{</span><span style="color:#000">showRed</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">not</span> <span style="color:#000">r</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">eventHandler</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">PointerPress</span> <span style="color:#204a87;font-weight:bold">_</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#000">r</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#000">r</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">not</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">eventHandler</span> <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#000">game</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">game</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> <span style="color:#000">activityOf</span> <span style="color:#000">initialModel</span> <span style="color:#000">eventHandler</span> <span style="color:#000">drawHandler</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">maybeVisible</span> <span style="color:#000">color</span> <span style="color:#204a87;font-weight:bold">True</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">color</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">maybeVisible</span> <span style="color:#000">color</span> <span style="color:#204a87;font-weight:bold">False</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">RGBA</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">-- transparent</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">drawHandler</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Picture</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">drawHandler</span> <span style="color:#000">g</span><span style="color:#ce5c00;font-weight:bold">@</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">GameState</span> <span style="color:#000">r</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">pictures</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000">blueRect</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000">redRect</span> <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">redRect</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">colored</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">maybeVisible</span> <span style="color:#000">red</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">showRed</span> <span style="color:#000">g</span><span style="color:#000;font-weight:bold">))</span><span style="color:#ce5c00;font-weight:bold">$</span> 
+</span></span><span style="display:flex;"><span>                  <span style="color:#000">translated</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">2.5</span> <span style="color:#ce5c00;font-weight:bold">$</span> 
+</span></span><span style="display:flex;"><span>                  <span style="color:#000">solidRectangle</span> <span style="color:#0000cf;font-weight:bold">8</span> <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000">blueRect</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">colored</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">maybeVisible</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">RGBA</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">1.0</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">$</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000">solidRectangle</span> <span style="color:#0000cf;font-weight:bold">6</span> <span style="color:#0000cf;font-weight:bold">2</span>
+</span></span></code></pre></div><h3 id="notes-on-code">Notes on Code</h3>
+<p>There are two &ldquo;more difficult than necessary&rdquo; items shown above:</p>
+<ul>
+<li>The <code>eventHandler</code> for <code>KeyPress</code> shows an alternate way to update a
+struct that is equivalent to the Racket code <code>(struct-copy GameState game [showRed (not r)])</code></li>
+<li>The <code>drawHandler</code> variable <code>redRect</code> shows how to use the <code>showRed</code>
+accessor to get the <code>r</code> boolean out of the <code>GameStruct</code>.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0f3dd004cdf2650f526e197e8be8441d">3 - 2021-11-01</h1>
+    <div class="lead">Connect Four win detection.</div>
+	<p>This is a 1 dimensional version of win detection in Connect Four.</p>
+<h2 id="warmup">Warmup</h2>
+<p>Write the <code>all_match_nz</code> function that returns True when all of the
+elements of the input list are the same <em>and not zero</em>.</p>
+<pre><code>all_match_nz :: [Player] -&gt; Bool
+</code></pre>
+<p>It makes sense to say <code>all_match_nz [] == True</code>, but make sure that
+<code>all_match_nz [0,0,0,0] == False</code>.</p>
+<h2 id="skip-counter">Skip Counter</h2>
+<p>A board consists of X, O, and blank squares.</p>
+<pre><code>X..XOX.XOX.X
+</code></pre>
+<p>A player wins with four evenly spaced markers. In this case, there are
+four evenly spaced X&rsquo;s (indices 3, 5, 7, and 9), so X wins this game.</p>
+<p>Another example is:</p>
+<pre><code>X.O.XOOXO..OX.X.X
+  ^  ^  ^  ^
+0         1
+01234567890123456
+</code></pre>
+<p>In this case player O wins starting at index 2 and going up 3 squares
+at a time (indices 2, 5, 8, and 11).</p>
+<p>This board has no winning player:</p>
+<pre><code>X.O.X...XOO
+</code></pre>
+<p>You should not claim that the board is won by &ldquo;.&rdquo; (&ldquo;player 0&rdquo;)
+starting at index 1 and going up by 2.</p>
+<h2 id="goal">Goal</h2>
+<p>Your goal is to produce a function that returns True when a &ldquo;skip
+counter&rdquo; board is won. There are two big-picture steps:</p>
+<ol>
+<li>
+<p>Produce a list of all possible sequences of indices to
+examine. (Use the maximum length of a board as input.)</p>
+<pre><code> all_candidates :: Int -&gt; [[Int]]
+ all_candidates max = undefined
+</code></pre>
+<p>Example showing steps of length 1 and 2.</p>
+<pre><code> all_candidates 7 ==
+     [[0,1,2,3],[0,2,4,6],[1,2,3,4],[2,3,4,5],[3,4,5,6]]
+</code></pre>
+</li>
+<li>
+<p>Given a board, check all of those index lists to see if any of them
+correspond to four of the same pieces.</p>
+<pre><code> skip_won [1,0,1,0,1,0,1] == True
+ skip_won [1,1,1,1,0,0,0] == True
+ skip_won [0,1,0,2,0,2,0] == False
+</code></pre>
+</li>
+</ol>
+<h2 id="technical">Technical</h2>
+<p>We will represent the board by a list of numbers</p>
+<pre><code>X..XOX.XOX.X
+</code></pre>
+<p>is represented by</p>
+<pre><code>nums = [1,0,0,1,2,1,0,1,2,1,0,1]
+</code></pre>
+<p>Since this is supposed to be a simplified game, let&rsquo;s start with a
+working <code>getPlayer</code> function that returns 0 for any position off the
+board.</p>
+<pre><code>getPlayer :: Int -&gt; [Int] -&gt; Int
+getPlayer pos nums 
+   | 0&lt;= pos &amp;&amp; pos &lt; length nums  = nums !! pos
+   | otherwise  = 0
+</code></pre>
+<p>In the example above, <code>getPlayer 4 nums == 2</code> and
+<code>getPlayer 100 nums == 0</code>.</p>
+<h2 id="walkthrough">Walkthrough</h2>
+<ol>
+<li>
+<p>Given a starting position and a step size, we generate a list of 4
+numbers starting at the given position and increasing each time by the
+step size.</p>
+<pre><code> step1 :: Int -&gt; Int -&gt; [Int]
+ step1 start step = undefined
+</code></pre>
+</li>
+<li>
+<p>Given a starting position and a maximum step size, generate all of
+the possible steps from 1 through the maximum.</p>
+<pre><code> step2 :: Int -&gt; Int -&gt; [[Int]]
+ step2 start maxstep = undefined
+</code></pre>
+</li>
+<li>
+<p>Given a <code>maxlen</code>, generate all of the possible sequences
+of positions with starting positions 0 to <code>maxlen</code>.</p>
+<pre><code> step3 :: Int -&gt; [[Int]]
+ step3 maxlen = undefined
+</code></pre>
+</li>
+<li>
+<p>Give True if every element of the list is &ldquo;on the
+board&rdquo; (in the range 0 through size-1).</p>
+<pre><code> on_board :: Int -&gt; [Int] -&gt; Bool
+ on_board size xs = False
+</code></pre>
+</li>
+<li>
+<p>Output every input list that is <code>on_board</code>, ignore the others.</p>
+<pre><code> only_on_board :: Int -&gt; [[Int]] -&gt; [[Int]]
+ only_on_board size xss = xss
+</code></pre>
+<p>You will use this function to clean up your final results, keeping
+only the ones that fit on a board.</p>
+</li>
+<li>
+<p>Check to see if a single sequence wins the board.</p>
+<pre><code> skip_won_1 :: Board -&gt; [Int] -&gt; Bool
+</code></pre>
+</li>
+<li>
+<p>Check to see if any sequence wins the board.</p>
+<pre><code> skip_won :: Board -&gt; Bool.
+</code></pre>
+</li>
+</ol>
+<p>If you prefer, your win detection functions can output the winning
+<code>Player</code>. That makes declaring who won easier&hellip; but it is not important.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-136fcb653015124b319be545f72119b4">4 - 2021-10-28</h1>
+    <div class="lead">topOfPile and make_move</div>
+	<p>We discussed <code>topOfPile</code> first. This function gives the y-coordinate
+(row) that a piece dropped in a particular column will end up in.</p>
+<pre><code>topOfPile :: Board -&gt; Int -&gt; Int
+topOfPile board col = undefined
+</code></pre>
+<p>Using the example board <code>b</code> pictured below:</p>
+<figure>
+    <img src="pile-board.png" width="250px"/> 
+</figure>
+<p>Playing in column 1 would result in a piece in row 2. Playing in
+column 3 would result in a piece in row 0. Playing in column 2
+should give a row of 3, even if the board has only three rows - worry
+about that being an illegal move in a different place.</p>
+<pre><code>pileTests = [ 
+    topOfPile b 1 == 2
+    ,topOfPile b 3 == 0
+    ]
+</code></pre>
+<h2 id="legal-move">Legal Move</h2>
+<p>Signature:</p>
+<pre><code>is_legal_move :: Board -&gt; Int -&gt; Bool
+</code></pre>
+<p>True if the attempted move is legal. Used to prevent people from
+playing in full columns or off the board (e.g., column -5). The
+computer uses this information to decide whether</p>
+<p>Your legal move function will have to know how large the board is. I
+recommend  making variables that hold this information. The
+official sizes are:</p>
+<pre><code>board_width = 7
+board_height = 6
+</code></pre>
+<h2 id="make-move">Make Move</h2>
+<p>Signature:</p>
+<pre><code>make_move :: Board -&gt; Int -&gt; Player -&gt; Board
+</code></pre>
+<p>The second input is the column number. Assumes the move is legal. The
+output is a new board with the move made on it.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e4100adacfab9dfa2199dfda6572a6d0">5 - 2021-10-27</h1>
+    <div class="lead">Warm-up functions for drawing the board.</div>
+	<h2 id="opener">Opener</h2>
+<p>Put the strings together, inserting the separator between each one.</p>
+<pre><code>myB :: String -&gt; [String] -&gt; String
+myB _ _ = &quot;&quot;
+
+testB = [ myB &quot;Q&quot; [&quot;R&quot;] == &quot;R&quot;, 
+          myB &quot;:&quot; [&quot;A&quot;,&quot;B&quot;,&quot;C&quot;] == &quot;A:B:C&quot; ]
+</code></pre>
+<h2 id="1-alpha">1. Alpha</h2>
+<p>Write a function that takes in a list of numbers and puts out a String
+with the corresponding letters of the alphabet.</p>
+<pre><code>alpha :: [Int] -&gt; String
+alpha _ = &quot;&quot;
+
+alphaTest = [ 
+  alpha [25] == &quot;Z&quot;
+  ,alpha [1,2,0,0] == &quot;BCAA&quot;
+  ]
+</code></pre>
+<h2 id="2-beta">2. Beta</h2>
+<p>Write a function that takes in a list of lists and puts out a String
+with each row changed into letters of the alphabet, separated by the
+<code>\n</code> character.</p>
+<pre><code>beta :: [[Int]] -&gt; String
+beta _ = &quot;&quot;
+
+testBeta = [beta [[1,2,0,0],[5,3,0,4]] == &quot;BCAA\nFDAE&quot;]
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1a6bbc73bb1970dfbda0f45c95a768a7">6 - 2021-10-25</h1>
+    <div class="lead">Introduction to Connect Four</div>
+	<p>Basic definitions:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Player</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">Int</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Posn</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Piece</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">Player</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Posn</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Piece</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>There are two different ways you could represent a Connect Four
+board. We will write some functions to convert between the two
+possible representations. These functions are to warm up; they might
+not actually be used in your final version of the game.</p>
+<h2 id="representations">Representations</h2>
+<p>There are two different ways to represent the following 2 row, 3
+column board:</p>
+<pre><code>- O -
+O X X
+</code></pre>
+<p>One way would be simply to replace X by 1 and O by 2, letting 0
+represent the empty squares.</p>
+<pre><code>[[0, 2, 0],
+ [2, 1, 1]]
+</code></pre>
+<p>Another way would be to record only the location of the occupied
+squares, writing a <code>Piece</code> for each one, which is a tuple <code>(Player, Posn)</code>. The order does not matter:</p>
+<pre><code>[(2,(0,0)), (1,(1,0)), (1,(2,0)),
+ (2,(1,1))]
+</code></pre>
+<p>The <em>bottom</em> row of the matrix will be numbered row 0. (Like the first
+quadrant in math.)</p>
+<h2 id="helper-getplayer">Helper: getPlayer</h2>
+<p>When using the list of pieces representation of the board, it helps to
+have a function that takes in a row, column, and board, and returns 0
+if the row and column is unoccupied, or the number of the player that
+occupies it.</p>
+<pre><code>getPlayer :: Int -&gt; Int -&gt; [Piece] -&gt; Int
+getPlayer x y board = undefined
+</code></pre>
+<h2 id="converttopieces">convertToPieces</h2>
+<p>Given a matrix representation of the board, produce a list of Pieces.</p>
+<pre><code>boardConvertToPieces :: [[Int]] -&gt; [Piece]
+boardConvertToPieces board = undefined
+</code></pre>
+<h2 id="converttomatrix">convertToMatrix</h2>
+<p>Given a list of Pieces, produce the matrix. In this case you need the
+additional information of how many rows and columns are in the board.</p>
+<pre><code>boardConvertToMatrix :: Int -&gt; Int -&gt; [Piece] -&gt; [[Int]]
+boardConvertToMatrix width height pieces = undefined
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8133f87efff1d7836f2d38dacb719395">7 - 2021-10-18</h1>
+    <div class="lead">Utility functions. Noticing infinite loops.</div>
+	<p>Having little functions that run tests is better than retyping your
+test code every time. Automation means you will test more, and you
+don&rsquo;t have to remember the correct results if your program shows them.</p>
+<h2 id="infinite-loops">Infinite Loops</h2>
+<p>Print something before and after your checks to help you figure out
+when you have an infinite loop. I saw someone with</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">ck</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;Begin&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">show</span> <span style="color:#000">checks</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;End&#34;</span>
+</span></span></code></pre></div><p>The example check below never terminates (infinite loop)&hellip; try it
+with the <code>ck</code> function above and notice how you never see &ldquo;End&rdquo;.</p>
+<pre tabindex="0"><code>f [] = False
+f (x:xs)
+  | x /= 3  = f xs
+  | x == 3  = f (x:xs)
+checks = [
+  f [2] == False
+  ,f [3] == True
+  ]
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-aba815d94d6eba69656f5cbedac49bdb">8 - 2021-10-14</h1>
+    <div class="lead">Logic and lists practice: isEverywhere.</div>
+	<p>The <code>isEverywhere</code> function takes in a list of integers (xs) and a
+single integer (n) and returns true if the number n appears at least once
+in every pair of adjacent numbers in xs.</p>
+<p>Examples:</p>
+<pre><code>isEverywhere :: [Int] -&gt; Int -&gt; Bool
+isEverywhere [1,3,4] 3 == True
+isEverywhere [3,1,4] 3 == False
+isEverywhere [3,1,1,3] 3 == False
+isEverywhere [7] 3 == True 
+</code></pre>
+<p>The last one is kind of weird - &ldquo;logically&rdquo;, if there are no adjacent
+pairs then &ldquo;every one&rdquo; has a 3. If the answer were False then you
+would have to be able to show a pair of adjacent numbers without a
+three&hellip; but you can&rsquo;t, there aren&rsquo;t any.</p>
+<p>Advice: if you are writing by hand, <code>isE</code> is a good abbreviation.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1871de8c22793c0e654c2e9f95243510">9 - 2021-10-12</h1>
+    <div class="lead">Eight before nine in a list.</div>
+	<p>Warmup: count the number of times that an 8 comes before a 9 in a list of
+integers.</p>
+<ul>
+<li>
+<p>Basic: count one for every 8 that comes <em>immediately</em> before a 9.</p>
+</li>
+<li>
+<p>Advanced: count one for every time there is a 9 somewhere after an
+8, giving two for this example:</p>
+<pre><code>  [8,1,1,1,9,8,9]
+</code></pre>
+</li>
+</ul>
+<h2 id="class-notes">Class notes</h2>
+<p>If the problem is phrased &ldquo;count the number of times a 9 comes after
+an 8&rdquo;, then I would count two for either of these examples:</p>
+<pre><code>[8,9,9]
+[8,8,9,8,9]
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-621825446dcc915ff3d8729474066cb5">10 - 2021-10-06</h1>
+    
+	<ol>
+<li>
+<p>The function <code>shuffle2 :: [Int] -&gt; [Int] -&gt; [Int]</code> takes in two
+lists of numbers and interleaves them, taking two from the first
+list, then one from the second list. When one list runs out the
+rest of the other list is output.</p>
+<pre><code> shuffle2 [10,20,30,40] [100,200,300] == 
+     [10,20,100,30,40,200,300]
+</code></pre>
+</li>
+<li>
+<p>(<code>either24 :: [Int] -&gt; Bool</code>) Given an array of ints, return true
+if the array contains a 2 next to a 2 or a 4 next to a 4, but not
+both.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dde3ae06771e1a6c4bd51c7e2e5ba772">11 - 2021-10-04</h1>
+    
+	<p>The <code>makes</code> function takes in a number n and a list of numbers xs. It
+returns the number of ways to make n by adding the first number in the
+list to some other number later in the list.</p>
+<pre><code>makes :: Int -&gt; [Int] -&gt; Int
+makes 12 [6,6] == 1
+makes 11 [8,3,11,3] == 2
+makes 2 [1,1,1,1] == 3 
+</code></pre>
+<p>Continue to <a href="/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-04/">Chapter 4 Discussion IV</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-15dd93d92b0777f4d8af8ac45125fa2b">12 - 2021-09-30</h1>
+    <div class="lead">Money formatter. List of Char vs String.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 id="char-vs-list-of-char">Char vs List of Char</h2>
+<p>Recently seen problem: attempt to put an <code>@</code> sign after the first
+letter of a word:</p>
+<pre><code>f :: [Char] -&gt; [Char]  -- same as String -&gt; String
+f &quot;&quot; = &quot;&quot;
+f (x:xs) = x : &quot;@&quot; : xs
+</code></pre>
+<p>This code does not work because <code>&quot;@&quot;</code> is a list containing a single
+character, which could also be written <code>['@']</code>, instead of the desired
+single character <code>'@'</code>. The correct function follows.</p>
+<pre><code>f (x:xs) = x : '@' : xs
+</code></pre>
+<h2 id="practice">Practice</h2>
+<ol>
+<li>
+<p><code>money :: Int -&gt; String</code>.</p>
+<pre><code> money 123456789 == &quot;$123,456,789&quot;
+ money 1234 == &quot;$1,234&quot;
+</code></pre>
+<p>Advanced: treat the last two digits as cents, so examples look like
+this:</p>
+<pre><code> moneyCents 123498 == &quot;$1,234.98&quot;
+ moneyCents 12350 == &quot;$123.50&quot; -- Advanced only!
+</code></pre>
+<p>Simplified: produce the corresponding list of Int:</p>
+<pre><code> moneySimple 12345678 == [12,345,678]
+</code></pre>
+<p>Very simplified:</p>
+<pre><code> moneySuperSimple [1,2,3,4,5,6,7,8] == [12,345,678]
+</code></pre>
+</li>
+<li>
+<p>What is the type of the expression:</p>
+<pre><code> q2 = [ (&quot;Ping&quot;, 8), (&quot;Pong&quot;, 7), (&quot;Table&quot;, 19), (&quot;Tennis&quot;, 11)]
+</code></pre>
+</li>
+<li>
+<p>Given (x,y) in a list <code>[(Int, Int)]</code> produce a list of ordered pairs (x,y) for
+which $y &lt; x^2+30$.</p>
+<pre><code> q3 [(10,125), (8, 104), (5, 9), (20, 500)] == [(10,125), (5,9)]
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e88f0baac95dc698ecf57b0926905fc5">13 - 2018-10-16</h1>
+    <div class="lead">notAlone, Team Tic-Tac-Toe</div>
+	<ol>
+<li>
+<p><a href="https://codingbat.com/prob/p169506">notAlone</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">notAlone</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">notAlone</span> <span style="color:#000">nums</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">undefined</span>
+</span></span></code></pre></div></li>
+<li>
+<p><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=831">Team Tic Tac Toe</a></p>
+<ul>
+<li>
+<p>Write teamWins to determine if a given team wins a given three
+in a row.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">teamWins</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Char</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">teamWins</span> <span style="color:#000">row</span> <span style="color:#000">team</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">undefined</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Write allThrees, which gets all of the three in a row segments
+from a board.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">allThrees</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">allThrees</span> <span style="color:#000">board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">undefined</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Write allTeams, which produces a list of all possible teams.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">allTeams</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Combine the previous functions to solve the problem.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(Bonus.) <a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=833">Family
+Tree</a>. I use
+<code>momList</code> to be the list of pairs of strings (mother, child).</p>
+<ul>
+<li>
+<p><code>findParent momList cow</code> produces []  or a list containing the
+name of the parent of the given cow in a list.</p>
+</li>
+<li>
+<p><code>parentList momList cow</code> produces a list containing the mother,
+grandmother, etc. of the given cow. The result could be empty if
+the cow has no known mother.</p>
+</li>
+<li>
+<p><code>isRelated momList cow1 cow2</code> gives True if the cows are
+related at all.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">isRelated</span> <span style="color:#204a87;font-weight:bold">::</span>  <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">isRelated</span> <span style="color:#000">familyTree</span> <span style="color:#000">cow1</span> <span style="color:#000">cow2</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">undefined</span>
+</span></span></code></pre></div></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-91ca3d2dd961635e8f5e114531b990ec">14 - 2018-10-09 Project</h1>
+    <div class="lead">The end-of-Haskell project.</div>
+	<p>You have a week to complete this project. You will need to find time
+to work on it outside of class.</p>
+<p>Due: Monday, October 15, 2018</p>
+<h2 id="option-1-recommended">Option 1 (Recommended)</h2>
+<p>Do both of the following, including at least three tests for each function:</p>
+<ul>
+<li>
+<p>Six coding bat problems. Recommended sources</p>
+<ul>
+<li><a href="https://codingbat.com/java/Array-2">Array-2</a>,</li>
+<li><a href="https://codingbat.com/java/String-2">String-2</a>,</li>
+<li><a href="https://codingbat.com/java/Logic-1">Logic-1</a>. Other choices
+permitted, ask.</li>
+</ul>
+</li>
+<li>
+<p>One Computing Olymiad problem, Bronze level. (Ex: <a href="http://usaco.org/index.php?page=dec15results">Dec
+2015</a> or <a href="http://usaco.org/index.php?page=jan16results">Jan 2016</a>)</p>
+</li>
+</ul>
+<h2 id="option-2-advanced-a">Option 2 (Advanced, A+)</h2>
+<p>Write <a href="/teaching--2021-2022/ap-cs/haskell/connect-four/">Connect Four</a>. There is a
+project walkthrough with a list of functions to write and notes on the
+trouble spots.</p>
+<h2 id="option-3-struggling-b">Option 3 (Struggling, B)</h2>
+<p>Do ten CodingBat problems instead of adding the Bronze Computing
+Olympiad problem.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4d62a79f03710117d03367c4ca03a881">15 - 2018.10.04 Square Pasture</h1>
+    <div class="lead">USACO Bronze December 2016, Question 1.</div>
+	<p><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=663">Square
+Pasture</a>. There
+are two rectangular pastures, each given by the coordinates of their
+upper left and lower right points. The two pastures do not
+overlap. Find the minimum area required for a single square pasture to
+enclose the two rectangle pastures.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">sqPasture</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">),(</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">),(</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">sqPasture</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#000">x1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y1</span><span style="color:#000;font-weight:bold">),(</span><span style="color:#000">x2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y2</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#000">x3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y3</span><span style="color:#000;font-weight:bold">),(</span><span style="color:#000">x4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y4</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">undefined</span>
+</span></span></code></pre></div><h2 id="additional-exercise">Additional Exercise</h2>
+<p><a href="https://codingbat.com/prob/p159979">List run of 3</a>. Given a list of
+<code>Int</code>, return true if the array contains either three even or three
+odd values all next to each other. Lists of length less than 3 are
+definitely false because they don&rsquo;t even have three values.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cdb7d15993fcf16a5d5f92d43787ae84">16 - 2018.10.03 Cow Signal</h1>
+    <div class="lead">USACO Bronze December 2016, Question 2.</div>
+	<p>We worked on the <a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=665">Cow
+Signal</a>
+problem.</p>
+<p>To make your writing simpler, you should use the signature below. The
+very last step of printing out everything on its own line is not an
+important part of the problem.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">cowSignal</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>Printing on multiple lines: use <code>\n</code> like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;This</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">string</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">prints</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">on</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">many</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">lines&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> <span style="color:#000">putStrLn</span> <span style="color:#000">x</span>
+</span></span></code></pre></div><p><a href="https://repl.it/@maueroats/FreeViolentLanserver">Solution discussed period 2.</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5f1b273763a6e0d6f5497b7ae8062457">17 - 2017-10-04</h1>
+    <div class="lead">More CodingBat problems.</div>
+	<ol>
+<li>
+<p>Without10 (<a href="http://codingbat.com/prob/p196976">source</a>). Take a list of numbers and remove all of the tens. The remaining numbers shift toward the start of the list and zeros fill in at the end.</p>
+</li>
+<li>
+<p>NotAlone (<a href="http://codingbat.com/prob/p169506">source</a>).
+We will say that an element in an array is &ldquo;alone&rdquo; if there are values
+before and after it, and those values are different from it. Return a
+version of the list where every instance of the given value
+which is alone is replaced by whichever value to its left or right is
+larger.</p>
+</li>
+<li>
+<p>TwoTwo (<a href="http://codingbat.com/prob/p102145">source</a>). True if every two is
+that appears in the list is next to another two.</p>
+</li>
+<li>
+<p>pre4 (<a href="http://codingbat.com/prob/p100246">source</a>).
+Given a non-empty array of ints, return a new array containing the
+elements from the original array that come before the first four in the
+original array.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-47b684b285a86478e140bdc7ceae1ebf">18 - 2017-10-03</h1>
+    <div class="lead">CodingBat problems to improve your problem-solving skills.</div>
+	<ol>
+<li>
+<p>(Previous class leftover.)
+Write <code>only14</code> (<a href="http://codingbat.com/prob/p186672">source</a>) that takes in a list of numbers and gives a boolean result.
+The result is true if every number in the list is either a 1 or a 4.</p>
+</li>
+<li>
+<p>Write <code>isEverywhere</code>(<a href="http://codingbat.com/prob/p110222">source</a>). &ldquo;We&rsquo;ll say that a value is &ldquo;everywhere&rdquo; in an array if for every pair of adjacent elements in the array, at least one of the pair is that value. Return true if the given value is everywhere in the array.&rdquo;</p>
+<p>We discussed how to program this one, including the tricky edge cases like stopping when there are two elements left in the list instead of one or zero.</p>
+</li>
+<li>
+<p>Write <code>haveThree</code> (<a href="http://codingbat.com/prob/p109783">source</a>), which returns true if the number 3 appears three
+times in the list, and no threes are next to each other in the list.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>      <span style="color:#000">haveThree</span><span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span></code></pre></div><ol start="3">
+<li>(Homework) <a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=665">The cow signal</a>. Briefly: take in a [[Int]] with every entry 0 or 1. Produce a [[Int]] with four entries in a square corresponding to every one entry in the original. If you made a picture with the rows of 0&rsquo;s and 1&rsquo;s, the new picture would be twice as wide and twice as high.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-570cb9a82b3773ca8e9f4893483ece1e">19 - 2017-09-18</h1>
+    <div class="lead">Battleship and homework review.</div>
+	<p>We discussed problem 7 from the homework. You should finish it based on the discussion.</p>
+<p>Mentioned from Chapter 5: <code>type</code> to make short ways to say types. Examples:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Pt</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Ship</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Pt</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Shots</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Pt</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>We wrote the function <code>is_sunk</code> for battleship.</p>
+<p>Functions we discussed:</p>
+<ul>
+<li>[<code>&amp;&amp;</code>]: Join two Boolean values with logical and.</li>
+<li><a href="http://hackage.haskell.org/package/base-4.10.0.0/docs/Prelude.html#v:and"><code>and</code></a>: Join a list of Boolean values with logical and.</li>
+<li><a href="http://hackage.haskell.org/package/base-4.10.0.0/docs/Prelude.html#v:any"><code>all</code></a>: Apply a tester function and then join all of the values together with &ldquo;and&rdquo;.</li>
+</ul>
+<p>All of these functions have counterparts for logical or; they are: <code>||</code>, <code>or</code>, <code>any</code>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3d9e511ce663c4603fb3912c27c216b9">20 - 2017-09-14 Indentation</h1>
+    <div class="lead">Indentation matters. A lot.</div>
+	<p>Indentation is significant in Haskell. Haskell uses indentation to
+group pieces of code together. This is similar to Python, but there
+are &ldquo;false cognates&rdquo; - similar code that is indented differently in
+the two languages.  In Racket, grouping is done only by parentheses.</p>
+<h2 id="indenting-to-the-same-level">Indenting to the same level</h2>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">tip</h4>
+
+    &ldquo;All grouped expressions must be exactly aligned.&rdquo;
+
+</div>
+
+<p>Example 1a: good indentation</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span>          <span style="color:#8f5902;font-style:italic">-- good. aligned with top x.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">...</span>
+</span></span></code></pre></div><p>Example 1a: bad indentation</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>	 <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span>          <span style="color:#8f5902;font-style:italic">-- wrong. not aligned with top x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">...</span>
+</span></span></code></pre></div><h2 id="indenting-further">Indenting further</h2>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">warning</h4>
+
+    &ldquo;Code which is part of some expression [must]
+be indented further than the beginning of that expression.
+
+</div>
+
+<h3 id="not-enough-indentation">Not enough indentation</h3>
+<p>On one hand, this means that if you do not indent, you are not continuing
+a preceding expression. Example 2:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#000">x</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">mod</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">then</span> <span style="color:#8f5902;font-style:italic">-- wrong; needs to be indented further than the if</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#000">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#8f5902;font-style:italic">-- wrong again</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span></code></pre></div><h3 id="too-much-indentation">Too much indentation</h3>
+<p>On the other hand, if you do indent, you may be
+continuing something you wrote previously.</p>
+<p>How could this be an issue? If you write one function and then indent a
+later function, Haskell thinks you want the second function to be inside
+the first function (as in, a &ldquo;sub-function&rdquo;).</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> 
+</span></span><span style="display:flex;"><span>	    <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">helper</span> <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">-- all this space does not change anything... --</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">answer</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">200</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">helper</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">answer</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span>
+</span></span></code></pre></div><p>Notice how <code>answer</code> is indented more than <code>main</code>? That makes the <code>answer</code>
+function live inside of <code>main</code>&hellip; this will cause all sorts of
+problems, but the first one is that <code>helper</code> cannot see <code>answer</code>
+because <code>helper</code> cannot see anything inside of another function like
+<code>main</code>.</p>
+<p>The source for all quotes in this article is the <a href="https://en.wikibooks.org/wiki/Haskell/Indentation">Haskell article on indentation</a>.
+Other example issues came from observations in class.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3c582f2c395d6faa0ecccbb473c627ca">21 - 2017-09-12</h1>
+    <div class="lead">Technical details that came up while doing Chapter 2 Homework.</div>
+	<ul>
+<li>
+<p>Memorize how to write a basic main method:</p>
+<pre tabindex="0"><code>  main = do putStrLn &#34;Loaded&#34;
+</code></pre></li>
+<li>
+<p>Use &ldquo;&ndash;&rdquo; (two dashes) to comment to the end of the line. This is
+equivalent to Racket &ldquo;;&rdquo; (semicolon).</p>
+</li>
+<li>
+<p>Function name rules:</p>
+<ul>
+<li>
+<p>Must begin with lowercase letter.</p>
+</li>
+<li>
+<p>Hyphens (-) are not allowed in names.</p>
+</li>
+<li>
+<p>Underscore (_) may be used instead.</p>
+</li>
+<li>
+<p>Traditionally <code>camelCase</code> is used for functions. (First letter
+lowercase, then uppercase each new word.)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>We will learn about the <code>$</code> sign soon, but it is a substitute for
+putting parentheses from somewhere to the end of the line. That means</p>
+<pre tabindex="0"><code>    putStrLn ( show ( grapher f 0 10 ) )
+</code></pre><p>could be written as</p>
+<pre tabindex="0"><code>    putStrLn $ show $ grapher f 0 10
+</code></pre></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5574d20c5bca92ceb8b72c98cdac4835">22 - 2017-09-11</h1>
+    <div class="lead">worked examples - removeVowels and wordLenPairs</div>
+	<p>removeVowels word = [ letter | letter &lt;- word, not (letter <code>elem</code> &ldquo;aeiouAEIOU&rdquo; )]</p>
+<p>wordLenPairs wordlist = [ (word, length word) | word &lt;- wordlist ]</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

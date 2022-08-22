@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ai/daily/2022-02-01/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>02-01 Solver | WY CS</title>
+<meta name="description" content="The purpose of this section is to build a general solver that can
+figure out how to transition from a given starting state to a given
+target state. …">
+<meta property="og:title" content="02-01 Solver" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ai/daily/2022-02-01/" />
+
+<meta itemprop="name" content="02-01 Solver">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="02-01 Solver"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ai/" ><span class="active">AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ai/daily/2022-02-01/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">02-01 Solver</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+
+    <li><a href="#pg-d7608e0eec685260d1fc63065437b595">Data Structures</a></li>
+
+
+
+    
+  
+    
+    
+	
+
+    <li><a href="#pg-1c211723fda6fbcd98e36858c29634f3">Tiny Steps</a></li>
+
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The purpose of this section is to build a general solver that can
+figure out how to transition from a given starting state to a given
+target state.</p>
+<p><a href="https://replit.com/@maueroats/Generic-Solver-Setup-WY-Feb-2022">Starter code in
+Replit</a>.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="">
+    <h1 id="pg-d7608e0eec685260d1fc63065437b595">Data Structures</h1>
+	<div class="lead">The data structures: SolverTrait, SolverOp, SolverData.</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2022-02-02" class="text-muted">Wednesday, February 02, 2022</time>
+        
+	</div>
+	<blockquote>
+<p>Show me your flowcharts and conceal your tables, and I shall
+continue to be mystified. Show me your tables, and I won’t usually
+won’t usually need your flowcharts; they’ll be obvious.</p>
+<ul>
+<li>Fred Brooks</li>
+</ul>
+</blockquote>
+<h3 id="traits">Traits</h3>
+<p>Strings representing particular parts of the state. Wrapped in the
+class <code>SolverTrait</code>.</p>
+<ul>
+<li><code>name</code>: String</li>
+</ul>
+<h3 id="operations">Operations</h3>
+<p>Holds the name of the action, preconditions required to apply it, and
+sets of traits that are added or removed when the action is performed.</p>
+<p>Wrapped in <code>SolverOp</code> class.</p>
+<ul>
+<li><code>name</code>: String</li>
+<li><code>precond</code>: Set of <code>SolverTrait</code></li>
+<li><code>add</code>: Set of <code>SolverTrait</code></li>
+<li><code>remove</code>: Set of <code>SolverTrait</code></li>
+</ul>
+<h3 id="solverdata">SolverData</h3>
+<p>All of the data given in a problem. Used to drive the solver.</p>
+<ul>
+<li><code>title</code>: String</li>
+<li><code>traits</code>: Set of <code>SolverTrait</code>.</li>
+<li><code>initial_state</code>: Set of <code>SolverTrait</code>.</li>
+<li><code>goal_state</code>: Set of <code>SolverTrait</code>.</li>
+<li><code>ops</code>: List of <code>SolverOp</code></li>
+</ul>
+<p>Also available:</p>
+<ul>
+<li><code>trait_set</code>: list of string -&gt; list of SolverTrait. Error if it
+encounters a string that is not listed in the traits.</li>
+<li><code>operation_lookup</code>: a dictionary with key being a the name of an
+operation and value being the corresponding SolverOp. This is not a
+function, so you use it with brackets. Example: <code>lookup[&quot;put on shirt&quot;]</code>.</li>
+<li><code>dump()</code>: Return a string representation in TOML format.</li>
+</ul>
+<h2 id="check-for-understanding">Check for Understanding</h2>
+<ul>
+<li>
+<p>Create your own file <code>shirtdemo.toml</code>. It should include traits for
+shirt colors red, orange, yellow, green, blue, as well as operations
+for putting on each shirt. Add one extra trait called &ldquo;seaswim&rdquo;
+which you can get by wearing a blue shirt and using the &ldquo;get wet&rdquo;
+operation. Your initial state is [&ldquo;pants on&rdquo;]. Your goal state is
+[&ldquo;pants on&rdquo;,&ldquo;blue shirt&rdquo;, &ldquo;seaswim&rdquo;].</p>
+</li>
+<li>
+<p>Read in the file and make a <code>SolverDemo</code> object called <code>shirtdemo</code>.</p>
+</li>
+<li>
+<p>Begin with <code>y = SolverTrait('yellow')</code> and do a linear search the
+set of traits of <code>shirtdemo</code> to find <code>y</code>. Print how many comparisons you make
+before you find <code>y</code>.</p>
+</li>
+<li>
+<p>Find the operation that adds a blue shirt.</p>
+</li>
+<li>
+<p>Apply the operation to your initial state.</p>
+</li>
+<li>
+<p>Find the &ldquo;get wet&rdquo; operation and apply it to your current state.</p>
+</li>
+<li>
+<p>Print out the name of every trait in the current state.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
+    <h1 id="pg-1c211723fda6fbcd98e36858c29634f3">Tiny Steps</h1>
+	<div class="lead">Little steps toward a solver.</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2022-02-12" class="text-muted">Saturday, February 12, 2022</time>
+        
+	</div>
+	<p>(This is an experimental section to help people who are not able to
+make progress based on the original description and class discussion.)</p>
+<p>All questions depend on a given <code>SolverData</code> file being
+loaded. Everything happens with the information from that one
+<code>SolverData</code> object.</p>
+<ol>
+<li>
+<p>Given a single <code>SolverTrait</code>, return a list of all of the
+operations that add that trait when they run.</p>
+</li>
+<li>
+<p>Create a problem that involves only one prereq for each
+operation. The graph of states should look like this:</p>
+<pre><code> A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F -&gt; G
+</code></pre>
+<p>Operations are the arrow, so <code>mAB</code> has a prereq of A and adds B,
+subtracting A. Make the initial state B and the goal state E.</p>
+</li>
+<li>
+<p>Use your problem to write a function that takes in a list of
+operations, and puts out a list of the operations that you should
+use to get from the initial state to the goal state, in order.</p>
+</li>
+<li>
+<p>Test your function to make sure it still works with the initial
+state <code>{B, F}</code>.</p>
+</li>
+</ol>
+<!-- NEEDS WORK
+
+. (`achieve_all_nofail`) Given a `SolverState` (a set of traits),
+   find the operations you should do to achieve all of them. 
+
+    Assume that your goal can be accomplished and 
+   accomplish your final goal and that you make no "dead end" choices
+   that you have to back away from, write a recursive function to find
+   the operations to use.
+   
+        def achieve_nofail(goal, 
+-->
+
+</div>
+
+
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch17/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>17. Cond Animations | WY CS</title>
+<meta name="description" content="Use of conditionals in animations.">
+<meta property="og:title" content="17. Cond Animations" />
+<meta property="og:description" content="Use of conditionals in animations." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch17/" />
+
+<meta itemprop="name" content="17. Cond Animations">
+<meta itemprop="description" content="Use of conditionals in animations."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="17. Cond Animations"/>
+<meta name="twitter:description" content="Use of conditionals in animations."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch17/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">17. Cond Animations</h1>
+<div class="lead">Use of conditionals in animations.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-81074f50ef782a8e423ef68b545b1402">17.C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-f17c0516777d83c35df5a320ffa74f86">17.D</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-c966f51e265a092867666119612be233">17.E</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3021a95f6860818d63049f4630b713de">Jan A</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-81074f50ef782a8e423ef68b545b1402">1 - 17.C</h1>
+    
+	<h2 id="1-quick-quit">1. Quick Quit</h2>
+<p>Make a 200x100 colored rectangle in the middle of a 300x200 scene.</p>
+<p>When you click on the rectangle:</p>
+<ol>
+<li>the shape changes to a 200x100 ellipse</li>
+<li>the animation stops</li>
+</ol>
+<p>Discuss:</p>
+<ul>
+<li>model</li>
+<li>draw handler: how will you show the rectangle? the ellipse?</li>
+<li>mouse handler</li>
+</ul>
+<p>Write two check-expects for the mouse-handler:</p>
+<ul>
+<li>click in the rectangle</li>
+<li>click but not in the rectangle</li>
+</ul>
+<p>Then we write functions.</p>
+<h2 id="2-random-shapes">2. Random Shapes</h2>
+<p>Write an animation that will show randomly of these images:</p>
+<ul>
+<li>1 triangle,</li>
+<li>2 squares,</li>
+<li>3 circles, or</li>
+<li>the word WIN
+They should all be equally likely.</li>
+</ul>
+<p>In this part, the word WIN should just appear like the other choices.</p>
+<p>The shape should change randomly every 0.5 seconds.</p>
+<h2 id="3-elementary-school-shapes">3. Elementary School Shapes</h2>
+<p>Modify to your random shapes animation.</p>
+<p>When you hit the number key corresponding to the number of shapes you
+see on the screen, you win.  Otherwise you lose.</p>
+<p>Optional: Hitting a non-numbered key is ignored.</p>
+<ul>
+<li>Winning shows the &ldquo;win&rdquo; screen.</li>
+<li>Losing: add some kind of &ldquo;that&rsquo;s not it&rdquo; screen.</li>
+<li>When you win or lose, the animation quits.</li>
+</ul>
+<p>The &ldquo;win&rdquo; screen should not be one of the random choices.</p>
+<p>Discussion:</p>
+<ul>
+<li>What model will you use?</li>
+<li>How will you represent the &ldquo;win&rdquo; and &ldquo;lose&rdquo; states with your model?</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f17c0516777d83c35df5a320ffa74f86">2 - 17.D</h1>
+    
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<p>This worksheet addresses a number of challenging
+misconceptions. Read closely and consider you answers thoughtfully.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">keeper</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">text</span> <span style="color:#4e9a06">&#34;Yes&#34;</span> <span style="color:#000">n</span> <span style="color:#4e9a06">&#34;blue&#34;</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>           <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">400</span> <span style="color:#0000cf;font-weight:bold">300</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;transparent&#34;</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#0000cf;font-weight:bold">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">to-draw</span> <span style="color:#000">keeper</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><ol>
+<li>What is the signature for the draw handler in the animation above?</li>
+<li>Describe in words briefly how to interpret the model. (How do you
+see changes visually.)</li>
+<li>When the animation stops, you want to change the background color
+to pink. Write the &ldquo;win screen draw handler&rdquo;.</li>
+<li>The model is always supposed to be a number with absolute value
+between 5 and 250. Write a function <code>a-ok?</code> to use in the
+<code>check-with</code> clause of the big bang.</li>
+<li>Anastasia wants hitting a key to change to a light pink background and
+show &ldquo;No&rdquo;. What do you think about this idea? (See code below.) Explain.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ana</span> <span style="color:#000">model</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">text</span> <span style="color:#4e9a06">&#34;No&#34;</span> <span style="color:#000">model</span> <span style="color:#4e9a06">&#34;blue&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">400</span> <span style="color:#0000cf;font-weight:bold">300</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;light pink&#34;</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><ol start="6">
+<li>
+<p>Amarga wants moving the mouse to the top right corner of the screen
+to change the font size to 18 point. Write a <code>check-expect</code>
+for the mouse handler <code>amarga-m</code>.</p>
+</li>
+<li>
+<p>Amarga also wants moving the mouse to the middle right side of the
+screen to change the font size to 50 point. Write a <code>check-expect</code>
+that expresses this.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c966f51e265a092867666119612be233">3 - 17.E</h1>
+    
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<p>This worksheet addresses a number of challenging
+misconceptions. Read closely and consider you answers thoughtfully.</p>
+<h2 id="expanations">Expanations</h2>
+<p>You are given some information and asked about other
+functions. Explain how to write the other functions or why the
+situation is impossible.</p>
+<ol>
+<li>
+<p>(Big Blue) Moving the mouse makes the blue circle increase its radius
+by 5.</p>
+<ol>
+<li>Write the signature of the mouse handler <code>maus1</code>.</li>
+<li>Write the draw handler.</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">maus1</span> <span style="color:#000">n</span> <span style="color:#000">x</span> <span style="color:#000">y</span> <span style="color:#000">event</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>Using the setup from Big Blue above, the animation stops when the
+circle&rsquo;s radius is at least 175.</p>
+<ol>
+<li>What is the signature of the stop-when handler&rsquo;s <code>should-stop?</code>
+function.</li>
+<li>Write the <code>should-stop?</code> function.</li>
+</ol>
+</li>
+<li>
+<p>(Small Orange) Moving the mouse reduces the orange circle to 95% of
+its current size. You are given the draw handler is <code>draw2</code> below.</p>
+<ol>
+<li>Write the signature of the mouse handler <code>oshrink</code>.</li>
+<li>Write the mouse handler.</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">draw2</span> <span style="color:#000">mystery</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000">mystery</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty-scene</span> <span style="color:#0000cf;font-weight:bold">300</span> <span style="color:#0000cf;font-weight:bold">200</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><ol start="4">
+<li>
+<p>(Wide Green) Hitting a key makes the rectangle twice as wide as it
+was. The draw handler <code>dhwg</code> and the key handler is <code>wg</code>
+(below).</p>
+<ol>
+<li>Write the signature.</li>
+<li>Make/describe a chart showing pressing the &ldquo;a&rdquo; key and then the &ldquo;b&rdquo;
+key. Begin with an initial model of 40. What is the model after
+hitting the &ldquo;a&rdquo; key? Then the &ldquo;b&rdquo; key? Is this animation going
+to work ok?</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">wg</span> <span style="color:#000">model</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">*</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;green&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">dhwg</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#000">model</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;green&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3021a95f6860818d63049f4630b713de">4 - Jan A</h1>
+    
+	<ol>
+<li>How would you create this scene?</li>
+</ol>
+<figure><a href="ch17-jan-a.png">
+    <img src="ch17-jan-a.png" width="300"/> </a>
+</figure>
+<h2 id="ellipse-width-animation">Ellipse width animation</h2>
+<ol start="2">
+<li>
+<p>Make an animation where moving the mouse horizontally changes the
+width of the ellipse. The ellipse width should be 0 when the mouse
+is in the middle of the screen (x=250). See below for check-expects.</p>
+<ul>
+<li>When the mouse moves to x=400, y=75, the width of the ellipse
+is 300. Write a check-expect.</li>
+<li>When the mouse moves to x=250, y=120, the width of the ellipse
+is 0. Write a check-expect.</li>
+</ul>
+</li>
+</ol>
+<h2 id="stopping-animation">Stopping animation</h2>
+<p>Now add code so that clicking in the blue circle makes the animation
+stop. We will do that by making the width negative when the animation
+is supposed to stop.</p>
+<ol start="3">
+<li>
+<p>Write a check-expect showing that when there is a button-down
+event at (10,170), the width is -480.</p>
+</li>
+<li>
+<p>Modify your mouse-handler so that clicking anywhere inside the blue
+semicircle makes the width negative.</p>
+</li>
+<li>
+<p>Create a <code>game-over?</code> function that returns true when the model is
+negative.</p>
+</li>
+<li>
+<p>Add a &ldquo;win screen&rdquo; that shows &ldquo;DONE&rdquo; on top of the regular scene.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

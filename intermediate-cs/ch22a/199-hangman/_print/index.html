@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>22a. Hangman Project | WY CS</title>
+<meta name="description" content="Make the classic game of hangman.">
+<meta property="og:title" content="22a. Hangman Project" />
+<meta property="og:description" content="Make the classic game of hangman." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/" />
+
+<meta itemprop="name" content="22a. Hangman Project">
+<meta itemprop="description" content="Make the classic game of hangman."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="22a. Hangman Project"/>
+<meta name="twitter:description" content="Make the classic game of hangman."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">22a. Hangman Project</h1>
+<div class="lead">Make the classic game of hangman.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-31a31760ffb95519d5b7d36c372c968d">22a. Hangman Outline</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-4543b40d6f82ae8c0e4f1eee7207f0f0">22a. Hangman Images</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-57b442fdeb47f62381e484ee16fff9ba">22a. Hangman Key Handler</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-f638b06eaf675d63f68ec47c5b2cfcdd">22a. Hangman DH Warmup</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-0b64b15134f0d48734136a51b87adcca">22a. Hangman Draw Handler</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The game of <a href="https://en.wikipedia.org/wiki/Hangman_(game)">hangman</a> a
+classic guess-the-word game.  You can <a href="http://www.playhangman.com">try hangman
+online</a>, but do not play too long - just learn the rules.</p>
+<h2 id="check-in">Check in</h2>
+<ul>
+<li>Illustrations and model.</li>
+<li>Key handler and logic helper function: <code>(string-contains-letter? str letter)</code>.</li>
+<li>Draw handler and <code>define/contract</code> (if discussed in class).</li>
+<li>Completed project.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99a-hangman-outline/" >22a. Hangman Outline</a></li></p>
+<p>Outline of everything to do for hangman project.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99b-hangman-images/" >22a. Hangman Images</a></li></p>
+<p>How to load a sequence of images into DrRacket.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99c-hangman-keyhandler/" >22a. Hangman Key Handler</a></li></p>
+<p>Every keypress is a guess - adjust the model accordingly.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99d-hangman-drawhandler/" >22a. Hangman DH Warmup</a></li></p>
+<p>The key step is to draw the word with underscores for the letters missed.
+This page will not include any specific advice on how to draw the word with underscores for the letters that are not guessed. The wipeout function below should provide you will all of the skills you need to do it, though.
+Underscore Warmup I: omit The omit function takes in a word and a letter and returns the same word with every occurence of the letter omitted (left out).</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99e-hangman-drawhandler-2/" >22a. Hangman Draw Handler</a></li></p>
+<p>Draw the whole scene by using helper functions to draw the different parts. At first you can just put all of the images above each other; later you can change the placement so it looks the way you prefer.
+Draw the gallows based on how many wrong answers. Draw the mistaken letters. Draw the word with underscores for letters that are not guessed. The key step is to draw the word with underscores for the letters missed.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-31a31760ffb95519d5b7d36c372c968d">1 - 22a. Hangman Outline</h1>
+    <div class="lead">Outline of everything to do for hangman project.</div>
+	<!-- Use `define/contract` for all of your functions. -->
+<p>Write two check expects for every non-trivial function.</p>
+<ol>
+<li>
+<p>Three illustrations of &ldquo;action&rdquo; that should occur in the game. Explain what they are.</p>
+</li>
+<li>
+<p>Model</p>
+</li>
+<li>
+<p>Top-down design.</p>
+</li>
+<li>
+<p>Image sequence and loading images into Racket.</p>
+</li>
+<li>
+<p>Key-handler</p>
+<ul>
+<li>Purpose</li>
+<li>Examples: at least two (which become tests)</li>
+<li>Write function.</li>
+</ul>
+</li>
+<li>
+<p>Draw-handler</p>
+<ul>
+<li>Purpose</li>
+<li>Illustrations on paper (two) - easier than making computer examples.</li>
+<li>Examples: at least two (which will become tests)</li>
+<li>Write function.</li>
+</ul>
+</li>
+<li>
+<p>Final screens: win and lose.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4543b40d6f82ae8c0e4f1eee7207f0f0">2 - 22a. Hangman Images</h1>
+    <div class="lead">How to load a sequence of images into DrRacket.</div>
+	<p>Goal for the day: produce a sequence of images to use for &ldquo;hangman&rdquo; and load it into Racket.</p>
+<h2 id="image-sequence">Image sequence</h2>
+<p>Draw a sequence of images <code>hang-0.png</code>, <code>hang-1.png</code>, etc., with the appropriate number of parts of the person filled in. Use &ldquo;File -&gt; Export as&hellip;&rdquo; to save each file with a different name.</p>
+<p>Tools:</p>
+<ul>
+<li>Microsoft Paint on Windows</li>
+<li><a href="https://paintbrush.sourceforge.io/">Paintbrush</a> (<a href="https://sourceforge.net/projects/paintbrush/files/latest/download?source=files">download</a>) on Macintosh. You will need to hold down Control when you click on the application to allow it to open for the first time.</li>
+<li><a href="https://www.gimp.org/">Gimp</a> on Linux.</li>
+</ul>
+<h2 id="make-a-racket-function">Make a Racket function</h2>
+<ol>
+<li>Load images into Racket.</li>
+<li>Write a function that takes in the number of mistakes and returns the correct image of the gallows.</li>
+</ol>
+<p>The best way to load an image from a file is to use <code>bitmap/file</code>.</p>
+<p>Examples:</p>
+<ul>
+<li><code>(bitmap/file &quot;hang-0.png&quot;)</code></li>
+<li><code>(bitmap/file &quot;pics/hang-1.png&quot;)</code></li>
+</ul>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    For the simplest loading, save the Racket file in the same folder as your images. &ldquo;Untitled&rdquo; programs will not find your images - save!
+
+</div>
+
+<h2 id="why">Why?</h2>
+<p>The only cases of file corruption I have seen involve large images
+being pasted into DrRacket files. Keeping the images in separate files
+prevents that problem.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-57b442fdeb47f62381e484ee16fff9ba">3 - 22a. Hangman Key Handler</h1>
+    <div class="lead">Every keypress is a guess - adjust the model accordingly.</div>
+	<p>The key handler needs to change the model depending on what key was
+typed.</p>
+<ol>
+<li>
+<p>Create an example model for some state in the game. You could use
+one of your examples from the initial planning.</p>
+</li>
+<li>
+<p>Write a check-expect that demonstrates what should happen when the
+person hits a key which is in the word.</p>
+</li>
+<li>
+<p>Write a check-expect that demonstrates what should happen when the
+person hits a key which is not in the word.</p>
+</li>
+<li>
+<p><strong>Seriously!!</strong> Write check-expects. See <a href="hangman-key-testing.rkt">my example checks for the key handler</a>.</p>
+</li>
+<li>
+<p>Recommendation: Write the helper function <code>(string-contains-letter? str letter)</code> that determines if a letter is in the word.</p>
+</li>
+<li>
+<p>Write the key handler. <!-- Remember to use `define/contract`.--></p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f638b06eaf675d63f68ec47c5b2cfcdd">4 - 22a. Hangman DH Warmup</h1>
+    
+	<p>The key step is to draw the word with underscores for the letters missed.</p>
+<p>This page will not include any specific advice on how to draw the word
+with underscores for the letters that are not guessed. The <code>wipeout</code>
+function below should provide you will all of the skills you need to
+do it, though.</p>
+<h2 id="underscore-warmup-i-omit">Underscore Warmup I: omit</h2>
+<p>The <code>omit</code> function takes in a word and a letter and returns the same word with every occurence of the letter omitted (left out).</p>
+<pre><code>omit: string(word) string(letter) -&gt; string
+(check-expect (omit &quot;word&quot; &quot;w&quot;) &quot;ord&quot;)
+(check-expect (omit &quot;hangman&quot; &quot;a&quot;) &quot;hngmn&quot;)
+(check-expect (omit &quot;nothing&quot; &quot;z&quot;) &quot;nothing&quot;)
+</code></pre>
+<p>Follow the design process to write the <code>omit</code> function.</p>
+<ol>
+<li>Simple examples that build up to a three letter word, showing how a letter can be omitted zero, one, or two times.</li>
+<li>Write the function: handle the empty word</li>
+<li>Write the function: handle one letter word</li>
+<li>Write the function: handler longer words</li>
+</ol>
+<p>Run your checks after each step to make sure you stay on track.</p>
+<h2 id="underscore-warmup-ii-wipeout">Underscore Warmup II: wipeout</h2>
+<p>The <code>wipeout</code> function takes in a word and a string of letters to
+remove. Every occurence of the letters should be removed from the word.</p>
+<pre><code>wipeout: string(word) string(letters) -&gt; string
+(check-expect (wipeout &quot;Williams&quot; &quot;li&quot;) &quot;Wams&quot;)
+(check-expect (wipeout &quot;penguin&quot; &quot;dinosaur&quot;) &quot;peg&quot;)
+</code></pre>
+<p>Follow the design process and use the <code>omit</code> helper function!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0b64b15134f0d48734136a51b87adcca">5 - 22a. Hangman Draw Handler</h1>
+    
+	<p>Draw the whole scene by using helper functions to draw the different
+parts. At first you can just put all of the images <code>above</code> each other;
+later you can change the placement so it looks the way you prefer.</p>
+<ol>
+<li>Draw the gallows based on how many wrong answers.</li>
+<li>Draw the mistaken letters.</li>
+<li>Draw the word with underscores for letters that are not guessed.</li>
+</ol>
+<p>The key step is to draw the word with underscores for the letters missed.</p>
+<pre><code>underscorizer: string(word) string(letters-guessed) -&gt; string
+(check-expect (underscorizer &quot;wow&quot; &quot;w&quot;) &quot;w_w&quot;)
+(check-expect (underscorizer &quot;wow&quot; &quot;ow&quot;) &quot;wow&quot;)
+</code></pre>
+<p>Of course you can take in the correct guesses instead of all guesses,
+or you can take in anything else from your model that makes sense.</p>
+<h2 id="advice">Advice</h2>
+<p>Decide on an approach:</p>
+<ul>
+<li>Examine word letter by letter?</li>
+<li>Examine letters guessed letter by letter?</li>
+</ul>
+<p>Write tests that build up to your solution in the way we have
+discussed and demonstrated in class.</p>
+<p>Many approaches work. If you have no preference, I recommend the first
+approach.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

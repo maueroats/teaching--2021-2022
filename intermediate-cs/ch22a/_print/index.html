@@ -1,0 +1,2582 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22a/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>22a. Recursion | WY CS</title>
+<meta name="description" content="Recursion lets you solve a problem by solving simpler problems.">
+<meta property="og:title" content="22a. Recursion" />
+<meta property="og:description" content="Recursion lets you solve a problem by solving simpler problems." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22a/" />
+
+<meta itemprop="name" content="22a. Recursion">
+<meta itemprop="description" content="Recursion lets you solve a problem by solving simpler problems."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="22a. Recursion"/>
+<meta name="twitter:description" content="Recursion lets you solve a problem by solving simpler problems."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">22a. Recursion</h1>
+<div class="lead">Recursion lets you solve a problem by solving simpler problems.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-5d0dfdc936bf8c832825779345325f6f">22a. Learn Recursion</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-b96f8371df7033e08f8a64ee046822a8">22a. Fibonacci</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-9eefef1e69d495226c56c44db5f25a95">22a. Digits</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-ae21ff872f845acf455f4e9318aeec8c">22a. Sum Digits</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-81673625fac5fa8d9586d284e28e9b97">22a. Digits II</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-7f9c6bdf9636f89d167790c7fb78b20a">22a. Digits III</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-5be1856d065cfaf206084a1e2ca9bb5b">22a. Digits V</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-0baf69f218fa04fcf2efa6923eb54e25">22a. Fibsum</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-1c4623c36e7105a7cc172ae4b2fef48b">22a. More Recursion</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-fecca8696026ea518effa53f99a2b487">22a. Harmonic</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-f2a244a2b1f52fc6a333f73f5bfe0ba9">22a. Practice&#43;&#43;</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-f5bf4736497ceedd091f301b086b7dfc">22a. ss3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-eebb2068a262a62dcce3739a88e914ae">22a. Recursive Helpers</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-f74d3eb913a9e610400e00f3c16a62c3">22a. Recursion Quiz Practice</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-9765a574ca5a6f722fb6da8df202ab40">22a. Recursion Quiz 2018</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-70ddd1611c23f4b2b158c97b75a2b1ae">22a. Recursion Practice I 2019</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17: <a href="#pg-c62736cf455a8d5a6b29bc887e381d8a">Roygbiv Code</a></li>
+
+
+    
+  
+    
+    
+	
+<li>18: <a href="#pg-a34fedc4f5b908701096f5c03d5fa35d">22a. Strings</a></li>
+
+
+    
+  
+    
+    
+	
+<li>19: <a href="#pg-cafc07c28fcede25f31c70bf2370f160">22a. Helpers</a></li>
+
+
+    
+  
+    
+    
+	
+<li>20: <a href="#pg-bc1974457de2f10eba0470cd331d567a">22a. Helpers: Count Divisors</a></li>
+
+
+    
+  
+    
+    
+	
+<li>21: <a href="#pg-cbdaea8451268a0739331dffe8edcff0">22a. Recursion Practice 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>22: <a href="#pg-c5ee31598d4fca7a7e22453b951f1424">22a. Recursion Self Quiz</a></li>
+
+
+    
+  
+    
+    
+	
+<li>23: <a href="#pg-5dbe03c51a99982e3560ec04e9c1e612">22a. Recursion Practice 4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>24: <a href="#pg-9822291ebe298e8854081c05bdf2314d">22a. Mini-Quiz</a></li>
+
+
+    
+  
+    
+    
+	
+<li>25: <a href="#pg-b1f4f3789128b9c55606876e41d040e2">22a. Recursion Quiz 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>26: <a href="#pg-f2900ceca9639c5ef3f8ecfc57d2d30e">22a. Recursion Practice 5</a></li>
+
+
+    
+  
+    
+    
+	
+<li>27: <a href="#pg-6e0d8dceaa9df84023179dc5319ccca5">22a. Recursion Practice 6</a></li>
+
+
+    
+  
+    
+    
+	
+<li>28: <a href="#pg-13f0f7238dcad71e99a2208c006b4e10">Quiz 3 (Hard)</a></li>
+
+
+    
+  
+    
+    
+	
+<li>29: <a href="#pg-722c873ad2ae2829655e4f4fbd010676">Quiz 4 (Medium)</a></li>
+
+
+    
+  
+    
+    
+	
+<li>30: <a href="#pg-9ffa02d53bdcaa6edd71e88a9c97bd0f">22a. Feb.G Review</a></li>
+
+
+    
+  
+    
+    
+	
+<li>31: <a href="#pg-cc20c5c77daf3b418734250468745452">22a. Hangman Project</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>31.1: <a href="#pg-31a31760ffb95519d5b7d36c372c968d">22a. Hangman Outline</a></li>
+
+
+    
+  
+    
+    
+	
+<li>31.2: <a href="#pg-4543b40d6f82ae8c0e4f1eee7207f0f0">22a. Hangman Images</a></li>
+
+
+    
+  
+    
+    
+	
+<li>31.3: <a href="#pg-57b442fdeb47f62381e484ee16fff9ba">22a. Hangman Key Handler</a></li>
+
+
+    
+  
+    
+    
+	
+<li>31.4: <a href="#pg-f638b06eaf675d63f68ec47c5b2cfcdd">22a. Hangman DH Warmup</a></li>
+
+
+    
+  
+    
+    
+	
+<li>31.5: <a href="#pg-0b64b15134f0d48734136a51b87adcca">22a. Hangman Draw Handler</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5d0dfdc936bf8c832825779345325f6f">1 - 22a. Learn Recursion</h1>
+    <div class="lead">Important ideas to help you learn recursion.</div>
+	<p>Review this list once you have learned enough recursion to find
+discovering patterns and debugging difficult.</p>
+<ul>
+<li>
+<p>Write a sequence of related examples.</p>
+<p>Related examples mean that the larger ones build off the smaller
+ones. For example, <code>(f 1234)</code> and <code>(f 123)</code> are related. <code>(f 4321)</code> is not related to the other two.</p>
+</li>
+<li>
+<p>Digit patterns should grow in the ones place. See helpful
+vs. unhelpful in the <em>Common Errors</em>.</p>
+</li>
+<li>
+<p>Identify a pattern using concrete cases before converting to an
+unknown &ldquo;N&rdquo;.</p>
+<p><strong>Examples</strong></p>
+<pre><code>  (f 5) = 1^2 + 2^2 + 3^2 + 4^2 + 5^2
+  (f 6) = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2
+</code></pre>
+<p><strong>Find Pattern</strong></p>
+<pre><code>  (f 5) = (f 4) + 5^2
+  (f 6) = (f 5) + 6^2
+  ... ok I get it ...
+  (f N) = (f N-1) + N^2
+</code></pre>
+</li>
+<li>
+<p>Use mathematical notation, not computer notation, while thinking
+about your pattern.</p>
+</li>
+</ul>
+<h2 id="advice">Advice</h2>
+<p>These are common pieces of advice I find myself repeating over and
+over.</p>
+<ul>
+<li>
+<p>Have faith that if you put
+a clear pattern on a paper in front of you, your brain will discover it.</p>
+<p>Human brains are great at finding patterns. Writing
+<em>related</em> examples helps you see the pattern. Staring at code does
+not.</p>
+</li>
+<li>
+<p>Program only <em>after</em> you have a clear pattern statement. Programming
+before you see a pattern is guessing, and frustrating.</p>
+</li>
+<li>
+<p>The simpler the example, the easier it is to debug.</p>
+<p>When something goes wrong, find the simplest, smallest example and
+investigate it. For example, if you observe that your grid generator
+does not work when rows=5 and columns=4, continue to investigate;
+pehaps you will also discover that it does not work with rows=1 and
+columns=1 - which is much easier to debug.</p>
+</li>
+</ul>
+<h2 id="common-errors">Common Errors</h2>
+<ul>
+<li>
+<p>Not arranging number examples in a helpful way. Place value matters. Align
+digits with the same place value.</p>
+<p>Helpful alignment:</p>
+<pre><code>  	  1
+  	 13
+  	135
+     1357
+    13579
+</code></pre>
+<p>Unhelpful alignment:</p>
+<pre><code>  1
+  13
+  135
+  1357
+  13579
+</code></pre>
+</li>
+<li>
+<p>Digit patterns that grow in the left side (&ldquo;most significant digit&rdquo;)
+are more difficult to program than patterns that grow on the right
+side (&ldquo;ones digit&rdquo;).</p>
+<p>Simple pattern: the place value of the new digit is always &ldquo;ones&rdquo;.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">N</th>
+<th style="text-align:right">Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10*N+4</td>
+</tr>
+<tr>
+<td style="text-align:right">24</td>
+<td style="text-align:right">10*N+6</td>
+</tr>
+<tr>
+<td style="text-align:right">246</td>
+<td style="text-align:right">10*N+8</td>
+</tr>
+<tr>
+<td style="text-align:right">2468</td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+<p>Challenging pattern: the place value of the new digit changes:
+&ldquo;tens&rdquo;, &ldquo;hundreds&rdquo;, and then &ldquo;thousands&rdquo;.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">N</th>
+<th style="text-align:right">Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">N + 60</td>
+</tr>
+<tr>
+<td style="text-align:right">68</td>
+<td style="text-align:right">N + 400</td>
+</tr>
+<tr>
+<td style="text-align:right">468</td>
+<td style="text-align:right">N + 2000</td>
+</tr>
+<tr>
+<td style="text-align:right">2468</td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="memorizing">Memorizing</h2>
+<p>Some patterns are worth memorizing. Decide if you need to make a study
+guide and memorize these.</p>
+<ul>
+<li>Get the ones digits of a number.</li>
+<li>Get number which is everything except the ones digit.</li>
+<li>How to reassemble the number 1234 from 123 and 4.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b96f8371df7033e08f8a64ee046822a8">2 - 22a. Fibonacci</h1>
+    <div class="lead">Introduction to recursion using Fibonacci numbers.</div>
+	<h2 id="fibonacci">Fibonacci</h2>
+<p>1,1,2,3,5,8,&hellip;</p>
+<ol>
+<li>What are next three?</li>
+<li>How to number them?</li>
+</ol>
+<hr>
+<h2 id="fibonacci-1">Fibonacci</h2>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fib(n)</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>8</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>fib(8) = ?</p>
+<hr>
+<h2 id="fibonacci-2">Fibonacci</h2>
+<p>Where does it start?</p>
+<p><code>fib(0) = 1</code></p>
+<p><code>fib(1) = 1</code></p>
+<p>Pattern?</p>
+<p><code>fib(102) = ?</code></p>
+<hr>
+<h2 id="fibonacci-3">Fibonacci</h2>
+<p>Write the function <code>(fib n)</code>.</p>
+<p>Use a conditional.</p>
+<hr>
+<h2 id="fibonacci-4">Fibonacci</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">fib</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">...</span> <span style="color:#000;font-weight:bold">]))</span>
+</span></span></code></pre></div><hr>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9eefef1e69d495226c56c44db5f25a95">3 - 22a. Digits</h1>
+    <div class="lead">Counting the digits in a number.</div>
+	<h2 id="number-of-digits">number of digits</h2>
+<p><code>num-digits</code>: whole-number -&gt; number</p>
+<p>Returns how many digits in the number.</p>
+<hr>
+<h2 id="number-of-digits-1">number of digits</h2>
+<ul>
+<li>Use conditional.</li>
+<li>Base: answer of 1</li>
+</ul>
+<hr>
+<h2 id="number-of-digits-2">number of digits</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">num-digits</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">...</span> <span style="color:#000;font-weight:bold">]))</span>
+</span></span></code></pre></div><hr>
+<h2 id="number-of-digits-3">number of digits</h2>
+<ul>
+<li>Use conditional.</li>
+<li>Base: answer of 1</li>
+<li>Else: one more than &hellip;</li>
+</ul>
+<hr>
+<h2 id="number-of-digits-4">number of digits</h2>
+<p>Trick:</p>
+<ul>
+<li><code>(quotient number 10)</code> has one fewer digit</li>
+</ul>
+<hr>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ae21ff872f845acf455f4e9318aeec8c">4 - 22a. Sum Digits</h1>
+    <div class="lead">Sum the digits in a number.</div>
+	<p><code>sum-digits</code>: whole-number -&gt; number</p>
+<p>Find the sum of the digits in a number.</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th><code>(sum-digits n)</code></th>
+<th>simplified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>53</td>
+<td>5 + 3</td>
+<td>8</td>
+</tr>
+<tr>
+<td>921</td>
+<td>9 + 2 + 1</td>
+<td>12</td>
+</tr>
+<tr>
+<td>3216</td>
+<td>3 + 2 + 1 + 6</td>
+<td>12</td>
+</tr>
+<tr>
+<td>65536</td>
+<td>6 + 5 + 5 + 3 + 6</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-81673625fac5fa8d9586d284e28e9b97">5 - 22a. Digits II</h1>
+    <div class="lead">Making useful examples. Reading code. Practice problems using quotient and remainder to work through the digits of a number.</div>
+	<p>After this worksheet you are supposed to know how to process a number
+digit by digit, or in groups of digits.</p>
+<ol start="0">
+<li>
+<p>(<code>mult-13?</code>) Return true if a number is a multiple of 13, false
+otherwise.</p>
+</li>
+<li>
+<p>(<code>tg</code>: Thinking Only) The <code>total-gap</code> function <code>tg</code> finds the total
+of the positive difference between adjacent digits of a
+number. That means you will look at each pair of neighboring
+digits, find their &ldquo;positive differences&rdquo;, and then add up those
+differences.  You are <em>just writing good examples</em> that you will
+use to write that function.</p>
+</li>
+<li>
+<p>Trace out the following function in the examples when n is 7, 19,
+and 129.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bogus</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span>   <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">21</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bogus</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000">n</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">remainder</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">remainder</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">))]))</span>
+</span></span></code></pre></div><ol start="3">
+<li>(<code>ced</code>) Count how many odd digits a number has.</li>
+<li>(<code>c13</code>) How many pairs of consecutive digits are multiples
+of 13. The pairs of digits can overlap. Write examples and then
+write the function.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f9c6bdf9636f89d167790c7fb78b20a">6 - 22a. Digits III</h1>
+    <div class="lead">More practice problems using quotient and remainder to work through the digits of a number.</div>
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<ol>
+<li>
+<p>(<code>ism? : number -&gt; boolean</code>) Return true if a number is a multiple of 19 or a divisor
+of 5698296.</p>
+</li>
+<li>
+<p>(<code>twentyish: number -&gt; number</code>) Take each non-zero digit in a
+number, divide 20 by that number, and add up the results.</p>
+<pre><code> (twentyish 14) =&gt; 20/1 + 20/4 = 25
+ (twentyish 145) =&gt; 20/1 + 20/4 + 20/5 = 29
+</code></pre>
+<ol>
+<li>Write a sequence of three more related examples.</li>
+<li>Write the function.</li>
+</ol>
+</li>
+<li>
+<p>Without running the function, trace through the code below to show
+what happens with <code>(mess 15)</code>, <code>(mess 23)</code> and <code>(mess 53)</code>.</p>
+<pre><code> (define (mess n)
+   (cond [(&lt; n 20) 5]
+         [(= 3 (remainder n 5))
+          (mess (- n (remainder n 7)))]
+         [else (add1 (mess (- n 4)))]))
+</code></pre>
+</li>
+</ol>
+<!-- (mess 53) gets stuck in an infinite loop when n=28. 
+     Counting down from 53 can be a lot of computing and possible errors for
+     non-mathematical students. 
+     -->
+<ol start="4">
+<li>
+<p>(<code>numimg: number -&gt; image</code>) Draw a different shape in the place of
+some of the digits of a number. The example below uses 0=circle, 1=square,
+2=triangle, 3=star, and anything else is a yellow square. Use at
+least three shapes in your function.</p>
+<pre><code> (numimg 12035532)
+</code></pre>
+<p><img src="luckycharms.png" alt="Image of shapes corresponding to 12035532"></p>
+<ol>
+<li>Draw a sequence of three related examples. (Might not go in
+Racket right away.)</li>
+<li>Write the function.</li>
+<li>Turn your examples into check-expects.</li>
+</ol>
+</li>
+<li>
+<p>(<code>2dg: number -&gt; number</code>) Write down your number. Beginning at the
+right, where the decimal point would be, make two digit groups of its
+digits. Add up all of the two digit groups. Ignore any extra digits
+that do not fit in two digit groups.</p>
+<pre><code> (check-expect (2dg 14258) 100) ;; 58 + 42 = 100
+</code></pre>
+<ol>
+<li>Write a good sequence of examples building up to a six digit number.</li>
+<li>Write the function.</li>
+</ol>
+</li>
+<li>
+<p>(<code>count-div3: number -&gt; number</code>) Count the number of digits in a
+number that are divisible by 3.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5be1856d065cfaf206084a1e2ca9bb5b">7 - 22a. Digits V</h1>
+    
+	<ol>
+<li>
+<p>(<code>transl8: number -&gt; number</code>) Write a function that changes all of
+the 8 digits to zeros.</p>
+<pre><code> (check-expect (transl8 8) 0)
+ (check-expect (transl8 128) 120)
+ (check-expect (transl8 847) 47)
+ (check-expect (transl8 68687) 60607)
+</code></pre>
+</li>
+<li>
+<p>(<code>i88 : number -&gt; number</code>) Write a function that removes all of the
+digits 8 from a number.</p>
+<pre><code> (check-expect (i88 128) 12)
+ (check-expect (i88 847) 47)
+ (check-expect (i88 81838) 13)
+ (check-expect (i88 8474850826) 4745026)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0baf69f218fa04fcf2efa6923eb54e25">8 - 22a. Fibsum</h1>
+    <div class="lead">Sum of Fibonacci numbers.</div>
+	<h2 id="fibsum">fibsum</h2>
+<p><code>(fibsum n)</code>: Sum of Fibonacci numbers 0 through n.</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>(fibsum n)</th>
+<th>simplified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1+1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1+1+2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1+1+2+3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1+1+2+3+5</td>
+<td>12</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1+1+2+3+5+8</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1c4623c36e7105a7cc172ae4b2fef48b">9 - 22a. More Recursion</h1>
+    <div class="lead">Many more recursion practice problems.</div>
+	<ol>
+<li>
+<p><code>vblock</code>: number(n) image(img) -&gt; image. Makes a vertical stack of <code>n</code> copies of <code>img</code>.</p>
+</li>
+<li>
+<p><code>sum-cubes</code>: number(n) -&gt; number. Finds the sum of the first <code>n</code>
+perfect cubes. The first perfect cube is 1x1x1=1. The second perfect
+cube is 2x2x2 = 8. Etc.</p>
+</li>
+<li>
+<p><code>hblock</code>: number(n) image(img) -&gt; image. Make a horizontal stack of <code>n</code> copies of <code>img</code>.</p>
+</li>
+<li>
+<p><code>grid</code>: number(rows) number(columns) image -&gt; image. Make a grid that is <code>columns</code> wide and <code>rows</code> tall of the image repeated.</p>
+</li>
+<li>
+<p><code>add-sqrt</code>: number(start) number(end) -&gt; number. Add up <code>(sqrt n)</code> for every integer <code>n</code> with <code>start &lt;= n &lt;= end</code>
+If no numbers fit this description, the sum should be zero.</p>
+<p>Example: when start=4 and end=5, the answer is <code>(+ (sqrt 4) (sqrt 5))</code>, which is about 4.236.</p>
+<pre><code> (check-expect (add-sqrt 4 3) 0)
+ (check-expect (add-sqrt 4 4) 2)
+ (check-within (add-sqrt 4 5) 4.23 0.01)
+ (check-within (add-sqrt 4 8) 12.15 0.01)
+</code></pre>
+</li>
+<li>
+<p><code>lots-of-hyphens</code>: string(word) -&gt; string. Insert a hyphen after every letter in the word.</p>
+<pre><code> (lots-of-hyphens &quot;grape&quot;) ==&gt; &quot;g-r-a-p-e-&quot;
+</code></pre>
+<p>Extra: get <code>&quot;g-r-a-p-e&quot;</code> instead.</p>
+</li>
+<li>
+<p><code>ten-circle</code>: number(start) number(end) -&gt; image. Produces concentric circles starting at radius <code>start</code> and drawing every 10 units until the radius is at least <code>end</code>. Assume <code>start &lt; end</code>.</p>
+
+    <figure>
+        <img src="ten-circle.png"/> 
+    </figure>
+
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fecca8696026ea518effa53f99a2b487">10 - 22a. Harmonic</h1>
+    <div class="lead">Short review question.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>The <code>harmonic-add</code> function takes in a <code>start</code> and an <code>end</code> number,
+and finds the sum <code>1/start + 1/(start+1) + ... + 1/end</code>.</p>
+<pre><code>    (check-expect (harmonic-add 1 2) 1.5)
+    (check-within (harmonic-add 1 3) 1.8333 0.0001)
+    (check-within (harmonic-add 1 4) 2.0833 0.0001)
+</code></pre>
+<p>Example in math: <code>(harmonic-add 1 4)</code> is
+$$ \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \frac{1}{4}. $$</p>
+<p>Another example: <code>(harmonic-add 3 7)</code> is
+$$ \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} +
+\frac{1}{7}. $$</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2a244a2b1f52fc6a333f73f5bfe0ba9">11 - 22a. Practice&#43;&#43;</h1>
+    <div class="lead">More practice: sum of sevenths, sum of y-coordinates on a parabola.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<p>A few more practice problems.</p>
+<h2 id="parabola">Parabola</h2>
+<p>Using the parabola $$f(x) = (x+8)(x-6),$$ find the sum of all of the
+y-coordinates on the graph of $y=f(x)$ with x an integer between
+<code>left</code> and <code>right</code> (&ldquo;inclusive&rdquo;: see first example).</p>
+<pre><code> (check-expect (parabola-ys 2 2) (* 10 -4))
+ (check-expect (parabola-ys 2 3) (+ (* 10 -4) (* 11 -3)))
+</code></pre>
+<h2 id="sevenths">Sevenths</h2>
+<p>The function
+<code>add-sevenths: number(start) number(end) -&gt; number</code>
+finds the sum of all of the sevenths with integer numerator between
+start and end (inclusive).</p>
+<pre><code>(define (add-sevenths start end) 0)
+(check-expect (add-sevenths 1 4) (+ 1/7 2/7 3/7 4/7))
+(check-expect (add-sevenths 2 4) (+ 2/7 3/7 4/7))
+(check-expect (add-sevenths 3 4) (+ 3/7 4/7))
+(check-expect (add-sevenths 4 4) 4/7)
+</code></pre>
+<h2 id="add-odd">Add Odd</h2>
+<p>Sum all of the odd numbers between start and end (inclusive).</p>
+<pre><code>(define (add-odd start end) 0)
+(check-expect (add-odd 12 12) 0)
+(check-expect (add-odd 11 11) 11)
+(check-expect (add-odd 10 11) 11)
+(check-expect (add-odd 9 11)  (+ 9 11))
+(check-expect (add-odd 8 11)  (+ 9 11))
+(check-expect (add-odd 7 11)  (+ 7 9 11))
+</code></pre>
+<h2 id="add-5s">Add 5s</h2>
+<p>Sum all of the multiples of five between the start and end number.</p>
+<pre><code>(define (add-5s start end) 0)
+(check-expect (add-5s 3 17) (+ 5 10 15))
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f5bf4736497ceedd091f301b086b7dfc">12 - 22a. ss3</h1>
+    <div class="lead">A short summing practice problem.</div>
+	<p>Design and test a function <code>ss3: number(a) number(b) -&gt; number</code> to sum
+the squares of every third number from <code>a</code> to <code>b</code>. Skip multiples of
+ten.</p>
+<pre><code>(ss3 14 23) = 14^2 + 17^2 + 23^2
+(ss3 14 18) = 14^2 + 17^2
+(ss3 10 40) = 6165
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-eebb2068a262a62dcce3739a88e914ae">13 - 22a. Recursive Helpers</h1>
+    <div class="lead">Exercises involving recursive functions with helper functions.</div>
+	<h2 id="image-theory">Image Theory</h2>
+<ol>
+<li>
+<p><code>big-bullseye</code>: number(n) -&gt; image. Draw n concentric circles, alternating color beginning with black on the inside. Begin with a radius of 10 and increase the radius by 10 each successive circle.</p>
+</li>
+<li>
+<p><code>sier-triangle</code>: number(n) number(size) -&gt; image. Make a <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_gasket">Sierpinski triangle</a> with <code>n</code> stages in the pattern and a side length of <code>size</code>. Do this by dividing the size in two when you make a smaller triangle, and arrange those triangles themselves in a triangle (see images).</p>
+</li>
+</ol>
+
+<figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sierpinski_triangle_evolution.svg/320px-Sierpinski_triangle_evolution.svg.png"/> 
+</figure>
+
+<p>(Remaining content moved to a <a href="/teaching--2021-2022/intermediate-cs/ch22a/90-helpers/">later helper function page</a>.)</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f74d3eb913a9e610400e00f3c16a62c3">14 - 22a. Recursion Quiz Practice</h1>
+    <div class="lead">Quiz practice: hawaiian-earring, double-ss, math-mess.</div>
+	<p>Follow the design process for each function.</p>
+<ol>
+<li>
+<p><code>hawaiian-earring</code>: number(stage) number(radius) -&gt; image. Create <code>stage</code> circles with each successive circle 80% of the radius of the previous one.</p>
+
+    <figure>
+        <img src="hawaiian-earring.png"/> <figcaption>
+                <h4>(hawaiian-earring 10 80)</h4>
+            </figcaption>
+    </figure>
+
+</li>
+<li>
+<p><code>double-ss</code>: string -&gt; string. Double each <code>s</code> appearing in the string.</p>
+<pre><code> (check-expect (double-ss &quot;The snake was silent.&quot;)
+               &quot;The ssnake wass ssilent.&quot;)
+</code></pre>
+</li>
+<li>
+<p><code>math-mess</code>: number(start) number(end) -&gt; number. For all of the numbers between <code>start</code> and <code>end</code>: add the squares of the even numbers, subtract the square roots of the odd numbers.</p>
+<pre><code> (math-mess 10 10) =&gt; (* 10 10)
+ (math-mess 11 11) =&gt; (- (sqrt 11))
+ (math-mess 10 11) =&gt; (- (* 10 10) (sqrt 11))
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9765a574ca5a6f722fb6da8df202ab40">15 - 22a. Recursion Quiz 2018</h1>
+    <div class="lead">First quiz on recursion: reciprocal-squares, blank-vowels, hollow-diagonal.</div>
+	<p>You may use the Picturing Programs textbook and the blog to look up functions th
+at you do not know. Do not consult any other programs written by you or anyone else. (No old homework, Stack Overflow, etc.)</p>
+<p>Have at least two check expects for each function.</p>
+<ol>
+<li>
+<p><code>reciprocal-squares</code>: number(start) number(end) -&gt; number. Find the sum of <code>1/n^2</code> for every <code>n</code> between <code>start</code> and <code>end</code> (including both).</p>
+<table>
+<thead>
+<tr>
+<th>start</th>
+<th>end</th>
+<th>sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>1.36111&hellip;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>blank-vowels</code>: string(word) -&gt; string. Change every vowel (a,e,i,o,u) to an underscore (<code>_</code>). Example: <code>(blank-vowels &quot;elephant&quot;) =&gt; &quot;_l_ph_nt&quot;</code>.</p>
+</li>
+<li>
+<p><code>circle-circle</code>: number(big-radius) number(little-radius) number(turn-angle) number(n) -&gt; image. Produce <code>n</code> circles of size <code>little-radius</code> around the perimeter of a circle of size <code>big-radius</code>. In between each, have a central angle of <code>turn-angle</code>.</p>
+<p>
+	<figure>
+	    <img src="circle-circle.png"/> <figcaption>
+	            <h4>(circle-circle 100 20 45 8)</h4>
+	        </figcaption>
+	</figure>
+
+
+	<figure>
+	    <img src="circle-circle-partial.png"/> <figcaption>
+	            <h4>(circle-circle 120 15 30 6)</h4>
+	        </figcaption>
+	</figure>
+</p>
+</li>
+<li>
+<p><code>hollow-diagonal</code>: number(radius) number(n): Produce <code>n</code> circles of the given radius along a diagonal.</p>
+<p><a href="hollow-diagonal-2.png">
+<figure>
+    <img src="hollow-diagonal-1.png"/> <figcaption>
+            <h4>(hollow-diagonal 20 5)</h4>
+        </figcaption>
+</figure>
+</a></p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-70ddd1611c23f4b2b158c97b75a2b1ae">16 - 22a. Recursion Practice I 2019</h1>
+    <div class="lead">A quiz on recursive functions.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<ol>
+<li>
+<p>(<code>altsum</code>) One way to see if a number is divisible by 11 is to find
+the alternating sum (+ then -) of the digits of the number,
+beginning at the ones digit, and see if that number is divisible
+by 11. The alternating sum of the digits if 1495 is $5-9+4-1 = -1$, so 1495
+is not divisible by 11. Design and test the function
+<code>altsum: number(n) -&gt; number</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">altsum</span> <span style="color:#0000cf;font-weight:bold">95</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">-9</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">altsum</span> <span style="color:#0000cf;font-weight:bold">1495</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">-9</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div></li>
+<li>
+<p>(<code>sum-octa</code>) The n-th octagonal number is the number of dots that it
+takes to draw all of the edges of a regular octagon with n dots
+per edge. The formula for the n-th octagonal number is $3n^2-2n$,
+or <code>(- (* 3 n n) (* 2 n))</code> in Racket.</p>
+<p>Write a function <code>sum-octa: number(start) number(end) -&gt; number</code>
+to find the sum of all of n-th octagonal numbers beginning with
+<code>n=start</code> and ending with <code>n=end</code>.</p>
+<pre><code> (check-expect (sum-octa 1 2) 9)
+ (check-expect (sum-octa 2 5) 134)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>octagonal number n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>21</td>
+</tr>
+<tr>
+<td>4</td>
+<td>40</td>
+</tr>
+<tr>
+<td>5</td>
+<td>65</td>
+</tr>
+</tbody>
+</table>
+ <figure>
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Centered_octagonal_number.svg/1200px-Centered_octagonal_number.svg.png" height="300"/> <figcaption>
+             <h4>Blue octagonal numbers, plus extra octagons</h4>
+         </figcaption>
+ </figure>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c62736cf455a8d5a6b29bc887e381d8a">17 - Roygbiv Code</h1>
+    
+	<p>We are going to write an encoding function that makes an image like a
+bar code, but using colored rectangles insteada of bars.</p>
+<figure>
+    <img src="school-phone.png"/> <figcaption>
+            <h4>Encoded phone number</h4>
+        </figcaption>
+</figure>
+<p>Each digit will map to a 30x70 rectangle. The colors of the digits 0
+through 9 will be the usual rainbow: red, orange, yellow, green, blue, indigo, violet, and then three randomly chosen colors:</p>
+<pre><code> (define rc7 (make-color 25 134 240))
+ (define rc8 (make-color 121 143 37))
+ (define rc9 (make-color 220 194 21))
+</code></pre>
+<p>For example, an input of 7510 to <code>encode</code> gives the code below.</p>
+<figure>
+    <img src="barcode-1.png"/> <figcaption>
+            <h4>(encode 7510)</h4>
+        </figcaption>
+</figure>
+<p>Write a function to create a color-based bar code.</p>
+<h2 id="answered-questions">Answered questions</h2>
+<ul>
+<li>You should ignore leading zeros.</li>
+</ul>
+<h2 id="intermediate">Intermediate</h2>
+<p>Got the encoder working? Write a decoder that takes in an image and
+produces an integer.</p>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a34fedc4f5b908701096f5c03d5fa35d">18 - 22a. Strings</h1>
+    <div class="lead">A presentation with exercises involving recursion on strings.</div>
+	<h1 id="objective">Objective</h1>
+<p>I can write a recursive function that works on a string.</p>
+<hr>
+<h1 id="letterswap">LetterSwap</h1>
+<p><code>(swap &quot;wallaby&quot; &quot;a&quot; &quot;x&quot;)</code>
+<code>=&gt; &quot;wxllxby&quot;</code></p>
+<p><code>swap: word original replace -&gt; string</code></p>
+<p>Change the letter <code>original</code> to the letter <code>replace</code> in the <code>word</code>.</p>
+<hr>
+<h1 id="no-mistakes">No Mistakes</h1>
+<p><code>no-mistake: string(word) -&gt; string</code></p>
+<p>Remove every appearance of &ldquo;mistake&rdquo; inside the given word.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cafc07c28fcede25f31c70bf2370f160">19 - 22a. Helpers</h1>
+    <div class="lead">Real introduction to helper functions in recursion.</div>
+	<h2 id="warmup">Warmup</h2>
+<p>Write a function <code>count-div</code>: number(k) number(n) -&gt; number that gives
+1 if k divides n and 0 otherwise.</p>
+<h2 id="opener">Opener</h2>
+<p><code>count-divisors</code>: positive-integer(n) -&gt; positive-integer. Count how
+many integers 1,2,&hellip;,n divide the number <code>n</code>.</p>
+<p><a href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch22a/91-count-divisors/">Count-divisors solution</a>.</p>
+<h2 id="number-theory">Number Theory</h2>
+<ol start="4">
+<li>
+<p><code>smallest-factor</code>: positive-integer(n) -&gt; positive-integer. Find the smallest divisor of <code>n</code> that is greater than 1.</p>
+</li>
+<li>
+<p><code>is-prime?</code>: positive-integer(n) -&gt; boolean. True if <code>n</code> is prime,
+false otherwise.</p>
+</li>
+<li>
+<p><code>largest-prime-factor</code>: positive-integer(n) -&gt;
+positive-integer. Find the largest prime factor of <code>n</code>.</p>
+</li>
+</ol>
+<h2 id="string-practice">String Practice</h2>
+<p><code>group-3</code>: string(word) -&gt; string. Insert spaces after every three letters of <code>word</code>. Example: <code>(group-3 &quot;pancake&quot;) =&gt; &quot;pan cak e&quot;</code>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bc1974457de2f10eba0470cd331d567a">20 - 22a. Helpers: Count Divisors</h1>
+    <div class="lead">A complete lecture on count-divisors.</div>
+	<h2 id="warmup">Warmup</h2>
+<p>Write a function <code>count-div</code>: number(k) number(n) -&gt; number that gives
+1 if k divides n and 0 otherwise.</p>
+<h2 id="warmup-solution">Warmup Solution</h2>
+<pre><code> (define (count-div k n)
+    (cond [(= 0 (remainder n k))
+            1]
+          [else
+            0]
+            
+ (check-expect (count-div 3 6) 1)
+ (check-expect (count-div 4 6) 0)
+</code></pre>
+<h2 id="count-divisors-example">Count-divisors example</h2>
+<pre><code> (count-divisors 2) =&gt; 1 + 1
+ (count-divisors 3) =&gt; 1 + 0 + 1
+ (count-divisors 4) =&gt; 1 + 1 + 0 + 1
+ (count-divisors 5) =&gt; 1 + 0 + 0 + 0 + 1
+</code></pre>
+<p>Notice that there is <em>not</em> a pattern of repeating previously used results! See the longer list of factors to confirm:</p>
+<pre><code>1 =&gt; 1
+2 =&gt; 1,2
+3 =&gt; 1,3
+4 =&gt; 1,2,4
+5 =&gt; 1,5
+6 =&gt; 1,2,3,6
+7 =&gt; 1,7
+8 =&gt; 1,2,4,8
+9 =&gt; 1,3,9
+</code></pre>
+<p>This means that you cannot write a recursive function the way we have been writing them. <code>(count-divisors 5)</code> has nothing to do with <code>(count-divisors 4)</code>.</p>
+<h2 id="count-divisors-walkthrough">Count-divisors walkthrough</h2>
+<p>It really looks like we need to keep track of two things:</p>
+<ul>
+<li>what number we are counting the divisors for (always the same, let&rsquo;s call it <code>end</code>)</li>
+<li>the number that we are test dividing (changes, let&rsquo;s call it <code>start</code>)</li>
+</ul>
+<p>Purpose: find how many divisors of <code>end</code> there are between <code>start</code> and
+<code>end</code> including both start and end.</p>
+<p>Skeleton:</p>
+<pre><code>(define (count-divisors-help start end)
+  ; not finished
+  0)
+</code></pre>
+<p>Now you write examples. You could abbreviate this function&rsquo;s name as <code>cdh</code> if writing on paper.</p>
+<h2 id="examples">Examples</h2>
+<p>Your examples should look like this list below (abbreviating <code>count-divisors-help</code> as <code>cdh</code>:</p>
+<pre><code>(cdh 1 6) =&gt; 4
+(cdh 2 6) =&gt; 3
+(cdh 3 6) =&gt; 2
+(cdh 4 6) =&gt; 1
+(cdh 5 6) =&gt; 1
+(cdh 6 6) =&gt; 1
+</code></pre>
+<h2 id="finale">Finale</h2>
+<p>You know there are two steps to writing a recursive function:</p>
+<ol>
+<li>make sure it stops, when it should stop; and</li>
+<li>make sure it keeps going when it should keep going.</li>
+</ol>
+<h3 id="stops">Stops</h3>
+<p>You can write a conditional that always gets the right answer in one case. Try it!</p>
+<h3 id="keep-going">Keep going</h3>
+<p>You can see that there could be a recursive function call with <code>start</code>
+increasing by one each time, because the answer for <code>start=3</code> builds
+off the answer for <code>start=4</code>.</p>
+<p>The two ingredients for this part are:</p>
+<ol>
+<li><code>(count-divisors-help (+1 start) end)</code></li>
+<li><code>(count-div start end)</code></li>
+</ol>
+<p>You have to try writing the rest of the function now!</p>
+<h3 id="answer">Answer</h3>
+<p>I hope you have worked through each step and tried to understand it before reading the solution.</p>
+<p><a href="count-divisors-real-solution.rkt">Bare-bones solution</a> and a <a href="count-divisors-full.rkt">complete solution with checks</a>, straight from lecture.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cbdaea8451268a0739331dffe8edcff0">21 - 22a. Recursion Practice 3</h1>
+    <div class="lead">Even more recursion practice.</div>
+	<p>Do at least the first three.
+Please make sure to write at least three tests for each function.</p>
+<ol>
+<li>
+<p><code>is-in-word?</code>: string(letter) string(word) -&gt; boolean. True if the letter is in the word, false otherwise.</p>
+<pre><code> (check-expect (is-in-word? &quot;x&quot; &quot;explode&quot;) true)
+ (check-expect (is-in-word? &quot;s&quot; &quot;juliuc caecar&quot; false)
+</code></pre>
+</li>
+<li>
+<p><code>word-shrink</code>: string(word) number(starting-size) -&gt; image. Create a picture of the word in which each letter is four points smaller than the previous letter. Do not let the font size go below 5pt.</p>
+
+     <figure>
+         <img src="shrink-word.png"/> <figcaption>
+                 <h4>(shrink-word &#34;Perspective Drawing&#34; 64)</h4>
+             </figcaption>
+     </figure>
+
+</li>
+<li>
+<p><code>sum-penta</code>: number(start) number(end) -&gt; number. The <a href="https://en.wikipedia.org/wiki/Pentagonal_number">pentagonal numbers</a> are created by making larger and larger pentagons - Wikipedia has a nice animated image. The formula for the nth pentagonal number is <code>(* 0.5 n (- (* 3 n) 1))</code>.</p>
+<p>Find the sum of all of pentagonal number <code>n</code> from <code>n=start</code> through <code>n=end</code>.</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>(penta n)</th>
+<th>(sum-penta 1 n)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>12</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="challenge">Challenge</h2>
+<ol start="4">
+<li>
+<p><code>draw-tic-tac-toe</code>: string -&gt; image. Take a string containing 9 characters (from &ldquo;X&rdquo; &ldquo;O&rdquo; and &ldquo;-&rdquo;) and turn it into a 3x3 image of &ldquo;X&rdquo; &ldquo;O&rdquo; and blank squares in a tic-tac-toe board.</p>
+<p>Hint: You will probably want helper functions <code>draw-one-space</code> and <code>draw-one-line</code>.</p>
+
+    <figure>
+        <img src="tictactoe.png"/> <figcaption>
+                <h4>(draw-tic-tac-toe &#34;XXOO-OOXX&#34;)</h4>
+            </figcaption>
+    </figure>
+
+</li>
+<li>
+<p>(Math) Write <code>is-pentagonal?</code>: number -&gt; boolean. Then read <a href="https://projecteuler.net/index.php?section=problems&amp;id=44">Project Euler 44</a>, which might be doable soon. You can celebrate if you find any two pentagonal numbers whose sum and difference are both pentagonal.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c5ee31598d4fca7a7e22453b951f1424">22 - 22a. Recursion Self Quiz</h1>
+    <div class="lead">A brief quiz to make sure you understand recursion.</div>
+	<p><code>draw-cats</code>: string -&gt; image</p>
+<p>Draw one cat for every time the word &ldquo;cat&rdquo; appears in the string.</p>
+   <figure>
+       <img src="cat.png"/> <figcaption>
+               <h4>(draw-cats &#34;nyan cat&#34;)</h4>
+           </figcaption>
+   </figure>
+   <figure>
+       <img src="catcat.png"/> <figcaption>
+               <h4>(draw-cats &#34;cat dog cat&#34;)</h4>
+           </figcaption>
+   </figure>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    I have had problems with tests failing even though the images are identical.
+I found that scaling the image in Racket caused the problem.
+Now I do not <code>scale</code> the size of the images I use in my tests.
+
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5dbe03c51a99982e3560ec04e9c1e612">23 - 22a. Recursion Practice 4</h1>
+    <div class="lead">Change penguin to penguins and mouse to mice in zoo-1, sum5, double-middle.</div>
+	<p>Classwork (20 min) and discussion (25 min).</p>
+<ol>
+<li>
+<p><code>zoo-1</code>: string -&gt; string. Change every occurrence of &ldquo;penguin&rdquo; to &ldquo;penguins&rdquo; and change every occurrence of &ldquo;mouse&rdquo; to &ldquo;mice&rdquo;. Leave everything else alone.</p>
+<pre><code>  (check-expect (zoo-1 &quot;mouse&quot;) &quot;mice&quot;)
+  (check-expect (zoo-1 &quot;xmouse&quot;) &quot;xmice&quot;)
+  (check-expect (zoo-1 &quot;mousex&quot;) &quot;micex&quot;)
+  (check-expect (zoo-1 &quot;mouse moose&quot;) &quot;mice moose&quot;)
+  (check-expect (zoo-1 &quot;mouse mouse&quot;) &quot;mice mice&quot;)
+  (check-expect (zoo-1 &quot;penguin penguins&quot;) &quot;penguins penguinss&quot;)
+</code></pre>
+</li>
+</ol>
+<h2 id="review-homework">Review Homework</h2>
+<ol start="2">
+<li>
+<p><code>sum5</code>: number(n) -&gt; number. Find the sum of the first <code>n</code> fifth powers, starting
+with 1.</p>
+<pre><code> (check-expect (sum5 3) (+ (* 1 1 1 1 1) (* 2 2 2 2 2) (* 3 3 3 3 3)))
+</code></pre>
+</li>
+<li>
+<p><code>double-middle</code>: string -&gt; string. Double every letter between j
+and q in the alphabet (inclusive).</p>
+<pre><code> (check-expect (double-middle &quot;jog snake&quot;) &quot;jjoog snnakke&quot;)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9822291ebe298e8854081c05bdf2314d">24 - 22a. Mini-Quiz</h1>
+    <div class="lead">ex-it, unlucky</div>
+	<h1 id="ex-it"><code>ex-it</code></h1>
+<p><code>ex-it: string -&gt; string</code></p>
+<p>Change every &ldquo;x&rdquo; to a &ldquo;y&rdquo;.</p>
+<pre><code>(check-expect (ex-it &quot;tresxxx&quot;) &quot;tres&quot;)
+(check-expect (ex-it &quot;zyzzyva&quot;) &quot;zyzzyva&quot;) ; no change
+</code></pre>
+<hr>
+<h1 id="unlucky"><code>unlucky</code></h1>
+<p><code>unlucky: number -&gt; number</code></p>
+<p>How many multiples of 13 appear in the digits of n? (Just consider
+two digit multiples.)</p>
+<pre><code>(check-expect (unlucky 131) 1)
+(check-expect (unlucky 139) 2)
+(check-expect (unlucky 1263) 1)
+(check-expect (unlucky 1326) 2)
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b1f4f3789128b9c55606876e41d040e2">25 - 22a. Recursion Quiz 2</h1>
+    <div class="lead">Ice cream quiz.</div>
+	<p>An ice cream cone can have strawberry, vanilla, or chocolate ice cream scoops.
+The number of scoops is unlimited, specified by the string of flavors that is input.</p>
+<pre><code>ice-cream: string -&gt; image
+</code></pre>
+<figure>
+    <img src="ice-cream.png"/> <figcaption>
+            <h4>(ice-cream &#34;chocolate vanilla strawberry strawberry chocolate&#34;)</h4>
+        </figcaption>
+</figure>
+<h2 id="detailed-instructions">Detailed Instructions</h2>
+<ol>
+<li>Build up to all of the flavors by first picking a single flavor and
+creating a cone for only that flavor.</li>
+<li>Write checks as we have discussed in class. It is worth your time!</li>
+<li>Permitted resources: Picturing Programs book and Racket Help Desk. No old homework or notes.</li>
+</ol>
+<h2 id="grading">Grading</h2>
+<ul>
+<li>Flawless single flavor cone = 70%</li>
+<li>Good tests = +10%</li>
+<li>Multi-flavor cone, no problems: 90%.</li>
+<li>Penalty for untested code, or errors when tested -5.</li>
+</ul>
+<h2 id="faq">F.A.Q.</h2>
+<ul>
+<li>You may write any helper functions that you want.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2900ceca9639c5ef3f8ecfc57d2d30e">26 - 22a. Recursion Practice 5</h1>
+    <div class="lead">count-w, powers of 7, double zero</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<ol>
+<li>
+<p>(<code>count-w</code>) Find how many &ldquo;w&rdquo; letters there are in a
+word. Signature: <code>count-w: string -&gt; number</code>.</p>
+</li>
+<li>
+<p>(<code>p7</code>) Find the smallest power of 7 that is at least a given
+number. (So find the smallest $k$ so that $7^k \ge \text{number}$.)
+Signature: <code>p7: number -&gt; number</code>.</p>
+<pre><code> (check-expect (p7 1) 0)
+ (check-expect (p7 7) 1)
+ (check-expect (p7 8) 2)
+ (check-expect (p7 49) 2)
+ (check-expect (p7 50) 3)
+</code></pre>
+</li>
+<li>
+<p>(<code>eyeball</code>) Find how many pairs of consecutive zeros there are in a
+number. Signature: <code>eyeball: number -&gt; number</code>.</p>
+<pre><code> (check-expect (eyeball 0) 0)
+ (check-expect (eyeball 00) 0)
+ (check-expect (eyeball 1007008) 2)
+ (check-expect (eyeball 30008) 2)
+</code></pre>
+<p>Explanations: the number 00 is really just 0, so there is only one
+zero. The number 30008 has two pairs of consecutive zeros: 3 <strong>00</strong>
+08 and 30 <strong>00</strong> 8.</p>
+</li>
+</ol>
+<h2 id="more-practice">More Practice</h2>
+<ol start="4">
+<li>
+<p>(<code>no-z</code>) Remove all z&rsquo;s from a string. <code>no-z: string -&gt; string</code></p>
+<pre><code> (check-expect (no-z &quot;whazzlez&quot;) &quot;wale&quot;)
+</code></pre>
+</li>
+<li>
+<p>(<code>cq</code>) Count how many times a given letter appears in a word.
+<code>cq: string(letter) string(word) -&gt; number</code>
+One special case: when asked to count the number of &ldquo;q&rdquo; in a word,
+only count &ldquo;q&rdquo; letters immediately followed by &ldquo;u&rdquo;.</p>
+<pre><code> (check-expect (cq &quot;k&quot; &quot;kraken&quot;) 2)
+ (check-expect (cq &quot;q&quot; &quot;queue q que&quot;) 2)
+</code></pre>
+</li>
+<li>
+<p>(<code>pink</code>) Change every appearance of &ldquo;pink&rdquo; in the string to &ldquo;blue&rdquo;.
+Signature: <code>pink: string -&gt; string</code>.</p>
+<pre><code> (check-expect (pink &quot;pink pink&quot;) &quot;blue blue&quot;)
+</code></pre>
+<p>Advanced: leave the first appearance alone.</p>
+<pre><code> (check-expect (pink-advanced &quot;pink pink pink&quot;) &quot;pink blue blue&quot;)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6e0d8dceaa9df84023179dc5319ccca5">27 - 22a. Recursion Practice 6</h1>
+    <div class="lead">r-ss - does a word have r or ss?, no-7, abfx - all but first x becomes a y.</div>
+	<h1 id="r-ss"><code>r-ss?</code></h1>
+<p><code>r-ss?: string(word) -&gt; boolean</code>.</p>
+<p>True if the word contains either &ldquo;r&rdquo; or &ldquo;ss&rdquo;.</p>
+<pre><code>    (check-expect (r-ss? &quot;car&quot;) true)
+    (check-expect (r-ss? &quot;ssnake&quot;) true)
+    (check-expect (r-ss? &quot;wrassle&quot;) true)
+    (check-expect (r-ss? &quot;confabulous&quot;) false)
+</code></pre>
+<hr>
+<h1 id="no-7"><code>no-7</code></h1>
+<p><code>no-7: number(n) -&gt; number</code></p>
+<p>Remove the 7s from a number.</p>
+<pre><code>    (check-expect (no-7 127347) 1234)
+    (check-expect (no-7      7)    0)
+</code></pre>
+<hr>
+<h1 id="abfx"><code>abfx</code></h1>
+<p><code>abfx: string -&gt; string</code></p>
+<p>Change all but the first &ldquo;x&rdquo; to a &ldquo;y&rdquo;.</p>
+<pre><code>    (check-expect (abfx &quot;x&quot;) &quot;x&quot;)
+    (check-expect (abfx &quot;xx&quot;) &quot;xy&quot;)
+    (check-expect (abfx &quot;xxx&quot;) &quot;xyy&quot;)
+    (check-expect (abfx &quot;zxyxx&quot;) &quot;zxyyy&quot;)
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-13f0f7238dcad71e99a2208c006b4e10">28 - Quiz 3 (Hard)</h1>
+    <div class="lead">A harder quiz based on the skills we have learned: english-q</div>
+	<p>Write in Racket. You may use the Picturing Programs book and the
+Racket Help Desk. You may not refer to old code except your
+<code>posn-util.rkt</code>.</p>
+<ol>
+<li>
+<p><code>english-q: string -&gt; boolean</code>: True if every &ldquo;q&rdquo; in the word is
+followed by a &ldquo;u&rdquo;.</p>
+</li>
+<li>
+<p><code>ternary-2: number -&gt; number</code>: Find the number of 2s in the base 3
+representation of the number. You can look up what base 3 is. Write
+your own base 3 converter.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-722c873ad2ae2829655e4f4fbd010676">29 - Quiz 4 (Medium)</h1>
+    <div class="lead">ssm, pairorder</div>
+	<ol>
+<li>
+<p><code>ssm: number(start) number(end) -&gt; number</code>. Find the sum of all of
+the square roots of odd numbers between <code>start</code> and <code>end</code>
+(inclusive). Except skip taking the square roots of any perfect
+squares like 49</p>
+<pre><code> (check-within (ssm 21 27) 
+               (+ (sqrt 21) (sqrt 23) (sqrt 27)) ; skip 25
+               0.01)
+
+ (check-within (ssm 7 12)
+               (+ (sqrt 7) (sqrt 11)) ; skip 9 - perfect square
+                 0.01)
+
+ (check-within (ssm 101 1001) 10008.2 0.1)
+</code></pre>
+</li>
+<li>
+<p>The <code>pairorder: string -&gt; string</code> function takes a string and puts
+each adjacent pair of letters in alphabetical order, beginning at
+the left and working to the right <em>one</em> letter at a time. This
+means that a &ldquo;z&rdquo; could potentially move several times in one call
+to <code>pairorder</code>: &ldquo;zba&rdquo; when processing the first pair would produce
+&ldquo;bza&rdquo; then when processing the second pair would produce &ldquo;baz&rdquo;.</p>
+<pre><code> (check-expect (pairorder &quot;zba&quot;) &quot;baz&quot;)
+ (check-expect (pairorder &quot;ba&quot;) &quot;ab&quot;)
+ (check-expect (pairorder &quot;cba&quot;) &quot;bac&quot;)
+ (check-expect (pairorder &quot;complex&quot;) &quot;cmolepx&quot;)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9ffa02d53bdcaa6edd71e88a9c97bd0f">30 - 22a. Feb.G Review</h1>
+    
+	<ol>
+<li>Trace the execution of <code>(snow 300)</code>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">snow</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">=</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">remainder</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>		 <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">quotient</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		 <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">add1</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">snow</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">quotient</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)))]</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>		 <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">+</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">snow</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)))]))</span>
+</span></span></code></pre></div><ol start="2">
+<li>(<code>tall-tree</code>) Make an <code>n</code> layer stack of green triangles and put a
+brown rectangle at the bottom.</li>
+</ol>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch22a/110-febg-review/tall-tree.png"/> <figcaption>
+            <h4>(tall-tree 5)</h4>
+        </figcaption>
+</figure>
+<ol start="3">
+<li>
+<p>(<code>cr7 : integer(avoid) -&gt; number</code>) How many multiples of 7 are
+there from <code>avoid</code> up to 1000? Except do not count any multiple of
+<code>avoid</code>.</p>
+<p>(Math-only solutions discouraged; practice
+recursion. Will your solution also work to avoid odd numbers as
+well as multiples of <code>avoid</code>?)</p>
+<p>Examples:</p>
+<pre><code> (cr7 3) =&gt; 95
+ (cr7 10) =&gt; 127
+</code></pre>
+</li>
+<li>
+<p>(<code>big-gap? : positive-integer(n) -&gt; boolean</code>) True if <code>n</code> has two
+adjacent groups of two digits that differ by more than fifty.</p>
+<p>Examples:</p>
+<pre><code> (big-gap? 1030) =&gt; false
+ (big-gap? 2080) =&gt; true
+ (big-gap? 123456) =&gt; false
+ (big-gap? 142958) =&gt; true
+ (big-gap? 190) =&gt; false
+</code></pre>
+<p>Note that in the last example, there are not two adjacent groups
+of two digits.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cc20c5c77daf3b418734250468745452">31 - 22a. Hangman Project</h1>
+    <div class="lead">Make the classic game of hangman.</div>
+	<p>The game of <a href="https://en.wikipedia.org/wiki/Hangman_(game)">hangman</a> a
+classic guess-the-word game.  You can <a href="http://www.playhangman.com">try hangman
+online</a>, but do not play too long - just learn the rules.</p>
+<h2 id="check-in">Check in</h2>
+<ul>
+<li>Illustrations and model.</li>
+<li>Key handler and logic helper function: <code>(string-contains-letter? str letter)</code>.</li>
+<li>Draw handler and <code>define/contract</code> (if discussed in class).</li>
+<li>Completed project.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99a-hangman-outline/" >22a. Hangman Outline</a></li></p>
+<p>Outline of everything to do for hangman project.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99b-hangman-images/" >22a. Hangman Images</a></li></p>
+<p>How to load a sequence of images into DrRacket.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99c-hangman-keyhandler/" >22a. Hangman Key Handler</a></li></p>
+<p>Every keypress is a guess - adjust the model accordingly.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99d-hangman-drawhandler/" >22a. Hangman DH Warmup</a></li></p>
+<p>The key step is to draw the word with underscores for the letters missed.
+This page will not include any specific advice on how to draw the word with underscores for the letters that are not guessed. The wipeout function below should provide you will all of the skills you need to do it, though.
+Underscore Warmup I: omit The omit function takes in a word and a letter and returns the same word with every occurence of the letter omitted (left out).</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch22a/199-hangman/99e-hangman-drawhandler-2/" >22a. Hangman Draw Handler</a></li></p>
+<p>Draw the whole scene by using helper functions to draw the different parts. At first you can just put all of the images above each other; later you can change the placement so it looks the way you prefer.
+Draw the gallows based on how many wrong answers. Draw the mistaken letters. Draw the word with underscores for letters that are not guessed. The key step is to draw the word with underscores for the letters missed.</p>
+</span>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-31a31760ffb95519d5b7d36c372c968d">31.1 - 22a. Hangman Outline</h1>
+    <div class="lead">Outline of everything to do for hangman project.</div>
+	<!-- Use `define/contract` for all of your functions. -->
+<p>Write two check expects for every non-trivial function.</p>
+<ol>
+<li>
+<p>Three illustrations of &ldquo;action&rdquo; that should occur in the game. Explain what they are.</p>
+</li>
+<li>
+<p>Model</p>
+</li>
+<li>
+<p>Top-down design.</p>
+</li>
+<li>
+<p>Image sequence and loading images into Racket.</p>
+</li>
+<li>
+<p>Key-handler</p>
+<ul>
+<li>Purpose</li>
+<li>Examples: at least two (which become tests)</li>
+<li>Write function.</li>
+</ul>
+</li>
+<li>
+<p>Draw-handler</p>
+<ul>
+<li>Purpose</li>
+<li>Illustrations on paper (two) - easier than making computer examples.</li>
+<li>Examples: at least two (which will become tests)</li>
+<li>Write function.</li>
+</ul>
+</li>
+<li>
+<p>Final screens: win and lose.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4543b40d6f82ae8c0e4f1eee7207f0f0">31.2 - 22a. Hangman Images</h1>
+    <div class="lead">How to load a sequence of images into DrRacket.</div>
+	<p>Goal for the day: produce a sequence of images to use for &ldquo;hangman&rdquo; and load it into Racket.</p>
+<h2 id="image-sequence">Image sequence</h2>
+<p>Draw a sequence of images <code>hang-0.png</code>, <code>hang-1.png</code>, etc., with the appropriate number of parts of the person filled in. Use &ldquo;File -&gt; Export as&hellip;&rdquo; to save each file with a different name.</p>
+<p>Tools:</p>
+<ul>
+<li>Microsoft Paint on Windows</li>
+<li><a href="https://paintbrush.sourceforge.io/">Paintbrush</a> (<a href="https://sourceforge.net/projects/paintbrush/files/latest/download?source=files">download</a>) on Macintosh. You will need to hold down Control when you click on the application to allow it to open for the first time.</li>
+<li><a href="https://www.gimp.org/">Gimp</a> on Linux.</li>
+</ul>
+<h2 id="make-a-racket-function">Make a Racket function</h2>
+<ol>
+<li>Load images into Racket.</li>
+<li>Write a function that takes in the number of mistakes and returns the correct image of the gallows.</li>
+</ol>
+<p>The best way to load an image from a file is to use <code>bitmap/file</code>.</p>
+<p>Examples:</p>
+<ul>
+<li><code>(bitmap/file &quot;hang-0.png&quot;)</code></li>
+<li><code>(bitmap/file &quot;pics/hang-1.png&quot;)</code></li>
+</ul>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    For the simplest loading, save the Racket file in the same folder as your images. &ldquo;Untitled&rdquo; programs will not find your images - save!
+
+</div>
+
+<h2 id="why">Why?</h2>
+<p>The only cases of file corruption I have seen involve large images
+being pasted into DrRacket files. Keeping the images in separate files
+prevents that problem.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-57b442fdeb47f62381e484ee16fff9ba">31.3 - 22a. Hangman Key Handler</h1>
+    <div class="lead">Every keypress is a guess - adjust the model accordingly.</div>
+	<p>The key handler needs to change the model depending on what key was
+typed.</p>
+<ol>
+<li>
+<p>Create an example model for some state in the game. You could use
+one of your examples from the initial planning.</p>
+</li>
+<li>
+<p>Write a check-expect that demonstrates what should happen when the
+person hits a key which is in the word.</p>
+</li>
+<li>
+<p>Write a check-expect that demonstrates what should happen when the
+person hits a key which is not in the word.</p>
+</li>
+<li>
+<p><strong>Seriously!!</strong> Write check-expects. See <a href="hangman-key-testing.rkt">my example checks for the key handler</a>.</p>
+</li>
+<li>
+<p>Recommendation: Write the helper function <code>(string-contains-letter? str letter)</code> that determines if a letter is in the word.</p>
+</li>
+<li>
+<p>Write the key handler. <!-- Remember to use `define/contract`.--></p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f638b06eaf675d63f68ec47c5b2cfcdd">31.4 - 22a. Hangman DH Warmup</h1>
+    
+	<p>The key step is to draw the word with underscores for the letters missed.</p>
+<p>This page will not include any specific advice on how to draw the word
+with underscores for the letters that are not guessed. The <code>wipeout</code>
+function below should provide you will all of the skills you need to
+do it, though.</p>
+<h2 id="underscore-warmup-i-omit">Underscore Warmup I: omit</h2>
+<p>The <code>omit</code> function takes in a word and a letter and returns the same word with every occurence of the letter omitted (left out).</p>
+<pre><code>omit: string(word) string(letter) -&gt; string
+(check-expect (omit &quot;word&quot; &quot;w&quot;) &quot;ord&quot;)
+(check-expect (omit &quot;hangman&quot; &quot;a&quot;) &quot;hngmn&quot;)
+(check-expect (omit &quot;nothing&quot; &quot;z&quot;) &quot;nothing&quot;)
+</code></pre>
+<p>Follow the design process to write the <code>omit</code> function.</p>
+<ol>
+<li>Simple examples that build up to a three letter word, showing how a letter can be omitted zero, one, or two times.</li>
+<li>Write the function: handle the empty word</li>
+<li>Write the function: handle one letter word</li>
+<li>Write the function: handler longer words</li>
+</ol>
+<p>Run your checks after each step to make sure you stay on track.</p>
+<h2 id="underscore-warmup-ii-wipeout">Underscore Warmup II: wipeout</h2>
+<p>The <code>wipeout</code> function takes in a word and a string of letters to
+remove. Every occurence of the letters should be removed from the word.</p>
+<pre><code>wipeout: string(word) string(letters) -&gt; string
+(check-expect (wipeout &quot;Williams&quot; &quot;li&quot;) &quot;Wams&quot;)
+(check-expect (wipeout &quot;penguin&quot; &quot;dinosaur&quot;) &quot;peg&quot;)
+</code></pre>
+<p>Follow the design process and use the <code>omit</code> helper function!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0b64b15134f0d48734136a51b87adcca">31.5 - 22a. Hangman Draw Handler</h1>
+    
+	<p>Draw the whole scene by using helper functions to draw the different
+parts. At first you can just put all of the images <code>above</code> each other;
+later you can change the placement so it looks the way you prefer.</p>
+<ol>
+<li>Draw the gallows based on how many wrong answers.</li>
+<li>Draw the mistaken letters.</li>
+<li>Draw the word with underscores for letters that are not guessed.</li>
+</ol>
+<p>The key step is to draw the word with underscores for the letters missed.</p>
+<pre><code>underscorizer: string(word) string(letters-guessed) -&gt; string
+(check-expect (underscorizer &quot;wow&quot; &quot;w&quot;) &quot;w_w&quot;)
+(check-expect (underscorizer &quot;wow&quot; &quot;ow&quot;) &quot;wow&quot;)
+</code></pre>
+<p>Of course you can take in the correct guesses instead of all guesses,
+or you can take in anything else from your model that makes sense.</p>
+<h2 id="advice">Advice</h2>
+<p>Decide on an approach:</p>
+<ul>
+<li>Examine word letter by letter?</li>
+<li>Examine letters guessed letter by letter?</li>
+</ul>
+<p>Write tests that build up to your solution in the way we have
+discussed and demonstrated in class.</p>
+<p>Many approaches work. If you have no preference, I recommend the first
+approach.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

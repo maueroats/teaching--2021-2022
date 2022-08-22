@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch13/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>13. Booleans | WY CS</title>
+<meta name="description" content="True or false values. Comparison functions.">
+<meta property="og:title" content="13. Booleans" />
+<meta property="og:description" content="True or false values. Comparison functions." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch13/" />
+
+<meta itemprop="name" content="13. Booleans">
+<meta itemprop="description" content="True or false values. Comparison functions."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="13. Booleans"/>
+<meta name="twitter:description" content="True or false values. Comparison functions."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">13. Booleans</h1>
+<div class="lead">True or false values. Comparison functions.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-b88d8570474d481e6c909694dc6cc7b1">13. Exercises B</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-be05258bb40cec09d56670c42edb0d15">13. Exercises C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-86de8d7b50d27f1672632e0706598e71">13. Intro Exercises 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3cf3b7420d2be7dd450bf75acc7a2659">13. Intro Exercises 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-c3daee86825e0dbbbab7d62c7daa4076">13. Intro Exercises 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-3d2b549f2395df37f719f33a400a7a27">Ch13 Exercises</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The quick reference guide is on page 208 of the PDF.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>
+<p>Functions end in <code>?</code> if (and only if) they return a boolean value for their answer.</p>
+</li>
+<li>
+<p>true, false</p>
+</li>
+<li>
+<p>Determine the type of something: string?, number?, integer?, image?, boolean?</p>
+</li>
+<li>
+<p>Decide equality: <code>string=?</code>, <code>image=?</code>, etc.</p>
+</li>
+<li>
+<p>Comparisons for numbers: <code>&lt;</code>, <code>&lt;=</code>, <code>=</code>, <code>&gt;=</code>, <code>&gt;</code></p>
+</li>
+<li>
+<p>Comparisons for other things: <code>string&lt;?</code>, <code>string&lt;=?</code>, <code>string=?</code>, etc.</p>
+</li>
+<li>
+<p>Case insensitive comparison: <code>string-ci&lt;?</code>, etc.</p>
+</li>
+<li>
+<p>Combinations: <code>and</code>, <code>or</code>, <code>not</code></p>
+</li>
+</ul>
+<h2 id="extras">Extras</h2>
+<ul>
+<li><code>replicate</code></li>
+<li><code>string-contains?</code></li>
+</ul>
+<h2 id="sections">Sections</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-exb/" >13. Exercises B</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-exc/" >13. Exercises C</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-intro-ex1/" >13. Intro Exercises 1</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-intro-ex2/" >13. Intro Exercises 2</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-intro-ex3/" >13. Intro Exercises 3</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch13/ch13-exa/" >Ch13 Exercises</a></li>
+</span></p>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b88d8570474d481e6c909694dc6cc7b1">1 - 13. Exercises B</h1>
+    
+	<ol>
+<li>
+<p><code>lots-younger?: number(age1) number(age2) -&gt; boolean</code>. True if the
+first person is lots younger than the second (15 years or more).</p>
+</li>
+<li>
+<p><code>kinda-close? number(x) number(y) -&gt; boolean</code>. True if x and y are
+&ldquo;kinda close&rdquo; to each other, which we define to be within 20.</p>
+</li>
+<li>
+<p><code>is-green-circle?: image -&gt; boolean</code>. True if the image is a pure
+green circle (of any radius).</p>
+</li>
+<li>
+<p><code>is-expensive?: string(material) number(weight) -&gt; boolean</code>. True
+if the material is diamond or the weight is more than 30.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-be05258bb40cec09d56670c42edb0d15">2 - 13. Exercises C</h1>
+    
+	<ol>
+<li>
+<p><code>below-10-or-above-50?: number -&gt; boolean</code>. True if the number
+is either below ten or above fifty.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Craps#Rules_of_play">Craps</a> is an old dice
+game. Simplified rules: you win if you roll a 7 or an 11. Write
+<code>win-craps?: number -&gt; boolean</code>.</p>
+</li>
+<li>
+<p>Write a function <code>roll-2-dice: number(ignore) -&gt; number</code> that gives
+the total from rolling two standard six-sided dice.</p>
+</li>
+<li>
+<p>Write the function <code>play-craps: number(ignore) -&gt; boolean</code> that
+plays one round of craps (randomly) and returns true when it is a
+win.</p>
+</li>
+<li>
+<p>Write <code>not-blue-triangle?: image -&gt; boolean</code> that is true only if
+the image is not a blue equilateral triangle (of any size).</p>
+</li>
+<li>
+<p>Stripes. Create a pattern of red, green, and blue diagonal stripes,
+each 50 pixels wide.</p>
+</li>
+</ol>
+<figure>
+    <img src="stripes.png"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-86de8d7b50d27f1672632e0706598e71">3 - 13. Intro Exercises 1</h1>
+    
+	<ol>
+<li>Use the code below to answer:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; hit-snooze?: boolean number -&gt; boolean</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">hit-snooze?</span> <span style="color:#000">sleepy?</span> <span style="color:#204a87;font-weight:bold">time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">sleepy?</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&lt;</span> <span style="color:#204a87;font-weight:bold">time</span> <span style="color:#0000cf;font-weight:bold">700</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><ul>
+<li>What is wrong with this code? Fix it.</li>
+<li>Write a check-expect where this function returns true.</li>
+<li>Write a check-expect where this function returns false.</li>
+</ul>
+<ol start="2">
+<li>
+<p>Simplify or explain and correct the error.</p>
+<ul>
+<li><code>(boolean=? (&gt; 17 24) #false)</code></li>
+<li><code>(boolean=? (= 1 1) &quot;true&quot;)</code></li>
+<li><code>(boolean=? practiced-piano? true)</code></li>
+<li><code>(boolean=? hungry? false)</code></li>
+</ul>
+</li>
+<li>
+<p>Sometimes you get to sleep a lot (return true). That happens if you
+did not have homework, did not do the homework you have, or the
+homework was easy.</p>
+<p>Write a function to figure out if you slept a lot.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">slept-lots?</span> <span style="color:#000">had-hw?</span> <span style="color:#000">did-hw?</span> <span style="color:#000">was-easy?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">...</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>(Shape Sorter I.) Write <code>fit-rect?: image -&gt; boolean</code> that returns
+true if the image fits inside a 150x100 rectangle.</p>
+</li>
+<li>
+<p>(Shape Sorter II.) Write <code>ibr?: image -&gt; boolean</code> that returns true
+if the image is a (pure) blue rectangle.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3cf3b7420d2be7dd450bf75acc7a2659">4 - 13. Intro Exercises 2</h1>
+    
+	<ol>
+<li>
+<p>Simplify, explain and correct errors if needed.</p>
+<ul>
+<li><code>(and (&lt; x 10) (&gt; x 3) (&lt; x 12))</code></li>
+<li><code>(or (= 0 1) (&lt; 15 8) (string=? &quot;dog&quot; &quot;DOG&quot;))</code></li>
+<li><code>(not (= (+ 1 3 7 9) (+ 2 4 6 8)))</code></li>
+<li><code>(boolean=? (or (boolean=? lunchtime? true) study-hall?) false)</code></li>
+</ul>
+</li>
+<li>
+<p>What does this function do? Is there any possibility of an error.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">mystery</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&lt;</span> <span style="color:#0000cf;font-weight:bold">15</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">/</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><ol start="3">
+<li>Does writing the function above in a different way matter?</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">mystery2</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&lt;</span> <span style="color:#0000cf;font-weight:bold">15</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">/</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">=</span> <span style="color:#000">n</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><ol start="4">
+<li>
+<p>(Challenge) The <code>lucky-charm? : image -&gt; boolean</code>. Give true if the image
+matches <code>pic:unicorn</code> (you can pick this image) or an orange star
+(must work for every size orange star). Write some check-expects first!</p>
+<pre><code> (check-expect (lucky-charm? (star 20 &quot;solid&quot; &quot;orange&quot;))
+               true)
+ (check-expect (lucky-charm? (star 30 &quot;solid&quot; &quot;orange&quot;))
+               true)
+ (check-expect (lucky-charm? pic:hacker)
+               false)
+ (check-expect (lucky-charm? pic:unicorn)
+               true)
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c3daee86825e0dbbbab7d62c7daa4076">5 - 13. Intro Exercises 3</h1>
+    
+	<ol>
+<li>(a) Write a check-expect for <code>(question-1 10 20)</code>.
+(b) Are there any inputs that will cause an error?
+Explain why or why not.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">question-1</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">=</span> <span style="color:#0000cf;font-weight:bold">1/2</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">/</span> <span style="color:#000">x</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">not</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">=</span> <span style="color:#000">y</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><ol start="2">
+<li>Simplify and identify any errors:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">question-2</span> <span style="color:#000">boat-sinking?</span> <span style="color:#000">have-lifejackets?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">boat-sinking?</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#000">have-lifejackets?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><ol start="3">
+<li>Simplify and identify any errors:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">eat-cheap</span> <span style="color:#000">hungry?</span> <span style="color:#000">money</span> <span style="color:#000">mcburger?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&gt;</span> <span style="color:#000">money</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">hungry?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">money</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">mcburger?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">not</span> <span style="color:#000">mcburger?</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><ol start="4">
+<li>
+<p>Write the function <code>before-water?: string -&gt; boolean</code> that takes in
+a string and determines if the string appears before the word
+&ldquo;water&rdquo; in the dictionary.</p>
+</li>
+<li>
+<p>Write the function <code>bookends?: string -&gt; boolean</code> that takes in a
+string and produces true if the string appears before &ldquo;book&rdquo; or
+after &ldquo;end&rdquo; in the dictionary.</p>
+</li>
+<li>
+<p>Write a function <code>avoids-yellow?: image -&gt; boolean</code> that is true if
+the image is neither a yellow square nor a yellow circle.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3d2b549f2395df37f719f33a400a7a27">6 - Ch13 Exercises</h1>
+    
+	<ul>
+<li>Exercises: 13.3.{3-5}, 13.4.1</li>
+<li>Exercises: 13.4.2, 13.5.1</li>
+<li>Exercises: 13.7.{2-7}</li>
+<li>Exercises: 13.7.{8-13}</li>
+</ul>
+<h2 id="review">Review</h2>
+<p>Exercises that must be reviewed for understanding: 13.7.{7,9,12}.</p>
+<p>Notes:</p>
+<ul>
+<li>13.7.7 <code>play-craps</code></li>
+<li>13.7.9 <code>not-single-letter?</code></li>
+<li>13.7.12 <code>is-not-red-square?</code></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch04/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>4. Syntax in Functions | WY CS</title>
+<meta name="description" content="Patterns, guards, where, let, and case.">
+<meta property="og:title" content="4. Syntax in Functions" />
+<meta property="og:description" content="Patterns, guards, where, let, and case." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch04/" />
+
+<meta itemprop="name" content="4. Syntax in Functions">
+<meta itemprop="description" content="Patterns, guards, where, let, and case."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="4. Syntax in Functions"/>
+<meta name="twitter:description" content="Patterns, guards, where, let, and case."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch04/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">4. Syntax in Functions</h1>
+<div class="lead">Patterns, guards, where, let, and case.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-2d78247c7c5ce42b50b4a18b275416c2">Chapter 4 Reading Guide</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-80567d633f7d4ab39b1b26dc1409bba5">Chapter 4 Discussion I</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-a5efd8a7a0e4e61bb75a86fc2ebbdf12">Chapter 4 Discussion II</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-e5d7f7299e6064e927537a9a9fb66d69">Chapter 4 Discussion III</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-0d993939fa47bc0d8df7ecd785f077f0">Test cases for Chapter 4 Discussion III</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-d610d6faa088da4a504cf02a9d505c39">Chapter 4 Discussion IV</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-edc7b351c3c321a5ccc7809fcf950809">Chapter 4 Discussion V</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-192e6caddf0cdec63ef7c386a0053858">Chapter 4 Discussion VI</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-3b32f789d463caa6f16383b7cabae4fb">Chapter 4 Problem Set II</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-b17bcfb6d00f297c0a4c5bf7a5dee6a9">Chapter 4 Quiz C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-9bb908e91415a811b7b87f4de2112f2d">Chapter 4 Summary</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-1483353ee8759a4bbbe8c2a7840017ef">Check Expects in Haskell</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-2d78247c7c5ce42b50b4a18b275416c2">1 - Chapter 4 Reading Guide</h1>
+    <div class="lead">Questions to help you understand Chapter 4.</div>
+	<h2 id="sections-41--43">Sections 4.1&ndash;4.3</h2>
+<ol>
+<li>
+<p>A pattern starts out with &ldquo;dog&rdquo;,&ldquo;cat&rdquo;, &ldquo;cat dog&rdquo;, &ldquo;cat dog cat&rdquo;,
+&ldquo;cat dog cat cat dog&rdquo;, &ldquo;cat dog cat cat dog cat dog cat&rdquo; and so on - each new string is created by appending the previous two with a space in between them. Write a function that takes in the number of the word in the sequence and returns the word, starting with 1 is &ldquo;dog&rdquo;.</p>
+</li>
+<li>
+<p>Write the function <code>scalar_mult :: (Num a) =&gt; a -&gt; (a,a) -&gt; (a,a)</code> that multiplies each number in a coordinate pair by the same number, so <code>scalar_mult 5 (1,3) == (5,15)</code>.</p>
+</li>
+<li>
+<p>Write a signature and function body for <code>pair_prod</code> that takes in a list of ordered pairs of numbers and returns a list of the products of the pairs, so <code>pair_prod [(3,5), (10,0), (7,3)]===[15,0,21]</code>.</p>
+</li>
+<li>
+<p>What pattern do you use to recursively process the first item in a list and the rest of the list?</p>
+</li>
+<li>
+<p>Are parentheses necessary when writing a function using the pattern from the previous question? Explain why or why not.</p>
+</li>
+<li>
+<p>What Haskell function is used to indicate that the user is asking the program to do something impossible?</p>
+</li>
+<li>
+<p>A function <code>two_of</code> takes in a list of showable numbers and puts out a String that says &ldquo;__ is item 2 of __&rdquo;. For example <code>two_of [10,25,50] == &quot;25 is item 2 of [10,25,50]&quot;. Write the signature and function definition for </code>two_of`.</p>
+</li>
+<li>
+<p>Write the type signature and function definition for <code>double_double</code> which takes in any list and produces the same kind of list. The <code>double_double</code> function makes a list where the first term of the input appears twice, follwed by the whole input twice, so</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">double_double</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">double_double</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">double_double</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><ol start="8">
+<li>
+<p>Write a function that takes in a number and returns &ldquo;small&rdquo; if the number is below 10, &ldquo;medium&rdquo; if the number is between 10 and 20 (inclusive), and &ldquo;large&rdquo; if the number is larger than 20. Do not use the <code>if...then...else</code> construct.</p>
+</li>
+<li>
+<p>Define the function <code>burgers_of</code> using an infix definition so that</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">burgers_of</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#4e9a06">&#34;beef&#34;</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;Three hamburgers&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">burgers_of</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#4e9a06">&#34;soy&#34;</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;Five tofu burgers&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">any</span> <span style="color:#000">other</span> <span style="color:#000">set</span> <span style="color:#204a87;font-weight:bold">of</span> <span style="color:#000">inputs</span> <span style="color:#000">gives</span> <span style="color:#4e9a06">&#34;No thanks, not hungry&#34;</span>
+</span></span></code></pre></div><ol start="10">
+<li>Repeating yourself.
+<ol>
+<li>What code segment do you see repeated in the version of the <code>bmi</code> function that includes the bmi calculating code?</li>
+<li>What experience does the author compare writing to writing this code?</li>
+<li>What does the book suggest that you should do instead of this coding style?</li>
+</ol>
+</li>
+</ol>
+<h2 id="sections-44--45">Sections 4.4&ndash;4.5</h2>
+<ol start="11">
+<li>
+<p><em>Visibility</em>. What is the difference between where you can see terms from <code>let</code> bindings and <code>where</code> bindings?</p>
+</li>
+<li>
+<p>The book says <code>let</code> bindings are expressions. What does this mean? Even if you don&rsquo;t know, at least give one consequence of that fact.</p>
+</li>
+<li>
+<p>List five different ways to use <code>let</code> bindings:</p>
+</li>
+<li>
+<p>You want to define two different variables in one let binding. Give two ways you can separate those definitions.</p>
+</li>
+<li>
+<p>Are patterns in function definitions and the &ldquo;case&rdquo; statement interchangeable? Give one way they are and one way they are not.</p>
+</li>
+</ol>
+<!-- 15. Write a function that takes in a string and puts out a string
+"localhost" should produce "127.0.0.1"
+"(anything).cps.k12.il.us" should produce "wyoung.org"
+-->
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-80567d633f7d4ab39b1b26dc1409bba5">2 - Chapter 4 Discussion I</h1>
+    <div class="lead">Slideshow of Discussion problems for Chapter 4. Similar but not identical to reading guide questions.</div>
+	<h1 id="chapter-4-discussion">Chapter 4 Discussion</h1>
+<hr>
+<h2 id="absence-interpretation">Absence Interpretation</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Periods Absent</th>
+<th style="text-align:center">Probability of all day absence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a &gt;= 6</td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td style="text-align:center">a &gt;= 3</td>
+<td style="text-align:center">0.5</td>
+</tr>
+<tr>
+<td style="text-align:center">a &lt;  3</td>
+<td style="text-align:center">0.0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="speaker">Speaker</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Input</th>
+<th>Pattern output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>&ldquo;welcome&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>&ldquo;students&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>&ldquo;<em>students</em> welcome welcome <em>students</em>&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>&ldquo;<em>students</em> welcome welcome <em>students</em> students students <em>students</em> welcome welcome <em>students</em>&rdquo;</td>
+</tr>
+<tr>
+<td style="text-align:center">n</td>
+<td>(previous output) (output before that) (output before that) (previous output)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="trimult">Trimult</h2>
+<p>Given a list of numbers, produce a list of all products of three terms in a row.</p>
+<ul>
+<li><code>trimult [10,20,50] = [10000]</code></li>
+<li><code>trimult [1,2,3,4,5,6] = [6,24,60,120]</code></li>
+</ul>
+<hr>
+<h2 id="second-and-third">Second and third</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1,5,10]</td>
+<td>&ldquo;The second and third items of [1,5,10] add to be 15&rdquo;</td>
+</tr>
+<tr>
+<td>[3,40,60,99]</td>
+<td>&ldquo;The second and third items of [3,40,60,99] add to be 100&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p>Try two different ways!</p>
+<hr>
+<h2 id="eighty-first">Eighty-first</h2>
+<p>Find the eighty-first item in a list.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0,2..200]</td>
+<td>162</td>
+</tr>
+<tr>
+<td>[110,120..]</td>
+<td>920</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a5efd8a7a0e4e61bb75a86fc2ebbdf12">3 - Chapter 4 Discussion II</h1>
+    <div class="lead">Discussion on first half of the reading guide for Chapter 4.</div>
+	<h1 id="sub_posn"><code>sub_posn</code></h1>
+<ul>
+<li>Two ordered pair inputs.</li>
+<li>Ordered pair output.</li>
+<li>Subtract corresponding coordinates.</li>
+</ul>
+<p><code>sub_posn (5,7) (1,2) == (4,5)</code></p>
+<hr>
+<h1 id="dot-product">Dot Product</h1>
+<p>Multiply the corresponding parts and add.</p>
+<p><code>dot_product (1,3) (4,7) == 1*4 + 3*7</code></p>
+<hr>
+<h1 id="first-of">First of</h1>
+<p><code>first_of [5,1,2,3] ==</code></p>
+<p><code>&quot;The first element of [5,1,2,3] is 5.&quot;</code></p>
+<hr>
+<h1 id="pattern">Pattern</h1>
+<p>Write a function creating this pattern.</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:center">&ldquo;a&rdquo;</td>
+<td style="text-align:center">&ldquo;b&rdquo;</td>
+<td style="text-align:center">&ldquo;c&rdquo;</td>
+<td style="text-align:center">&ldquo;ab&rdquo;</td>
+<td style="text-align:center">&ldquo;bc&rdquo;</td>
+<td style="text-align:center">&ldquo;cab&rdquo;</td>
+<td style="text-align:center">&ldquo;abbc&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="what">What?</h1>
+<p><code>whaa (a,b,c) wow@[x:y:z:ws] = </code></p>
+<pre><code>a : z : wow
+</code></pre>
+<p><code>whaa (5,2,1) [2,4..10] == ?</code></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e5d7f7299e6064e927537a9a9fb66d69">4 - Chapter 4 Discussion III</h1>
+    <div class="lead">Lots of problems so you can practice writing Haskell.</div>
+	<p>All of these problems are stolen from
+<a href="https://codingbat.com">CodingBat</a>.
+Write function signatures as well as the actual function.</p>
+<p>Make sure to write a list of test cases so you have thought through
+what every part of the problem description means before you start
+coding.</p>
+<p>Some test cases <a href="ch04disc03tests.hs">as a haskell file</a> or <a href="/teaching--2021-2022/ap-cs/haskell/ch04/ch04-discussion-03/ch04disc03tests/">as a web
+page</a></p>
+<ol>
+<li>
+<p>(<a href="https://codingbat.com/prob/p137188"><code>makeLast</code></a>): Given a list of <code>Int</code>, return a new list twice the
+length of the original. The last element of the result is
+the same as the last element of the original list, and all
+other elements are 0.</p>
+</li>
+<li>
+<p>(<code>swapEnds</code>) Given a list, return a new list with the first and last elements
+exchanged.</p>
+</li>
+<li>
+<p>(<code>unluckyOne</code>) Say that a 1 immediately followed by a 3 in a list
+is an &ldquo;unlucky&rdquo; 1. Return true if the given list contains an
+unlucky 1 in the first 2 or last 2 positions in the list.</p>
+</li>
+<li>
+<p><code>withoutDoubles:: Int -&gt; Int -&gt; Bool -&gt; Int</code>. The first two inputs
+represent rolls of six-sided dice ([1..6]). Return the sum of the
+inputs. If the boolean is true, if the dice show the same value,
+increment one die to the next value, wrapping around to a 1 if the
+value was a six.</p>
+<p>Examples:</p>
+<pre><code> withoutDoubles 2 3 True == 5
+ withoutDoubles 3 3 True == 7
+ withoutDoubles 3 3 False == 6
+</code></pre>
+</li>
+<li>
+<p>(<code>teenSum</code>) Given 2 ints, return their sum. However, &ldquo;teen&rdquo; values
+in the range 13..19 inclusive, are extra lucky. So if either value
+is a teen, just return 19.</p>
+</li>
+<li>
+<p>(<code>teaParty</code>) We are having a party with amounts of tea and
+candy. Return the int outcome of the party encoded as 0=bad,
+1=good, or 2=great. A party is good (1) if both tea and candy are
+at least 5. However, if either tea or candy is at least double the
+amount of the other one, the party is great (2). However, in all
+cases, if either tea or candy is less than 5, the party is always
+bad (0).</p>
+</li>
+<li>
+<p>(<code>xyBalance</code>) We&rsquo;ll say that a String is xy-balanced if for all the
+&lsquo;x&rsquo; chars in the string, there exists a &lsquo;y&rsquo; char somewhere later in
+the string. So &ldquo;xxy&rdquo; is balanced, but &ldquo;xyx&rdquo; is not. One &lsquo;y&rsquo; can
+balance multiple &lsquo;x&rsquo;s. Return true if the given string is
+xy-balanced.
+Examples:</p>
+<pre><code>  xyBalance &quot;pixxa&quot; == False
+  xyBalance &quot;pixely art&quot; == True
+  xyBalance &quot;xay anythxng&quot; == False
+</code></pre>
+</li>
+<li>
+<p>(<code>unluckyOne2</code>) Continuing the <code>unluckyOne</code> problem, return true if a
+list contains an unlucky 1 in any position.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0d993939fa47bc0d8df7ecd785f077f0">4.1 - Test cases for Chapter 4 Discussion III</h1>
+    
+	<pre tabindex="0"><code>withoutDoubles :: Int -&gt; Int -&gt; Bool -&gt; Int
+withoutDoubles = undefined
+
+testWithout = [withoutDoubles 2 3 True == 5
+              , withoutDoubles 3 3 True == 7
+              , withoutDoubles 3 3 False == 6
+              ]
+
+xyBalance :: String -&gt; Bool
+xyBalance = undefined
+
+testXY = [xyBalance &#34;pixxa&#34; == False
+         , xyBalance &#34;pixely art&#34; == True
+         , xyBalance &#34;xay anythxng&#34; == False
+         ]
+
+teaParty :: Int -&gt; Int -&gt; Int
+teaParty tea candy = undef
+   where good = 1
+         great = 2
+         bad = 0
+
+testTea = [ bad == teaParty 1 3
+          , bad == teaParty 0 20
+          , good == teaParty 7 9
+          , great == teaParty 6 12
+          , great == teaParty 15 7
+          , bad == teaParty 2 7
+          , bad == teaParty 7 2
+           ]
+     where good = 1
+           great = 2
+           bad = 0
+
+unluckyOne2 :: [Int] -&gt; Bool
+unluckyOne2 = undefined
+
+testUnlucky12 = [ True == unluckyOne2 [1,3,5,9]
+                , True == unluckyOne2 [7,1,3,5,9]
+                , True == unluckyOne2 [9,3,1,3]
+                , False == unluckyOne2 [9,3,1,4,3]
+                , False == unluckyOne2 []
+                , False == unluckyOne2 [2,1,5,3]
+                ]
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d610d6faa088da4a504cf02a9d505c39">5 - Chapter 4 Discussion IV</h1>
+    <div class="lead">A few practice problems from a Thursday review session.</div>
+	<ol>
+<li>
+<p><strong>Target</strong>. <code>tgt :: Integer -&gt; [Integer] -&gt; Integer</code>. Given a target
+number and a list of numbers, find the smallest distance between
+the target number and any number in the list.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">tgt</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">]</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tgt</span> <span style="color:#0000cf;font-weight:bold">6</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">50</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">]</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">2</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Take in an ordered pair (x,y) and a list of floating point xs. Find out if the ordered
+pair is on the graph of y=x^3 corresponding to one of the
+xs. Return true if it is, false if not.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">onGraph</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">125</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">onGraph</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">onGraph</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">False</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Splash</strong>. Inputs: a list of ordered pairs and a point (one
+ordered pair). Output: All ordered pairs in the list within
+distance 10 of the point.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-edc7b351c3c321a5ccc7809fcf950809">6 - Chapter 4 Discussion V</h1>
+    <div class="lead">Scrabble and the game of 24.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<h2 id="scrabble">Scrabble</h2>
+<p>In the game of Scrabble you try to fit a word into spaces with some
+letters already in place. In this question you will write a
+function to determine if a word fits into a certain space.</p>
+<pre><code>    wordFits :: String -&gt; String -&gt; Bool
+    wordFits &quot;jerk&quot; &quot;_or_&quot; == False
+    wordFits &quot;work&quot; &quot;__r_&quot; == True
+
+Along the way you may want to use a helper function to determine if
+characters from the same place match. 
+
+    letterFits :: Char -&gt; Char -&gt; Bool
+    letterFits 'j' '_' == True
+    letterFits 'e' 'o' == False
+
+The strings given to `wordFits` will be the same length.
+</code></pre>
+<h2 id="game-of-24">Game of 24</h2>
+<p>In the game of 24 you are supposed to find a way to combine four
+whole numbers using addition, subtraction, multiplication, and
+division, in order to get 24 as the final answer.</p>
+<ol>
+<li>
+<p>pairPossible produces all of the numbers that you can get from a
+single pair of numbers. Only consider the results of division
+when the answer is an integer.</p>
+<pre><code>pairPossible 3 12 == [-9,9,15,36,4]
+pairPossible 3 4 == [-1,1,7,12]
+pairPossible 49 2 == [-47,47,51,98]
+</code></pre>
+<p>Danger: 49/2 is not 24, so <code>pairPossible 49 2</code> should not
+include 24 in the list! (Trouble? See the notes below.)</p>
+</li>
+<li>
+<p>allPairs produces a list of all of the possible two number pairs
+given a list of four numbers.</p>
+<pre><code>allPairs :: [Int] -&gt; [(Int,Int)]
+allPairs [1,2,3,4] == [(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)]
+</code></pre>
+</li>
+<li>
+<p>allPossible1 produces a list of all numbers that could be
+produced by using any pair of numbers from the list. Duplicates
+are ok.</p>
+</li>
+</ol>
+<h2 id="advanced">Advanced</h2>
+<ul>
+<li>
+<p>Make <code>allPairs</code> work for any length input list.</p>
+</li>
+<li>
+<p>Make <code>choose k nums</code> that gives all <code>k</code> item subsets of <code>nums</code>. For
+example, when <code>k</code> is 3 and <code>nums</code> is <code>[1,2,3,4,5]</code>, the result should be</p>
+<pre><code>  choose 3 [1..5] == [[1,2,3],[1,2,4],[1,2,5],[2,3,4],[2,3,5],[3,4,5]]
+</code></pre>
+</li>
+<li>
+<p>Finish the 24-solver. There are two different groupings that could
+lead to 24: <code>(((ab)c)d)</code> and <code>((ab)(cd))</code>. You can use your
+<code>allPairs</code> function but as you build all of the possibilities for
+four numbers, I think you will have to handle both of these cases
+separately.</p>
+<p>Examples: $(49 - 1) / (5 - 3)$ and $((15 / 3)+1)*4$ are both 24.</p>
+</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>Many people have problems determining when a fraction is an
+integer. The bad way to do this is</p>
+<pre><code>isInt :: Float -&gt; Bool
+isInt x = 
+   x == round x
+</code></pre>
+<p>Oops, that does not work because <code>round</code> produces an Integral
+output. Free that up with <code>fromIntegral</code>:</p>
+<pre><code>isInt x = 
+   x == fromIntegral (round x)
+</code></pre>
+<p>A better way to solve the same problem is to determine if division
+will produce a fraction <em>before</em> you do the division. Use the integer
+division (quotient) and remainder functions.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-192e6caddf0cdec63ef7c386a0053858">7 - Chapter 4 Discussion VI</h1>
+    <div class="lead">The alternating series.</div>
+	<p>The alternating series is</p>
+<pre><code>[1, -1/2, +1/3, -1/4, +1/5, -1/6, ...]
+</code></pre>
+<ol>
+<li>
+<p>Define <code>altTerm n</code> to be the nth term in the sequence.</p>
+</li>
+<li>
+<p>Define <code>altSeq m</code> to be the list of the first m terms in the
+sequence.</p>
+</li>
+<li>
+<p>Write a function to find the sum of the first <code>k</code> terms of the alternating
+series.</p>
+</li>
+<li>
+<p>Write <code>waltSum</code>, which takes in a list of numbers, multiplies each
+term by the corresponding term in the alternating series, and then
+adds up the sums.</p>
+<p>Example:</p>
+<pre><code> waltSum [5,10,15] == 1*5 + (-1/2)*10 + (1/3)*15
+</code></pre>
+</li>
+<li>
+<p>The <code>goalt x</code> function adds up the terms in the alternating series
+until it comes on a term that is less than <code>x</code> in absolute value.</p>
+<p>Example:</p>
+<pre><code> goalt 0.21 == 0.5833...
+</code></pre>
+</li>
+</ol>
+<p>Remember: <code>fromIntegral</code> when you need to divide something by an
+Int.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3b32f789d463caa6f16383b7cabae4fb">8 - Chapter 4 Problem Set II</h1>
+    <div class="lead">Exercises to improve your Haskell programming.</div>
+	<p>Key new concepts: patterns, guards, where, let, case.</p>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    Please write function signatures for every solution.
+
+</div>
+
+<p>Some of these problems are classical exercises with solutions
+online. Please do not search for them or read them before turning in
+your work.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p><em>First Third</em>. Return the sum of the first and third elements in the list. Example: <code>firstThird [10,30,50,90] == 60</code>.</p>
+</li>
+<li>
+<p>Take a list of items that can be compared for equality <code>(Eq a)</code> and
+reduce repeats to a single element. Only reduce repeats that are next to each other in the list.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>     <span style="color:#000">noTwins</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><ol start="3">
+<li>(<a href="http://codingbat.com/prob/p111327">CodingBat sum67.</a>)
+Return the sum of the integers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">sum67</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">sum67</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">99</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">99</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">sum67</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">4</span>
+</span></span></code></pre></div><ol start="4">
+<li>(Discuss!) Make a <code>newFibonacci</code> function that takes in the two starting values for the Fibonacci sequence (usually 1 and 1) and then the term in the sequence that you want, and computes that term in the sequence.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>      <span style="color:#000">newFibonacci</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">55</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000">newFibonacci</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">8</span> <span style="color:#0000cf;font-weight:bold">9</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">233</span>
+</span></span></code></pre></div><p>Hint: Get the standard Fibonacci <code>fib</code> function working, then move it completely inside a <code>let</code> binding so you can alter the starting values.</p>
+<h2 id="block-game">Block Game</h2>
+<p><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=664">Block
+Game</a>. Do this
+bronze level USA Computing Olympiad problem. (You should start with a
+list of pairs of words, that is <code>[(String,String)]</code>; you do not have
+to read them from a file.)</p>
+<p>Examples to check:</p>
+<pre><code>blockGame [(&quot;SOCKS&quot;,&quot;ROCKS&quot;)] -- make sure you get two 'S'
+blockGame [(&quot;ALL&quot;,&quot;LAX&quot;),(&quot;B&quot;,&quot;BBB&quot;)] -- 1A, 3B, 2L, 1X
+</code></pre>
+<h2 id="laser-tag">Laser Tag</h2>
+<p>After a class discussion, you should be able to do these.</p>
+<ol start="5">
+<li><em>Laser Tag I</em>. You are playing laser tag on the integer coordinate plane. You stand at <code>(x0,y0)</code> and fire your laser parallel to one of the axes. We will write the direction using unit coordinates, so <code>(1,0)</code> will be the positive x-direction. The coordinates of the other players are in a list. Assuming that you hit a player, report the coordinates of the player who is hit.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>      <span style="color:#000">laserTag</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">[(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">50</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">25</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#000;font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">25</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><ol start="6">
+<li><em>Laser Tag II</em>. (Save for later if needed.) We continue to play the
+laser tag game, except now there are both people and double-sided
+mirrors oriented at 45 degrees to the coordinate axes. Represent the
+objects by triples <code>(x,y,c)</code> where c is a character <code>*</code> for a person,
+<code>/</code> or <code>\</code> for a mirror (depending on the orientation). Assume that
+eventually the laser will hit someone (maybe you?!). Find the
+coordinates of the person who gets hit.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>     <span style="color:#000">laserTagMirrors</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">[(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#39;*&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#39;*&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#39;*&#39;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#39;*&#39;</span><span style="color:#000;font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Flipping the mirror at (1,5) should make the answer (-3,5).
+You should draw some test cases and make a tester function to verify your code is correct when there are more mirrors.</p>
+<h2 id="dangers-and-annoyances">Dangers and Annoyances</h2>
+<p>The <code>\</code> character is an &ldquo;escape character&rdquo;, so to include it in a
+string, you need to write <code>'\\'</code> (a Char) or <code>&quot;\\&quot;</code> (a String).</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b17bcfb6d00f297c0a4c5bf7a5dee6a9">9 - Chapter 4 Quiz C</h1>
+    <div class="lead">Ten minute quiz.</div>
+	<p>The weighted average of a list of numbers counts each number according
+to its weight, then divide by the total weight.</p>
+<p>Example:</p>
+<pre><code>wAvg [1,2,3,4] [10,20,30,40] == 3
+</code></pre>
+<p>You can produce either an integer or floating point answer.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9bb908e91415a811b7b87f4de2112f2d">10 - Chapter 4 Summary</h1>
+    <div class="lead">patterns, guards, where, let, case</div>
+	<ul>
+<li>patterns</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">f</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">f</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">xs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">f</span> <span style="color:#000">xs</span>
+</span></span></code></pre></div><ul>
+<li>guards</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">numword</span> <span style="color:#000">x</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">0</span>     <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Negative&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span>    <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Zero&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Positive&#34;</span>
+</span></span></code></pre></div><ul>
+<li>where</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">h</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">constant</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">x</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">constant</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">100</span>
+</span></span></code></pre></div><ul>
+<li>let</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">yis65</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">parabola</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">25</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">parabola</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">65</span>
+</span></span></code></pre></div><ul>
+<li>case</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">numit</span> <span style="color:#000">value</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">of</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#4e9a06">&#34;Five&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#4e9a06">&#34;Four&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#4e9a06">&#34;Something else&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1483353ee8759a4bbbe8c2a7840017ef">11 - Check Expects in Haskell</h1>
+    <div class="lead">Simple testing in Haskell. Usable on repl.it.</div>
+	<p>This page explains how to write <code>check-expect</code> in Haskell in a basic
+way that can be used on repl.it (or anywhere). This method works for
+small numbers of tests. Hopefully it work well enough for now.</p>
+<p>If you have your own computer, you can learn to use the
+<a href="https://hackage.haskell.org/package/HUnit">HUnit</a> testing system.</p>
+<ol>
+<li>Write out tests in a list so each gives True when it passes.</li>
+<li>Define a testing main function <code>test_main</code>.</li>
+<li>Run the <code>test_main</code> yourself.</li>
+</ol>
+<h2 id="example-of-testing">Example of Testing</h2>
+<p>This program is supposed to give True if every 5 is followed by
+a 6. It has a bug in it which we can uncover by testing.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">-- Is every five followed immediately by a six?</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">Integer</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">xs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">fiveSix</span> <span style="color:#000">xs</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">ys</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">b</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">xs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">fiveSix</span> <span style="color:#000">xs</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">xs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">fiveSix</span> <span style="color:#000">xs</span>
+</span></span></code></pre></div><p>Testing should make sure that the basic situation works, then check
+the &ldquo;edge&rdquo; cases, usually involving the start and end of the list.</p>
+<ol>
+<li>Does it work in basic cases?</li>
+<li>Does it work when there is a 5,6 at the start?</li>
+<li>Does it work when there is a 5,6 at the end?</li>
+<li>What if a 5 by itself is at the start?</li>
+<li>What if a 5 by itself is at the end?</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">test56</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#204a87;font-weight:bold">True</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">True</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">False</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">True</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">]</span>  <span style="color:#8f5902;font-style:italic">-- end basic</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">True</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">True</span>  <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">False</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">False</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">fiveSix</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">]</span> 
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>The testing function:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">testMain</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">IO</span><span style="color:#204a87">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">testMain</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">putStr</span> <span style="color:#4e9a06">&#34;All tests passed? &#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">and</span> <span style="color:#000">test56</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">of</span> <span style="color:#204a87;font-weight:bold">True</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#4e9a06">&#34;YES&#34;</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">False</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#4e9a06">&#34;NO&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;Results:&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">print</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">map</span> <span style="color:#000">show</span> <span style="color:#000">test56</span>
+</span></span></code></pre></div><p>You will see that this method has a lot of repetition. You could make
+functions that would handle the repetition for you. That is one of the
+things the HUnit package would do.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

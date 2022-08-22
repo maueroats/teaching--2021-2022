@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch03/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>3. Intro to OOP | WY CS</title>
+<meta name="description" content="An introduction to object oriented programming, getting started with Java.">
+<meta property="og:title" content="3. Intro to OOP" />
+<meta property="og:description" content="An introduction to object oriented programming, getting started with Java." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch03/" />
+
+<meta itemprop="name" content="3. Intro to OOP">
+<meta itemprop="description" content="An introduction to object oriented programming, getting started with Java."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3. Intro to OOP"/>
+<meta name="twitter:description" content="An introduction to object oriented programming, getting started with Java."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/jm/ch03/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">3. Intro to OOP</h1>
+<div class="lead">An introduction to object oriented programming, getting started with Java.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-a7dc6644f724744b1e36ed02deb01347">3. Writing Basic Classes 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-241b9f095f59640b57294a519504f6bb">3. Writing Basic Classes 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-55542f8404bee7b4a1f0d921cd61ce4d">3. Writing Basic Classes 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-96ee7f16d205464feea188750aa0519c">3. Classes Quiz</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul>
+<li>
+<p>Install BlueJ. If you are on a school computer (no Administrator access), you should download the &ldquo;Standalone zip&rdquo; from the <a href="https://www.bluej.org/versions.html">BlueJ Downloads Page</a>. Otherwise the &ldquo;MSI Installer&rdquo; is the way to go.</p>
+</li>
+<li>
+<p>Get the AP CS GridWorld. The easiest download is the <a href="https://www.bluej.org/help/ap.html">Gridworld for BlueJ</a>. There are some configurations you can change, see that page for details.</p>
+</li>
+</ul>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    <p>You must find the Preferences -&gt; Libraries area and add the
+<code>gridworld.jar</code> file to the list of libraries or nothing will work!
+The gridworld file is just inside the GridWorld folder.</p>
+<p>Preferences on Mac OS are <code>Command-,</code> in the BlueJ menu, while on
+Windows they are under the Tools menu.</p>
+
+
+</div>
+
+<h2 id="read-the-documentation">Read the documentation</h2>
+<p>The README in your GitHub repository should have information on how to
+get set up and started.</p>
+<h2 id="homework">Homework</h2>
+<ol>
+<li>(Wed class) Part 1: Observe and Interact with Gridworld (all numbered questions)</li>
+<li>(Wed-Thurs) Part 2: Bug Variations</li>
+</ol>
+<h2 id="all-files">All Files</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/jm/ch03/class-basic-1/" >3. Writing Basic Classes 1</a></li></p>
+<p>Practice writing straightforward classes: instance variables, constructor, getter, setter methods.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/jm/ch03/class-basic-2/" >3. Writing Basic Classes 2</a></li></p>
+<p>HobbleBug and friends, a good first or second day for writing classes.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/jm/ch03/class-basic-3/" >3. Writing Basic Classes 3</a></li></p>
+<p>The last sequence of practice classes.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/jm/ch03/ch03-quiz/" >3. Classes Quiz</a></li></p>
+<p>Quiz on basic class definition, GridWorld construction.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a7dc6644f724744b1e36ed02deb01347">1 - 3. Writing Basic Classes 1</h1>
+    <div class="lead">Practice writing straightforward classes: instance variables, constructor, getter, setter methods.</div>
+	<h1 id="rectangle">Rectangle</h1>
+<ul>
+<li>Class header</li>
+<li>Instance variables</li>
+<li>Constructor</li>
+<li>Accessor: getWidth</li>
+<li>Method: area</li>
+</ul>
+<hr>
+<h1 id="square">Square</h1>
+<ul>
+<li>Class header</li>
+<li>Constructor</li>
+<li>etc.</li>
+</ul>
+<hr>
+<h1 id="addconstant">AddConstant</h1>
+<ul>
+<li>Constructor, <code>addTo</code>, <code>setConstant</code></li>
+<li>Knows constant to add</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">AddConstant</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">AddConstant</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">addTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">7</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// gives x=12
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">addTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">80</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// gives x=85
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">setConstant</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// now does +3 
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">addTo</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">7</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// gives x=10
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><hr>
+<h1 id="rainbowbug">RainbowBug</h1>
+<ul>
+<li>Straight 5 steps</li>
+<li>Change color: red -&gt; green -&gt; blue</li>
+<li>Repeat color changes forever</li>
+</ul>
+<h2 id="instance-variables">Instance variables?</h2>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-241b9f095f59640b57294a519504f6bb">2 - 3. Writing Basic Classes 2</h1>
+    <div class="lead">HobbleBug and friends, a good first or second day for writing classes.</div>
+	<h1 id="hobblebug">HobbleBug</h1>
+<ul>
+<li>Move, wait, move, wait, repeats</li>
+</ul>
+<hr>
+<h1 id="wheezerbug">WheezerBug</h1>
+<ul>
+<li>First 3 ticks: move forward</li>
+<li>Next 2 ticks: waits</li>
+<li>Repeats</li>
+</ul>
+<hr>
+<h1 id="longwheezebug">LongWheezeBug</h1>
+<ul>
+<li>Constructor specifies how many ticks for step, wait</li>
+</ul>
+<pre tabindex="0"><code>Bug b = new LongWheezeBug(5,2);
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-55542f8404bee7b4a1f0d921cd61ce4d">3 - 3. Writing Basic Classes 3</h1>
+    <div class="lead">The last sequence of practice classes.</div>
+	<p>You can look up the methods available in the GridWorld classes. There
+is a
+<a href="http://horstmann.com/gridworld/javadoc/">directory of all
+methods</a>. The most useful
+ones are Actor, Bug, and Flower.</p>
+<ol>
+<li>
+<p><code>CreepingCharlie</code>: A subclass of flower that has the normal
+behavior of a flower, except every third time it is asked to
+<code>act()</code>, it changes its direction by 45 degrees. (See documentation
+for Actor.)</p>
+<pre><code>  Flower c = new CreepingCharlie();
+</code></pre>
+</li>
+<li>
+<p><code>PayMeBug</code>: Write a class called <code>PayMeBug</code> that is a kind of <code>Bug</code>. Its
+constructor should take in a number of steps (N) the bug will go when paid.
+Write a method named <code>pay()</code> to your <code>PayMeBug</code>.
+After it is paid, the next N times its act method is called (maybe by
+hitting the &ldquo;Step&rdquo; button), it moves forward like an ordinary
+bug. Then it stops and waits to be paid again.</p>
+<pre><code> Bug s = new NStep(3);
+ Location where = new Location(1,5);
+ world.add(where, s); 
+ s.pay(); // now moves
+</code></pre>
+</li>
+<li>
+<p><code>IRBug</code>. Write a class <code>IRBug</code> for &ldquo;isosceles right triangle
+bug&rdquo;. The constructor should take in the number of steps on one leg
+of the triangle. When the bug&rsquo;s <code>act()</code> method is called, it uses
+the Bug&rsquo;s <code>move()</code> method to move along each side and uses the
+appropriate number of <code>turn()</code> calls to turn at each corner. It can
+repeat the triangle forever.</p>
+<pre><code> Bug t = new IRBug(4);
+ Location where = new Location(2,7)
+ world.add(where, t);
+ [...]
+</code></pre>
+<p>It is fine if the <code>IRBug</code> crushes flowers and rocks instead of turning.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-96ee7f16d205464feea188750aa0519c">4 - 3. Classes Quiz</h1>
+    <div class="lead">Quiz on basic class definition, GridWorld construction.</div>
+	<p>You may not use any notes or old classes to help you.
+Please write your answers on paper. These questions are not intended
+to be programmed on a computer.</p>
+<h2 id="harmonicadder">HarmonicAdder</h2>
+<p>The <code>HarmonicAdder</code> is not in GridWorld, it is just a class. Make it
+normally, but do not try to put it in the grid. A <code>HarmonicAdder</code>
+begins at a given initial x-coordinate on the number line.</p>
+<ul>
+<li>The <code>report()</code> method returns the current location.</li>
+<li>The <code>hut()</code> method updates the location by adding 1/n on move number n.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000">HarmonicAdder</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">HarmonicAdder</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">2</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hut</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">report</span><span style="color:#ce5c00;font-weight:bold">();</span>  <span style="color:#8f5902;font-style:italic">// 5.2 + 1/1 = 6.2
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hut</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">report</span><span style="color:#ce5c00;font-weight:bold">();</span>  <span style="color:#8f5902;font-style:italic">// 6.2 + 1/2 = 6.7
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hut</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">hut</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">report</span><span style="color:#ce5c00;font-weight:bold">();</span>  <span style="color:#8f5902;font-style:italic">// 6.7 + 1/3 + 1/4 = 7.28333...
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// 
+</span></span></span></code></pre></div><p>The <code>System.out.println(value);</code> method will let you print your
+location in a visible way.</p>
+<h2 id="dashbug">DashBug</h2>
+<p>The DashBug is in GridWorld. (<a href="https://raw.githubusercontent.com/2018-2019-WY-AP-CS/ap-cs/master/GridWorld/projects/ch03-quiz/ch03ClassesQuiz/DashBug.java">Starter code</a>.)</p>
+<ol>
+<li>
+<p>The <code>DashBug</code> walks <code>steps</code> times with the ordinary Bug <code>act()</code> method,
+and then walks for two steps using the <code>move()</code> method. The cycle is
+repeated <code>cycle</code> times.</p>
+</li>
+<li>
+<p>A <code>DashBug</code> made without specifying the number of steps or cycles
+should repeat 3 steps in two cycles.</p>
+</li>
+</ol>
+<p>When the bug is done moving it should be stationary.</p>
+<p>The constructors should let the code below work:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">steps</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">4</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">cycle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Bug</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">DashBug</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">steps</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">cycle</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Bug</span> <span style="color:#000">d</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">DashBug</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">world</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Location</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">8</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">),</span> <span style="color:#000">c</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">world</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Location</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">8</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">4</span><span style="color:#ce5c00;font-weight:bold">),</span> <span style="color:#000">d</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[...]</span>
+</span></span></code></pre></div><p><a href="https://raw.githubusercontent.com/2018-2019-WY-AP-CS/ap-cs/master/GridWorld/projects/ch03-quiz/ch03ClassesQuiz/DashBugRunner.java">DashBugRunner</a>
+on GitHub.</p>
+<p>Details:</p>
+<ul>
+<li>
+<p><code>DashBug</code> must have all actions driven by the <code>act()</code> method.</p>
+</li>
+<li>
+<p>The bug <code>c = new DashBug(3,2)</code> above should behave like this:</p>
+<ul>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: just <code>move()</code></li>
+<li><code>c.act()</code>: just <code>move()</code></li>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: Bug act method.</li>
+<li><code>c.act()</code>: just <code>move()</code></li>
+<li><code>c.act()</code>: just <code>move()</code></li>
+<li><code>c.act()</code>: no response</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

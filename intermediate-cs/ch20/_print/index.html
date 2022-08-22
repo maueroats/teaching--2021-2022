@@ -1,0 +1,1674 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch20/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>20. Using Structures | WY CS</title>
+<meta name="description" content="Remembering or returning more than one thing. For example, coordinates.">
+<meta property="og:title" content="20. Using Structures" />
+<meta property="og:description" content="Remembering or returning more than one thing. For example, coordinates." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch20/" />
+
+<meta itemprop="name" content="20. Using Structures">
+<meta itemprop="description" content="Remembering or returning more than one thing. For example, coordinates."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="20. Using Structures"/>
+<meta name="twitter:description" content="Remembering or returning more than one thing. For example, coordinates."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">20. Using Structures</h1>
+<div class="lead">Remembering or returning more than one thing. For example, coordinates.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-69bd00b88f494ed96063f27ec0dd26f1">20. Posn Util</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-8506e45104fed045bbfce862c84c5483">20. Libraries</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-3f783b27763f9e7e9651cc9d4f36bef6">20. Troubleshoot</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-e1b1a9819b6f7eda1602918ac0cc068e">20. Posn Math</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-57100c2d6c0a03bbacd1c54269142c51">20. Posn Math Programming</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-171407d938732ab96112a68aaa0ee4b1">20. Click Circle</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-b6f75fefc78458abc8193d7b712233af">20. Click Circle Questions</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-a3fd1a8b78df629c9598db01947af822">20. Click Mega</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-6c0e58aaed8b3d2490c3fd9f3dc8da8d">20. Silly Square</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-f4106eb4f0f151018f3292bc82de22fc">20. Tightrope</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-be5e5ca728b3e53656c0dc3fa8f8a537">20. Click Rectangle</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-a3788813e67b80abed909a253be4c6f4">20. Chase</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-fe71f277cf2809e08b5153c317e154ed">20. Map Image</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-c8059548a3df952304b8d640a12a6c85">20. Color Enhancing</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-cd9a094f9ec38eb24c037300d24944b7">20. Review</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-92169a6171619c5cf5467bd202585242">20. Ball Driving</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>16.1: <a href="#pg-52f61972d72ffc776a679acc7be61d47">1. Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16.2: <a href="#pg-2a75935d997a3c07900d02fca683de37">2. Starter Code</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16.3: <a href="#pg-9f01b3d2cb4265909572ab98c1bf3b17">3. Controls</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16.4: <a href="#pg-877a6b2814f7524db86d596d33fc568e">4. Motion</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16.5: <a href="#pg-00da32600fae14ac553d5a2a5582374b">5. End Game</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16.6: <a href="#pg-5a1fee53a7417832355a599fea9385dc">6. Animation</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>17: <a href="#pg-76234351ffd5005d789a3b6d1a872dbe">20. Quiz C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>18: <a href="#pg-679298e30f0d82562d742d67b79602c7">20. Quiz D</a></li>
+
+
+    
+  
+    
+    
+	
+<li>19: <a href="#pg-5abb893893ea1c9e5aa6b0b3580b4b1d">Advanced: Aimbooster</a></li>
+
+
+    
+  
+    
+    
+	
+<li>20: <a href="#pg-9a262f25e4df862e8425735186dc05b3">Troll Quiz Practice</a></li>
+
+
+    
+  
+    
+    
+	
+<li>21: <a href="#pg-4b522a02066f6370bdb4f4dbdd9a5555"></a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-69bd00b88f494ed96063f27ec0dd26f1">1 - 20. Posn Util</h1>
+    <div class="lead">Utility functions for posns. Accessing functions defined in other files.</div>
+	<p>The functions in 20.5 are all useful later. When you do them, you should
+save them in a file called <code>posn-util.rkt</code>. (Please use that name.)</p>
+<p>The following functions should be in <code>posn-util.rkt</code>:</p>
+<ul>
+<li><code>posn=?</code>: posn posn -&gt; boolean. Are both positions exactly the same? (Both corresponding coordinates match.)</li>
+<li><code>posn-add</code>: posn posn -&gt; posn. Add corresponding coordinates.</li>
+<li><code>posn-sub</code>: posn posn -&gt; posn. Subtract corresponding
+coordinates. First minus second.</li>
+<li><code>posn-scale</code>: number posn -&gt; posn. Multiply both coordinates by the
+same number.</li>
+<li><code>posn-distance</code>: posn posn -&gt; number. The distance in the plane between
+the points specified by the two posns.</li>
+<li><code>place-image/posn</code>: image posn image(background) -&gt; image. Purpose:
+Place one image at a given set of coordinates on a given background.</li>
+<li>Anything else you want to have available for re-use. (Maybe from
+physics or trig&hellip;)</li>
+</ul>
+<p>You should write tests for yourself. You are going to use these
+functions for a month, so you do not want any mistakes. If you really
+need them, you can see <a href="posn-tests.rkt">some tests I wrote</a>.</p>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">note</h4>
+
+    You may download <a href="posn-util.rkt">my posn utilities file</a> if you write
+your functions on paper instead of typing them. There is also a
+<a href="https://www.wescheme.org/view?publicId=MGNsfDhQmk">WeScheme
+posn-util</a>
+published February 2021.
+
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8506e45104fed045bbfce862c84c5483">2 - 20. Libraries</h1>
+    <div class="lead">How to make a library of functions that you can use in other files.</div>
+	<p>Use <code>require</code> and <code>provide</code> to make functions from one file available
+in another file.</p>
+<h2 id="require-and-provide">Require and provide</h2>
+<p>Require loads functions from another file. Provide makes functions available for other files to load.</p>
+<h3 id="require">Require</h3>
+<p>In order to use the functions in another file, you need to <code>require</code> that file.
+You already know <code>(require picturing-programs)</code> but when we use require
+we need to give the whole filename.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">require</span> <span style="color:#4e9a06">&#34;posn-util.rkt&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="provide">Provide</h3>
+<p>The <code>provide</code> command makes functions available for other files to use.
+One way to use it is to list all of the functions you want to allow
+other files to use:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">provide</span> <span style="color:#000">posn-add</span> <span style="color:#000">posn-sub</span> <span style="color:#000">posn-scale</span> <span style="color:#000">posn-distance</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Sometimes you just want to make every function in the file available.
+There is a shortcut to do that:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">provide</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">all-defined-out</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3f783b27763f9e7e9651cc9d4f36bef6">3 - 20. Troubleshoot</h1>
+    <div class="lead">Things that can go wrong using libraries.</div>
+	<p>This troubleshooting guide is focused on using <code>posn-util.rkt</code>.</p>
+<h3 id="problems">Problems</h3>
+<h4 id="save-your-posn-util-in-your-cs-folder">Save your posn-util in your CS folder</h4>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">warning</h4>
+
+    You need to save your work in the same folder as your &ldquo;posn-util.rkt&rdquo; file, since Racket only looks in the current folder for other files.
+
+</div>
+
+<p>This has been the source of a lot of issues:</p>
+<ul>
+<li>Verify that the folder you save in is &ldquo;Documents&rdquo; and not &ldquo;Downloads&rdquo;.</li>
+<li>If you are not asked where to save, the file probably ended up in
+Downloads. Go there and drag the file to where you actually want it.</li>
+</ul>
+<h4 id="name-the-file-carefully">Name the file carefully</h4>
+<p>Downloading the Racket file, one can end up with a file that has two
+suffixes (one of them is invisible). If <code>(require &quot;posn-util.rkt&quot;)</code>
+does not work, try <code>(require &quot;posn-util.rkt.rkt&quot;)</code>. If that works,
+delete the extra <code>.rkt</code>.</p>
+<p>Sometime people have <code>posn.util.rkt</code> instead. Use the official filename.</p>
+<h4 id="download-the-file">Download the file!</h4>
+<p>You need to actually download the code for <code>posn-util</code>. If you get the
+error below, you should open up your <code>posn-util.rkt</code> file and check to
+make sure that it has several hundred lines of code in it.</p>
+<pre><code>standard-module-name-resolver: cycle in loading
+</code></pre>
+<h4 id="save-your-work-first">Save your work first</h4>
+<p>Racket will not find your posn-util until you save your work in the
+same folder as the <code>posn-util.rkt</code> file. If you work is &ldquo;Untitled&rdquo;, it
+is not saved and <code>require</code> will not find the library.</p>
+<h4 id="provide-error">Provide error</h4>
+<p>When <code>(require picturing-programs)</code> is commented out on the first
+line, you get this error:</p>
+<pre><code>provide: this function is not defined
+</code></pre>
+<p>Fix: uncomment the first line.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e1b1a9819b6f7eda1602918ac0cc068e">4 - 20. Posn Math</h1>
+    <div class="lead">A three page worksheet on doing conceptual math with posns.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>The <a href="posnmath-20D.pdf">posn math worksheet</a> starts with the ideas on a
+number line (1 dimension) and then changes over to working with posns
+(2 dimensions).</p>
+<p>The important ideas are:</p>
+<ul>
+<li>Posns work a lot like numbers on the number line. Know the analogies
+(below).</li>
+<li>Think $+$ and $-$ even if you have to say <code>posn-add</code> and
+<code>posn-subtract</code>.</li>
+<li>Distance from the origin on the number line is <code>abs</code>; in 2d use
+<code>posn-length</code>.</li>
+<li>Adding $A+B$ takes a point at $A$ and moves it in direction $B$.</li>
+<li>Subtracting $-B+A$ or $A-B$ finds the motion from $B$ to $A$. Experiment to
+understand why the $B$ has the minus sign not the $A$.</li>
+</ul>
+<p>Pacing: expect to be able to do and discuss the first two pages in
+about 45 minutes.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-57100c2d6c0a03bbacd1c54269142c51">5 - 20. Posn Math Programming</h1>
+    <div class="lead">Mathy exercises with posns.</div>
+	<ol>
+<li>
+<p>Write a function <code>slope-posn</code> that takes in a posn and
+gives the slope of
+the line through (0,0) and the posn.</p>
+<pre><code> slope-posn : posn -&gt; number
+</code></pre>
+</li>
+<li>
+<p>Write a function <code>perp?</code> that takes in two posns each being
+(change in x,
+change in y) - like above - and returns true if they represent
+slopes of perpendicular lines.</p>
+<pre><code> perp? : posn posn -&gt; boolean
+</code></pre>
+</li>
+<li>
+<p>Write <code>on-line?</code> that determines if a posn is on a line given in
+<code>y=mx+b</code> form.</p>
+<pre><code> on-line?: number(m) number(b) posn -&gt; boolean
+</code></pre>
+</li>
+<li>
+<p>Write a function <code>posn-unit</code> that takes in a posn and puts out
+the posn with each coordinate divided by the distance the input
+posn is from the origin. For example, the point (3,4) is 5 units
+from the origin, so the output should be (3/5,4/5).</p>
+<pre><code> posn-unit : posn -&gt; posn
+</code></pre>
+</li>
+</ol>
+<p>You should write your own check-expects, but there are a few to <a href="20-intro-checkexpect">test
+your code</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-171407d938732ab96112a68aaa0ee4b1">6 - 20. Click Circle</h1>
+    <div class="lead">A circle moves around the screen randomly. You win if you can click on it.</div>
+	<p>Exercises 20.6.3 and 20.6.4.</p>
+<ul>
+<li>
+<p>A circle moves to a random position on the screen every so often. (20.6.3)</p>
+</li>
+<li>
+<p>Clicking on the circle displays a win screen. (20.6.4) Note: I recommend using a special <code>posn</code> as the model to indicate when to display the win screen.</p>
+</li>
+</ul>
+<h2 id="check-with">check-with</h2>
+<p>The clause <code>(check-with posn?)</code> makes sure that every handler returns a posn.
+You should add this clause to your big-bang whenever you work with posns.
+Colors have a similar check, <code>color?</code>.</p>
+<h2 id="stop-when">Stop-when</h2>
+<p>There is a new clause in <code>big-bang</code> called <code>stop-when</code>. It works like the <a href="stop-when.rkt">linked demo code</a>. The <code>big-bang</code> looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-tick</span> <span style="color:#204a87">add1</span> <span style="color:#0000cf;font-weight:bold">0.1</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-draw</span> <span style="color:#000">draw-num</span> <span style="color:#0000cf;font-weight:bold">300</span> <span style="color:#0000cf;font-weight:bold">200</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">stop-when</span> <span style="color:#000">above-ten?</span> <span style="color:#000">draw-done</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><p>The <code>above-ten?</code> method takes in a model and produces a boolean value. The big-bang stops if this function returns true.</p>
+<p>The <code>draw-done</code> method is a draw handler called when to produce the last frame of the animation - regarless of why the big-bang is ending.</p>
+<h2 id="impossible-state-trick">Impossible State Trick</h2>
+<p>One way to decide that an animation is over is to change the model to something that is impossible under regular circumstances. For example, a posn with negative coordinates could not be created by the mouse-handler under normal circumstances, so it could be used to indicate that the animation should end.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">MODEL-END-IT</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-1001</span> <span style="color:#0000cf;font-weight:bold">999</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">stopping?</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn=?</span> <span style="color:#000">model</span> <span style="color:#000">MODEL-END-IT</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="notes">Notes</h2>
+<ul>
+<li>
+<p>Never place randomness in the draw handler. The draw handler can be called lots more frequently than you imagine (for example, when you drag the window and it needs to redraw).</p>
+</li>
+<li>
+<p>Your model should not be an image any more. Use a better model.</p>
+</li>
+<li>
+<p><a href="https://docs.racket-lang.org/teachpack/2htdpuniverse.html">Complete big-bang documentation</a> so you can look up any unusual keys or functions that you need. For example: <code>button-down</code>.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b6f75fefc78458abc8193d7b712233af">7 - 20. Click Circle Questions</h1>
+    <div class="lead">Brief explanation of how to stop animations and show a win screen.</div>
+	<p>Main questions about the click circle project (20.6.4):</p>
+<h2 id="stopping-an-animation">Stopping an animation</h2>
+<table>
+<thead>
+<tr>
+<th>Stop condition</th>
+<th>How?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user action</td>
+<td>return <code>(stop-with model)</code> from a handler</td>
+</tr>
+<tr>
+<td>model state</td>
+<td><code>(stop-when ...)</code> in big-bang</td>
+</tr>
+</tbody>
+</table>
+<h2 id="win-screen">Win screen</h2>
+<p>Question: How do you make a win screen show?</p>
+<p>Answer: There are three steps:</p>
+<ol>
+<li>Write a <code>win-draw-handler</code> function.</li>
+<li>Write a <code>should-stop?</code> function. This is a technical annoyance.
+For now this can do nothing:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">should-stop?</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><ol start="3">
+<li>Add a <code>(stop-when should-stop? win-draw-handler)</code> clause to
+your <code>big-bang</code>.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a3fd1a8b78df629c9598db01947af822">8 - 20. Click Mega</h1>
+    
+	<p><strong>Challenge</strong></p>
+<p>Keep track of a score of how many circles have been clicked since the
+last time you missed a circle.</p>
+<p>This will require a posn inside another posn.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6c0e58aaed8b3d2490c3fd9f3dc8da8d">9 - 20. Silly Square</h1>
+    <div class="lead">A simply silly &lsquo;game&rsquo; to practice win conditions.</div>
+	<ul>
+<li>A little square randomly drifts around the screen.</li>
+<li>You win if you hit the &ldquo;w&rdquo; key.</li>
+<li>Hitting the &ldquo;r&rdquo; key moves the square back to its starting position.</li>
+<li>When you win, some win screen appears and the animation stops.</li>
+</ul>
+<p>Items to practice:</p>
+<ul>
+<li><code>stop-when</code> clause in big bang</li>
+<li>win screen draw-handler</li>
+</ul>
+<p>Extras:</p>
+<ul>
+<li>You lose if you hit the &ldquo;q&rdquo; key.</li>
+<li>Also win if you click on the square.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f4106eb4f0f151018f3292bc82de22fc">10 - 20. Tightrope</h1>
+    <div class="lead">A square changes color as you balance between two circles.</div>
+	<ul>
+<li>
+<p>There are two unmoving blue circles on the screen.</p>
+</li>
+<li>
+<p>You can move a square with the mouse.</p>
+</li>
+<li>
+<p>Square color is:</p>
+<ul>
+<li>Green if the distance from the square to circle 1 and the distance from the square to circle 2 are within 20 of each other.</li>
+<li>Red otherwise.</li>
+</ul>
+</li>
+</ul>
+<p>Some people had trouble understanding this description. In a computer-like language:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>a = distance from square to circle 1
+</span></span><span style="display:flex;"><span>b = distance from square to circle 2
+</span></span><span style="display:flex;"><span>green if a and b are within 20 of each other
+</span></span></code></pre></div><p>Write:</p>
+<ol>
+<li>Model</li>
+<li>The function <code>square-color: model -&gt; color</code>.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-be5e5ca728b3e53656c0dc3fa8f8a537">11 - 20. Click Rectangle</h1>
+    <div class="lead">Click on the rectangle and it moves to a new position.</div>
+	<p>This animation uses a posn to give the location of the <em>lower left
+corner</em> of a 60x40 rectangle on a 300x200 background. There is a red
+dot drawn to show the location of the &ldquo;anchor&rdquo; in the lower left
+corner of the rectangle.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/click-rect/click-rect-1.png"/> 
+</figure>
+<h2 id="aside-why-the-lower-left">Aside: Why the lower left?</h2>
+<p>We are using the lower left corner so we can get practice dealing with
+anchor points that are not the center. For a rectangle working with
+the lower left makes it a little bit harder, but for a triangle
+working with the center is a <em>lot</em> harder than working with the lower
+left corner. We practice slightly unusual situations to make sure we
+have a good understanding of <em>why</em> we do each part of the program.</p>
+<h2 id="helper-function-1-placer">Helper function 1: placer</h2>
+<p>There is a helper function you should make.</p>
+<p>Write the function <code>place-image/posn/LL</code>, which places an image so the
+lower left corner is on the given posn.</p>
+<pre><code>place-image/posn/LL : image(img) posn image(bg) -&gt; image
+</code></pre>
+<h2 id="helper-function-2-random-posn">Helper function 2: random-posn</h2>
+<p>Our rectangle jumps to random positions, so we use a function for
+that. We are going to make it so that the whole rectangle is visible
+on the scree. (You don&rsquo;t want just a tiny strip showing; that looks
+weird and can be annoying to click on.)</p>
+<p>When you want to keep the entire rectangle on the screen, what
+coordinates can you use for the lower left corner? If you are not
+sure, go through the checklist:</p>
+<h3 id="extreme-small">Extreme: small</h3>
+<ul>
+<li>What is the smallest possible x?</li>
+<li>What is the smallest possible y?</li>
+</ul>
+<p>Draw a rectangle in this lower left position and label the coordinates.</p>
+<h3 id="extreme-large">Extreme: large</h3>
+<ul>
+<li>What is the largest possible x?</li>
+<li>What is the largest possible y?</li>
+</ul>
+<p>Draw a rectangle with this lower left position and label the coordinates.</p>
+<h3 id="main-function">Main function</h3>
+<p>After you have worked out the extremes, writing the <code>random-posn</code>
+function should be straightforward - just pick numbers between the
+allowed extremes.</p>
+<pre><code>random-posn : any (ignore) -&gt; posn
+</code></pre>
+<h2 id="draw-handler">Draw Handler</h2>
+<p>Draw a 60x40 rectangle so the model posn is in the lower left corner of the rectangle.
+Draw small a red dot exactly centered on the model posn.
+A 300x200 background works pretty well.</p>
+<h2 id="coordinates-and-helper-function-2">Coordinates and helper function 2</h2>
+<p>As always, you have the choice of people coordinates (origin in the
+lower left) or computer coordinates (origin in the upper
+right). Neither one is 100% straightforward.</p>
+<ul>
+<li>
+<p>Computer coordinates: make sure you carefully work out an example
+and then write check-expects for functions that use coordinates.</p>
+</li>
+<li>
+<p>People coordinates: there are two places the switch between people
+and computer coordinates needs to occur - in the draw handler
+(people to computer) and in the mouse handler (computer to people).</p>
+</li>
+</ul>
+<p>These instructions will use computer coordinates.</p>
+<p>Use the figure below to write a check-expect for <code>in-rectangle?</code> that
+shows that point P is inside the rectangle anchored by point A.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/click-rect/Rectangle-Example-2.jpg" width="500"/> 
+</figure>
+<pre><code>; in-rectangle? : posn(anchorA) posn(pt) -&gt; boolean
+(check-expect (in-rectangle? ...finish...) true)
+</code></pre>
+<p>Finish writing the check-expect and the <code>in-rectangle?</code> function.</p>
+<h2 id="mouse-handler">Mouse Handler</h2>
+<p>The purpose of the mouse handler is to cause the rectangle to jump to
+a new location when it is clicked on. The function does this by giving
+a new random position for the model in that case.</p>
+<h2 id="final-check">Final Check</h2>
+<p>Run your animation. Click around in random places both on and off
+the rectangle to make sure it works.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a3788813e67b80abed909a253be4c6f4">12 - 20. Chase</h1>
+    <div class="lead">A simple game where a square chases the mouse.</div>
+	<p>In this animation, a 20x20 square moves toward the mouse whenever the
+mouse does something. If the square touches the mouse, then the game
+is over.</p>
+<ul>
+<li>model</li>
+<li>what model will we use to indicate that the game is over?</li>
+<li>draw handler</li>
+<li>stop-when: decide when the game is over</li>
+<li>lose screen draw handler: put &ldquo;game over&rdquo; on the screen</li>
+</ul>
+<h2 id="square-moves-toward-the-mouse">Square moves toward the mouse</h2>
+<p>You want the square to move toward the mouse, but not too fast or
+nobody will want to play the game.</p>
+<p>Ideas:</p>
+<ul>
+<li>When you add posns A + B, that moves posn A in direction B</li>
+<li>When you want to limit your motion, scale the motion posn so that
+its length is (say) 5.</li>
+</ul>
+<h3 id="basic-we-will-make-the-120-of-the-distance-chase">Basic: we will make the &ldquo;1/20 of the distance&rdquo; chase</h3>
+<p>The <code>next-change</code> function will tell how to adjust the current
+position of the square based on the goal position of the mouse.</p>
+<pre><code>next-change: posn(goal) posn(current) -&gt; posn
+</code></pre>
+<h3 id="advanced-make-the-speed--3-chase">Advanced: make the &ldquo;speed = 3&rdquo; chase</h3>
+<p>A variation on this is to make the square chase the mouse at a
+&ldquo;constant speed&rdquo; of 3 pixels every mouse motion. This done by making
+a helper function <code>scale-to-3: posn -&gt; posn</code> that adjusts the posn so
+its length is always 3 (assume the posn is not (0,0)).</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fe71f277cf2809e08b5153c317e154ed">13 - 20. Map Image</h1>
+    <div class="lead">Changing the colors in a picture, pixel by pixel.</div>
+	<p>The <code>map-image</code> command runs a function on every pixel of an image. See the <a href="https://docs.racket-lang.org/picturing-programs/index.html?q=map-image#%28def._%28%28lib._picturing-programs%2Fprivate%2Fmap-image..rkt%29._map-image%29%29">map-image documentation</a> for the official info.</p>
+<h2 id="exercises-for-map-image">Exercises for map-image</h2>
+<ol>
+<li><code>blue-only</code>: Keep only the blue, removing red and green.</li>
+<li><code>black-white</code>: Turn an image to black and white. You will need to decide how to set the threshold.</li>
+<li><code>grayscale</code>: Turn an image to grayscale.</li>
+<li><code>green-to-white</code>: Change only green pixels to white.</li>
+</ol>
+<h2 id="color">Color</h2>
+<p>There are several logical ways of combining the red, green, and blue components to get one number. The most common is averaging, but it is not the only way.</p>
+<ol>
+<li>Average the numbers.</li>
+<li>Use the maximum of the numbers.</li>
+<li>Use the minimum of the numbers. (?!)</li>
+<li>Other unusual math methods like the geometric mean.</li>
+</ol>
+<h2 id="extras">Extras</h2>
+<p>Make the function <code>color-distance: color-&gt;color</code>, which measures the distance between two colors in the same way that <code>distance</code> measures the distance between two posns.</p>
+<p>The formula for color distance would be:</p>
+<pre tabindex="0"><code class="language-math" data-lang="math">(square root of (r1-r2)^2 + (g1-g2)^2 + (b1-b2)^2)
+</code></pre><p>Your <code>color-distance</code> function can be used to change colors <em>near</em> green to white, so you don&rsquo;t have to have perfect green to see it work.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c8059548a3df952304b8d640a12a6c85">14 - 20. Color Enhancing</h1>
+    <div class="lead">One exercise working with color.</div>
+	<p>Write a function that takes a color and does the following:</p>
+<ul>
+<li>cut the amount of red in half</li>
+<li>leave green the same</li>
+<li>double the amount of blue</li>
+</ul>
+<p>Start using the design process - write a signature, then examples
+showing how each number changes. What possibly troublesome cases
+should appear in your examples?</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cd9a094f9ec38eb24c037300d24944b7">15 - 20. Review</h1>
+    <div class="lead">Review questions on posn and color.</div>
+	<p>Write checks and follow the design process as you write these functions.</p>
+<ol>
+<li>
+<p>Move to parabola. Input any point, output a point on the graph of <code>y=x^2</code>.
+Find the output point by moving vertically up or down from the input point until you reach the graph of <code>y=x^2</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"></code></pre></div></li>
+</ol>
+<p>to-parabola: posn(initial) -&gt; posn</p>
+<pre tabindex="0"><code>
+    If you have time, make an animation that shows a gray circle where the mouse is and then connects that via a gray line to a blue circle on the parabola. You can use [my 400x400 parabola image](bg-parabola.png) to see the whole parabola. (Read the [code I used to make the parabola](parabola-maker.rkt) if you want.)
+
+     If you want to see an upward facing parabola in people coordinates,
+you should use the formula below:
+
+    ```racket
+(define (f x)
+        (+ 200 (* -1/200 (- x 200) (- x 200))))
+</code></pre><ol start="2">
+<li>
+<p>Input a color, output a new color.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"></code></pre></div></li>
+</ol>
+<p>mix-color: color -&gt; color</p>
+<pre tabindex="0"><code>
+    * output red is twice the input amount of green
+    * output green is the average of the input red, green, and blue
+    * output blue is 50 units less than half of the red input
+
+3. **Hot-Cold**. Take in a posn and output a color. The color will depend on the distance of the point from (100,200). 
+
+    * distance &lt; 100: pure red
+    * distance &gt; 355: pure yellow
+    * in between: red is  255 minus distance, green is distance minus 100, blue is 0
+   
+    ```text
+hot-cold: posn -&gt; color
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-92169a6171619c5cf5467bd202585242">16 - 20. Ball Driving</h1>
+    <div class="lead">Move the ball around the screen with a little control panel. Win when you get inside the target.</div>
+	<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/intro/" >1. Intro</a></li></p>
+<p>You move a little ball around the screen by positioning your mouse inside the control center in the upper right corner of the screen. The position of the mouse relative to the &ldquo;origin&rdquo; of the axes in the control center detemines which way the ball will move (and how far).
+Motion is caused by mouse-events, so the ball does not move unless you are moving or clicking the mouse.
+When the ball is entirely inside the target circle, the game is over and you win.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/starter-code/" >2. Starter Code</a></li></p>
+<p>Starter code so everyone begins from the same spot.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/controls/" >3. Controls</a></li></p>
+<p>The basics of the control grid in the upper right.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/motion/" >4. Motion</a></li></p>
+<p>Actually moving the point according to the mouse position in the control grid.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/end-game/" >5. End Game</a></li></p>
+<p>The game ends when the ball is completely inside the target.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/animation/" >6. Animation</a></li></p>
+<p>The functions to use with big-bang: draw handler, mouse handler.</p>
+</span>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-52f61972d72ffc776a679acc7be61d47">16.1 - 1. Intro</h1>
+    
+	<p>You move a little ball around the screen by positioning your mouse
+inside the control center in the upper right corner of the screen. The
+position of the mouse relative to the &ldquo;origin&rdquo; of the axes in the
+control center detemines which way the ball will move (and how far).</p>
+<p>Motion is caused by mouse-events, so the ball does not move unless you
+are moving or clicking the mouse.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/intro/ball-driving-1.png"/> 
+</figure>
+<p>When the ball is entirely inside the target circle, the game is over
+and you win.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/intro/ball-driving-2.png"/> 
+</figure>
+<p>See the <a href="https://youtu.be/3TDP4qwqxVU">walkthrough video on YouTube</a> for a live version.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2a75935d997a3c07900d02fca683de37">16.2 - 2. Starter Code</h1>
+    <div class="lead">Starter code so everyone begins from the same spot.</div>
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">require</span> <span style="color:#000">picturing-programs</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">require</span> <span style="color:#4e9a06">&#34;posn-util.rkt&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">Q1</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">square</span> <span style="color:#0000cf;font-weight:bold">25</span> <span style="color:#4e9a06">&#34;outline&#34;</span> <span style="color:#4e9a06">&#34;black&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">Q2</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">beside</span> <span style="color:#000">Q1</span> <span style="color:#000">Q1</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">Q4</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">above</span> <span style="color:#000">Q2</span> <span style="color:#000">Q2</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">BG0</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty-scene</span> <span style="color:#0000cf;font-weight:bold">400</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">BALL</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">circle</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;red&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">TARGET</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">circle</span> <span style="color:#0000cf;font-weight:bold">15</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;white&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000;font-weight:bold">(</span><span style="color:#000">circle</span> <span style="color:#0000cf;font-weight:bold">25</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;pink&#34;</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; we wrote random-posn. pick a posn if that does not work</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">TARGET-POSN</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">random-posn</span> <span style="color:#0000cf;font-weight:bold">400</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">))</span> 
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9f01b3d2cb4265909572ab98c1bf3b17">16.3 - 3. Controls</h1>
+    <div class="lead">The basics of the control grid in the upper right.</div>
+	<h2 id="3-active-controls">3. Active controls?</h2>
+<p>We will write a function to determine if a point is in the control grid.</p>
+<h3 id="3a-center-coordinates">3a. Center coordinates</h3>
+<p>What are the coordinates of the center of the Q4 control grid?</p>
+<h3 id="3b-check-expects">3b. Check expects</h3>
+<p>Write two check-expects, one showing a point that is not the
+center is inside the grid, and another showing a point that is outside
+the grid.</p>
+<h3 id="3c-in-control-grid">3c. In control grid?</h3>
+<p>Write the function <code>in-control-grid? : posn -&gt; boolean</code></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-877a6b2814f7524db86d596d33fc568e">16.4 - 4. Motion</h1>
+    <div class="lead">Actually moving the point according to the mouse position in the control grid.</div>
+	<p>Motion is a combination of helper functions:</p>
+<ul>
+<li><code>compute-push</code></li>
+<li><code>limit-motion</code></li>
+<li><code>move-ball</code></li>
+</ul>
+<h3 id="4a-compute-push-helper">4a. Compute Push Helper</h3>
+<p>Signature: <code>compute-push-h: posn(mouse-pos) posn(origin-pos) -&gt; posn</code></p>
+<p>Given the coordinates of the mouse and the (control center) origin,
+determine how the position of the ball should change.</p>
+<p>Use the position of the mouse in the &ldquo;control center&rdquo; axes to
+determine the motion.
+When then mouse is 2 pixels to the right and 5 pixels
+above the &ldquo;origin,&rdquo; the ball should move 2 pixels to the right and 5 up.</p>
+<h3 id="4b-limit-motion">4b. Limit Motion</h3>
+<p>Signature: <code>limit-motion: posn(p) -&gt; posn</code></p>
+<p>Do not let the x or y coordinates move outside the screen (in either a
+positive or negative direction). We used to do this all of the time
+for numbers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit-motion</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">405</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">400</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit-motion</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">-5</span> <span style="color:#0000cf;font-weight:bold">80</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">80</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit-motion</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">135</span> <span style="color:#0000cf;font-weight:bold">-8</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">135</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit-motion</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">187</span> <span style="color:#0000cf;font-weight:bold">315</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">187</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">limit-motion</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">285</span> <span style="color:#0000cf;font-weight:bold">193</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">285</span> <span style="color:#0000cf;font-weight:bold">193</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h3 id="4c-move-ball">4c. Move Ball</h3>
+<p>Signature: <code>move-ball: posn(ball-pos) posn(mouse-pos) -&gt; posn</code></p>
+<p>Now put this all together to create a function that takes in the
+position of the ball and the mouse, and puts out the new ball
+position.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-00da32600fae14ac553d5a2a5582374b">16.5 - 5. End Game</h1>
+    <div class="lead">The game ends when the ball is completely inside the target.</div>
+	<p>You win the game by moving your ball completely inside the white part
+of the target.</p>
+<table>
+<tr>
+<td style="text-align: center">
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/end-game/not-win.png"
+         alt="This game is not won yet."/> <figcaption>
+            <p>This game is not won yet.</p>
+        </figcaption>
+</figure>
+</td>
+<td style="text-align: center">
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ball-driving/end-game/yes-win.png"
+         alt="Winning position."/> <figcaption>
+            <p>Winning position.</p>
+        </figcaption>
+</figure>
+</td>
+</table>
+<h3 id="5a-win-help">5a. Win-help?</h3>
+<p>Signature: <code>win-help? : posn(ball-pos) posn(target-pos) -&gt; boolean</code></p>
+<p>This function is testable. Ideally you would write tests for it&hellip; but
+here are some.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">;; ball radius 5, target inner radius 15</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">win-help?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">15</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">win-help?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">win-help?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">103</span> <span style="color:#0000cf;font-weight:bold">129</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#0000cf;font-weight:bold">124</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="5b-win">5b. Win?</h3>
+<p>Signature: <code>win? : posn(ball-pos) -&gt; boolean</code></p>
+<p>The work for the <code>win?</code> function is already done, you just need to put
+it together.</p>
+<h3 id="5c-win-screen">5c. Win Screen</h3>
+<p>Signature: <code>win-screen: posn(ball-posn) -&gt; image</code></p>
+<p>Adding a win screen is optional. You would only do this after you
+finished the draw handler.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5a1fee53a7417832355a599fea9385dc">16.6 - 6. Animation</h1>
+    <div class="lead">The functions to use with big-bang: draw handler, mouse handler.</div>
+	<p>Actually making the animation requires a draw handler and a mouse
+handler. You will have to write those.</p>
+<h2 id="draw-handler">Draw Handler</h2>
+<ul>
+<li>Create a background that includes the target and the controls.</li>
+<li>Draw the ball at the position indicated by the model.</li>
+</ul>
+<p><code>draw-h: posn(model) -&gt; image</code></p>
+<h2 id="mouse-handler">Mouse Handler</h2>
+<p>When the mouse is inside the control grid, the ball should
+move. Otherwise nothing happens.</p>
+<h2 id="big-bang">Big Bang</h2>
+<p>This is what my <code>big-bang</code> looks like.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">200</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-with</span> <span style="color:#000">posn?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">stop-when</span> <span style="color:#000">win?</span> <span style="color:#000">win-screen</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-draw</span> <span style="color:#000">draw-h</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-mouse</span> <span style="color:#000">mouse-h</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-76234351ffd5005d789a3b6d1a872dbe">17 - 20. Quiz C</h1>
+    
+	<h2 id="solar-jump-i">Solar Jump I</h2>
+<p>You will see a red dot and a black dot, both radius 10.</p>
+<ul>
+<li>
+<p>Randomly place a black dot. Randomize every time you run the
+code. It does not need the ability to move during a single run.</p>
+</li>
+<li>
+<p>The red dot jumps to your mouse when you click.</p>
+</li>
+<li>
+<p>Hit &ldquo;d&rdquo; to double the distance between the centers of the black dot
+and the red dot. The red dot should move directly away from the
+black dot in this motion.</p>
+</li>
+<li>
+<p>Hit &ldquo;s&rdquo; to shrink the distance between the <em>edges</em> of the black dot
+and the red dot to be 30 pixels. The red dot should move directly
+toward/away from the black dot during this motion.</p>
+</li>
+</ul>
+<h2 id="solar-jump-ii">Solar Jump II</h2>
+<p>In addition to the actions above:</p>
+<ul>
+<li>Hitting any other key moves the orange dot on top of the red dot.</li>
+<li>When the red dot moves, the orange dot stays in its previous
+location. There is a line connecting the red dot to the orange
+dot.</li>
+</ul>
+<p>Solar Jump II requires more than a single (x,y) coordinate for a model.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-679298e30f0d82562d742d67b79602c7">18 - 20. Quiz D</h1>
+    
+	<p>The 300x200 screen is split into two regions:</p>
+<ul>
+<li>A yellow quarter-circle of radius 190, centered on the upper left
+corner.</li>
+<li>A light blue on the remainder of the rectangle.</li>
+</ul>
+<p>Clicking places a solid circle of radius 10.</p>
+<ul>
+<li>Inside the yellow, the placed circle is red.</li>
+<li>On top of the light blue, the placed circle is blue.</li>
+</ul>
+<p>Hitting space bar (<code>&quot; &quot;</code>) causes the circle to move, depending on the
+location of the circle:</p>
+<ul>
+<li>A red circle moves halfway from its current position to the upper
+left corner.</li>
+<li>A blue circle moves 1/3 of the way from its current position to the
+lower right corner.</li>
+</ul>
+<p>A blue line segment protrudes 10 pixels past the edge of the blue
+circle, pointing directly at the lower right corner no matter where
+the circle is.</p>
+<table>
+<tr>
+<td>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ch20-quiz-d/blue-dot-1.png" width="150"/> 
+</figure>
+</td>
+<td>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ch20-quiz-d/blue-dot-2.png" width="150"/> 
+</figure>
+</td>
+</tr>
+</table>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch20/ch20-quiz-d/red-dot-1.png" width="150"/> 
+</figure>
+<p><a href="https://youtu.be/And0Dq0ueSQ">Demonstration video</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5abb893893ea1c9e5aa6b0b3580b4b1d">19 - Advanced: Aimbooster</h1>
+    <div class="lead">A simplified aim-and-click practice.</div>
+	<p>In this animation you copy <a href="https://aimbooster.com">AimBooster.com</a>,
+but simplified so you can make it with what you know from Chapter 20.</p>
+<ul>
+<li>A single circle is at a random place.</li>
+<li>Radius increases.</li>
+<li>Clicking on the circle gives you points inversely proportional to
+the radius (maybe 100/radius).</li>
+<li>When the circle is hit, it disappears and another starts growing.</li>
+<li>When the circle reaches a certain radius it disappears.</li>
+<li>After missing three circles, the game is over.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9a262f25e4df862e8425735186dc05b3">20 - Troll Quiz Practice</h1>
+    <div class="lead">A simple example of something you should be able to do.</div>
+	<ul>
+<li>You control a star, move four directions with the arrow keys.</li>
+<li>The goal is a stop sign in a random non-moving location.</li>
+<li>Game stops when your star drives into the stop sign.</li>
+<li>Win screen appears.</li>
+<li>Hit &ldquo;q&rdquo; to quit. Shows &ldquo;quitter&rdquo; instead of &ldquo;you win&rdquo;.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4b522a02066f6370bdb4f4dbdd9a5555">21 - </h1>
+    
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">slope-posn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">8</span> <span style="color:#0000cf;font-weight:bold">15</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#0000cf;font-weight:bold">8/15</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">perp?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">-3</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">perp?</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">6</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-line?</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">4</span> <span style="color:#0000cf;font-weight:bold">23</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-line?</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">21</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-unit</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">3/5</span> <span style="color:#0000cf;font-weight:bold">4/5</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">check-expect</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">posn-unit</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">make-posn</span> <span style="color:#0000cf;font-weight:bold">5/13</span> <span style="color:#0000cf;font-weight:bold">12/13</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

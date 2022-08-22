@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch12/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>12. Arrays | WY CS</title>
+<meta name="description" content="One and two dimensional arrays.">
+<meta property="og:title" content="12. Arrays" />
+<meta property="og:description" content="One and two dimensional arrays." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch12/" />
+
+<meta itemprop="name" content="12. Arrays">
+<meta itemprop="description" content="One and two dimensional arrays."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="12. Arrays"/>
+<meta name="twitter:description" content="One and two dimensional arrays."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/jm/ch12/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">12. Arrays</h1>
+<div class="lead">One and two dimensional arrays.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-d03433d7cec48530ba09f677ccc585dd">12. Array Basic Facts</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-2f380307c0b5c92aa7116e1b4ee8b653">12. Array Exercises 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-dadb3fe7d8cd408b5fe3a47be60a3fcd">12. Array Exercises 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-5a7832442c0c944487565b7570274ed0">12. Arrays Exercises 3</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-9e6d2b0218588caa40d6e22d6e2aa15f">12. Arrays Exercises 4</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-84c11f792454391fc155134bf88902db">12. Book Exercises</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-122f7d4533429f29088b1366c0c04d90">12. Two Dimensional Arrays</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-a31902eef297faaffbd1315b4a39f3d3">12. Scanning 2D</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-0bb61d3054575f91e109ea74c7a6272b">12. Array Speedrun</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-cff3fdfe6529062b4bfbdaeb561b0247">12. Quiz A on 2D</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-728b48143fbea75ee09d018ebb07f86f">12. Quiz M</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-ce86ac07dd5653bd0e6010dc190ec37d">12. Quiz N</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-7a1d5626825ec1e01d6e1d1a9e7fc86a">12. String Dolphin</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-56da52c4b687b8b1380576e0462ea347">12. AL - hasPieee</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-e89717fd3d9c3733ddc7404ebc3b6a9c">12. Chomp</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d03433d7cec48530ba09f677ccc585dd">1 - 12. Array Basic Facts</h1>
+    <div class="lead">The basics of one dimensional arrays.</div>
+	<p>The fundamentals:</p>
+<ul>
+<li>
+<p>Create (make space for) an array:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">50</span><span style="color:#ce5c00;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">String</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">names</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#4e9a06">&#34;Justyn&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Connor&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Leo&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Ellie&#34;</span> <span style="color:#ce5c00;font-weight:bold">};</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Arrays in Java do not grow or shrink. There is no <code>+=</code> for arrays.</p>
+</li>
+<li>
+<p>The length of the <code>data</code> array is <code>data.length</code>.</p>
+</li>
+<li>
+<p>Arrays without <code>new</code> have no space created for them.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">nums</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">len</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nums</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">length</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// error, array is not made at all!!
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">nums</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// error, certainly no item 0
+</span></span></span></code></pre></div></li>
+<li>
+<p>Getting values from an array:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">first</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">last</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">];</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Setting values in an array:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">10</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">50</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Printing out an array.</p>
+<ul>
+<li>
+<p>At start of program:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">java.util.*</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>When you want to print an array, use <code>Arrays.toString</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">e</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">String</span> <span style="color:#000">ee</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Arrays</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">toString</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">e</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">ee</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Miscellaneous</p>
+<ul>
+<li>
+<p>Arrays are handled like Java Objects in memory. The name of the array is a reference to a block of memory where the array data is stored.</p>
+</li>
+<li>
+<p>You cannot use the <code>{10,30,90}</code> form of the initializer anywhere except the declaration of the object.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">nums</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#000">10</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">30</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">90</span><span style="color:#ce5c00;font-weight:bold">};</span> <span style="color:#8f5902;font-style:italic">// OK
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">bad</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">bad</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#000">10</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">30</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">90</span><span style="color:#ce5c00;font-weight:bold">};</span> <span style="color:#8f5902;font-style:italic">// ERROR
+</span></span></span></code></pre></div></li>
+<li>
+<p>In that case, you need to make a new (unnamed) array before you assign it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">decent</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">decent</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[]{</span><span style="color:#000">10</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">30</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">90</span><span style="color:#ce5c00;font-weight:bold">};</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2f380307c0b5c92aa7116e1b4ee8b653">2 - 12. Array Exercises 1</h1>
+    <div class="lead">Learning to use arrays, basic finger exercises.</div>
+	<h2 id="make-an-array-1">Make an array 1</h2>
+<ol>
+<li>
+<p>Return the integer array <code>{2,5,10,20}</code>.</p>
+</li>
+<li>
+<p>Return the String array <code>{&quot;Fast&quot;,&quot;Fish&quot;,&quot;Frying&quot;,&quot;Food&quot;}</code>.</p>
+</li>
+</ol>
+<hr>
+<h2 id="make-an-array-2">Make an array 2</h2>
+<ul>
+<li>
+<p>Make an array with n zeros.</p>
+</li>
+<li>
+<p>Fill it with the numbers 0 through (n-1).</p>
+<pre><code>  fill_a(6) == {0,1,2,3,4,5}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="make-an-array-3">Make an array 3</h2>
+<ul>
+<li>
+<p>Make an array with 2n zeros.</p>
+</li>
+<li>
+<p>Fill it with integers, counting up from 21.</p>
+<pre><code>  fill_b(3) == {21,22,23,24,25,26}
+</code></pre>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dadb3fe7d8cd408b5fe3a47be60a3fcd">3 - 12. Array Exercises 2</h1>
+    <div class="lead">More exercises to teach you arrays and loops.</div>
+	<h1 id="countfill">countFill</h1>
+<ul>
+<li>input: <code>int[] nums</code></li>
+<li>input: <code>int s</code></li>
+</ul>
+<p>Fill the given array with ints counting down from <code>s</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#ce5c00;font-weight:bold">[]</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">6</span><span style="color:#ce5c00;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">countFill</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">80</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// {80,79,78,77,76,75}
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">Arrays</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">toString</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">));</span> 
+</span></span></code></pre></div><hr>
+<h1 id="nosevens">noSevens</h1>
+<p><code>int noSevens(int[] nums)</code></p>
+<ul>
+<li>Count how many sevens are in the array.</li>
+<li>Set all of them to zero.</li>
+<li>Return the number of sevens you find.</li>
+</ul>
+<pre tabindex="0"><code>int[] ns = { 10,7,20,7,30,7,7,40};
+int a = noSevens(ns);
+String ans = Arrays.toString(ns);
+System.out.println(a)
+System.out.println(ans)
+</code></pre><hr>
+<h1 id="countbetween23">countBetween23</h1>
+<p><code>int countBetween23 (int[] nums)</code></p>
+<ul>
+<li>Count how many numbers between a 2 and 3.</li>
+<li>Only one 2, one three.</li>
+<li>2 appears before 3</li>
+</ul>
+<pre tabindex="0"><code>int [] ns = {1,2,5,6,7,13,3,8}
+System.out.println(countBetween(ns)); // 4
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5a7832442c0c944487565b7570274ed0">4 - 12. Arrays Exercises 3</h1>
+    <div class="lead">Exercises to bring back to your mind basic facts about arrays.</div>
+	<h2 id="compactor">Compactor</h2>
+<p>Given an array of integers <code>nums</code>, return an array containing only the
+indices <code>k</code> for which <code>nums[k]</code> is one.</p>
+<p>Example: <code>compactor({1,0,1,1}) =&gt; {0,2,3}</code>.</p>
+<p>Example:</p>
+<pre><code>{//               0 1 2 3 4 5 6 7
+    int[] nums = {0,0,1,0,1,0,0,1};
+    int[] cpct = compactor(nums);
+    int[] expected = {2,4,7};
+}
+</code></pre>
+<h2 id="prime-number-sieve">Prime Number Sieve</h2>
+<p>Write a function <code>public static int[] primeSieve (int n)</code> that returns
+an array of length n with a 1 in index k when k is a prime number, and
+0 otherwise.</p>
+<p>Use some <a href="PrimeSieve.java">tester code</a> to show the results of your
+function.</p>
+<p>Recommended process:</p>
+<ol>
+<li>
+<p>Mark every number that is at least two as prime. Run your function
+and make sure that at this stage <code>primeSieve(10)</code> gives
+<code>{0,0,1,1,1,1,1,1,1,1}</code>.</p>
+</li>
+<li>
+<p>Change every multiple of 2 to a zero. At this stage,
+<code>primeSieve(10)</code> should give <code>{0,0,1,1,0,1,0,1,0,1}</code>.</p>
+</li>
+<li>
+<p>Automate the process of giving multiples a value of zero for every
+other number.</p>
+</li>
+</ol>
+<h2 id="prime-factorization">Prime Factorization</h2>
+<p>Use the tools you have to write a program to find the prime
+factorization of a number. It is OK to limit your program to working
+with numbers with less than 20 factors.</p>
+<p>Signature: <code>public static int[] pf (int n)</code>.</p>
+<p>Examples:</p>
+<ul>
+<li><code>pf(8) =&gt; {2,2,2}</code></li>
+<li><code>pf(18) =&gt; {2,3,3}</code></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9e6d2b0218588caa40d6e22d6e2aa15f">5 - 12. Arrays Exercises 4</h1>
+    <div class="lead">1D arrays</div>
+	<h2 id="lockers">lockers</h2>
+<p><code>public static int[] lockers(int n)</code></p>
+<p>Flip means change 0 to 1 and 1 to 0.</p>
+<ul>
+<li>Start with an integer array of n lockers, all closed (0).</li>
+<li>In step 1, flip every locker&rsquo;s state, beginning at locker 1.</li>
+<li>In step 2, flip every second locker&rsquo;s state, beginning at locker 2.</li>
+<li>In step 3, flip every third locker&rsquo;s state, beginning at locker 3.</li>
+<li>Etc.</li>
+</ul>
+<p>Return the resulting integer array.</p>
+<p>Examples when n=10:</p>
+<ul>
+<li>Step 1: <code>{0,1,1,1,1,1,1,1,1,1}</code></li>
+<li>Step 2: <code>{0,1,0,1,0,1,0,1,0,1}</code></li>
+<li>Step 3: <code>{0,1,0,0,1,1,1,1,0,0}</code></li>
+<li>Step 4: <code>{0,1,0,0,0,1,1,1,1,0}</code></li>
+<li>[&hellip;]</li>
+<li>Step 9: <code>{0,1,0,0,1,0,0,0,0,1}</code></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-84c11f792454391fc155134bf88902db">6 - 12. Book Exercises</h1>
+    
+	<p>Chapter 12, exercises 23, 24, and 25. Write tests to prove that your work is correct.
+Those exercises, restated here, are:</p>
+<h2 id="exercise-23-rotate">Exercise 23: Rotate</h2>
+<ol>
+<li><code>public static int[] rotateLeft(int[] a)</code>: Rotate <code>{0,1,2,3}</code> to <code>{1,2,3,0}</code>.</li>
+<li><code>public static int[] rotateRight(int[] a)</code>: Rotate <code>{0,1,2,3}</code> to <code>{3,0,1,2}</code>.</li>
+<li><code>public static int[] rotate(int[] a, int amount)</code>: Rotate by <code>amount</code> to the right, so to the left when amount is negative.</li>
+</ol>
+<h2 id="exercise-24-add-digits">Exercise 24: Add Digits</h2>
+<ol start="4">
+<li>
+<p>Add two positive numbers given by arrays representing the individual digits.</p>
+<p><code>public static int[] add(int[] a, int[] b)</code></p>
+<p>Example 923+94=1017:</p>
+<pre><code> @Test
+ public void test_add_1() {
+ 	int[] a = {9,2,3};
+ 	int[] b = {9,4};
+ 	int[] ans = {1,0,1,7};
+ 	assertArrayEquals(ans, add(a,b));
+ }
+</code></pre>
+</li>
+</ol>
+<h2 id="exercise-25-average-two-largest">Exercise 25: Average Two Largest</h2>
+<ol start="5">
+<li>
+<p>Find the average of the greatest two elements in an array.</p>
+<p><code>public static double largestAverage(int [] data)</code></p>
+<pre><code> @Test
+ public void test_largest_average() {
+ 	int[] data = {100,40,90,30};
+ 	assertEquals(95, largestAverage(data), 0.1);
+
+ 	int[] fdata = {-1000,-30,-31,-80};
+ 	assertEquals(-30.5, largestAverage(fdata), 0.1);
+
+ 	int[] gdata = {100,100,50,40};
+ 	assertEquals(100, largestAverage(gdata), 0.1);
+ }
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-122f7d4533429f29088b1366c0c04d90">7 - 12. Two Dimensional Arrays</h1>
+    <div class="lead">Two dimensional arrays can represent temperatures across the states, locations of buildings, or hospital X-rays.</div>
+	<h2 id="fundamentals">Fundamentals</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[][]</span> <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">30</span><span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#000">60</span><span style="color:#ce5c00;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">rows</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">length</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">cols</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">].</span><span style="color:#c4a000">length</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">java.util.Arrays</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">[][]</span> <span style="color:#000">given</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{{</span><span style="color:#000">1</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">2</span><span style="color:#ce5c00;font-weight:bold">},{</span><span style="color:#000">3</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">4</span><span style="color:#ce5c00;font-weight:bold">},{</span><span style="color:#000">5</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">6</span><span style="color:#ce5c00;font-weight:bold">}};</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">System</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">out</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">println</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">Arrays</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">deepToString</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">given</span><span style="color:#ce5c00;font-weight:bold">));</span>
+</span></span></code></pre></div><h2 id="introduction">Introduction</h2>
+<p><a href="https://docs.google.com/presentation/d/1QEp4FGMU1ShqXnAAwZ2gDNfMQqL6rmHUkAVeGWsszeU/edit?usp=sharing">Array 2D intro and practice slides</a>.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>Write the <code>makeBoard</code> function that creates a matrix of ones surrounded by a moat of zeros.</p>
+<pre><code> public static int[][] makeBoard(int rows, int cols);
+
+ int[][] result = makeBoard(5,7);
+ System.out.println(Arrays.deepToString(result);
+ /*
+ 0 0 0 0 0 0 0
+ 0 1 1 1 1 1 0
+ 0 1 1 1 1 1 0
+ 0 1 1 1 1 1 0
+ 0 0 0 0 0 0 0
+ */
+</code></pre>
+</li>
+<li>
+<p>Make <code>boxSplit</code>, which takes in a 1D array of integers
+of even length and splits it into two rows (in &ldquo;row major order&rdquo;).</p>
+<pre><code> public static int[][] boxSplit(int[] data);
+
+ int[] data = {10,20,40,80,120,160};
+ int[][] result = boxSplit(data);
+ /* result == {{10,20,40},
+ 			  {80,120,160}} */
+</code></pre>
+</li>
+<li>
+<p>Make the <code>boxSplitV</code>, which takes in a one dimensional array of integers of even length and splits it into two rows, but distributes the values in &ldquo;column major order&rdquo;.</p>
+<pre><code> public static int[][] boxSplitV(int[] data);
+
+ int[] data = {10,20,40,80,120,160};
+ int[][] result = boxSplitV(data);
+ /* result == {{10,40,120},
+ 			  {20,80,160}} */
+</code></pre>
+</li>
+<li>
+<p>The <code>colMax</code> function takes in a (nonempty, rectangular) 2D array of data and returns a 1D array containing the maximum value from each column of the array.</p>
+<pre><code> public static int[] colMax(int[][] data);
+
+ int[][] data = {{-50, 100, 40},
+ 				{-30,   0, 90},
+ 				{-40,  95, 30}};
+ int[] result = colMax(data);
+ System.out.println(Arrays.toString(result));
+ // {-30,100,90}
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a31902eef297faaffbd1315b4a39f3d3">8 - 12. Scanning 2D</h1>
+    <div class="lead">Avoid falling off the edge, do something to each item.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<h2 id="teaching-points">Teaching Points</h2>
+<p>A process for approaching an array problem:</p>
+<ol start="0">
+<li>Example: begin by writing one clear example with numbers.</li>
+<li>Skeleton: set up variables and loops (number of rows, number of
+columns, loop through rows, loop through columns).</li>
+<li>General case: write down code that will work most of the time
+(e.g., in the middle of the array).</li>
+<li>Special cases: deal with the edges of the array where things might
+be different.</li>
+</ol>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>(<code>ddot</code>) Suppose that <code>nums</code> is an NxN square array of ints. The
+main diagonal runs from the upper left (row=0, col=0) to the lower
+right (row=N-1, col=N-1). The opposite diagonal runs from the upper
+right (row=0, col=N-1) to the lower left (row=N-1, col=0). Find the
+sum of the products of the corresponding elements in the main
+diagonal and the opposite diagonal.</p>
+<p>For example: the main diagonal in the 3x3 array below is 110,
+220, 330.</p>
+<pre><code> 110  210  310
+ 120  220  320
+ 130  230  330
+</code></pre>
+<p>Running <code>ddot</code> on this array would give
+$$110\cdot 310 + 220\cdot 220+130\cdot 330.$$</p>
+</li>
+<li>
+<p>(<code>wings</code>) Given a two dimensional array, output a new array of the
+same size, where the item in index (row=i, col=j) of the new array
+is the sum of up to three items from the original array: the
+element at the same index (row=i, col=j), the element above that
+(row=i-1, col=j), and the element to the left (row=i, col=j-1).</p>
+<p>If there is no element of the original array at that location, then
+consider that element&rsquo;s contribution 0.</p>
+<p>Discussion: what changes are needed to modify the original array
+instead of returning a new array (giving the same results)?</p>
+</li>
+<li>
+<p>(<code>vavg</code>) Given a two dimensional array of doubles, return an output
+array of the same size, but the output values are the average of
+numbers above and below the corresponding element in the input
+array. If one of those elements is not present, ignore it and use
+the other for the value. (In this case, you could also say the
+output is the average of one number from the input.)</p>
+<p>For example, the 4x1 input array on the left below results in the output
+shown on the right.</p>
+<pre><code> in         vavg(in)
+ 100        200
+ 200        300
+ 500        400
+ 600        500
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0bb61d3054575f91e109ea74c7a6272b">9 - 12. Array Speedrun</h1>
+    
+	<p>Make create a two dimensional array of a given width and height filled
+in a snake pattern with 0 and 1 as described below.</p>
+<p>The snake pattern starts with a 1, then has longer and longer
+sequences of zeros separated by ones: 0 zeros, one, 1 zero, one, 2
+zeroes, one, 3 zeroes, one, etc.</p>
+<pre><code>11010010001000010000010000001
+</code></pre>
+<p>The array is filled in by rows, first going to the right, then going
+to the left, in the pattern shown by these &ldquo;ascii arrows&rdquo;:</p>
+<pre><code>--1--&gt;&gt;
+&lt;&lt;--2--
+--3--&gt;&gt;
+&lt;&lt;--4--
+--5--&gt;&gt;
+</code></pre>
+<p>The filled in result of <code>snakeSpeedrun(6,5)</code> would be:</p>
+<pre><code> 110100
+ 010001
+ 000100
+ 001000
+ 000010
+</code></pre>
+<p>You write the function:
+<code>public static int[][] snakeSpeedrun(int width, int height)</code></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cff3fdfe6529062b4bfbdaeb561b0247">10 - 12. Quiz A on 2D</h1>
+    
+	<p>An isthmus location contains a non-zero number with the same number to
+the left and right, and has zeros above and below.</p>
+<p>In the example below, the middle 5 is an isthmus location.</p>
+<pre><code>  0
+5 5 5
+  0
+</code></pre>
+<p>Given 2d array of ints, count the number of isthmus locations that
+contain odd numbers.</p>
+<p><a href="Isthmus.java">Test code</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-728b48143fbea75ee09d018ebb07f86f">11 - 12. Quiz M</h1>
+    
+	<p>(<code>back13</code>) Take each multiple of 13 that appears in the array and change all of
+the numbers before it to be that multiple of 13, until you come to
+another multiple of 13.</p>
+<p>Examples:</p>
+<ol>
+<li><code>back13([11,12,13,14])</code> =&gt; <code>[13,13,13,14]</code></li>
+<li><code>back13([40,39,50,52,60])</code> =&gt; <code>[39,39,52,52,60]</code></li>
+<li><code>back13([21,23,25,26,90,65,17])</code> =&gt; <code>[26,26,26,26,65,65,17]</code></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ce86ac07dd5653bd0e6010dc190ec37d">12 - 12. Quiz N</h1>
+    
+	<p>(<code>similarEnds</code>)
+An array has similar N-ends if the front and back N numbers are
+in the reversed order.</p>
+<p>Return the largest N value for which an array has the same N-ends.</p>
+<ul>
+<li>N is a positive integer.</li>
+<li>Give 0 if the ends are not similar at all.</li>
+</ul>
+<p>Examples:</p>
+<ol>
+<li><code>similarEnds([20,30,40])</code> =&gt; <code>0</code>.</li>
+<li><code>similarEnds([20,30,4,5,30,20])</code> =&gt; <code>2</code>.</li>
+<li><code>similarEnds([20,30,40,50,50,40,30,20])</code> =&gt; <code>8</code>. The repeating segments overlap.</li>
+<li><code>similarEnds([10,20,30,20,10])</code> =&gt; <code>5</code>.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7a1d5626825ec1e01d6e1d1a9e7fc86a">13 - 12. String Dolphin</h1>
+    
+	<p>Count how many times &ldquo;dolphin&rdquo; appears in a string. Except don&rsquo;t count
+the word &ldquo;dolphin&rdquo; if it comes immediately after &ldquo;shark &ldquo;.</p>
+<p><code>public static int cdol(String str)</code></p>
+<p>Examples:</p>
+<ol>
+<li><code>cdol(&quot;dolphin dolphin dolphin&quot;)</code> =&gt; 3</li>
+<li><code>cdol(&quot;dolphin shark dolphin&quot;)</code> =&gt; 1</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-56da52c4b687b8b1380576e0462ea347">14 - 12. AL - hasPieee</h1>
+    
+	<p><a href="https://docs.google.com/presentation/d/1gLoI2KTCvALpSvW26gLePK7NVkqIe84Aq9lgYkWqL24/edit#slide=id.g10ab11346d_3_5">Array List
+exercises</a>.</p>
+<p>2019-01-16: <code>throddPigs</code>, <code>hasPieee</code>, ?</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e89717fd3d9c3733ddc7404ebc3b6a9c">15 - 12. Chomp</h1>
+    
+	<p><a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone.git">Class JavaMethods GitHub</a> -&gt; <a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/tree/master/ch12/Chomp">Chomp project directory</a> -&gt; <a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/blob/master/ch12/Chomp/CharMatrix.java">CharMatrix class</a>.
+The CharMatrix code can be copy-and-pasted into Repl.it or DrJava. Make sure you test your code as you go, so you know what the problems are. There is a <a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/blob/master/ch12/Chomp/CharMatrixTester.java">tester file</a> in the Chomp project directory that works with DrJava.</p>
+<h2 id="issues">Issues</h2>
+<ul>
+<li>
+<p>Using DrJava: how do you run the tests? <strong>Answer</strong>: Make sure the file <code>CharMatrixTester.java</code> is in your project. Click <code>Compile Project</code> and then <code>Test Project</code>.</p>
+</li>
+<li>
+<p><a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/blob/master/ch12/Chomp/CharMatrixTester.java">CharMatrixTester.java</a> was updated on GitHub; sorry about the incorrect test results.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

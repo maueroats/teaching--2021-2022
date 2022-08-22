@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/connect-four/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Connect Four | WY CS</title>
+<meta name="description" content="Connect Four project description, including function signatures.">
+<meta property="og:title" content="Connect Four" />
+<meta property="og:description" content="Connect Four project description, including function signatures." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/connect-four/" />
+
+<meta itemprop="name" content="Connect Four">
+<meta itemprop="description" content="Connect Four project description, including function signatures."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Connect Four"/>
+<meta name="twitter:description" content="Connect Four project description, including function signatures."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/connect-four/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Connect Four</h1>
+<div class="lead">Connect Four project description, including function signatures.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-f3928154220bae252afec8427567ebf1">Connect Four Overview</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-3f3f4664b9d3ff3ea4e3cdeedc6b1c23">Connect Four Timeline</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-ad2c165cea0ddb01af40370a7b2768eb">Connect Four UI</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-b26372ec547114135b11744c83e2de75">Connect Four Testcases</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-f889710fe5875b232bd8f851e1cfef6c">Connect Four Spoilers</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-48b36061957dcd0834f88472605cd43f">Primer 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-fd6fcad3e111aaa203f58eec02dff6b7">Connect Four Rubric</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>Familiarize yourself with the game of
+<a href="https://en.wikipedia.org/wiki/Connect_Four">Connect Four</a>, possibly <a href="https://www.mathsisfun.com/games/connect4.html">playing a few games</a>.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f3928154220bae252afec8427567ebf1">1 - Connect Four Overview</h1>
+    
+	<h2 id="basic-types">Basic Types</h2>
+<p>Some years we have left the choice of representation to be up to the
+writer. This description is one possible representation:</p>
+<pre><code>type Player = Int -- really only two choices
+type Posn = (Int, Int) -- coordinates
+type Piece = (Player, Posn)
+type Board = [Piece]
+</code></pre>
+<h2 id="functions-to-write">Functions to write</h2>
+<p>This is a minimum set of functions to write:</p>
+<ul>
+<li>
+<p><code>draw_board :: Board -&gt; String</code></p>
+<p>Create a String representation of the board.</p>
+</li>
+<li>
+<p><code>make_move :: Board -&gt; Int -&gt; Player -&gt; Board</code></p>
+<p>Using the number for the column, give a new Board with a piece
+added. Assumes that the move is legal.</p>
+</li>
+<li>
+<p><code>is_legal_move :: Board -&gt; Int -&gt; Bool</code></p>
+<p>True if playing in the given column is legal. Used to prevent
+people from playing in full columns or off the board (e.g., column
+-5).  The computer uses this information to decide whether the next
+move should be by the same player (attempted move was illegal) or the
+opponent.</p>
+</li>
+<li>
+<p><code>is_won :: Board -&gt; Bool</code></p>
+<p>True when either player has four in a row on the board.</p>
+</li>
+</ul>
+<h2 id="advanced-functions">Advanced functions</h2>
+<p>When you are done with the minimum set of functions, consider writing
+functions that will allow the computer to choose moves, making better
+and better choices as you work your way down the list.</p>
+<ul>
+<li>
+<p><code>any_legal</code> gives the first legal move it finds.</p>
+</li>
+<li>
+<p><code>win_or_any_move</code> is an improvement over <code>any_legal</code> that makes a
+winning move if there is one.</p>
+</li>
+<li>
+<p><code>win_or_get_three</code> is an improvement over <code>win_or_random_move</code> that
+plays to get three in a row if it cannot get four in a row.</p>
+</li>
+<li>
+<p><code>best_move</code> picks a move that will lead to a win if one exists and
+avoids moves that lead to losing.</p>
+</li>
+</ul>
+<p>The last function is the most interesting, but will require doing some outside
+reading on the <a href="http://www.cs.cornell.edu/courses/cs2110/2014sp/assignments/a4/A4ConnectFour.pdf">minimax algorithm</a>, perhaps looking at an <a href="https://github.com/erikackermann/Connect-Four">implementation for Connect Four</a>.</p>
+<h2 id="design-process">Design process</h2>
+<p>Make a plan before you start writing code! I recommend the top-down
+design that we discussed last year.</p>
+<p>Please have each step of the design process visible for each
+function. It will speed your work and made it easier to understand!</p>
+<ol>
+<li>Purpose for the function</li>
+<li>Signature for the function</li>
+<li>Example(s) showing how the function will work.</li>
+<li>Write the function.</li>
+<li>Testing: put the examples for the function called <code>work</code> into a function called <code>test_work</code>.</li>
+</ol>
+<h2 id="technical-details">Technical details</h2>
+<ol>
+<li>
+<p>Question: How do you print on more than one line?</p>
+<p>Answer: Put &ldquo;\n&rdquo; in your string. For example: &ldquo;One line\nSecond line&rdquo;.</p>
+<p>Example:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">drawBoard</span> <span style="color:#000">xs</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;__XX</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">_OOO&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">drawBoard</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">],[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>Question: What is the difference between &lsquo;X&rsquo; and &ldquo;X&rdquo;?</p>
+<p>Answer: &lsquo;x&rsquo; is a character (Char), and &ldquo;X&rdquo; is a String, which is a list of characters.</p>
+</li>
+<li>
+<p>Question: How do you define a type shortcut?</p>
+<p>Answer: see examples at the top of the page.</p>
+</li>
+<li>
+<p>Question: How do you define a struct?</p>
+<p>Answer: it will be easier if you do not do this, but <a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses#record-syntax">Chapter 8 in LYaH</a> has all of the information you need.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3f3f4664b9d3ff3ea4e3cdeedc6b1c23">2 - Connect Four Timeline</h1>
+    
+	<table>
+<thead>
+<tr>
+<th style="text-align:center">Day</th>
+<th>Date(s)</th>
+<th>Project Assignment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>TBA 9</td>
+<td>Project assigned. Write <code>draw_board</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center">2-3</td>
+<td>TBA 11</td>
+<td>Plan, write, and test: <code>is_legal_move</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>TBA 12</td>
+<td>Plan <code>is_won</code> in class. Write and test at home.</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>TBA 15</td>
+<td>Project due.</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td>TBA 19</td>
+<td>Last day to turn in project.</td>
+</tr>
+</tbody>
+</table>
+<p>I expect this project to take 4-6 hours to complete over the course of
+a week. If you spend less than 3 hours on the project you should read
+the advanced notes about the minimax algorithm and (partially?)
+implement it.</p>
+<p>Expected times and other notes:</p>
+<ul>
+<li><code>draw_board</code>: 1.0 hour, including class time</li>
+<li><code>is_legal_move</code>: 0.5 hour</li>
+<li><code>is_won</code>: 1.5-2 hours, including 0.5-1.0 hours planning time
+Expect to use several helper functions. See <a href="/teaching--2021-2022/ap-cs/haskell/connect-four/spoilers/#detecting-a-win">spoilers</a> if needed.</li>
+<li><code>make_move</code>: 1.0 hour, including class time. See <a href="/teaching--2021-2022/ap-cs/haskell/connect-four/spoilers/#changing-entries-in-the-board">spoilers</a> if needed.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ad2c165cea0ddb01af40370a7b2768eb">3 - Connect Four UI</h1>
+    
+	<p>The <a href="ui-connect-four.hs">user interface code</a> for Connect Four is a little clunky. (Repl.it <a href="https://repl.it/Marn/0">shared code</a>.)
+You may use the linked code. You do not have to learn this part of writing Haskell programs (yet).</p>
+<h2 id="code-outline">Code Outline</h2>
+<p>main: just make board and call event loop</p>
+<p>event loop:</p>
+<ul>
+<li>draw board</li>
+<li>is it won?
+<ul>
+<li>print the win message</li>
+</ul>
+</li>
+<li>not won?
+<ul>
+<li>get a move</li>
+<li>recursive call to event loop with updated board, next player</li>
+</ul>
+</li>
+</ul>
+<h2 id="code">Code</h2>
+<p>All of the <a href="ui-connect-four.hs">user interface code</a> is linked separately (open in WordPad if necessary).</p>
+<p>The setup of the code, which you should change to match your own functions is below. You need: <code>drawBoard</code>, <code>is_won</code>, <code>is_move_legal</code>, and <code>make_move</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#204a87;font-weight:bold">Int</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">drawBoard</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">String</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">drawBoard</span> <span style="color:#000">board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">show</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">simplify</span> <span style="color:#000">board</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">is_won</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">is_won</span> <span style="color:#000">board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">is_move_legal</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Bool</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">is_move_legal</span> <span style="color:#000">board</span> <span style="color:#000">col</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">make_move</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Board</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">make_move</span> <span style="color:#000">board</span> <span style="color:#000">col</span> <span style="color:#000">player</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#000">player</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">-- Just for the demo: force the board to be 1x1.</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">simplify</span> <span style="color:#000">board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#000">board</span><span style="color:#ce5c00;font-weight:bold">!!</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#ce5c00;font-weight:bold">!!</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span></code></pre></div><p>The essentials of the code are an event loop function, which draws the
+board, checks to see if it is won, gets the next move, and then calls
+a sepeate function to handle the move.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">event_loop</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span><span style="color:#204a87">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">event_loop</span> <span style="color:#000">board</span> <span style="color:#000">player</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">putStrLn</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">drawBoard</span> <span style="color:#000">board</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">is_won</span> <span style="color:#000">board</span> <span style="color:#204a87;font-weight:bold">then</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">win_message</span> <span style="color:#000">board</span> <span style="color:#000">player</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">return</span> <span style="color:#204a87">()</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">col</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">get_move</span> <span style="color:#000">player</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">handle_move</span> <span style="color:#000">board</span> <span style="color:#000">player</span> <span style="color:#000">col</span>
+</span></span></code></pre></div><p>The handle move function recursively calls the event loop with an
+improved board and sets the next player. If the attempted move is
+illegal, then the recursive call to event loop does not update the
+board or player, so the same player moves again.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#000">handle_move</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Board</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">Int</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span> <span style="color:#204a87">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">handle_move</span> <span style="color:#000">board</span> <span style="color:#000">player</span> <span style="color:#000">col</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">col</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">99</span>              <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">goodbye</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">is_move_legal</span> <span style="color:#000">board</span> <span style="color:#000">col</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">event_loop</span> <span style="color:#000">new_board</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">next_</span> <span style="color:#000">player</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">complain_and_restart</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">complain_and_restart</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;ERROR: That is not a legal move.&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">event_loop</span> <span style="color:#000">board</span> <span style="color:#000">player</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000">new_board</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">make_move</span> <span style="color:#000">board</span> <span style="color:#000">col</span> <span style="color:#000">player</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000">goodbye</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span> <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;You quit&#34;</span>
+</span></span></code></pre></div><h2 id="example-run">Example run</h2>
+<pre tabindex="0"><code>*Main&gt; main
+        
+        
+        
+        
+        
+        
+(Enter -99 to quit.)
+Player 1 moves.
+Column [0-7]? 5
+        
+        
+        
+        
+        
+     X  
+(Enter -99 to quit.)
+Player 2 moves.
+Column [0-7]? 2
+        
+        
+        
+        
+        
+  O  X  
+(Enter -99 to quit.)
+Player 1 moves.
+Column [0-7]? 5
+        
+        
+        
+        
+     X  
+  O  X  
+(Enter -99 to quit.)
+Player 2 moves.
+Column [0-7]? 3
+        
+        
+        
+        
+     X  
+  OO X  
+(Enter -99 to quit.)
+Player 1 moves.
+Column [0-7]? 5
+        
+        
+        
+     X  
+     X  
+  OO X  
+(Enter -99 to quit.)
+Player 2 moves.
+Column [0-7]? 4
+        
+        
+        
+     X  
+     X  
+  OOOX  
+(Enter -99 to quit.)
+Player 1 moves.
+Column [0-7]?   5
+        
+        
+     X  
+     X  
+     X  
+  OOOX  
+The game is over
+Player 1 won!
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b26372ec547114135b11744c83e2de75">4 - Connect Four Testcases</h1>
+    
+	<p>The <a href="connect4.zip">testcases zip file</a> contains all of the template files.</p>
+<p>You can also download them one by one:</p>
+<ul>
+<li><a href="ConnectFour.hs">Connect Four</a></li>
+<li><a href="BoardConvert.hs">BoardConvert</a>: Convert from a matrix representing
+the board to a list of <code>Piece</code>.</li>
+<li><a href="TestConnectFour.hs">TestConnectFour</a></li>
+<li><a href="UIConnectFour.hs">User Interface for Connect Four</a></li>
+<li><a href="Main.hs">Main method in its own file</a></li>
+</ul>
+<p>It may help you to start from <strong>(FIXME) <a href="https://repl.it/NP9L/1">my repl.it workspace</a></strong> with all of the
+testing code already in it. Your code should go in <code>ConnectFour.hs</code>. You may need
+to edit some of the function names. The list of what they are supposed to be is
+at the start.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f889710fe5875b232bd8f851e1cfef6c">5 - Connect Four Spoilers</h1>
+    
+	<p><strong>These spoilers are obsolete.</strong> You should be representing the board
+as a list of pieces. Detecting a win should have mostly been part of a
+warm-up in class.</p>
+<p>Two problems with connect four: changing an entry in a matrix ([[Int]]) and
+seeing if there is a win.</p>
+<h2 id="changing-entries-in-the-board">Changing entries in the board</h2>
+<p>The biggest problem with the representation of the board as <code>[[Int]]</code>
+is that it is really hard to change the entries. If you use
+[((Int,Int),Player)] then it&rsquo;s lots easier to make moves.</p>
+<p>Outline of plan:</p>
+<ol>
+<li>(<code>changeCol: [Int] -&gt; Int -&gt; Int -&gt; [Int]</code>)
+Change value at index <code>col</code> in a single row to
+<code>newVal</code>; every other value in the list just output unchanged.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">changeCol</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">11</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#0000cf;font-weight:bold">99</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">11</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">99</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>We have basically written this function as a Coding Bat problem.</p>
+<ol start="2">
+<li>(<code>changeRowCol: [[Int]] -&gt; Int -&gt; Int -&gt; Int -&gt; [[Int]]</code>)
+Run changeCol only on the index <code>row</code> entry, everything else stays the same.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span>    <span style="color:#000">changeRowCol</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">],[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">]]</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#0000cf;font-weight:bold">99</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">],[</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">7</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">99</span><span style="color:#000;font-weight:bold">]]</span>
+</span></span></code></pre></div><p>There is actually <a href="change-entry.hs">spoiler code</a> and <a href="change-entry-enhanced.hs">fancy spoiler
+code that uses Chapter 6</a>.</p>
+<h2 id="detecting-a-win">Detecting a win</h2>
+<p>Please email me questions. I know this is tricky. My own breakdown was:</p>
+<ol>
+<li>
+<p>Generate a list containing four ordered pairs in a row. Input: (x,y) coordinates of the first entry, and (dx,dy) to be added to (x,y) to get the other three pairs needed.</p>
+</li>
+<li>
+<p>Given a board and one list of four ordered pairs, return True if all of the ordered pairs are legal coordinates for that board.</p>
+</li>
+<li>
+<p>Given a board, return a list of all possible lists of four ordered
+pairs in straight lines. For example, if the board is just the flat 5x1 board <code>[[0,0,0,0,0]]</code>, then this function should give a list of the two possible 4-in-a-rows: <code>[[(0,0),(1,0),(2,0),(3,0)], [(1,0),(2,0),(3,0),(4,0)]]</code>.</p>
+</li>
+<li>
+<p>Given a board and a single ordered pair, get the corresponding value from the board.</p>
+</li>
+<li>
+<p>Given a board and four ordered pairs, return True if all of the corrsponding values are the same.</p>
+</li>
+<li>
+<p>Do the preceding to a whole list of 4 pairs of coordinates.</p>
+</li>
+<li>
+<p>Given a board, return True if it is won.</p>
+</li>
+<li>
+<p>There are a few more steps but you are almost there!</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-48b36061957dcd0834f88472605cd43f">6 - Primer 2</h1>
+    
+	<ul>
+<li>
+<p><code>type Posn = (Int, Int)</code></p>
+</li>
+<li>
+<p><code>occupied :: Posn -&gt; [Posn] -&gt; Bool</code>. True if the first argument
+appears somewhere in the list which is the second argument.</p>
+</li>
+<li>
+<p><code>allOccupied:: [Posn] -&gt; [Posn] -&gt; Bool</code>. True if every one of the
+posns in the first list appear somewhere in the second list.</p>
+<pre><code>  True == allOccupied [(1,5),(2,7)] [(2,7),(1,5),(3,7)]
+  False == allOccupied [(1,5),(2,7)] [(2,7),(3,7)]
+  False == allOccupied [(1,5),(2,7)] [(2,6),(2,8),(1,5)]
+</code></pre>
+</li>
+<li>
+<p><code>occupiedPosn :: Board -&gt; [Posn]</code>: Just extract the occupied
+positions, regardless of player.</p>
+</li>
+<li>
+<p><code>dropDown :: Int -&gt; [Posn] -&gt; Int</code>. The function <code>dropDown x occupied</code>
+gives a number that is one more than the largest y coordinate in the board
+with the same x coordinate. If there are no pieces in the given
+column, return 1 as the answer.</p>
+<p>In the example below, the column with x=4 has points with y=1 and
+y=2, so one more than largest y coordinate is y=3.</p>
+<pre><code>  dropDown 4 [(4,2),(1,1),(2,1),(2,2),(4,1),(2,3)] == 3
+  dropDown 6 [(4,2),(1,1),(2,1),(2,2),(4,1),(2,3)] == 1
+</code></pre>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fd6fcad3e111aaa203f58eec02dff6b7">7 - Connect Four Rubric</h1>
+    
+	<p><strong>DRAFT: MAY CHANGE</strong></p>
+<p>There are four functions that you are expected to design and test:</p>
+<ul>
+<li><code>draw_board</code>: Create a String representation of the board.</li>
+<li><code>is_legal_move</code>: True if the attempted move is legal. Used to prevent players from moving in full columns or playing in column -5.</li>
+<li><code>is_won</code>: True if the game is over (either player has four in a row).</li>
+<li><code>make_move</code>: Gives a new Board with a piece added. Assumes that the move is legal.</li>
+</ul>
+<p>To keep scoring straightforward, each function is worth 10 points.</p>
+<h2 id="draw-board">Draw Board</h2>
+<p>This should draw with no issues, showing the board each row on its own line.
+I do not anticipate problems with this function.</p>
+<h2 id="make-move">Make Move</h2>
+<ul>
+<li>5 points: piece falls to the bottom of the row when empty (basic move)</li>
+<li>5 points: piece falls to the appropriate place (follows all rules)</li>
+</ul>
+<h2 id="is-legal-move">Is Legal Move</h2>
+<ul>
+<li>5 points: moves outside of board are not allowed (column negative or too large)</li>
+<li>5 points: moves not permitted in full column</li>
+</ul>
+<h2 id="is-won">Is Won</h2>
+<ul>
+<li>5 points: horizontal and vertical wins detected</li>
+<li>5 points: diagonal wins detected</li>
+</ul>
+<h2 id="deductions">Deductions</h2>
+<ul>
+<li>Brute force instead of a thoughtful approach (-4)</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch11/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>11. Classes | WY CS</title>
+<meta name="description" content="Interfaces and abstract classes.">
+<meta property="og:title" content="11. Classes" />
+<meta property="og:description" content="Interfaces and abstract classes." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch11/" />
+
+<meta itemprop="name" content="11. Classes">
+<meta itemprop="description" content="Interfaces and abstract classes."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="11. Classes"/>
+<meta name="twitter:description" content="Interfaces and abstract classes."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/jm/ch11/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">11. Classes</h1>
+<div class="lead">Interfaces and abstract classes.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-7ae229775b2262c41a750094eab55028">11. Animal</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-99612c21e394c1b1813c0c9ab4f7cdc9">11. Candy</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-dcfc5813e4613cff2bf9b00e343fbf19">11. Inheritance 1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-82e7111a473f013d9e1f4d9e0b748b38">11. Inheritance 2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-1d2c604bb853a049b0f3edc91a2890ee">Abstract Classes</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-9042411eb2601d8e8b5f767b2cf3c4cc">Interfaces</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-a6189e2d434d11f34ac8b3b27e558379">11. AQuiz IAnswers</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-de1e1a53d8632ceb728b887b4b75b2c0">11. Quiz B</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-5dbfb2c8d070e3aef4fc9f6cddacbbca">11. Quiz C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-190406e066937baa152adb6ed22a4596">11. Treasure Hunt</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-b0d6461b582d9c5123674412d7d5d0f6">11. Instanceof</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="additional-resources">Additional resources</h2>
+<ul>
+<li>The Java Tutorials have a discussion of <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">abstract classes vs
+interfaces</a>.</li>
+</ul>
+<h2 id="contents">Contents</h2>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-7ae229775b2262c41a750094eab55028">1 - 11. Animal</h1>
+    <div class="lead">Animal and CarnivoreAnimal.</div>
+	<p>The <code>Animal</code> is an abstract class with the following methods:</p>
+<ul>
+<li><code>int beEaten()</code>: returns the number of calories provided</li>
+<li><code>void gainCalories (int amount)</code>: increases number of calories.</li>
+</ul>
+<p>When you construct an <code>Animal</code>, the
+constructor needs to know how many calories are in the animal.</p>
+<p><code>CarnivoreAnimal</code> is a concrete subclass of <code>Animal</code>. It also has a
+method <code>void eat(Animal other)</code>. This method causes the
+<code>CarnivoreAnimal</code> to gain the calories provided by the other Animal
+(found using the <code>beEaten()</code> method).</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-99612c21e394c1b1813c0c9ab4f7cdc9">2 - 11. Candy</h1>
+    <div class="lead">Food interface, Candy class, ComboCandy subclass.</div>
+	<p>The <code>Food</code> interface has methods <code>String getName()</code> and <code>String getTaste()</code>.</p>
+<p>The <code>Candy</code> class implements the <code>Food</code> interface. When printed out,
+it shows the name of the candy and the flavor (as seen below).</p>
+<pre><code>Candy c = new Candy(&quot;Red hots&quot;, &quot;cinnamon&quot;);
+Candy d = new Candy(&quot;Little Mints&quot;, &quot;peppermint&quot;);
+Candy e = new ComboCandy(&quot;swirl&quot;, c, d);
+
+System.out.println(c); // &quot;Red hots: cinnamon&quot;
+System.out.println(d); // &quot;Little Mints: peppermint&quot;
+System.out.println(e); // &quot;Combo: swirl of cinnamon and peppermint&quot;
+</code></pre>
+<p>Notice that the combo candy always prints out as &ldquo;Combo&rdquo; before the
+flavor.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dcfc5813e4613cff2bf9b00e343fbf19">3 - 11. Inheritance 1</h1>
+    <div class="lead">Animal. Dog. Cat. Borzoi. Boxer. Abstract example: A, B, C.</div>
+	<h2 id="relatively-simple">Relatively simple</h2>
+<p>Create the following classes.</p>
+<ul>
+<li>
+<p><code>Animal</code> is an abstract class</p>
+<ul>
+<li><code>Animal(String kind)</code> constructor to create an animal of a
+certain kind.</li>
+<li><code>public String noise()</code>: an abstract method</li>
+<li><code>public void speak()</code>: print out &ldquo;a [kind] says [noise()].&rdquo;</li>
+</ul>
+</li>
+<li>
+<p><code>Cat</code> is a subclass of <code>Animal</code>. It makes the &ldquo;miaou&rdquo; noise.</p>
+</li>
+<li>
+<p><code>Dog</code> is a subclass of <code>Animal</code>. It makes the &ldquo;ruff&rdquo; noise. Dogs can
+also do <code>public void trick()</code>, which prints out &ldquo;shake&rdquo;.</p>
+</li>
+<li>
+<p><code>Borzoi</code> is a subclass of <code>Dog</code>. The Borzoi does not bark, the only
+noise it makes is a &ldquo;whine&rdquo;.</p>
+</li>
+<li>
+<p><code>Boxer</code> is a subclass of <code>Dog</code>. The Boxer knows the &ldquo;tug of war&rdquo; trick.</p>
+</li>
+</ul>
+<p>Discuss how they can and cannot be used in a Java program. See
+the <a href="animals.java">testAnimals</a> function (also as <a href="animals.txt">plain text</a>).</p>
+<h2 id="complexified">Complexified</h2>
+<p>This example is more abstract but reviews the same ideas.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">A</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#000">print</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;hi&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">();</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#000">print</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Sally&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">B</span> <span style="color:#204a87;font-weight:bold">extends</span> <span style="color:#000">A</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">super</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">p</span><span style="color:#ce5c00;font-weight:bold">();</span> <span style="color:#000">print</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;bye&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">C</span> <span style="color:#204a87;font-weight:bold">extends</span> <span style="color:#000">A</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#000">print</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Ava&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">r</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#000">print</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;$1000&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p><a href="ABC.java">Questions about the code</a> or as <a href="ABC.txt">text</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-82e7111a473f013d9e1f4d9e0b748b38">4 - 11. Inheritance 2</h1>
+    <div class="lead">Noisy, Colorable, Cat, RandomCat. Practice with classes, abstract classes, and interfaces.</div>
+	<h2 id="noisy">Noisy</h2>
+<p>It takes 0.2 seconds per letter for an animal to make a noise, so
+&ldquo;meow&rdquo; takes 0.8 seconds and &ldquo;meeeou&rdquo; is 1.2 seconds. There are two
+methods to think about:</p>
+<ul>
+<li>public String noise(): the noise that something <code>Noisy</code> makes; and</li>
+<li>public double timeNoise(): the number of seconds it takes to produce
+that noise.</li>
+</ul>
+<ol>
+<li>Is this best as an interface or an abstract class? Explain your
+answer.</li>
+<li>Write the <code>Noisy</code> thing in Java.</li>
+<li>Make a <code>Dolphin</code> class that makes the &ldquo;click&rdquo; noise.</li>
+</ol>
+<h2 id="colorable">Colorable</h2>
+<p>A class is <code>Colorable</code> if it has the methods <code>void setColor(int c)</code>
+and <code>int getColor()</code>.</p>
+<ol>
+<li>Is this best as an interface or an abstract class? Explain your choice.</li>
+<li>Add the <code>Colorable</code> abilities to your <code>Dolphin</code>.</li>
+</ol>
+<h2 id="cats">Cats</h2>
+<p>A <code>Cat</code> is a <code>Noisy</code> thing that makes one of three noises: &ldquo;meow&rdquo;,
+&ldquo;purr&rdquo;, or &ldquo;rrrrrrr&rdquo;. When you construct a cat it should get a number
+0, 1, or 2 that it uses to choose which noise to make.</p>
+<p>A <code>RandomCat</code> is a kind of <code>Cat</code> that makes an unspecified random
+noise. Each random cat could make a different noise, but a given
+random cat will always make the same noise.</p>
+<p>A <code>VeryRandomCat</code> makes a different random noise every time it makes a
+noise. Figure out a way to create this class without duplicating code
+from other classes, possibly by going back to rewrite what you have in
+a different way.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1d2c604bb853a049b0f3edc91a2890ee">5 - Abstract Classes</h1>
+    <div class="lead">When are abstract classes useful? A discussion of a few examples.</div>
+	<ul>
+<li>AbstractCollection</li>
+<li>JComponent graphical user interface component</li>
+</ul>
+<h2 id="example-abstract-collections">Example: Abstract Collections</h2>
+<p><a href="http://hg.openjdk.java.net/jdk8u/jdk8u-dev/jdk/file/c5d02f908fb2/src/share/classes/java/util/AbstractCollection.java">AbstractCollection</a>
+is one of the Java utility classes. Its purpose is to remember items,
+so you can add or delete items from the collection. One example of a
+subclass would be <code>ArrayList</code>, but there are others like
+<a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a>.</p>
+<p>Some of the methods it has are:</p>
+<ul>
+<li><code>size()</code></li>
+<li><code>isEmpty()</code></li>
+</ul>
+<p>The <code>AbstractCollection</code> is &ldquo;abstract&rdquo; because it does not specify a
+way of remember items. However, once you know the number of items, it
+is easy to determine if the collection is empty - it has zero
+items. That means some of the code for <code>AbstractCollection</code> looks like
+this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">abstract</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">size</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">boolean</span> <span style="color:#000">isEmpty</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">size</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The major use of abstract classes is that it allows you to build lots
+of other functions on top of one function that you might not yet
+know.</p>
+<h2 id="example-gui">Example: GUI</h2>
+<p>The <a href="https://docs.oracle.com/javase/8/javase-clienttechnologies.htm">Java UI
+tutorial</a>
+has an example showing abstract classes like
+<a href="http://developer.classpath.org/doc/javax/swing/JComponent-source.html">JComponent</a>.</p>
+<p>This figure shows (among other things) that everything in the user
+interface inherits from an abstract <code>JComponent</code> class, and that
+all menu items inherit from a <code>JAbstractButton</code> class.</p>
+<figure>
+    <img src="https://docs.oracle.com/javase/tutorial/figures/uiswing/components/object.gif"/> 
+</figure>
+<p>The <code>getAccessibleName</code> method (<a href="http://developer.classpath.org/doc/javax/swing/JComponent-source.html">line
+360</a>)
+is one example of a non-abstract method in <code>JComponent</code>. It sees if
+the object has a name, and if it does not, it tries to make one by
+looking at other components like the title of the current window. If
+that failes, it looks for the <code>JLabel</code> property and uses that (if
+possible). Nothing in this sequence is abstract, so this method can be
+written once in the JComponent class and does not need to be
+re-written in subclasses.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9042411eb2601d8e8b5f767b2cf3c4cc">6 - Interfaces</h1>
+    <div class="lead">Concrete examples of interfaces.</div>
+	<h2 id="example-mouse-handler">Example: mouse handler</h2>
+<p>A good example of an <code>interface</code> is the
+<a href="https://docs.oracle.com/javase/7/docs/api/java/awt/event/MouseListener.html">MouseListener</a>. This
+interface contains a function to be called when a mouse clicks on
+something (actually different functions for press, release, and
+complete click).</p>
+<p>Making this an interface means any class you create can have the
+ability to work with mouse events.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a6189e2d434d11f34ac8b3b27e558379">7 - 11. AQuiz IAnswers</h1>
+    <div class="lead">A quiz asking you to write an interface, an abstract class, and more.</div>
+	<h2 id="interface-ianswers">Interface: IAnswers</h2>
+<p>The <code>IAnswers</code> interface has the methods:</p>
+<pre><code>int numAnswers();
+int getAnswer(int k);
+</code></pre>
+<h2 id="class-mcanswers">Class: MCAnswers</h2>
+<p>The multiple choice answers class <code>MCAnswers</code> implements the <code>IAnswers</code>
+interface. Its constructor is:</p>
+<pre><code>public MCAnswers (int[] answers)
+</code></pre>
+<h2 id="abstract-class-aquiz">Abstract class: AQuiz</h2>
+<ul>
+<li>Constructor takes in an <code>IAnswers</code> key of correct answers.</li>
+<li>method <code>int score(IAnswers student)</code> gives the score for the
+remembered student answer sheet.</li>
+<li>abstract method <code>int scoreOne(int correct, int given)</code> returns the
+score for a single answer.</li>
+</ul>
+<h2 id="class-mcquiz">Class: MCQuiz</h2>
+<ul>
+<li>Subclass of AQuiz</li>
+<li>Constructor takes in a <code>IAnswers</code> key of correct answers.</li>
+<li>Scoring in the <code>scoreOne</code> method is 4 points for a correct answer
+and -1 point for a wrong answer.</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code>    int[] ans = {2,2,1,3,4};
+    int[] student = {2,2,4,3,4};
+    IAnswers a = new MCAnswers(ans);
+    IAnswers s = new MCAnswers(student);
+    AQuiz b = new MCQuiz(a);
+    int result = b.score(s);
+    System.out.println(result); // prints 15 = +4 +4 -1 +4 +4
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-de1e1a53d8632ceb728b887b4b75b2c0">8 - 11. Quiz B</h1>
+    
+	<ul>
+<li>
+<p><code>Clothes</code> interface has <code>int fashion()</code> and <code>int warmth()</code>.</p>
+</li>
+<li>
+<p><code>HeadCovering</code> is a class that implements the <code>Clothes</code> interface. Its constructor
+sets fashion and warmth, in that order.</p>
+</li>
+<li>
+<p><code>WoolClothes</code> is a class that implements the <code>Clothes</code> interface. It
+takes in a <code>Clothes</code> object in its constructor. It adds 5 to
+the warmth provided by the Clothes because they are made of wool.</p>
+</li>
+<li>
+<p><code>Person</code> is an abstract class with a <code>String name</code> field and a
+<code>String getName()</code> function, as well as abstract methods <code>int getWarmth()</code> and <code>int getFashion()</code>. Constructor sets the name.</p>
+</li>
+<li>
+<p><code>PlainPerson</code> is a subclass of <code>Person</code> with a warmth of 90 and a
+fashion of 50, always.</p>
+</li>
+<li>
+<p><code>BigFashionPerson</code> is a subclass of <code>Person</code> that has an
+<code>ArrayList&lt;Clothes&gt;</code>.</p>
+<pre><code>* Constructor takes in a name and an arraylist of clothes.
+* Their warmth is the sum of the warmth of their clothes.
+* Their fashion is the *minimum* of the fashion of their clothes.
+</code></pre>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<ul>
+<li>Full <a href="TestClothes.java">TestClothes</a> code.</li>
+<li>Add the <a href="ReplItTest.java">repl.it testing code starter</a> to get the
+test going on Repl.it.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// copy and paste? define public static void aassert(bool b)...true=ok, false=fail
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">main</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">String</span><span style="color:#ce5c00;font-weight:bold">[]</span> <span style="color:#000">args</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">Clothes</span> <span style="color:#000">hat</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">HeadCovering</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">20</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">105</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">Clothes</span> <span style="color:#000">underArmor</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">WoolClothes</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">hat</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">Clothes</span> <span style="color:#000">denim</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">HeadCovering</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">95</span><span style="color:#ce5c00;font-weight:bold">,</span><span style="color:#000">40</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">ArrayList</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">Clothes</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">w</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">ArrayList</span><span style="color:#ce5c00;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">w</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">hat</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">w</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">underArmor</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">w</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">add</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">denim</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">Person</span> <span style="color:#000">p1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">PlainPerson</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Jane&#34;</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">50</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">p1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getFashion</span><span style="color:#ce5c00;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">90</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">p1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getWarmth</span><span style="color:#ce5c00;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Jane&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">equals</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">p1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getName</span><span style="color:#ce5c00;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">Person</span> <span style="color:#000">p2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">BigFashionPerson</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Sanjana&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">w</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Sanjana&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">equals</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">p2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getName</span><span style="color:#ce5c00;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">20</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">25</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">95</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">p2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getWarmth</span><span style="color:#ce5c00;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">aassert</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">40</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">p2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getFashion</span><span style="color:#ce5c00;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="pedantic">Pedantic</h2>
+<p>An object that implements the <code>Clothes</code> interface has an integer value
+for its fashion level and its warmth rating. The methods in the
+<code>Clothes</code> interface are accessor methods that return those values.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5dbfb2c8d070e3aef4fc9f6cddacbbca">9 - 11. Quiz C</h1>
+    
+	<ol>
+<li>A <code>Plant</code> prefers to live in a certain range of temperatures, known
+in the US as &ldquo;hardiness zones&rdquo; - integers from 1 through 13. Write a
+constructor for a plant that sets its name and the low and high
+numbers for the zones the plant tolerates (also see question 2).</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Plant</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">low</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">high</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// hardiness zones
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">// 1A. You write a constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">// 2. The zone method is described below.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">zone</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">min_temp_F</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#ce5c00;font-weight:bold">...</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8f5902;font-style:italic">// Other methods
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">getLow</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">low</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">getHigh</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">high</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">String</span> <span style="color:#000">getName</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">;</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>The <a href="https://en.wikipedia.org/wiki/Hardiness_zone">hardiness zone</a>
+of a plant is determined by the &ldquo;average annual extreme minimum
+temperature&rdquo;. See the table below.</p>
+<figure><a href="https://en.wikipedia.org/wiki/Hardiness_zone#/media/File:USDAHardiness_2012-2015_Scale.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/USDAHardiness_2012-2015_Scale.jpg/371px-USDAHardiness_2012-2015_Scale.jpg" width="200"/> </a><figcaption>
+            <h4>Hardiness Zone Temperature Table</h4>
+        </figcaption>
+</figure>
+<p>2a. Write a function <code>zone</code> that takes in the average annual
+extrememe minimum temperature and puts out the zone associated with
+that temperature. Temperatures on the boundary between two zones
+can be put in either, but be consistent.</p>
+<pre><code> public int zone (int min_temp_F) { ... }
+</code></pre>
+<p>2b. Is it appropriate to make this function <code>static</code>? Explain.</p>
+</li>
+<li>
+<p>The <code>Succulent</code> is a subclass of <code>Plant</code>. In addition to the
+information needed by <code>Plant</code>, the constructor takes in a typical
+percentage of the plant&rsquo;s mass that is water. The Succulent also
+has a <code>getCutting</code> method that returns a new Succulent with the
+same name, zone information, and water percent. Write the
+<code>Succulent</code> class.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">definitely</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">std_water_pct</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">45</span><span style="color:#ce5c00;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Succulent</span> <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Succulent</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Aloe arborescens&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">12</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">16</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">std_water_pct</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">//(A) Plant p = Main.more(s);  // see below
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>Does the following <code>more</code> method work when called on line &ldquo;A&rdquo;
+above?
+Explain.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Main</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">Plant</span> <span style="color:#000">more</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">Plant</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getCutting</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div><ol start="5">
+<li>(Fake info.) Succulents are not killed by frostbite, but they are
+damaged, causing their minimum zone to increase by one. Explain how
+to write a <code>public void frost()</code> method.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Frosty</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">demo_frost</span><span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Succulent</span> <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Succulent</span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Aloe arborescens&#34;</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">12</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">16</span><span style="color:#ce5c00;font-weight:bold">,</span> <span style="color:#000">0</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">45</span><span style="color:#ce5c00;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">before</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getLow</span><span style="color:#ce5c00;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// zone 12
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">frost</span><span style="color:#ce5c00;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">after</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#c4a000">getLow</span><span style="color:#ce5c00;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// zone 13 now
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-190406e066937baa152adb6ed22a4596">10 - 11. Treasure Hunt</h1>
+    
+	<p>Create an interface <code>Currency</code> that has a <code>double getGoldValue()</code>
+method that returns the number of grams of gold that equal the worth
+of the item.</p>
+<p>Create a <code>BankNote</code> class that implements the <code>Currency</code> interface. A
+<code>BankNote</code> should be created in denominations of 1, 2, 5, 10, 20, 50,
+or 100, although you need not enforce this. A <code>BankNote</code> represents a
+single bill, so you might have lots of them. Add a <code>toString</code> method
+(see example code below).</p>
+<pre><code> BankNote b = new BankNote(100);
+ System.out.println(b); // prints &quot;$100&quot;
+</code></pre>
+<p>In your Main class, make a function <code>public static double loot (ArrayList&lt;Object&gt; pile)</code>. This function should find out how much gold
+each Currency item in the pile is worth. To make the function more
+interesting, we will put not only Currency items but also Cats in
+the pile, so your function has to dig through a pile of cats looking
+for the currency and then find out how much gold the currency it finds
+is worth.</p>
+<p>Testing in Main: create an arraylist of 11 objects. Build it up one by
+one. Add a <code>RandomCat</code> with probability 40% and a <code>BankNote</code>
+otherwise. Give the bank note a random value: 100 (20% of the time), 50 (65% of
+the time), and 20 the rest of the time.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b0d6461b582d9c5123674412d7d5d0f6">11 - 11. Instanceof</h1>
+    
+	<p>The <code>instanceof</code> operator tells you if a variable is an &ldquo;instance of&rdquo;
+(made from a subclass of) a given class. Example: <code>if (x instanceof Cat) { ... }</code>.</p>
+<p>Casting looks like this: <code>(Cat) x</code>. Casting can fail (with a &ldquo;runtime
+exception&rdquo;) if <code>x</code> is not really a Cat. This can happen inside
+functions that do not know where their inputs are coming from.</p>
+<p>Frequently you check to see if something is the right class before
+using a cast to &ldquo;convert it&rdquo; to that class. The quotes are around
+&ldquo;convert&rdquo; because casting just reveals a relationship that is already
+true, it does not create a new relationship or change the object in
+any way.</p>
+<p>Fuller example:</p>
+<pre><code> Object x = new Cat()
+ Cat y = x; // fails
+ Cat w = (Cat) x; // ok
+ if ( x instanceof Cat ) { 
+     Cat z = (Cat) x; // ok
+     System.out.println(&quot;Really a cat&quot;); 
+ }
+</code></pre>
+<h2 id="practice">Practice</h2>
+<ol>
+<li>
+<p>Create an <code>public static boolean isCat(Object x)</code> function that
+will tell if you an object is a cat.</p>
+</li>
+<li>
+<p>Create a <code>public static void petIt(Object x)</code> function that prints
+the noise the Cat makes if x is a Cat. Otherwise it should print &ldquo;No
+way!&rdquo;</p>
+</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<p>Notice that the line marked below is useless. It converts to a Cat and
+then back to an Object.</p>
+<pre><code> public static void useless(Object x) {
+     x = (Cat) x;  // &lt;---
+     // still cannot use x.noise();
+ }
+</code></pre>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

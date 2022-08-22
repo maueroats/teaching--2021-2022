@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/solving/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Problem Solving | WY CS</title>
+<meta name="description" content="
+
+Number Triangle
+The the maximum possible sum of a path in a number triangle, from the top row to the bottom row.
+
+
+Collatz
+Collatz sequence - …">
+<meta property="og:title" content="Problem Solving" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/solving/" />
+
+<meta itemprop="name" content="Problem Solving">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Problem Solving"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/solving/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Problem Solving</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-6e2a8e52c525a2b16fc8873407eb9835">Number Triangle</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-ca9a4bdb2fad6f8c1e1c865f014ec101">Collatz</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-53b57735624fd64aca44b8418a30e5b5">Primes</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/solving/number-triangle/" >Number Triangle</a></li></p>
+<p>The the maximum possible sum of a path in a number triangle, from the top row to the bottom row.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/solving/collatz/" >Collatz</a></li></p>
+<p>Collatz sequence - maximum length in a range.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/ap-cs/solving/primes/" >Primes</a></li></p>
+<p>Create a class to hold prime numbers. Use it to solve some prime-using problems.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-6e2a8e52c525a2b16fc8873407eb9835">1 - Number Triangle</h1>
+    <div class="lead">The the maximum possible sum of a path in a number triangle, from the top row to the bottom row.</div>
+	<ol>
+<li>
+<p>Create a function to read a file full of numbers into an array
+(<code>int [][]nums</code>), one row of numbers from the file becomes one row
+of numbers in the array. It is OK to just have an input be how many rows are
+in the triangle. Signature:</p>
+<pre><code> public static int[][] readNums(int rows, Scanner s)
+</code></pre>
+</li>
+<li>
+<p>Create a function to write a triangle of numbers into a
+file.</p>
+<pre><code> public static void triwrite (int rows, PrintWriter p)
+</code></pre>
+</li>
+<li>
+<p>Find the maximum possible sum along any path that goes down or down
+and right from the top to the bottom row of your triangle.</p>
+<pre><code>     1
+     1 20
+     1 2  30
+     1 3  4  50
+ 10000 5  6  7  8
+</code></pre>
+<p>One possible path is 1, 20, 2, 4, 7, for a total of 34. Another
+possible path is 1,1,1,1,10000 for a total of 10004.</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>Project Euler <a href="https://projecteuler.net/problem=18">Problem 18</a> and
+<a href="https://projecteuler.net/problem=67">Problem 67</a>.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/io/PrintWriter.html">PrintWriter</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a></li>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html">File</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ca9a4bdb2fad6f8c1e1c865f014ec101">2 - Collatz</h1>
+    <div class="lead">Collatz sequence - maximum length in a range.</div>
+	<p>The <a href="https://en.wikipedia.org/wiki/Collatz_sequence">Collatz sequence</a>
+is a sequence of positive integers. The term after value=n is:</p>
+<ul>
+<li>value = n/2 if n is even</li>
+<li>value = 3*n+1 if n is odd</li>
+</ul>
+<p>Example: 5 -&gt; 16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1.</p>
+<p>Source: <a href="https://projecteuler.net/problem=14">Project Euler Problem 14</a>.</p>
+<h2 id="problem-statement">Problem Statement</h2>
+<p>Find the number n &lt; 1,000,000 that gives the longest chain (before
+hitting one).</p>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">warning</h4>
+
+    Test your code: print out the entire sequence of numbers beginning with
+n=161439. Make sure you get about 230 numbers, ending in a 1.
+
+</div>
+
+<p><strong>Suggestion</strong>:
+Insert code to check for an impossible condition, say n&lt;1 in your
+sequence generating function.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-53b57735624fd64aca44b8418a30e5b5">3 - Primes</h1>
+    <div class="lead">Create a class to hold prime numbers. Use it to solve some prime-using problems.</div>
+	<p>Create a class <code>PrimeNumbers</code>. It should have:</p>
+<ul>
+<li>an <code>boolean isPrime(int n)</code> function to determine if a number is prime</li>
+<li>a <code>int get(int k)</code> function to return the k-th prime, starting with
+<code>get(0)</code> returning <code>2</code>.</li>
+</ul>
+<p>You can make these (and everything else inside the <code>PrimeNumbers</code>
+class) static, but that makes it complicated to initialize the prime
+list in phase two, so I decided not to do that.</p>
+<p>The class looks like this:</p>
+<pre><code>public class PrimeNumbers {
+  public boolean isPrime(int n);
+  public int get(int index); // prime#0 is 2
+}
+</code></pre>
+<p>Usage:</p>
+<pre><code>PrimeNumbers pnums = new PrimeNumbers();
+System.out.println(pnums.isPrime(17));
+System.out.println(pnums.isPrime(21));
+</code></pre>
+<h2 id="phase-one-basic-interface">Phase One: Basic Interface</h2>
+<ol>
+<li>
+<p>Just use an array to hold a fixed number of primes at the start,
+and make a <code>get</code> method that just returns a value from that array.</p>
+<pre><code> private static int[] primes = {2,3,5,7,11,13,17,19,23,27};
+</code></pre>
+</li>
+<li>
+<p>Review the discussion from in class and write an efficient
+<code>isPrime</code> method that checks only prime numbers up to the square
+root of the number being tested.</p>
+</li>
+<li>
+<p>Test your <code>isPrime</code> method using <a href="/teaching--2021-2022/ap-cs/testing/">JUnit testing</a>.</p>
+</li>
+</ol>
+<h2 id="phase-two-improvements">Phase Two: Improvements</h2>
+<p>We will see the benefit of &ldquo;information hiding&rdquo; when we change our
+code to compute more prime numbers when they are needed.
+We are going to change the fixed-length list of primes into an
+ArrayList that grows automatically, and then change the get method to
+automatically find new primes as needed.</p>
+<ul>
+<li>
+<p>Make an <code>ArrayList&lt;Integer&gt;</code> instance variable to hold the prime
+numbers. Put <code>2</code> in it initially. (What part of the class should do this?)</p>
+</li>
+<li>
+<p>Write a <code>public int nextPrime()</code> method that finds the next prime number after
+the last one in the list, and adds it to the list. (Why should this
+method actually be private?)</p>
+</li>
+<li>
+<p>Test the <code>nextPrime()</code> method using JUnit.</p>
+</li>
+<li>
+<p>Modify the <code>get(int index)</code> method so that it will generate more primes
+automatically if asked for a prime number index greater than or
+equal to the size of the list.</p>
+</li>
+</ul>
+<h2 id="phase-three-useful">Phase Three: Useful</h2>
+<p>Write <code>ArrayList&lt;Integer&gt; primeFactors (long n)</code> to produce a list of
+all of the prime factors (repeated as needed, so {2,2,2} for 8).</p>
+<h2 id="phase-3-use-it">Phase 3: Use It</h2>
+<ol>
+<li>Find the 10,001st prime number.</li>
+<li>Find the largest prime factor of 88,762,035,289L.</li>
+<li>How about 4,395,275,946,425,798,569L?</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch15/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>15. Conditionals | WY CS</title>
+<meta name="description" content="Making choices in Racket using &#39;cond&#39;.">
+<meta property="og:title" content="15. Conditionals" />
+<meta property="og:description" content="Making choices in Racket using &#39;cond&#39;." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch15/" />
+
+<meta itemprop="name" content="15. Conditionals">
+<meta itemprop="description" content="Making choices in Racket using &#39;cond&#39;."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="15. Conditionals"/>
+<meta name="twitter:description" content="Making choices in Racket using &#39;cond&#39;."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">15. Conditionals</h1>
+<div class="lead">Making choices in Racket using &lsquo;cond&rsquo;.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-65d455a6eb0af3d9f533d6f5fa566539">15. Slides</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-f8a9865b5b7a99c187d6aebfc0496f34">15. Cond Patterns</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-13f789128c6ca51871374c42c76da9c9">15. Another Challenge</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-724b39094412471851b85bf9c8ad1cb8">15. Graphing Review</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-0e2cf0e9064ef6291875f7fa6b2c9b73">15. Heatmap</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-738b91afd10ba67e02d8bc6f6b2b47ac">15. Heatmap with Contours</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-f71e734ef7f3219aa7fa13aa50c32f7d">15. Practice All</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-5eb9083147ec6c1a7b411304fe247ccf">15. Practice Quiz</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>See slides for introductory material.</p>
+<h2 id="exercise-notes--advice">Exercise Notes / Advice</h2>
+<ul>
+<li>
+<p>15.3.4: The first input is the candidate for whom you are counting votes. (For example &ldquo;Clinton&rdquo;.) The next four inputs are votes cast for a person. (For example &ldquo;Trump&rdquo; &ldquo;Clinton&rdquo; &ldquo;Sanders&rdquo; &ldquo;Trump&rdquo;.) You are supposed to return the number of votes for the candidate from the first input. (For example: <code>1</code> in this case.)</p>
+</li>
+<li>
+<p>15.3.7: Keep using <code>build-image</code> not <code>build3-image</code>.</p>
+</li>
+</ul>
+<h2 id="assignments">Assignments</h2>
+<h3 id="assignment-15a">Assignment 15.A</h3>
+<p>Read the first three sections of Chapter 15. Do Exercises 15.3.{3,4}. These are on PDF page 223.</p>
+<h3 id="assignment-15b">Assignment 15.B</h3>
+<p>Exercises 15.3.{5-8}.</p>
+<h3 id="assignment-15c">Assignment 15.C</h3>
+<p>Exercises 15.5.{1,2,3,4,5}. These begin on PDF page 229.</p>
+<h3 id="assignment-15d">Assignment 15.D</h3>
+<p>Read 15.6 (&ldquo;Unnecessary conditionals&rdquo;). Skip Section 15.7.</p>
+<p>Do Exercises 15.8.{2,3,5}. Exercise 15.5.6. These begin on the bottom of PDF page 238.</p>
+<h2 id="images">Images</h2>
+<p>See the <a href="/teaching--2021-2022/intermediate-cs/pro/build-image/">build-image</a> tutorial. Use that to do 15.3.3 and
+15.3.{7-10}. Do not use <code>build3-image</code> even though the book says to use it. The <code>build-image</code> function is better.</p>
+<h2 id="practice-quiz">Practice Quiz</h2>
+<p>Get ready by doing <a href="15-practice-quiz">an old Chapter 15 quiz</a>.</p>
+<h2 id="all">All</h2>
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-slides/" >15. Slides</a></li></p>
+<p>Day 1 Exercises</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-cond-patterns/" >15. Cond Patterns</a></li></p>
+<p>Patterns with conditionals and build-image.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-challenge/" >15. Another Challenge</a></li></p>
+<p>A beautiful image made with a conditional in build-image.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-graphing-review/" >15. Graphing Review</a></li></p>
+<p>A review of graphing with people and computer coordinates.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-heatmap/" >15. Heatmap</a></li></p>
+<p>Using cond to create a multi-segment heat map. Applying it to the graphing review.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-heat-contour/" >15. Heatmap with Contours</a></li></p>
+<p>Color pixels based on values of a function. Put contour lines every 50 values.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-practice-all/" >15. Practice All</a></li></p>
+<p>Do all of this work in a single Racket file. You need to turn this assignment in on classroom. You may attach your solution file or copy and paste the code as a private comment and mark the assignment complete.
+Read Section 15.6 (Unnecessary conditionals) to review how to simplify. (PDF page 230ff.)
+Note to book readers: I disagree with the author about section 15.7 (nested conditionals) so I suggest not reading it.</p>
+</span>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch15/15-practice-quiz/" >15. Practice Quiz</a></li></p>
+<p>Practice quiz, adapted from a previous year.</p>
+</span>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-65d455a6eb0af3d9f533d6f5fa566539">1 - 15. Slides</h1>
+    <div class="lead">Day 1 Exercises</div>
+	<h1 id="hurts">Hurts?</h1>
+<p><code>hurts?: boolean(hit) boolean(hard) -&gt; boolean</code></p>
+<p>It only hurts if you get hit and the hit was hard.</p>
+<hr>
+<h1 id="care">Care</h1>
+<p><code>care: boolean(injured) number(blood) -&gt; string</code></p>
+<ul>
+<li>&ldquo;ER&rdquo; if injured with more than 10 blood.</li>
+<li>&ldquo;Urgent Care&rdquo; if injured but the amount of blood is between 5 and 10.</li>
+<li>&ldquo;No&rdquo; if you are not injured or there is not much blood.</li>
+</ul>
+<hr>
+<h1 id="red-blue">Red-Blue</h1>
+<ol>
+<li><code>(red-blue-1 n)</code> gives &ldquo;red&rdquo; if the number is less than 30,
+otherwise &ldquo;blue&rdquo;.</li>
+<li><code>(red-blue-2 xxx)</code> gives &ldquo;red&rdquo; 30% of the time and &ldquo;blue&rdquo; 70% of
+the time.</li>
+</ol>
+<hr>
+<h1 id="mystery-function">Mystery Function</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">scrunch</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">x</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span>       <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span>     <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">/</span> <span style="color:#000">x</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)]))</span>
+</span></span></code></pre></div><p>Give 3 examples what it does.</p>
+<hr>
+<h1 id="scrunch-sum">Scrunch Sum</h1>
+<ul>
+<li>Scrunch three numbers</li>
+<li>Add the result</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">scrunch-three</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#0000cf;font-weight:bold">12</span> <span style="color:#0000cf;font-weight:bold">40</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=&gt;</span> <span style="color:#0000cf;font-weight:bold">26</span>
+</span></span></code></pre></div><hr>
+<h1 id="word-points">Word Points</h1>
+<ul>
+<li>Each word gets 2 points per letter.</li>
+<li>Every word earns at least 7 points.</li>
+<li>Find the total points earned by four words.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sum-points</span> <span style="color:#4e9a06">&#34;saw&#34;</span> <span style="color:#4e9a06">&#34;it&#34;</span> <span style="color:#4e9a06">&#34;workhorse&#34;</span> <span style="color:#4e9a06">&#34;betadyne&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">=&gt;</span> <span style="color:#0000cf;font-weight:bold">48</span>
+</span></span></code></pre></div><hr>
+<h2 id="early-wake-up">Early Wake-Up</h2>
+<p>Count the number of people who wake up before <code>cutoff-time</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">early-wake-up</span> <span style="color:#000">cutoff-time</span> 
+</span></span><span style="display:flex;"><span>               <span style="color:#000">person-1-time</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000">person-2-time</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000">person-3-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f8a9865b5b7a99c187d6aebfc0496f34">2 - 15. Cond Patterns</h1>
+    <div class="lead">Patterns with conditionals and build-image.</div>
+	<p>Do all exercises with <code>build-image</code>. Use a width of 600 and a height
+of 500. The exercises build in complexity - if you
+can do the earlier ones, go on to the later ones.</p>
+<ol>
+<li>
+<p>Solid red circle, center (100,200), radius 75. Background white.</p>
+</li>
+<li>
+<p>Two circles in the same image:</p>
+<ul>
+<li>Solid red circle, center (100,200), radius 75.</li>
+<li>Solid blue curcle, center (300,200), radius 85.</li>
+</ul>
+</li>
+<li>
+<p>Two overlapping circles, overlapping part is purple:</p>
+<ul>
+<li>Solid red circle, center (225,200), radius 75.</li>
+<li>Solid blue curcle, center (300,200), radius 100.</li>
+<li>Overlapping parts purple.</li>
+<li>Everything else white.</li>
+</ul>
+ <figure>
+     <img src="two-overlapping-circles.png"/> 
+ </figure>
+</li>
+<li>
+<p>Shrink the circles and add another layer.</p>
+<ul>
+<li>Red: center (225,200), radius 50.</li>
+<li>Blue: center (300,200), radius 75.</li>
+<li>Purple: overlap between red and blue.</li>
+<li>Pink: center (225,200), radius 100.</li>
+<li>Light blue: center (300,200), radius 125.</li>
+</ul>
+ <figure>
+     <img src="circle-pattern-2.png"/> 
+ </figure>
+</li>
+<li>
+<p>Make the pattern repeat using <code>remainder</code>. You may want to modify
+it so that the pink and blue overlapping area is another color.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-13f789128c6ca51871374c42c76da9c9">3 - 15. Another Challenge</h1>
+    <div class="lead">A beautiful image made with a conditional in build-image.</div>
+	
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">warning</h4>
+
+    Make sure you have done the warm-up <a href="/teaching--2021-2022/intermediate-cs/ch15/15-cond-patterns/">conditional patterns</a> before this!
+
+</div>
+
+<ul>
+<li>
+<p>Pick two centers, say (300,150) and (310, 150).</p>
+</li>
+<li>
+<p>Use a big 500x300 canvas.</p>
+</li>
+<li>
+<p>Colors:</p>
+<ul>
+<li><em>magenta</em> when the distance to both centers is less than 15</li>
+<li><em>red</em> when the distance to left point is less than 15</li>
+<li><em>blue</em> when the distance to right point is less than 15</li>
+<li><em>white</em> when the distance to either point is less than 30</li>
+<li><em>gray</em> otherwise</li>
+</ul>
+  <figure>
+      <img src="ripple-warmup.png"/> 
+  </figure>
+</li>
+<li>
+<p>Move the centers to (175,150) and (325, 150). Repeat the pattern by reducing
+distances to less than 30 by using remainder.</p>
+  <figure>
+      <img src="ripple.png"/> 
+  </figure>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-724b39094412471851b85bf9c8ad1cb8">4 - 15. Graphing Review</h1>
+    <div class="lead">A review of graphing with people and computer coordinates.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>The graph of $f(x)=10 \cos(2x)$ is illustrated below in a window $-\pi
+\le x \le 2\pi$ and $-15 \le y \le 15$. The graph uses a 400x200 grid
+of computer pixels.</p>
+<figure>
+    <img src="simple-graph.png"/> 
+</figure>
+<ol>
+<li>
+<p>Fill in a diagram of what you have and what you need. Draw and
+label arrows for the functions you have or will write.</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-people</td>
+<td>y-people</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>x-computer</td>
+<td>y-computer</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Develop <code>xctxp</code>, the function that changes x-computer to x-people.</p>
+<ul>
+<li>Write a horizontal number line (the x-axis is horizontal) and label it with
+both people and computer coordinates.</li>
+<li>Write two check-expects.</li>
+<li>Figure out the formula, possibly using <a href="https://wolframAlpha.com">Wolfram Alpha</a>.</li>
+</ul>
+</li>
+<li>
+<p>Do the same for the y-coordinates. Draw your number line vertical.
+(The y-axis is vertical!)</p>
+</li>
+<li>
+<p>Find the width of each quadrant. Do not be afraid of fractions!</p>
+</li>
+<li>
+<p>Animate a red dot moving along the graph of the function
+$y=f(x)$. Have the motion repeat when the dot reaches the right
+side of the window.</p>
+<p>You do not need to show the graph of the function.</p>
+ <figure>
+     <img src="result.gif"/> 
+ </figure>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0e2cf0e9064ef6291875f7fa6b2c9b73">5 - 15. Heatmap</h1>
+    <div class="lead">Using cond to create a multi-segment heat map. Applying it to the graphing review.</div>
+	<p>The figure below is 100 pixels wide and 300 pixels tall. Each 100
+pixel color segment is a color gradient.</p>
+<figure>
+    <img src="heatmap.png"/> 
+</figure>
+<table>
+<thead>
+<tr>
+<th>y-coord</th>
+<th>color</th>
+<th>color value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>blue</td>
+<td>125</td>
+</tr>
+<tr>
+<td>99</td>
+<td>blue</td>
+<td>224</td>
+</tr>
+<tr>
+<td>100</td>
+<td>green</td>
+<td>125</td>
+</tr>
+<tr>
+<td>199</td>
+<td>green</td>
+<td>224</td>
+</tr>
+<tr>
+<td>200</td>
+<td>red</td>
+<td>125</td>
+</tr>
+<tr>
+<td>300</td>
+<td>red</td>
+<td>225</td>
+</tr>
+</tbody>
+</table>
+<p>For example, when y=150, the color produced is <code>(make-color 0 175 0)</code>
+because the color is supposed to be green when y is between 100 and 199.</p>
+<ol>
+<li>
+<p>Write a function <code>heat-color: number(y) -&gt; color</code> that produces the
+correct color.</p>
+</li>
+<li>
+<p>Write a function <code>color-helper: number(x) number(y) -&gt; color</code> that
+just calls the <code>heat-color</code> function to get the correct color.</p>
+</li>
+<li>
+<p>Use <code>build-image</code> to create the 100x300 rectangle pictured above.</p>
+</li>
+<li>
+<p><strong>Challenge</strong>. Modify your work on the <a href="/teaching--2021-2022/intermediate-cs/ch15/15-graphing-review/">graphing review</a> so that the background is colored based
+on the distance a point (x,y) is from the graph of y=f(x).</p>
+ <figure>
+     <img src="vivrant.png"/> 
+ </figure>
+</li>
+</ol>
+<h2 id="sketch-of-the-challenge-solution">Sketch of the challenge solution</h2>
+<ol>
+<li>
+<p>The idea is to use the <code>heat-color</code> function that we wrote earlier.</p>
+<pre><code> (define (color-outline-1 xc yc)
+   (heat-color (- yc (f xc)))
+</code></pre>
+<p>Unfortunately, <code>xc</code> is in computer coordinates, but <code>f</code> works only in
+people coordinates, so we need to add our conversion functions.</p>
+</li>
+<li>
+<p>Change the use of <code>f</code> to the <code>fc</code> version that works in computer coordinates.</p>
+<pre><code> (define (fc x)
+   (yptyc (f (xctxp x))))))
+</code></pre>
+</li>
+<li>
+<p>Sometimes we get negative values and decimals, so add a <code>fixer</code> and
+use it in the <code>color-outline</code> function to fix the input to <code>heat-color</code>.</p>
+<pre><code> (define (fixer v)
+   (real-&gt;int (abs v)))
+</code></pre>
+</li>
+<li>
+<p>For more vivrant colors, multiply by two in the fixer (or modify the <code>heat-color</code> function).</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-738b91afd10ba67e02d8bc6f6b2b47ac">6 - 15. Heatmap with Contours</h1>
+    <div class="lead">Color pixels based on values of a function. Put contour lines every 50 values.</div>
+	<script>
+MathJax = {
+ tex: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  displayMath: [['$$','$$'], ['\\[','\\]']]
+  }};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<p>We are going to make a beautiful icy winter picture using that idea.</p>
+<figure>
+    <img src="astral.png"/> 
+</figure>
+<h2 id="outline">Outline</h2>
+<p>We use a function of x and y to create a number. Use the number in a
+heatmap function to produce a color. Build-image to make a picture
+from this process.</p>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<div class="mermaid">
+graph LR;
+  A[x-computer] --> B[x-people]
+  C[y-computer] --> D[y-people]
+  B --> E[function]
+  D --> E
+  E --> F[number]
+  F --> |heatmap| G[color]
+</div>
+
+<p>When we draw, we will have conversion functions so we can draw in computer
+coordinates and do math in people coordinates.</p>
+<p>Some people found it confusing to
+take in a single number to the heatmap function&hellip; just don&rsquo;t call the
+input to your heatmap either x or y.</p>
+<h2 id="decide-the-function">Decide the function</h2>
+<p>The picture above is made using this function:</p>
+<p>$$ f(x,y) = 325 \left( \sin(x) + \cos(x\cdot y /10) \right) $$</p>
+<p>In Racket you would type the function:</p>
+<pre><code>(define (f x y)
+  (* 350 
+     (+ (sin x)
+        (cos (* x y 1/10)))))
+</code></pre>
+<h2 id="computer-coordinates-and-people-coordinates">Computer coordinates and people coordinates</h2>
+<p>The picture above is a 600x600 computer coordinate window, with people
+coordinates $-22.5 \le x \le 22.5$ and $-15 \le y \le 15$.</p>
+<p>Create functions to change x and y computer coordinates to people
+coordinates. Follow the process of making a number line, writing
+check-expects, and then using a solver to get the equations.</p>
+<p><strong>Note</strong>: For this project you will only need to change computer to
+people coordinates.</p>
+<h2 id="colorize-the-results">Colorize the results</h2>
+<p>The function $f(x,y)$ above gives numbers from -600 to 600.</p>
+<p>Use the ideas from the heatmap to use different colors for
+different values. I made mine in three pieces:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>blue 175</td>
+</tr>
+<tr>
+<td>250</td>
+<td>blue 250</td>
+</tr>
+<tr>
+<td>251</td>
+<td>green 1, blue 250</td>
+</tr>
+<tr>
+<td>500</td>
+<td>green 250, blue 250</td>
+</tr>
+<tr>
+<td>501</td>
+<td>red 1, blue 250</td>
+</tr>
+<tr>
+<td>750</td>
+<td>red 250, blue 250</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contour-lines">Contour lines</h2>
+<p>The picture at the top has little white areas every 75 units &mdash; check
+to see if the value is close to a multiple of 75 and if so, make the
+color white. These lines are called contour lines.</p>
+<p>In a map, a contour line shows where the elevation is the same. In
+math plots showing those type of lines are called contour plots.</p>
+<figure>
+    <img src="contour-lines.gif"/> 
+</figure>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f71e734ef7f3219aa7fa13aa50c32f7d">7 - 15. Practice All</h1>
+    
+	<p>Do all of this work in a single Racket file. You <strong>need to turn this
+assignment in</strong> on classroom. You may attach your solution file or
+copy and paste the code as a <em>private</em> comment and mark the assignment
+complete.</p>
+<p>Read Section 15.6 (Unnecessary conditionals) to review how to
+simplify. (PDF page 230ff.)</p>
+<p>Note to book readers: I disagree with the author about section 15.7
+(nested conditionals) so I suggest not reading it. If you need to put
+conditionals inside of conditionals, make a helper function.</p>
+<ol>
+<li>Simplify:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">mess-1</span> <span style="color:#000">in-bed?</span> <span style="color:#000">alarm-time</span> <span style="color:#000">clock-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">in-bed?</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">clock-time</span> <span style="color:#000">alarm-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;sleep&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;wake up&#34;</span><span style="color:#000;font-weight:bold">])]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">boolean=?</span> <span style="color:#000">in-bed?</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#4e9a06">&#34;wake up&#34;</span><span style="color:#000;font-weight:bold">]))</span>
+</span></span></code></pre></div><ol start="2">
+<li>Simplify:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ice-danger?</span> <span style="color:#000">temp</span> <span style="color:#000">precipitation?</span> <span style="color:#000">salt?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#204a87">true</span> <span style="color:#000">precipitation?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">boolean=?</span> <span style="color:#204a87;font-weight:bold">false</span> <span style="color:#000">salt?</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">not</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">&gt;=</span> <span style="color:#000">temp</span> <span style="color:#0000cf;font-weight:bold">32</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>Book problem 15.5.1, page 218 (pdf page 229): <code>carpet-price</code>.</p>
+</li>
+<li>
+<p>Book problem 15.5.2, page 218 (pdf page 229):
+<code>digital-thermometer</code>.</p>
+</li>
+<li>
+<p>Book problem 15.5.4 (<code>who-won</code>) and 15.5.5 (<code>4-votes-&gt;winner</code>),
+page 219 (pdf page 230).</p>
+</li>
+<li>
+<p>There are three circles of radius 150 drawn on a 500x500
+background. The centers are red (250,325), green (175,175), and
+blue (325,175). Make the area where circles overlap have all of the
+colors from the circles, so where red and green overlap the color
+is (make-color 255 255 0).</p>
+ <figure>
+     <img src="three-circ.png" width="200"/> 
+ </figure>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5eb9083147ec6c1a7b411304fe247ccf">8 - 15. Practice Quiz</h1>
+    <div class="lead">Practice quiz, adapted from a previous year.</div>
+	<h2 id="review-concepts">Review Concepts</h2>
+<ul>
+<li>
+<p>Design process (as always!). Signature, purpose, examples, function, check-expect.
+Especially plan to use the design process when you can <strong>not</strong> write the function.</p>
+</li>
+<li>
+<p>Helper functions as in: <code>count-votes-4</code>, <code>who-won</code>, <code>4-votes-&gt;winner</code>.
+Note that repeated code is <em>not</em> full credit.</p>
+</li>
+<li>
+<p>Decisions based on types of inputs (Section 15.8).</p>
+</li>
+</ul>
+<h2 id="quiz-questions">Quiz Questions</h2>
+<p>You may not consult any person or any old homework when taking this
+quiz. You may consult the book and the Racket Help Desk without citing
+them.</p>
+<ol>
+<li>
+<p>Write a function short-between? that determines whether a word (string) is short (less than 6 letters) and also is alphabetically between &ldquo;good luck&rdquo; and &ldquo;quiz&rdquo; (inclusive). Ignore the case of the words. Spaces should get no special treatment just use the built-in behavior.</p>
+</li>
+<li>
+<p>Define a function beautiful-gpa that takes in a grade point average, which is a decimal number between 0.00 and 6.00, and outputs an image of the that GPA number colored according to its value: at least 4.50 is green, 3.5&lt;=gpa&lt;4.5 is orange, 2.5&lt;=gpa&lt;3.5 is purple, 1.5&lt;=gpa&lt;2.5 is red, and below that range is dark magenta. Make sure it prints out cases like a GPA of 3.5 correctly.</p>
+</li>
+<li>
+<p>The game tryhard.io offers you special in-game abilities that you can buy for in-game diamonds. The long-distance shooter costs 150 diamonds, the super fast speed costs 200 diamonds, and the teleporter costs 400 diamonds. If your subtotal is at least 450 diamonds, you take a 10% discount to find your total. If your subtotal is at least 600 diamonds you take a 20% discount to find your total. (You are only eligible for one discount.) Write a function that takes in three number parameters. These determine how many shooter, speed, and teleporter abilities you purchase. Your function outputs the total cost.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

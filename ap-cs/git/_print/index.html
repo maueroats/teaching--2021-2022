@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/git/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>Git | WY CS</title>
+<meta name="description" content="Git is a system for keeping track of all of the versions of things you write, both old and new.
+The whole system is quite complex, so we will limit …">
+<meta property="og:title" content="Git" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/git/" />
+
+<meta itemprop="name" content="Git">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/git/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Git</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-7181deb4cf43248352856fda95879ebf">Git-ting Started</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-3e8e34fe0393637868aa8c2298cc4158">Everyday Git</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>Git is a system for keeping track of all of the versions of things you write, both old and new.
+The whole system is quite complex, so we will limit ourselves to a small portion of what it can do.</p>
+<p>You will use it for several purposes:</p>
+<ul>
+<li>Turning in your work</li>
+<li>Backing up your work</li>
+<li>Transferring work to and from home via the internet instead of using a flash drive</li>
+<li>Collaborating with a group</li>
+</ul>
+<h2 id="incomplete">Incomplete</h2>
+<p>It is impossible to write down everything you need to know about git. Even experienced developers need to look things up. There is the <a href="https://git-scm.com/book/en/v2">Pro Git</a> book and many <a href="https://stackoverflow.com/questions/tagged/git?sort=votes&amp;pageSize=15">StackOverflow questions about git</a> that you can learn from.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7181deb4cf43248352856fda95879ebf">1 - Git-ting Started</h1>
+    
+	<h2 id="downloads-for-home">Downloads for Home</h2>
+<ul>
+<li><a href="https://git-scm.com/downloads">Git package</a> for all operating systems.</li>
+<li><a href="https://tortoisegit.org/download/">Tortoise Git</a> for Windows only.</li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li>
+<p>A command line <a href="https://try.github.io/">intro to git in 15 minutes</a>.</p>
+</li>
+<li>
+<p><a href="https://www.sitepoint.com/git-for-beginners/">Git for Beginners</a>.</p>
+</li>
+<li>
+<p>Beautiful and simple <a href="http://rogerdudler.github.io/git-guide/">Git Guide</a>.</p>
+</li>
+</ul>
+<h2 id="local-instructions">Local instructions</h2>
+<ol>
+<li>
+<p>Make an account on GitHub. Use your CPS email.</p>
+</li>
+<li>
+<p>Apply for an education account.</p>
+</li>
+<li>
+<p>Join our class in the GitHub Classroom.
+(Tell the teacher your username and get added manually.)</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3e8e34fe0393637868aa8c2298cc4158">2 - Everyday Git</h1>
+    
+	<h2 id="everyday-commands">Everyday Commands</h2>
+<p>All of these need to be run in the karel-* directory:</p>
+<ul>
+<li><code>./save-it</code></li>
+<li><code>./update</code>: git pull from the upstream repository.</li>
+<li><code>git pull</code></li>
+</ul>
+<h2 id="merge-conflicts">Merge Conflicts</h2>
+<p>Sometimes you will modify a file at home without having saved (pushed)
+your changes at school. This causes a dreaded &ldquo;merge conflict&rdquo; when
+you update.</p>
+<h3 id="simple-merging">Simple Merging</h3>
+<p>If you are lucky, you are at school and you know that you
+just want to use the code from home (the &ldquo;incoming code&rdquo; from the pull).
+In that case, you should do:</p>
+<pre><code>git checkout --theirs karelBasic.drjava
+</code></pre>
+<p>Of course, replace <code>karelBasic.drjava</code> with the names of the files with
+the merge conflicts.
+The converse, keeping the &ldquo;local&rdquo; changes, not the incoming ones, is the <code>--ours</code> flag.</p>
+<pre><code>git checkout --ours ImportantFile.java
+</code></pre>
+<h3 id="advanced-merging">Advanced Merging</h3>
+<p>When the problem is more difficult, edit the file with NotePad++ and you should see
+the &ldquo;ours&rdquo; and &ldquo;theirs&rdquo; sections marked off by a bunch of <code>&lt;</code> <code>=</code> and <code>&gt;</code> signs. Pick
+the code you want to keep and delete the rest.</p>
+<pre><code>@@ -2,7 +2,11 @@ import java.io.*;
+
+ public class Merging {
+     public Merging () {
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+         System.out.println(&quot;Merging object was not constructed fast enough to avoid conflict!!&quot;);
+=======
+        System.out.println(&quot;Merging object is being constructed!!&quot;);
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 36215863faef38cac7822b290a893ce1e150420c
+     }
+ }
+</code></pre>
+<p>After deleting the markers and duplicated code, add and commit.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

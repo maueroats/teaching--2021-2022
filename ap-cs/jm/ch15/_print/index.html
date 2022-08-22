@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch15/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>15. Files | WY CS</title>
+<meta name="description" content="Input and output using files and streams.">
+<meta property="og:title" content="15. Files" />
+<meta property="og:description" content="Input and output using files and streams." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/jm/ch15/" />
+
+<meta itemprop="name" content="15. Files">
+<meta itemprop="description" content="Input and output using files and streams."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="15. Files"/>
+<meta name="twitter:description" content="Input and output using files and streams."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/jm/ch15/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">15. Files</h1>
+<div class="lead">Input and output using files and streams.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-455510c21a261f63bd9d4d8a145d0b17">15. File</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-9123724d47078452f05f21f8010f7bf5">15. File Intro</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-4e4987c1863d650d55b1087a52e89aa7">15. Scanner</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-25915dc8c55803ced8e161269a703337">15. File Assignments</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-913e2d008d49b06496f1596654adcf7e">15. File Quiz</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-3aa60a13910b55f30d8989fc45eae1d8">15. File Divvy</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-455510c21a261f63bd9d4d8a145d0b17">1 - 15. File</h1>
+    <div class="lead">The File class represents a file or folder (directory).</div>
+	<ul>
+<li><a href="http://www.skylit.com/javamethods2/ppt/Ch15.ppt">Java Method Chapter 15 powerpoint</a></li>
+<li>Doc Mo <a href="https://docs.google.com/presentation/d/1V2-4-zOpXjqM_QwZbr6-rGa5xGRsRN7PViIGPeMKwuM/edit?usp=sharing">chapter 15 presentation with exercises</a></li>
+<li>Official Java
+<a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html">File</a> documentation.</li>
+</ul>
+<h2 id="exercises-day-1">Exercises Day 1</h2>
+<ul>
+<li>Day 1: <code>public static void listAll(String location)</code>: print out
+files in a given folder/directory. Example: <code>listAll(&quot;stuff/aaron&quot;);</code>.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9123724d47078452f05f21f8010f7bf5">2 - 15. File Intro</h1>
+    <div class="lead">API for File, Scanner, PrintWriter.</div>
+	<p>Sample code: <a href="https://github.com/2017-2018-wy-ap-cs/java-rotary-phone/tree/master/ch15">class github</a>.</p>
+<p>You should be familiar with the basic methods listed in the <a href="http://www.skylit.com/javamethods2/ppt/index.html">JavaMethods Chapter 15 PowerPoint</a>.</p>
+<h2 id="file">File</h2>
+<p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">official File documentation</a> has all of the details. This is a brief summary of methods you are likely to use.</p>
+<ul>
+<li><code>new File(&quot;filename&quot;)</code>. I recommend you only files in the same directory as your Java program, until you become very comfortable with Files.</li>
+<li><code>String getName()</code></li>
+<li><code>long lastModified()</code>: Return modification time, in unusual units.</li>
+<li><code>boolean isDirectory()</code></li>
+<li><code>File[] listFiles()</code></li>
+</ul>
+<h2 id="scanner">Scanner</h2>
+<p>Consult the <a href="http://www.skylit.com/javamethods2/ppt/Ch15.ppt">Chapter 15 PowerPoint</a> for common functions or <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">the official documentation</a> for full information.</p>
+<table>
+<thead>
+<tr>
+<th>Inquire (all return <code>boolean</code>)</th>
+<th>Get</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hasNextLine()</code></td>
+<td><code>String nextLine()</code></td>
+<td>Rest of the line, starting at the current location.</td>
+</tr>
+<tr>
+<td><code>hasNext()</code></td>
+<td><code>String next()</code></td>
+<td>One token (group of letters and numbers) until next whitespace.</td>
+</tr>
+<tr>
+<td><code>hasNextInt()</code></td>
+<td><code>int nextInt()</code></td>
+<td>One integer.</td>
+</tr>
+<tr>
+<td><code>hasNextDouble()</code></td>
+<td><code>double nextDouble()</code></td>
+<td>One decimal.</td>
+</tr>
+</tbody>
+</table>
+<p>Miscellaneous:</p>
+<ul>
+<li><code>NoSuchElementException</code> is returned when a Scanner is asked for something that it cannot provide - for example, <code>nextInt()</code> when the next item is not an integer.</li>
+</ul>
+<h2 id="printwriter">PrintWriter</h2>
+<ul>
+<li><code>PrintWriter out = PrintWriter (file)</code>: Construct based on a <code>File</code> object.</li>
+<li><code>out.println()</code>: Print, like usual.</li>
+<li><code>out.close()</code>: Write all of the data to the disk.</li>
+</ul>
+<h2 id="common-problems-and-advice">Common Problems and Advice</h2>
+<ul>
+<li>
+<p>Read error messages closely.</p>
+<ul>
+<li>
+<p>Know what the error is. For example, this is a <code>FileNotFound</code> error caused by trying to read <code>myfolder</code> with <code>Scanner</code>, like a file.</p>
+<pre><code>  java.io.FileNotFoundException: myfolder (Is a directory)
+      at java.io.FileInputStream.open0(Native Method)
+      at java.io.FileInputStream.open(FileInputStream.java:195)
+      at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
+      at java.util.Scanner.&lt;init&gt;(Scanner.java:611)
+</code></pre>
+</li>
+<li>
+<p>from a File? Know what File causes it.</p>
+</li>
+<li>
+<p>from a Scanner? Know exactly what input causes the problem. Print lots! For example, this error comes from trying to get the <code>next()</code> item when there is nothing more available.</p>
+<pre><code>  java.util.NoSuchElementException
+      at java.util.Scanner.throwFor(Scanner.java:862)
+      at java.util.Scanner.next(Scanner.java:1371)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Make sure you only call <code>listFiles</code> on a <code>File</code> that is a directory.</p>
+</li>
+<li>
+<p>Reading a directory like a file will give you a <code>FileNotFound</code> or permissions error.</p>
+</li>
+<li>
+<p>Listing the files in a file that is not a directory will return <code>null</code> but not give an error. This is dangerous because you cannot loop through the returned array (since nothing is created).</p>
+</li>
+<li>
+<p>You can get very unusual error messages if you start recursively examining a folder that contains your system files. Make folders especially for testing.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4e4987c1863d650d55b1087a52e89aa7">3 - 15. Scanner</h1>
+    <div class="lead">Do parsing of</div>
+	
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-25915dc8c55803ced8e161269a703337">4 - 15. File Assignments</h1>
+    <div class="lead">Short problems using File.</div>
+	<ol>
+<li>
+<p>Count the number of lines in a file.</p>
+</li>
+<li>
+<p>Count the number of words in a file.</p>
+</li>
+<li>
+<p>Count the number of characters in a file.</p>
+</li>
+<li>
+<p>Find the sum of all of the integers in a file.</p>
+</li>
+<li>
+<p>Print out the file with line numbers in front of each line.</p>
+</li>
+<li>
+<p><strong>Where&rsquo;s Waldo?</strong> Create a file called &ldquo;waldo.txt&rdquo; that consists of 10000 lines of text. Each line should have 10 random integers from 0 to 9999. Except that there is a 0.1% chance that a given line will instead have all of the same integer.</p>
+</li>
+<li>
+<p><strong>Find Waldo</strong> Read a file called &ldquo;waldo.txt&rdquo; and print out every integer that occurs 10 times on a line, just like you would make in the previous problem.</p>
+</li>
+<li>
+<p>Implement the &ldquo;tree&rdquo; command.</p>
+<pre><code> .
+ └── Risk
+    ├── build.bat
+    ├── build.sh
+    ├── changelog.txt
+    ├── compress.rkt
+    ├── contributors.txt
+    ├── notes.txt
+    ├── PlannedAdditions.txt
+    ├── README.md
+    └── src
+        ├── dice-functs.rkt
+        ├── ellipse.rkt
+        ├── fonts
+        │   └── Roboto-Light.ttf
+        ├── graph.rkt
+        ├── hit-box-determiner.rkt
+        ├── imgs
+        │   ├── 6ca.jpg
+        │   ├── board.png
+        │   ├── cardico.png
+        │   ├── close.png
+   etc you get the idea
+</code></pre>
+</li>
+</ol>
+<h2 id="more-practice">More Practice</h2>
+<p><a href="https://docs.google.com/presentation/d/1V2-4-zOpXjqM_QwZbr6-rGa5xGRsRN7PViIGPeMKwuM/edit?usp=sharing">Additional exercises</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-913e2d008d49b06496f1596654adcf7e">5 - 15. File Quiz</h1>
+    <div class="lead">Quiz using File, similar tasks to what we have done previously.</div>
+	<p>Given the name of a folder (directory), find all of the files inside
+that directory that have either:</p>
+<ul>
+<li>more than 50 lines; <em>or</em></li>
+<li>a number on the first line.</li>
+</ul>
+<p>You may assume that the number on the first line is separated by whitespace from the
+other characters. You need only handle lines of these forms:</p>
+<pre><code>211 S. Laflin St
+Room 306
+I ate 4 cookies.
+</code></pre>
+<p>There is a <a href="quiztry.zip">zip file containing a folder of test cases</a> that you may use to test your code.</p>
+<h2 id="questions-and-problems">Questions and Problems</h2>
+<ul>
+<li>Is it required to look inside folders (directories) that you find? No.</li>
+<li><code>NullPointerException</code>: Commonly caused by attempting to list the files of something that is not a directory.</li>
+<li>Generic debugging advice: Add print statements so you can see what is going on!</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3aa60a13910b55f30d8989fc45eae1d8">6 - 15. File Divvy</h1>
+    <div class="lead">Questions about the Divvy trip database.</div>
+	<p>Get a subset of <a href="smalltrips.csv">Divvy bike trip data</a>. Later you may want the <a href="stations.csv">Divvy station data</a> as well.</p>
+<ol>
+<li>Find the trip of longest duration.</li>
+<li>Find the oldest female rider in this dataset.</li>
+</ol>
+<h2 id="tips">Tips</h2>
+<p>You do not have to store the data in an <code>ArrayList</code>, but if you want to do that, you should make a class <code>BikeInfo</code> that has all of the information contained on one line in the database. Making 12 separate ArrayLists is lots harder to work with.</p>
+<p>The <code>Scanner</code> class has a <code>useDelimiter</code> method that can be used to split on things that are not whitespace.</p>
+<p>The <code>String</code> class has a <code>split</code> method that can be used in a similar way.</p>
+<h2 id="advanced">Advanced</h2>
+<p>Your teacher regularly takes the Divvy to the station right next to school, arriving 7:40-7:50am. See if you can identify any trips in the full dataset.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

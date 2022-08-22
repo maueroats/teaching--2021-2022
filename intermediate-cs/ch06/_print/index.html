@@ -1,0 +1,1664 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch06/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>6. Animations I | WY CS</title>
+<meta name="description" content="Big-bang for animations. Essential information and walkthroughs.">
+<meta property="og:title" content="6. Animations I" />
+<meta property="og:description" content="Big-bang for animations. Essential information and walkthroughs." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch06/" />
+
+<meta itemprop="name" content="6. Animations I">
+<meta itemprop="description" content="Big-bang for animations. Essential information and walkthroughs."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="6. Animations I"/>
+<meta name="twitter:description" content="Big-bang for animations. Essential information and walkthroughs."/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch06/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">6. Animations I</h1>
+<div class="lead">Big-bang for animations. Essential information and walkthroughs.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-4a30ff2d3344ecf1846b769a06cd6285">Animations Summary</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-2b336be80e0e601a2757ebb3eaa001d7">Animations Intro Slides</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-8bf9d2f34f5f4ed14cfe099d6eeebeb6">Animations Outline</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-ba46521b5e5fee598e6ab7a0276b4557">Animations Key, Mouse</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-b79211c233efdd0f2f93e582ad9f87e3">Animation Examples</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-285ab82bfab6cffb7543e1e1141536d9">Animation Portfolio I</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-20c5ea6a6c3d480b4e1cd064776c33a8">Animation Portfolio II</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-cf95e8dd7b20b683044d6307a532e6d1">Animation Project</a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-0c67ce3de91e79c92011e547d0a7f7f1">Info: Signature Story</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-6bfb1b3a9dda47ccab381933eeeb347a">Info: Check-Expects</a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-33fb15cf10515bd5b4c8c78bec708d66">big-bang 00</a></li>
+
+
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-08fad0896193803b3cf47f4b30cb5c6c">big-bang 01</a></li>
+
+
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-6ffcb8518e155be2c3f54866f4b07a93">big-bang 02</a></li>
+
+
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-6df68663420992a0a42bd5003dcea3c7">big-bang 03</a></li>
+
+
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-2703464eb4ae6cd64354d08a5a891097">big-bang 04</a></li>
+
+
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-5cc479e56be4fd42c214dbb92fcee96e">big-bang 05</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17: <a href="#pg-7e058158468f2721e8aba8a8cbff75a6">Daily Animations</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>17.1: <a href="#pg-947015c624e69e4cdadb8066e433356c">2018.10.12</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17.2: <a href="#pg-9ce84638c9c3034b4a2d7413c3bcefae">2018.10.11</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17.3: <a href="#pg-b8dfe957c1258094cda31aa43a301344">2017-10-12</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17.4: <a href="#pg-c29368cd88d7579150124151d250ac7a">2017-10-10</a></li>
+
+
+    
+  
+    
+    
+	
+<li>17.5: <a href="#pg-fc2acc773b04c36045ed93c512c2a06c">Animation Practice</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>18: <a href="#pg-970e585ff3c238efa0b18548de5d0f97">Resources</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-4a30ff2d3344ecf1846b769a06cd6285">1 - Animations Summary</h1>
+    <div class="lead">A quick list of essential information for making animations.</div>
+	<p>This is a summary, not an introduction. It has a digest of all of the
+information you will want later.</p>
+<h2 id="essentials">Essentials</h2>
+<p>These essentials are on page 100 (PDF page 111) or page 138 (PDF page
+149). <strong>There is a detailed checklist on page 105 (PDF page 116)</strong>. Use it!
+You should memorize them.</p>
+<ul>
+<li>
+<p><code>model</code>: What the computer remembers.</p>
+</li>
+<li>
+<p><code>draw-handler: model -&gt; image</code>: Draw the model on the screen; adds non-moving parts to the image. (<code>on-draw</code>)</p>
+</li>
+<li>
+<p><code>tick-handler: model -&gt; model</code>: Update the model as time passes. (<code>on-tick</code>)</p>
+</li>
+<li>
+<p><code>key-handler: model key -&gt; model</code>: Update the model when a key is hit. (<code>on-key</code>)</p>
+</li>
+<li>
+<p><code>mouse-handler: model x y event -&gt; model</code>: Update the model when the
+mouse is moved or clicked. The inputs x and y are numbers, the event is a string. (<code>on-mouse</code>)</p>
+</li>
+</ul>
+<h2 id="design-process">Design Process</h2>
+<p>When designing every function, these are the steps you should follow:</p>
+<ol>
+<li>Signature</li>
+<li>Purpose</li>
+<li>Example</li>
+<li>Function &mdash; write it</li>
+<li>Test &mdash; check-expect</li>
+</ol>
+<p>Reference: page 70 (PDF page 81) has a longer version of the same list.</p>
+<h2 id="faq">F.A.Q.</h2>
+<ul>
+<li>
+<p>Q: Why do you write &ldquo;model&rdquo; when the model is just an image?</p>
+<p>A: Next chapter our models will be numbers, and soon after that our models
+will be sentences. If you memorize &ldquo;model&rdquo; as the type, you don&rsquo;t need to memorize a new signature every chapter.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2b336be80e0e601a2757ebb3eaa001d7">2 - Animations Intro Slides</h1>
+    <div class="lead">The basics of big-bang: on-tick, on-draw.</div>
+	<h1 id="intro-to-animation">Intro to Animation</h1>
+<hr>
+<h1 id="opener">Opener</h1>
+<p>Write two functions:</p>
+<ul>
+<li>
+<p><code>rotator: image -&gt; image</code> that turns the image 10 degrees.</p>
+</li>
+<li>
+<p><code>middle-placer: image -&gt; image</code> that places the given
+image in the center of a yellow circle of radius 200.</p>
+</li>
+</ul>
+<hr>
+<h1 id="animation-code">Animation Code</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">starter</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#0000cf;font-weight:bold">200</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;purple&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">delay-time</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#000">starter</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-tick</span> <span style="color:#000">rotator</span> <span style="color:#000">delay-time</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-draw</span> <span style="color:#000">middle-placer</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><hr>
+<h1 id="animation-vocabulary">Animation Vocabulary</h1>
+<ul>
+<li>
+<p>model: the part that changes</p>
+</li>
+<li>
+<p>on-tick: model -&gt; model</p>
+<p>Moves to next time.</p>
+</li>
+<li>
+<p>on-draw: model -&gt; image</p>
+<p>Shows the result. Draw things that do not move here.</p>
+</li>
+</ul>
+<hr>
+<h1 id="paper-exercise-i">Paper Exercise I</h1>
+<ul>
+<li>
+<p>A shape is shown on a yellow circle of radius 200.</p>
+</li>
+<li>
+<p>The shape grows 25% larger every tick, but the circle does not.</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Write a tick handler.</p>
+</li>
+<li>
+<p>Write the big-bang.</p>
+</li>
+</ol>
+<hr>
+<h1 id="paper-exercise-ii">Paper Exercise II</h1>
+<ul>
+<li>
+<p>A shape starts in the center of a circle.</p>
+</li>
+<li>
+<p>The shape moves to the right 10 pixels every tick.</p>
+</li>
+</ul>
+<h2 id="write-the-tick-handler">Write the tick handler</h2>
+<hr>
+<h1 id="class-work">Class work</h1>
+<p>Exercises 6.4.2 and 6.4.3 (pdf page 106)</p>
+<p>Bonus: 6.4.4</p>
+<h1 id="homework">Homework</h1>
+<p>Read Section 6.3 (beginner mistakes)</p>
+<hr>
+<h1 id="animation-more-vocab">Animation more vocab</h1>
+<ul>
+<li>
+<p>on-key: model key -&gt; model</p>
+</li>
+<li>
+<p>on-mouse: model number(x) number(y) event -&gt; model</p>
+</li>
+</ul>
+<hr>
+<p>You found <a href="animation-day1.rkt">the code!</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8bf9d2f34f5f4ed14cfe099d6eeebeb6">3 - Animations Outline</h1>
+    <div class="lead">Step by step, how to make a basic animation.</div>
+	<h1 id="all-steps">All Steps</h1>
+<ol>
+<li>Model</li>
+<li>Draw handler</li>
+<li>Tick handler</li>
+<li>Key handler?</li>
+<li>Mouse handler?</li>
+</ol>
+<hr>
+<h1 id="1-decide-model">1. Decide model</h1>
+<ul>
+<li>
+<p>What will the computer remember in order to draw a scene?</p>
+<ul>
+<li>
+<p>the moving parts</p>
+</li>
+<li>
+<p>image or number (usually)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Write down type of model: image, number, string.</p>
+</li>
+<li>
+<p>Make an example (used in later testing).</p>
+</li>
+</ul>
+<hr>
+<h1 id="2-draw-handler">2. Draw handler</h1>
+<ul>
+<li>
+<p>How will you draw the model on the screen?</p>
+<ul>
+<li>
+<p>non-moving parts go here</p>
+</li>
+<li>
+<p>place image in appropriate spots</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Write and test this function!</p>
+</li>
+</ul>
+<hr>
+<h1 id="3-tick-handler">3. Tick handler</h1>
+<ul>
+<li>
+<p>How will the model change from second to second?</p>
+<ul>
+<li>in comes old model</li>
+<li>out goes new model</li>
+</ul>
+</li>
+<li>
+<p>Write function and test a single step first!</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ba46521b5e5fee598e6ab7a0276b4557">4 - Animations Key, Mouse</h1>
+    <div class="lead">Learning mouse and key handler.</div>
+	<h1 id="grow-with-key">Grow with Key</h1>
+<p>Stretch 10% larger when a key is hit.</p>
+<ul>
+<li>Write function</li>
+<li>Signature?</li>
+</ul>
+<p>Just wider not taller?</p>
+<hr>
+<h1 id="mouse-date">Mouse Date</h1>
+<p>Show picture of calendar at mouse location.</p>
+<hr>
+<h1 id="mouse-line">Mouse Line</h1>
+<p>Calendar position:</p>
+<ul>
+<li>on line y=x</li>
+<li>matches mouse vertical position</li>
+</ul>
+<hr>
+<h1 id="thrice-same">Thrice Same</h1>
+<p>Same image appears 3x, horizontally.</p>
+<p>How?</p>
+<hr>
+<h1 id="shake-and-move">Shake and Move</h1>
+<ul>
+<li>Move 5 pixels down when mouse is moved.</li>
+<li>Enlarge 6% every second.</li>
+<li>Move 10 pixels up when a key is hit.</li>
+</ul>
+<hr>
+<h1 id="homework">Homework</h1>
+<ul>
+<li>6.7.2</li>
+<li>6.7.3</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b79211c233efdd0f2f93e582ad9f87e3">5 - Animation Examples</h1>
+    
+	<p>Here is a complete example (<a href="full-animation-example.rkt">raw Racket code available</a>) that
+shows how to:</p>
+<ul>
+<li>move an image down every tick</li>
+<li>draw three copies of the image in a row</li>
+<li>make the image get larger when you hit a key</li>
+<li>make the image get smaller when you move the mouse</li>
+</ul>
+<h2 id="big-bang">Big bang</h2>
+<p>The big bang goes last in the Racket file, but it is first here so you can see
+how everything comes together.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#000">original-model</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-tick</span> <span style="color:#000">move-down</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-draw</span> <span style="color:#000">three-copies</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-key</span> <span style="color:#000">reset</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-mouse</span> <span style="color:#000">shrink</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="tick-handler">Tick handler</h2>
+<p>Move the image down by inserting an invisible rectangle above it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">move-down</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#000">above</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;white&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000">model</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="draw-handler">Draw handler</h2>
+<p>Draw three copies of the same thing in a row. (Use this trick for the tires of your car!)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">three-copies</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay/align</span> <span style="color:#4e9a06">&#34;middle&#34;</span> <span style="color:#4e9a06">&#34;top&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">beside</span> <span style="color:#000">model</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">75</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;white&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000">model</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#0000cf;font-weight:bold">75</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;white&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty-scene</span> <span style="color:#0000cf;font-weight:bold">500</span> <span style="color:#0000cf;font-weight:bold">400</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span></code></pre></div><h2 id="key-handler">Key handler</h2>
+<p>Always return the original model, no matter what. This resets the animation.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">original-model</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">square</span> <span style="color:#0000cf;font-weight:bold">50</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;purple&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">reset</span> <span style="color:#000">model</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">original-model</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="mouse-handler">Mouse handler</h2>
+<p>Shrink the model by 1% any time the mouse is moved.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">shrink</span> <span style="color:#000">model</span> <span style="color:#000">x</span> <span style="color:#000">y</span> <span style="color:#000">event</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">scale</span> <span style="color:#0000cf;font-weight:bold">0.99</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-285ab82bfab6cffb7543e1e1141536d9">6 - Animation Portfolio I</h1>
+    
+	<ol>
+<li>Purple square that moves up when you hit any key.</li>
+<li>Throwing star that spins and maybe moves across the screen as time passes.</li>
+<li>Sunset with a horizon: sun moves down and goes behind some
+(non-white) horizon.</li>
+</ol>
+<!-- 4. Car with two wheels that spin when you move the mouse. -->
+<h2 id="advanced">Advanced</h2>
+<p>Learn how to use <code>cond</code> and make a car that drives back and forth
+across the screen.</p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">model</span> <span style="color:#0000cf;font-weight:bold">75</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">cond</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87">&lt;</span> <span style="color:#000">model</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#000">model</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;transparent&#34;</span><span style="color:#000;font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">(</span><span style="color:#000">rectangle</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">-</span> <span style="color:#0000cf;font-weight:bold">600</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;transparent&#34;</span><span style="color:#000;font-weight:bold">)])</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-20c5ea6a6c3d480b4e1cd064776c33a8">7 - Animation Portfolio II</h1>
+    
+	<ol>
+<li>
+<p>An arrow flies across the screen and stops with the head of the
+arrow buried in the target (but the fletching still visible).</p>
+</li>
+<li>
+<p>(Fan.) A fan with three blades is in the off position. When you
+hit a key, all of the blades get larger. Making the blades &ldquo;move&rdquo; is
+an optical illusion that probably takes too much effort, but if you
+want try it with the mouse motion.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cf95e8dd7b20b683044d6307a532e6d1">8 - Animation Project</h1>
+    
+	<p><strong>Deadline</strong>: Finish before Monday, October XX. Turn in Tuesday, October XX.</p>
+<p><strong>Produce</strong>: One sequence of big-bang animations per group. (Groups of at most two.)</p>
+<p><strong>Goal</strong>: Animation projects should demonstrate the use of draw, tick, mouse, and key handlers.</p>
+<p><strong>Time</strong>: Spend approximately two hours on this project.</p>
+<p>Making an animation is a way to study for Monday&rsquo;s animation
+test. Think of your work as a way to study and become more familiar
+with animations.</p>
+<h2 id="suggestion">Suggestion</h2>
+<p>We don&rsquo;t have the technical skills to make animations that work exactly like you imagine. A compromise is to break your idea into several &ldquo;scenes&rdquo;, put each scene into a big-bang, and then manually close the window each time to advance to the next big-bang.</p>
+<h2 id="ideas">Ideas</h2>
+<ul>
+<li>House of Mirrors</li>
+<li>Illusions</li>
+<li>Jump Scare (one big-bang ends and another starts)</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Every type of handler is used</li>
+<li>Design process visible for at least one big-bang.</li>
+<li>Please save all large images separately and load using <code>bitmap</code> (see note).</li>
+</ul>
+<h2 id="details">Details</h2>
+<p>You should consider these inspirations:</p>
+<ul>
+<li>
+<p>Drawing: placing a moving object behind another object.</p>
+</li>
+<li>
+<p>Motion: rotate, move by adding (above), move by subtracting (crop)</p>
+</li>
+<li>
+<p>Placing more than one moving image on a screen.</p>
+<ul>
+<li>place-image</li>
+<li>overlay/align</li>
+</ul>
+</li>
+</ul>
+<h2 id="important-note">Important Note</h2>
+<p>Save all big images separately. Put the &ldquo;bigImage.png&rdquo; file in the
+same folder you have saved your Racket program. Load the picture like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">background</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bitmap</span> <span style="color:#4e9a06">&#34;bigImage.png&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><p>Use the same method to keep transparency in images that you have found online.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0c67ce3de91e79c92011e547d0a7f7f1">9 - Info: Signature Story</h1>
+    <div class="lead">Why do handlers have specific signatures?</div>
+	<p>Racket requires functions with specific signatures for the handlers in
+a big bang animation. This page motivates that with a story.</p>
+<h2 id="story">Story</h2>
+<p>Once upon a time, every teacher in my school required students in
+their class to make &ldquo;name tents&rdquo;. This was a great idea, but every
+teacher had different requirements.</p>
+<ul>
+<li>First period wanted your preferred first name, written large on the
+name tent.</li>
+<li>Second period wanted a preferred name and a last initial.</li>
+<li>Third period wanted a preferred name (large), and also your grade written in the
+lower right.</li>
+<li>Fourth period wanted a preferred name (large), and a stripe made of
+your favorite color drawn along the left side.</li>
+</ul>
+<p>Some students found themselves carrying around four different name
+tents, each one different, to satisfy each class&rsquo;s requirements.</p>
+<p>Other students thought this was ridiculous and they made one name
+tent - preferred name written large, followed by last initial, grade
+in the lower right corner, with a stripe of their favorite color drawn
+along the left side. They used this one name tent to satisfy the
+requirements of each class they attended.</p>
+<h2 id="racket-connection">Racket Connection</h2>
+<p>You could imagine a similar situation in the Big Bang:</p>
+<ul>
+<li>Mouse handler A wants no additional information, just the image
+being currently shown. All it does is <code>(rotate 5 img)</code>.</li>
+<li>Mouse handler B wants the image being currently shown and the
+x-coordinate of the mouse. It does <code>(place-image img x 100 bg)</code>.</li>
+<li>Mouse handler C wants the image being currently shown and the
+y-coordinate of the mouse.</li>
+<li>Mouse handler D wants the current image and the event (like
+<code>&quot;button-down&quot;</code>).</li>
+<li>Mouse handler E wants only the x and y coordinates of the mouse, and
+no information about the past image. It does <code>(place-image pic:stick-figure x y bg)</code>.</li>
+</ul>
+<p>This would be possible, you could indicate in <code>big-bang</code> which kinds of information
+you wanted:</p>
+<pre><code>    (on-mouse:old A)
+    (on-mouse:old+x B)
+    (on-mouse:old+y C)
+    (on-mouse:old+event D)
+    (on-mouse:x+y E)
+</code></pre>
+<p>The developers of Racket decided that this was a ridiculous level of
+detail, and instead they decided to make a rule to make their own
+lives easier: your mouse handler function <strong>must</strong> take in all of the
+available information: old image, x-coordinate of the mouse,
+y-coordinate of the mouse, and the &ldquo;mouse-event&rdquo;. You don&rsquo;t have to
+<em>use</em> any of the information, but for consistency you have to have
+enough parameters to your function so there is a place to <em>put</em> each
+piece of information.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6bfb1b3a9dda47ccab381933eeeb347a">10 - Info: Check-Expects</h1>
+    <div class="lead">The importance of check-expects.</div>
+	<h2 id="importance-of-checks">Importance of Checks</h2>
+<p>Good check-expects give you a road map to write your
+function. Check-expects should be correct based on the <em>purpose</em> of
+your function, not its current behavior.</p>
+<ul>
+<li>A working function should
+pass all of its check-expects.</li>
+<li>A function that does not do
+what it is supposed to do should fail some check-expect.</li>
+<li>A function that sometimes gives the right answer and sometimes gives
+the wrong answer should pass some check-expects but not all of them.</li>
+</ul>
+<p>The idea of check-expects is important because when you are working
+with more complex and possibly buggy functions (later in the course),
+the specification (&ldquo;check-expect&rdquo;) can be written <em>first</em>, then you
+can test to see your progress in completing the goals you set
+(so it is not all or nothing).</p>
+<p>Five example check-expect ideas from checkers that build in complexity:</p>
+<ul>
+<li>is it legal to move diagonally to an empty square?</li>
+<li>is it illegal to move diagonally to an occupied square?</li>
+<li>is it legal to jump a single opponent&rsquo;s piece?</li>
+<li>is it illegal to jump your own piece?</li>
+<li>is it illegal to jump off the board?</li>
+</ul>
+<p>A programmer might start by allowing any move to an adjacent square,
+then put in rules that the square had to be unoccupied, then allow
+jumping, etc.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-33fb15cf10515bd5b4c8c78bec708d66">11 - big-bang 00</h1>
+    <div class="lead">Why do handlers have specific signatures?</div>
+	<h2 id="application-practice">Application Practice</h2>
+<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<ol>
+<li>
+<p>You want to turn <code>pah</code> into a key handler <code>pa</code>. Write the signature
+for <code>pa</code>. Write the new function <code>pa</code>.</p>
+<pre><code> (define pusher-square (square 5 &quot;solid&quot; &quot;transparent&quot;))
+ (define (pah x) (beside pusher-square x))
+</code></pre>
+</li>
+<li>
+<p>You need to modify the definition of your mouse handler <code>pm</code> so that it
+can be run when you press a key instead of using the mouse. How do you do that?</p>
+<pre><code> (define (pm img x y event) (rotate 5 img))
+</code></pre>
+</li>
+<li>
+<p>What kind of handler is the function <code>pq</code> appropriate for right
+now?</p>
+<pre><code> (define (pq a b c d) (crop-left a 5))
+</code></pre>
+</li>
+<li>
+<p>Convert the <code>pq</code> above to a tick handler <code>pqt</code>. Also give
+the correct signature of <code>pqt</code>.</p>
+</li>
+<li>
+<p>Use the starter code below to answer the questions.</p>
+<pre><code> (define (go-right n) (+ n 5))
+ (define (go-left n) (- n 5))
+ (define (draw-bar n) (rectangle n 30 &quot;solid&quot; &quot;purple&quot;))
+ (big-bang 100
+     (on-mouse go-right)
+     (on-key go-left)
+     (to-draw draw-bar))
+</code></pre>
+<ol>
+<li>What is the first &ldquo;thing&rdquo; given to the draw handler? What kind
+of &ldquo;thing&rdquo; is it? (a.k.a. What is the type of the &ldquo;initial model&rdquo;?)</li>
+<li>What is the signature of the mouse handler <code>go-right</code> (not the
+original)?</li>
+<li>What is the signature of the key handler <code>go-left</code> (not the original)?</li>
+</ol>
+</li>
+</ol>
+<!-- would it be better to use an image model for Q6? -->
+<ol start="6">
+<li>
+<p>The animation below is supposed to be a stick figure moving to the
+right in an empty scene. What is wrong with the code below? How
+would you fix it?</p>
+<pre><code> (define (bad-push-right n) 
+   (rectangle n 0 &quot;solid&quot; &quot;orange&quot;))
+ (define (bad-draw n)
+   (overlay (beside (rectangle n 0 &quot;solid&quot; &quot;blue&quot;)
+                    pic:stick-figure)
+             (empty-scene 300 200)))
+ (big-bang 50
+   (on-tick bad-push-right 0.25)
+   (to-draw bad-draw))
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-08fad0896193803b3cf47f4b30cb5c6c">12 - big-bang 01</h1>
+    
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<p>Practice looking at code and making inferences about the types of
+various functions.</p>
+<p>The phrases &ldquo;signature&rdquo; and &ldquo;type signature&rdquo; mean the same thing.</p>
+<ol>
+<li>
+<p>Given the example usage below, write a possible type signature for <code>d1</code>.</p>
+<pre><code> (d1 pic:stick-figure 100 50) 
+ =&gt; (make-color 100 50 250 255)
+</code></pre>
+</li>
+<li>
+<p>Write a possible signature for <code>d2</code>.</p>
+<pre><code> (d2 120 &quot;blue&quot;)
+ =&gt; (place-image pic:book 120 100 (rectangle 200 150 &quot;solid&quot; &quot;blue&quot;))
+</code></pre>
+</li>
+<li>
+<p>Write a possible signature for <code>d3</code>.</p>
+<pre><code> (define arg (circle 20 &quot;solid&quot; &quot;orange&quot;))
+ (overlay (d3 20 arg &quot;function d3&quot;)
+          (circle 60 &quot;solid&quot; &quot;blue&quot;))
+</code></pre>
+</li>
+<li>
+<p>(a) Write the signature for <code>k1</code> given the examples below. (b) Write a
+purpose for <code>k1</code>. <strong>(c) Write the code for the function <code>k1</code>.</strong></p>
+<pre><code> (k1 pic:scheme-logo 200 320) =&gt; (ellipse 200 100 &quot;solid&quot; &quot;red&quot;)
+ (k1 (square 74 &quot;solid&quot; &quot;orange&quot;) 350 190) =&gt; (ellipse 350 100 &quot;solid&quot; &quot;red&quot;)
+</code></pre>
+</li>
+<li>
+<p>The information about a particular animation is given below:</p>
+<pre><code> (big-bang pic:bloch
+     (to-draw render-in-sunset)
+     (on-tick d4a 0.5)
+     (on-key d4b))
+</code></pre>
+<ol>
+<li>Just to make sure: what kind of thing (&ldquo;type&rdquo;) is <code>pic:bloch</code>?</li>
+<li>What is the signature for <code>render-in-sunset</code>?</li>
+<li>What the name and signature of the tick handler?</li>
+<li>Give the name of the key handler and its signature.</li>
+</ol>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6ffcb8518e155be2c3f54866f4b07a93">13 - big-bang 02</h1>
+    
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<p>You should be familiar with <a href="/teaching--2021-2022/intermediate-cs/ch06/bigbang-check/">the importance of check-expects</a> before doing the exercises.</p>
+<h2 id="long-leg-triangle">Long Leg Triangle</h2>
+<p>The first animation code is below.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">left-mid</span> <span style="color:#000">img</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay/align</span> <span style="color:#000">img</span> <span style="color:#4e9a06">&#34;left&#34;</span> <span style="color:#4e9a06">&#34;middle&#34;</span> <span style="color:#000">img</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty-scene</span> <span style="color:#0000cf;font-weight:bold">350</span> <span style="color:#0000cf;font-weight:bold">250</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">initial-model</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">right-triangle</span> <span style="color:#0000cf;font-weight:bold">200</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;blue&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#000">initial-model</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-mouse</span> <span style="color:#000">...to-write...</span><span style="color:#000;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">(</span><span style="color:#000">to-draw</span> <span style="color:#000">left-mid</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><ol>
+<li>Sketch the first image shown when the code is run. (Commit to
+your best guess before testing it.)</li>
+<li>What kind of &ldquo;thing&rdquo; is the initial model?</li>
+</ol>
+<h3 id="mouse-handler-1">Mouse Handler 1</h3>
+<p>The purpose of the mouse handler <code>my-mouse</code>
+is to create a triangle with width equal to the
+x-coordinate of the mouse but with the y-coordinate always 100.</p>
+<ol start="3">
+<li>
+<p>Write a check-expect showing the result when the mouse moves to the
+point (150,75).</p>
+<pre><code> (check-expect (my-mouse initial-model 150 75 &quot;move&quot;) ...)
+</code></pre>
+</li>
+<li>
+<p>Write another check-expect that has <em>everything</em> different from the
+one above. (Every single input, and the output.)</p>
+</li>
+</ol>
+<h3 id="mouse-handler-2">Mouse Handler 2</h3>
+<p>Now we write another, different mouse handler.
+The purpose of this mouse handler, <code>slide-handler</code>, is to make it seem
+like there is a large off-screen triangle that you slide back and
+forth onto the screen so that the tip of the triangle is at the
+x-coordinate of the mouse.</p>
+<ol start="5">
+<li>Write a check-expect for <code>slide-handler</code>.</li>
+<li>Write a totally different check-expect for <code>slide-handler</code>.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6df68663420992a0a42bd5003dcea3c7">14 - big-bang 03</h1>
+    
+	<h2 id="part-a">Part A</h2>
+<p>Setup:</p>
+<pre tabindex="0"><code>(define (draw-h-a c)
+  (overlay (circle 100 &#34;solid&#34; c)
+           (square 80 &#34;outline&#34; &#34;black&#34;)))
+(big-bang (make-color 0 0 250)
+  (on-draw draw-h-a 210 180) ;; little new thing?
+  (on-mouse minnie-a))
+</code></pre><ol>
+<li>What &ldquo;kind of thing&rdquo; is the model? (Same question, restated: what
+is the type of the model?)</li>
+<li>What is the signature of <code>draw-h-a</code>?</li>
+<li>What is the name and signature for the mouse handler?</li>
+<li>Write a <code>check-expect</code> for the mouse handler that shows that when
+the old model is <code>(make-color 0 0 250)</code> and you move the mouse to
+coordinates (80, 130), the new model is <code>(make-color 80 255 255)</code>.</li>
+<li>Make up another check-expect for the mouse handler, guessing its
+purpose from the first example.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2703464eb4ae6cd64354d08a5a891097">15 - big-bang 04</h1>
+    
+	<p>Setup:</p>
+<pre tabindex="0"><code>(define (short n) 
+  (beside (rectangle (- n 20) 10 &#34;solid&#34; &#34;yellow&#34;)
+          (square 20 &#34;solid&#34; &#34;goldenrod&#34;)))
+(define initial (short 300))
+(define (draw-h-4 m)
+  (overlay/align &#34;right&#34; &#34;bottom&#34; 
+                 m (rectangle 300 200 &#34;solid&#34; &#34;lightblue&#34;)))
+(big-bang initial
+  (on-draw draw-h-4)
+  (on-mouse melody))
+</code></pre><ol>
+<li>
+<p>What &ldquo;kind of thing&rdquo; is the model? (Same question, restated: what
+is the type of the model?)</p>
+</li>
+<li>
+<p>What is the signature of <code>draw-h-4</code>?</p>
+</li>
+<li>
+<p>Make an accurate drawing of the first image shown.</p>
+</li>
+<li>
+<p>What is the name and signature for the mouse handler?</p>
+</li>
+<li>
+<p>Write a <code>check-expect</code> for the mouse handler that shows that when
+the old model is <code>initial</code> and you move the mouse to
+coordinates (30, 75), the new model is <code>demo1</code>:</p>
+<pre><code> (define demo1 (above (short 280) (square 10 &quot;solid&quot; &quot;red&quot;)))
+</code></pre>
+</li>
+<li>
+<p>Write a purpose for the mouse handler. What do you think it does?</p>
+</li>
+<li>
+<p>Make a diagram with 3 columns showing the models in the top row
+(with mouse motion between them) and
+the result of applying the draw handler in the second row.</p>
+</li>
+<li>
+<p>Write a check-expect for the mouse handler, showing exactly what
+happens when you move the mouse with the old model being <code>demo1</code>.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5cc479e56be4fd42c214dbb92fcee96e">16 - big-bang 05</h1>
+    <div class="lead">Setting (and resetting) animations to a given state.</div>
+	<style type="text/css">
+    ol { list-style-type: roman; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    ol ol ol ol { list-style-type: decimal; }
+</style>
+<h2 id="a">A</h2>
+<pre tabindex="0"><code>(define (more n) (+ n 5))
+(big-bang 25
+  (on-tick more 0.2)
+  (on-draw work))
+</code></pre><p>You want to see an animation of a solid blue circle increasing in
+radius in the center of a 400x300 black outline rectangle.</p>
+<ol>
+<li>
+<p>What kind of model is this animation using?</p>
+</li>
+<li>
+<p>Write code for the draw handler.</p>
+</li>
+<li>
+<p>Moving the mouse resets the circle to its original size, radius 25.</p>
+<ol>
+<li>Suppose the mouse handler is called <code>cleo</code>. What is the
+signature of <code>cleo</code>?</li>
+<li>What line of code adds this mouse handler to the animation?</li>
+<li>Write a check-expect for the mouse handler showing that when
+the (old) radius is 75 and the mouse is moved to (210, 80), the
+radius resets to 25.</li>
+<li>Write code for mouse handler.</li>
+</ol>
+</li>
+</ol>
+<h2 id="b">B</h2>
+<p>An alternate version.</p>
+<pre tabindex="0"><code>(define (draw-h img) (overlay img (rectangle 400 300 &#34;solid&#34; &#34;purple&#34;)))
+(define (biggr img) (scale 1.02 img))
+(big-bang (circle 25 &#34;solid&#34; &#34;yellow&#34;)
+  (on-tick biggr 0.2)
+  (on-draw draw-h)
+  (on-mouse maxie))
+</code></pre><p>Again, suppose you want <code>maxie</code> to reset the circle to its
+original size when called.</p>
+<ol>
+<li>Write the signature for <code>maxie</code>.</li>
+<li>Write the code for the <code>maxie</code>.</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7e058158468f2721e8aba8a8cbff75a6">17 - Daily Animations</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-947015c624e69e4cdadb8066e433356c">17.1 - 2018.10.12</h1>
+    
+	<p>Make an animation with two stick figures moving at the same time:</p>
+<ol>
+<li>One starts at the top left corner of the frame and moves right.</li>
+<li>The other starts in the bottom right corner of the frame and moves
+left.</li>
+</ol>
+<p>It is OK if the animation does not work once the figures get to the
+edge(s).</p>
+<p>Remember: start with one moving figure, work through the process step
+by step until you have one figure moving correctly. Then add the other
+figure.</p>
+<h2 id="homework">Homework</h2>
+<p>Exercise 6.5.5 from the book.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9ce84638c9c3034b4a2d7413c3bcefae">17.2 - 2018.10.11</h1>
+    
+	<ol>
+<li>
+<p>Make an animation with a shape that turns 15 degrees and grows by
+20% every second. (Possibly adjust to 5 degrees and 2% every 0.3
+sec once it works and you want it to look good.)</p>
+</li>
+<li>
+<p>Make an animation where a shape starts in the upper left corner of
+an outlines rectangle and moves to a position 5 pixels right and
+two pixels down every 0.1 second.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b8dfe957c1258094cda31aa43a301344">17.3 - 2017-10-12</h1>
+    
+	<p>Make an animation of a dog that:</p>
+<ul>
+<li>
+<p>gets bigger every time you hit a key (every key).</p>
+</li>
+<li>
+<p>gets smaller when you move the mouse.</p>
+</li>
+</ul>
+<h1 id="memorize">Memorize</h1>
+<p>Memorize the steps of the design process!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c29368cd88d7579150124151d250ac7a">17.4 - 2017-10-10</h1>
+    
+	<ul>
+<li><a href="flying-rectangle.rkt">Flying purple rectangle</a></li>
+</ul>
+<p>Make a small rectangle centered in the middle of the bottom of a big white rectangular canvas. As time goes on the rectangle should move up.</p>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch06/daily/2017-10-10/flying-rectangle.gif"/> 
+</figure>
+<ul>
+<li><strong>Growing diamond</strong>. Make a diamond that sits on the right side of the page
+and gets larger.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fc2acc773b04c36045ed93c512c2a06c">17.5 - Animation Practice</h1>
+    <div class="lead">Practice writing big-bang code and identifying common errors.</div>
+	<h2 id="progress-bar-1">Progress bar 1</h2>
+<p>Make a solid purple bar that starts in the middle of the left side of the screen and grows to the right at a constant rate.</p>
+<ol>
+<li>
+<p>Model</p>
+</li>
+<li>
+<p>Draw handler</p>
+</li>
+<li>
+<p>Tick handler</p>
+</li>
+</ol>
+<p>Add in a feature so that the bar shrinks when you wiggle the mouse.</p>
+<p>(<a href="purple-bar.rkt">Solution code</a>)</p>
+<h2 id="errors-1">Errors #1</h2>
+<p>What is wrong?</p>
+<p>The variable <a href="http://img10.deviantart.net/cb20/i/2009/014/2/4/indoor_scene_by_thekeyofe.png">indoors</a> is an indoor picture.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">indoors</span> <span style="color:#204a87;font-weight:bold">...</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">model</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000">pic:stick-figure</span> 
+</span></span><span style="display:flex;"><span>                       <span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty-scene</span> <span style="color:#0000cf;font-weight:bold">300</span> <span style="color:#0000cf;font-weight:bold">200</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">tick-h</span> <span style="color:#000">img</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">(</span><span style="color:#000">overlay</span> <span style="color:#000">img</span> <span style="color:#000">indoors</span><span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h2 id="errors-2">Errors #2</h2>
+<p>What is wrong?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-racket" data-lang="racket"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">start</span> <span style="color:#000">pic:stick-figure</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">define</span> <span style="color:#000">tick-h</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">beside</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">square</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#4e9a06">&#34;solid&#34;</span> <span style="color:#4e9a06">&#34;white&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">start</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">big-bang</span> <span style="color:#000">start</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-draw</span> <span style="color:#000">show-it</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">(</span><span style="color:#000">on-tick</span> <span style="color:#000">tick-h</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-970e585ff3c238efa0b18548de5d0f97">18 - Resources</h1>
+    <div class="lead">External documents for learning about big-bang.</div>
+	<ul>
+<li>
+<p><a href="https://docs.google.com/document/d/1vlnUh2IjuwEBj-cvnqP7qww03LYGuqLto1eqbkGLV4M/edit?usp=sharing">Chapter 6 Worksheet
+1</a>:
+introduction and a quick reference chart.</p>
+</li>
+<li>
+<p><a href="https://docs.google.com/document/d/16v_4PSZMPGZCNFK4cdSqEaqcWg5vZ2Ds179gZUjhsHo/edit?usp=sharing">Chapter 6 Worksheet
+2</a>:
+A stack of beginner animation exercises with a lot of variety.</p>
+</li>
+<li>
+<p><a href="https://docs.google.com/document/d/1kKznW0FQOfhWTHgM_agX3B1yiD2yyoN3UKuWBqPhGKc/edit?usp=sharing">Chapter 6 Worksheet
+3</a>:
+Two animations and <code>check-within</code>. Read Section 7.5.3 in Picturing
+Programs (book page 116).</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

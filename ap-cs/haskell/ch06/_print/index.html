@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch06/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>6. Higher Order Functions | WY CS</title>
+<meta name="description" content="">
+<meta property="og:title" content="6. Higher Order Functions" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/ap-cs/haskell/ch06/" />
+
+<meta itemprop="name" content="6. Higher Order Functions">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="6. Higher Order Functions"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/intermediate-cs/" ><span>IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/ap-cs/" ><span class="active">AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/ap-cs/haskell/ch06/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">6. Higher Order Functions</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-da079245be1f3d35f666f3a873588a98">Ch6 Discussion 01</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-5eef830bbfd49709008234a64d45bb6d">Ch6 Discussion 02</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-d60600927891b860216fc17069966919">Ch6 Discussion 03</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-34a6752fff65eefe553f3d7e5f8f6478">Ch6 Discussion 04</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-f1db4f875921ea0cebadeb4a6b7f7c83">Ch6 Misc Ex</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-0180788161cb4f5112defca648162d87">Ch6 Quiz</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-7c6b786dbed40b9162292846a5eb4d26">Chapter 6 Reading Guide</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-da079245be1f3d35f666f3a873588a98">1 - Ch6 Discussion 01</h1>
+    
+	<h2 id="partial-evaluation">Partial Evaluation</h2>
+<h3 id="p1">P1</h3>
+<p>Given</p>
+<pre><code>f x y = 2*x+3*y
+moo = f
+</code></pre>
+<p>What kind of thing is <code>moo</code>? A number? A function? An error?</p>
+<pre><code>moo 10 1 == f 10 1
+         == 23
+</code></pre>
+<h3 id="p2">P2</h3>
+<p>Continuing:</p>
+<pre><code>oom = f 100 10
+</code></pre>
+<p>What kind of thing is <code>oom</code>? A number? A function? An error?</p>
+<h3 id="p3">P3</h3>
+<p>Continuing:</p>
+<pre><code>oof = f 10
+</code></pre>
+<p>What kind of thing is <code>oof</code>? A number? A function? An error?</p>
+<h2 id="p4">P4</h2>
+<p>What if you want to fill in <code>y</code> not <code>x</code>?</p>
+<pre><code>f x y = 2*x+3*y
+</code></pre>
+<p>Options:</p>
+<ol>
+<li>Named function: <code>g x = f x 1</code></li>
+<li>Unnamed function (&ldquo;lambda&rdquo;): <code>\x -&gt; f x 1</code></li>
+<li>Flip: <code>(flip f) 1</code></li>
+</ol>
+<p>What&rsquo;s flip? It exchanges two inputs, like this:</p>
+<pre><code>flip f x y = f y x
+</code></pre>
+<h2 id="map">Map</h2>
+<p>List comprehensions apply a function to everything in a list:</p>
+<pre><code>[ f x | x &lt;- xs ]
+</code></pre>
+<p>The map function does the same thing:</p>
+<pre><code>map f xs
+</code></pre>
+<h2 id="exericses">Exericses</h2>
+<p>Try using some of the methods above (under P4 and map) to do these two
+exercises several different ways.</p>
+<ol>
+<li>
+<p>Given input <code>[3,1,8]</code> produce the output <code>[&quot;abc&quot;, &quot;a&quot;, &quot;abcdefgh&quot;]</code>. That is, give the first num letters of the alphabet.</p>
+</li>
+<li>
+<p>Input: a list of points. Output: the greatest distance any of those
+points is from <code>(2,7)</code>.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5eef830bbfd49709008234a64d45bb6d">2 - Ch6 Discussion 02</h1>
+    
+	<p>The <code>cityscape</code> function takes in a list of integers representing the
+heights of buildings and puts out a single string that will show
+skyscrapers built of X&rsquo;s in columns whose heights correspond to the
+integers.</p>
+<p>Example:</p>
+<pre><code>cityscape [4,2,6,1]
+</code></pre>
+<p>Output:</p>
+<pre tabindex="0"><code>  x
+  x
+x x
+x x
+xxx
+xxxx
+</code></pre><p>Make sure you test your program to verify that it works with two
+skyscrapers of the same height.</p>
+<h2 id="editing-checklist">Editing Checklist</h2>
+<ul>
+<li>Only uses of <code>length</code> are absolutely essential.</li>
+<li>Recursion uses <code>(x:xs)</code> not <code>head</code> and <code>tail</code>.</li>
+<li>Choices are made by patterns and guards, not <code>if...then...else</code>.</li>
+<li>Functions have names that indicate what they do.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d60600927891b860216fc17069966919">3 - Ch6 Discussion 03</h1>
+    
+	<p>Learn: <code>filter</code> and <code>foldl</code>.</p>
+<p>I will write <code>foldL</code> and <code>foldR</code> so it is clear that the last
+character is a ell not a one. There are also functions <code>foldl1</code> and
+<code>foldr1</code>.</p>
+<h2 id="examples">Examples</h2>
+<pre><code> filter (&gt;=0) [5,-1,3,4,-8]
+ filter (0&gt;=) [5,-1,3,4,-8]
+</code></pre>
+<p>Find want all numbers x from a list so that <code>x^2</code> is less
+than 100.</p>
+<pre><code> filter (\x -&gt; x*x &lt;= 100) [5,90,13,-4]
+</code></pre>
+<h2 id="exercises-1">Exercises 1</h2>
+<ol>
+<li>
+<p>Find all of the words of length at most 7.</p>
+<pre><code> words1 = [&quot;cat&quot;,&quot;wombat&quot;,&quot;caterpillar&quot;,&quot;platypus&quot;,&quot;dog&quot;]
+</code></pre>
+</li>
+</ol>
+<h2 id="foldl">foldL</h2>
+<p>Use <code>(++)</code> to produce a list of all of the numbers in any list, in the
+order they appear, and beginning with a 0 (which does not count as an
+element from a list).</p>
+<pre><code>foldl (++) [0] [[1,2,3],[4],[5,6,7,8]]
+</code></pre>
+<h2 id="exercises-2">Exercises 2</h2>
+<ol>
+<li>
+<p>Suppose 999 represents an unavailable score. Find the largest score
+in the list using <code>foldl</code>.</p>
+<pre><code> scores = [4,70,30,999,80,50]
+</code></pre>
+</li>
+<li>
+<p>Use <code>foldl</code> to find the sum of all odd numbers in a list.</p>
+</li>
+<li>
+<p>Multiply all of the numbers in the list, going left to
+right. Except if you find a 0 resert the product to a 1.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-34a6752fff65eefe553f3d7e5f8f6478">4 - Ch6 Discussion 04</h1>
+    
+	<p>Learn: <code>scanl</code>.</p>
+<p>Find the first 40 partial sums of the sequence 1+1/2+1/3+1/4+&hellip; by
+using <code>scanl</code>.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>
+<p>Take in a list <code>[(Float,Bool)]</code> of <code>(gpa, admitted)</code> student data, find all of the
+pairs where the student was admitted with a gpa of less than 3.0.</p>
+</li>
+<li>
+<p>Shopping. Given $200 and a list of <code>Int</code> prices of items, find:</p>
+<p>a. How much money remains after buying each item possible, in order
+from left to right.</p>
+<p>b. A list of how much you have at the start, and then your
+remaining balance after each item.</p>
+<p>Examples:</p>
+<pre><code> shopA 200 [90,20,60,150,5] == 25
+ shopB 200 [90,20,60,150,5] == [200,110,90,30,30,25]
+</code></pre>
+</li>
+<li>
+<p>Progress Bar. Given a list of integers (download sizes), produce a list of strings
+of &lsquo;X&rsquo; indicating what percent of the total number has been
+downloaded so far (so <em>cumulative</em> percent). Each X should
+represent 5 percent of the total amount. Round the percents down to
+the nearest multiple of five.</p>
+<pre><code> progressBar [5,8,12,15,10] ==
+    [&quot;&quot;, &quot;XX&quot;,&quot;XXXXX&quot;,&quot;XXXXXXXXXXXXXXXX&quot;,&quot;XXXXXXXXXXXXXXXXXXXX&quot;]
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f1db4f875921ea0cebadeb4a6b7f7c83">5 - Ch6 Misc Ex</h1>
+    
+	<ol>
+<li>
+<p><code>addPosn :: (Num a) =&gt; (a,a) -&gt; (a,a) -&gt; (a,a)</code> Add the
+corresponding x and y coordinates.</p>
+</li>
+<li>
+<p>An arithmetic sequence starts with a number and then increases by a
+constant amount. For example, starting at 5 and increasing by 2 gives
+[5,7,9,&hellip;]. Do the same thing in two dimensions:</p>
+<pre><code> goForever :: (Int,Int) -&gt; (Int,Int) -&gt; [(Int,Int)]
+ goForever (1,4) (2,-1) == [(1,4),(3,3),(5,2),(7,1),...] -- infinite
+</code></pre>
+</li>
+<li>
+<p>Check your work by writing a function that returns the first four
+ordered pairs produced by <code>goForever</code>. Call that function <code>goFour</code>.</p>
+</li>
+<li>
+<p>(allFours) Now you can produce four coordinates in a given
+direction: N, S, E, W, NE, NW, SE, SW. In this setup, NW is the
+direction (-1,1) and E is the direction (1,0).  Make a list
+containing the sequence of points you can reach by going 4 in a row
+in each of these directions.</p>
+<pre><code> allFours (5,8) == 
+   [[(5,8),(6,8),(7,8),(8,8)],
+    [(5,8),(6,9),(7,10),(8,11)],
+    [(5,8),(5,9),(5,10),(5,11)],
+    [(5,8),(4,9),(3,10),(2,11)],
+    [(5,8),(4,8),(3,8),(2,8)],
+    [(5,8),(4,7),(3,6),(2,5)],
+    [(5,8),(5,7),(5,6),(5,5)],
+    [(5,8),(6,7),(7,6),(8,5)]]
+</code></pre>
+</li>
+<li>
+<p>(scoreMC) Given a String answer key and a String student response
+input, give 6 points for each correct answer, 2 for each blank
+(<code>_</code>) and 0 points for each wrong answer. Assume the key and the
+response are the same length.</p>
+<pre><code> scoreMC &quot;ABCD&quot; &quot;AX_D&quot; == 14
+</code></pre>
+</li>
+<li>
+<p>(pigLatin) Read the rules for the made-up language <a href="https://en.wikipedia.org/wiki/Pig_Latin#Rules">Pig
+Latin</a>.
+Change each word in the input into Pig Latin.</p>
+<pre><code> pigLatin [&quot;I&quot;,&quot;have&quot;,&quot;a&quot;,&quot;phone&quot;] == [&quot;Iway&quot;,&quot;avehay&quot;,&quot;away&quot;,&quot;onephay&quot;]
+</code></pre>
+<p>Ignore the problem of correct capitalization.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0180788161cb4f5112defca648162d87">6 - Ch6 Quiz</h1>
+    
+	<p>Please write your answers on paper and turn in the paper.</p>
+<ol>
+<li>
+<p>Explain in your own words what <code>foldl</code> is good for.</p>
+</li>
+<li>
+<p>Use <code>foldl</code> to remove duplicates from a list. Write your own fold
+function. Example:</p>
+<pre><code> undup [1,1,1,2,3,2] == [1,2,3] 
+</code></pre>
+</li>
+<li>
+<p>You are going to hide a secret message inside a public message by
+inserting the letters of the secret message every given number (n)
+of the public message letters. If there are not enough letters in
+the public message, just put the unused part of the secret message
+at the end. Begin the output with part of the public message.</p>
+<pre><code> steg &quot;Whitney Young&quot; &quot;ABC&quot; 4
+   == &quot;WhitAney BYounCg&quot;
+
+ steg &quot;Whitney Young&quot; &quot;Long Message&quot; 5
+   == &quot;WhitnLey Yooungng Message&quot;
+</code></pre>
+</li>
+<li>
+<p>Write a decoder for messages like the first one, which are able to
+fit completely inside the second. Take in the number of letters
+between each secret letter.</p>
+<pre><code> unsteg 4 &quot;WhitAney BYounCg&quot; == &quot;ABC&quot;
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7c6b786dbed40b9162292846a5eb4d26">7 - Chapter 6 Reading Guide</h1>
+    
+	<ol>
+<li>
+<p>Take in a list of numbers and output a list containing all of the numbers greater than 8.</p>
+</li>
+<li>
+<p>Take in a list of numbers and output a list containing all of the numbers between 10 and 20 (inclusive).</p>
+</li>
+<li>
+<p>Take in a list of numbers. Multiply all of the numbers in a list by 10 to make the output list.</p>
+</li>
+<li>
+<p>Take in a list of lists. Arrange the list of lists according to how
+many elements each list has, so longer sublists go first and shorter sublists
+go later.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

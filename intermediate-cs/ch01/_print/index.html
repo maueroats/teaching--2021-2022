@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<link rel="canonical" type="text/html" href="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch01/">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/teaching--2021-2022/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/teaching--2021-2022/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/teaching--2021-2022/favicons/android-192x192.png" sizes="192x192">
+
+<title>1. Introduction | WY CS</title>
+<meta name="description" content="Learn the essentials of image manipulation: rotating, flipping, and combining images.
+
+
+
+HW 01 B
+
+
+HW 01 C
+
+
+Ch01.QuizA
+
+">
+<meta property="og:title" content="1. Introduction" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maueroats.github.io/teaching--2021-2022/intermediate-cs/ch01/" />
+
+<meta itemprop="name" content="1. Introduction">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1. Introduction"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" as="style">
+<link href="/teaching--2021-2022/scss/main.min.d025e7f93eb7a713039676faaf01ccf911a0435790c00ed7c3e93d0345d088e1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/teaching--2021-2022/">
+		<span class="navbar-logo"></span><span class="font-weight-bold">WY CS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ecs/" ><span>ECS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/teaching--2021-2022/intermediate-cs/" ><span class="active">IntermediateCS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ap-cs/" ><span>AP CS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/ai/" ><span>AI</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/teaching--2021-2022/resources/" ><span>Resources</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/teaching--2021-2022/intermediate-cs/ch01/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">1. Introduction</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-239f5c86c0996ca813df7689a4efdaf8">HW 01 B</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-8abf81d9cc361f6e6f356e5526ad9086">HW 01 C</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-a1236a2086af755f12047dd52e29c4ca">Ch01.QuizA</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>Learn the essentials of image manipulation: rotating, flipping, and combining images.</p>
+<!--This should be first in the list!! Need to solve that problem.-->
+<ul class="children children-li">
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch01/ch01b-review/" >HW 01 B</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch01/ch01c/" >HW 01 C</a></li>
+</span></p>
+<p><span><li>
+<a href="/teaching--2021-2022/intermediate-cs/ch01/ch01quiza/" >Ch01.QuizA</a></li>
+</span></p>
+</ul>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-239f5c86c0996ca813df7689a4efdaf8">1 - HW 01 B</h1>
+    <div class="lead">Two images of designs to practice making in Racket.</div>
+	<h2 id="opener">Opener</h2>
+<p><img src="hw01b-rot.jpg" alt="Short image-making openers" title="Homework 1 B opener"></p>
+<h2 id="practice">Practice</h2>
+<p>You may omit the border lines.</p>
+<p><img src="ch01-review-small.jpg" alt="Two designs to make" title="Chapter 1 Review"></p>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8abf81d9cc361f6e6f356e5526ad9086">2 - HW 01 C</h1>
+    
+	<p>Opener: Write the result of the third &ldquo;step&rdquo;, as seen in the Stepper.</p>
+<pre><code>(+ (+ 1 5)
+   (* 8 (+ 2 3))
+   (* 7 2))
+</code></pre>
+<p>Class/homework:</p>
+<p>Make the two images below. For the third question, use the Stepper and
+find which steps (what numbers) give negative results.</p>
+<p><img src="hw1c-small.jpg" alt="Designs to make" title="Chapter 1 HW C">
+<a href="hw1c.jpg">(Big image)</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a1236a2086af755f12047dd52e29c4ca">3 - Ch01.QuizA</h1>
+    
+	<h2 id="base-images">Base images</h2>
+<figure>
+    <img src="/teaching--2021-2022/intermediate-cs/ch01/ch01quiza/w.png"/> 
+</figure>
+<p><img src="bird.png" alt="Bird" title="Bird">
+<img src="sparkle.png" alt="Sparkle" title="Sparkle">
+<img src="wallpaper-small.png" alt="Background" title="Rocky Mountain National Park"></p>
+<h2 id="make-these-images">Make these images</h2>
+<p>You do not need to include the box or the title.</p>
+<ol>
+<li>
+<p>Image one. (<a href="goal-1.png">Large version</a>.)
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 210px">
+	<img class="card-img-top" src="/teaching--2021-2022/intermediate-cs/ch01/ch01quiza/goal-1_hu479cfab31d60dd781c359c66a92a1edc_9656_200x0_resize_catmullrom_3.png" width="200" height="144">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+Four cursive letter Ws.
+</p>
+	</div>
+	
+</div></p>
+</li>
+<li>
+<p>Image two: note repeated mountain theme. (<a href="goal-2.png">Large version</a>.)
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 260px">
+	<img class="card-img-top" src="/teaching--2021-2022/intermediate-cs/ch01/ch01quiza/goal-2_hu89cd8059c6a76090c2108b29d90ba762_308982_250x0_resize_catmullrom_3.png" width="250" height="600">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+Mountain, bird, and necklace.
+</p>
+	</div>
+	
+</div></p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Racket Docs" aria-label="Racket Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.racket-lang.org/" aria-label="Racket Docs">
+      <i class="fab fa-galactic-republic"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Picturing Programs" aria-label="Picturing Programs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://picturingprograms.com" aria-label="Picturing Programs">
+      <i class="fas fa-book"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Python 3 Docs" aria-label="Python 3 Docs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/index.html" aria-label="Python 3 Docs">
+      <i class="fab fa-python"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Lean You a Haskell" aria-label="Lean You a Haskell">
+    <a class="text-white" target="_blank" rel="noopener" href="https://learnyouahaskell.com/" aria-label="Lean You a Haskell">
+      <i class="fas fa-brain"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Andrew Mauer-Oats All Rights Reserved</small>
+        
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/teaching--2021-2022/js/main.min.f76dedb82c2626dc505c0e8ab40cba7bbff47cf7e1d72b235baecccdce24f3c7.js" integrity="sha256-923tuCwmJtxQXA6KtAy6e7/0fPfh1ysjW67Mzc4k88c=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
